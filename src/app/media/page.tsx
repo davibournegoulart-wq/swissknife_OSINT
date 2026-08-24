@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Search, Globe, MapPin, Youtube, ExternalLink, Radio } from "lucide-react";
+import { Search, Globe, MapPin, Youtube, ExternalLink, Radio, Network } from "lucide-react";
 import mediaData from "@/data/media.json";
 import { cn } from "@/lib/utils";
 
@@ -10,13 +10,11 @@ export default function MediaDashboard() {
   const [selectedContinent, setSelectedContinent] = useState<string | null>(null);
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
 
-  // Derive unique continents
   const continents = useMemo(() => {
     const conts = new Set(mediaData.map(m => m.continent));
     return Array.from(conts).filter(Boolean).sort();
   }, []);
 
-  // Derive countries based on selected continent
   const countries = useMemo(() => {
     let filtered = mediaData;
     if (selectedContinent) {
@@ -26,7 +24,6 @@ export default function MediaDashboard() {
     return Array.from(cntrys).filter(Boolean).sort();
   }, [selectedContinent]);
 
-  // Filter media sources
   const filteredMedia = useMemo(() => {
     return mediaData.filter(media => {
       const matchesContinent = selectedContinent ? media.continent === selectedContinent : true;
@@ -45,7 +42,7 @@ export default function MediaDashboard() {
       setSelectedCountry(null);
     } else {
       setSelectedContinent(continent);
-      setSelectedCountry(null); // Reset country when continent changes
+      setSelectedCountry(null);
     }
   };
 
@@ -56,7 +53,6 @@ export default function MediaDashboard() {
   return (
     <div className="flex h-full flex-col lg:flex-row bg-[#0a0a0c] text-fuchsia-50 selection:bg-fuchsia-500/30 font-sans relative overflow-hidden">
       
-      {/* Cyberpunk Grid Background */}
       <div className="absolute inset-0 z-0 pointer-events-none" 
            style={{
              backgroundImage: 'linear-gradient(rgba(255, 0, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 0, 255, 0.03) 1px, transparent 1px)',
@@ -65,14 +61,11 @@ export default function MediaDashboard() {
            }}>
       </div>
       
-      {/* Cyberpunk Glows */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-fuchsia-900/10 rounded-full blur-[120px] pointer-events-none translate-x-1/3 -translate-y-1/3"></div>
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-cyan-900/10 rounded-full blur-[100px] pointer-events-none -translate-x-1/3 translate-y-1/3"></div>
 
-      {/* Cyberpunk Sidebar */}
       <aside className="w-full lg:w-80 flex-shrink-0 bg-[#0d0d12]/90 border-r border-fuchsia-900/40 flex flex-col h-auto lg:h-full lg:sticky top-0 z-10 backdrop-blur-xl shadow-[4px_0_24px_rgba(255,0,255,0.05)]">
         
-        {/* Header Branding */}
         <div className="p-6 border-b border-fuchsia-900/50 relative overflow-hidden group">
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-fuchsia-500 to-transparent opacity-50"></div>
           
@@ -145,10 +138,8 @@ export default function MediaDashboard() {
         </div>
       </aside>
 
-      {/* Main Content */}
       <main className="flex-1 flex flex-col min-w-0 relative z-10 h-full overflow-hidden">
         
-        {/* Cyberpunk Header */}
         <header className="sticky top-0 z-20 bg-[#0a0a0c]/80 backdrop-blur-md border-b border-fuchsia-900/30 px-6 py-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
           <div className="flex flex-col">
             <h2 className="text-xl font-bold text-white uppercase tracking-wider flex items-center gap-2">
@@ -187,22 +178,35 @@ export default function MediaDashboard() {
                   className="group relative flex flex-col bg-[#0d0d12] border border-fuchsia-900/40 p-5 transition-all duration-300 hover:border-fuchsia-500/60 hover:bg-[#110d18] h-full"
                   style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%)' }}
                 >
-                  {/* Glow effect on hover */}
                   <div className="absolute inset-0 bg-gradient-to-br from-fuchsia-500/0 to-fuchsia-500/0 group-hover:from-fuchsia-500/5 group-hover:to-purple-500/5 transition-all duration-500 pointer-events-none"></div>
                   
-                  {/* Tech accents */}
                   <div className="absolute top-0 right-0 w-16 h-px bg-gradient-to-l from-fuchsia-500/50 to-transparent"></div>
                   
                   <div className="flex items-start justify-between gap-4 relative z-10">
                     <h3 className="font-bold text-fuchsia-50 tracking-wide line-clamp-1 flex-1 uppercase" title={media.name}>
                       {media.name}
                     </h3>
+                    
+                    {/* Media Type Badge */}
+                    {media.type && (
+                      <span 
+                        className={cn(
+                          "px-2 py-0.5 text-[9px] font-mono uppercase tracking-widest shrink-0 border",
+                          media.type.toLowerCase() === 'outlet' 
+                            ? "bg-cyan-950/40 text-cyan-400 border-cyan-800/50" 
+                            : "bg-purple-950/40 text-purple-400 border-purple-800/50"
+                        )}
+                        style={{ clipPath: 'polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px)' }}
+                      >
+                        {media.type}
+                      </span>
+                    )}
                   </div>
 
                   <div className="mt-3 flex flex-col gap-1 text-xs font-mono text-neutral-400">
                     <p className="flex items-center gap-2"><Globe className="w-3.5 h-3.5 text-fuchsia-700" /> {media.continent}</p>
                     <p className="flex items-center gap-2"><MapPin className="w-3.5 h-3.5 text-fuchsia-700" /> {media.country}</p>
-                    <p className="flex items-center gap-2 opacity-50 mt-1 uppercase tracking-widest text-[10px]">Lang: {media.language}</p>
+                    <p className="flex items-center gap-2 opacity-50 mt-1 uppercase tracking-widest text-[10px]">Lang: {media.language || 'Unknown'}</p>
                   </div>
 
                   <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3 relative z-10 border-t border-fuchsia-900/30 pt-4">
@@ -214,7 +218,7 @@ export default function MediaDashboard() {
                       className="flex items-center justify-center gap-1.5 bg-fuchsia-950 border border-fuchsia-700 px-3 py-1.5 text-xs font-mono font-bold text-fuchsia-300 transition-all hover:bg-fuchsia-900 hover:text-fuchsia-100 hover:border-fuchsia-400 focus:outline-none hover:shadow-[0_0_15px_rgba(255,0,255,0.3)] group/btn"
                       style={{ clipPath: 'polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px)' }}
                     >
-                      <ExternalLink className="w-3.5 h-3.5" />
+                      <Network className="w-3.5 h-3.5" />
                       <span>WEBSITE</span>
                     </a>
 

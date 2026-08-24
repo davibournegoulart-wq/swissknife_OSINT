@@ -5,22 +5,25 @@
     "continent": "Africa",
     "language": "Arabic",
     "url": "https://tsa-algerie.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=TSA%20Algeria%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "aps.dz",
     "country": "Algeria",
     "continent": "Africa",
-    "language": "Arabic",
+    "language": "",
     "url": "https://aps.dz",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=aps.dz%20Algeria%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "elwatan.com",
     "country": "Algeria",
     "continent": "Africa",
-    "language": "Arabic",
+    "language": "",
     "url": "https://elwatan.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=elwatan.com%20Algeria%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -29,6 +32,7 @@
     "continent": "Africa",
     "language": "Arabic",
     "url": "https://dailynewsegypt.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Daily%20News%20Egypt%20Egypt%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -37,14 +41,16 @@
     "continent": "Africa",
     "language": "Arabic",
     "url": "https://egyptindependent.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Egypt%20Independent%20Egypt%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "english.ahram.org.eg",
     "country": "Egypt",
     "continent": "Africa",
-    "language": "Arabic",
+    "language": "",
     "url": "https://english.ahram.org.eg",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=english.ahram.org.eg%20Egypt%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -53,30 +59,34 @@
     "continent": "Africa",
     "language": "Amharic",
     "url": "https://fanamc.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Fana%20Broadcasting%20Ethiopia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "addisstandard.com",
     "country": "Ethiopia",
     "continent": "Africa",
-    "language": "Amharic",
+    "language": "",
     "url": "https://addisstandard.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=addisstandard.com%20Ethiopia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "ena.et",
     "country": "Ethiopia",
     "continent": "Africa",
-    "language": "Amharic",
+    "language": "",
     "url": "https://ena.et",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=ena.et%20Ethiopia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "fanabc.com",
     "country": "Ethiopia",
     "continent": "Africa",
-    "language": "Amharic",
+    "language": "",
     "url": "https://fanabc.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=fanabc.com%20Ethiopia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -85,6 +95,7 @@
     "continent": "Africa",
     "language": "English",
     "url": "https://graphic.com.gh",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Graphic%20Online%20Ghana%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -93,14 +104,16 @@
     "continent": "Africa",
     "language": "English",
     "url": "https://myjoyonline.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=MyJoyOnline%20Ghana%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "ghanaweb.com",
     "country": "Ghana",
     "continent": "Africa",
-    "language": "English",
+    "language": "",
     "url": "https://ghanaweb.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=ghanaweb.com%20Ghana%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -109,22 +122,25 @@
     "continent": "Africa",
     "language": "English",
     "url": "https://standardmedia.co.ke",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Standard%20Kenya%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "nation.africa",
     "country": "Kenya",
     "continent": "Africa",
-    "language": "English",
+    "language": "",
     "url": "https://nation.africa",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=nation.africa%20Kenya%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "the-star.co.ke",
     "country": "Kenya",
     "continent": "Africa",
-    "language": "English",
+    "language": "",
     "url": "https://the-star.co.ke",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=the-star.co.ke%20Kenya%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -133,6 +149,7 @@
     "continent": "Africa",
     "language": "English",
     "url": "https://allafrica.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=AllAfrica%20Mauritius%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -141,22 +158,25 @@
     "continent": "Africa",
     "language": "Arabic",
     "url": "https://hespress.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Hespress%20Morocco%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "lematin.ma",
     "country": "Morocco",
     "continent": "Africa",
-    "language": "Arabic",
+    "language": "",
     "url": "https://lematin.ma",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=lematin.ma%20Morocco%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "moroccoworldnews.com",
     "country": "Morocco",
     "continent": "Africa",
-    "language": "Arabic",
+    "language": "",
     "url": "https://moroccoworldnews.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=moroccoworldnews.com%20Morocco%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -165,6 +185,7 @@
     "continent": "Africa",
     "language": "English",
     "url": "https://premiumtimesng.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Premium%20Times%20Nigeria%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -173,14 +194,16 @@
     "continent": "Africa",
     "language": "English",
     "url": "https://punchng.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Punch%20Nigeria%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "guardian.ng",
     "country": "Nigeria",
     "continent": "Africa",
-    "language": "English",
+    "language": "",
     "url": "https://guardian.ng",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=guardian.ng%20Nigeria%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -189,6 +212,7 @@
     "continent": "Africa",
     "language": "English",
     "url": "https://dailymaverick.co.za",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Daily%20Maverick%20South%20Africa%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -197,6 +221,7 @@
     "continent": "Africa",
     "language": "English",
     "url": "https://iol.co.za",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=IOL%20South%20Africa%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -205,14 +230,16 @@
     "continent": "Africa",
     "language": "English",
     "url": "https://mg.co.za",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Mail%20%26%20Guardian%20South%20Africa%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "news24.com",
     "country": "South Africa",
     "continent": "Africa",
-    "language": "English",
+    "language": "",
     "url": "https://news24.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=news24.com%20South%20Africa%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -221,22 +248,25 @@
     "continent": "Africa",
     "language": "English",
     "url": "https://dailynews.co.tz",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Daily%20News%20Tanzania%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "ippmedia.com",
     "country": "Tanzania",
     "continent": "Africa",
-    "language": "English",
+    "language": "",
     "url": "https://ippmedia.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=ippmedia.com%20Tanzania%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "thecitizen.co.tz",
     "country": "Tanzania",
     "continent": "Africa",
-    "language": "English",
+    "language": "",
     "url": "https://thecitizen.co.tz",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=thecitizen.co.tz%20Tanzania%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -245,6 +275,7 @@
     "continent": "Africa",
     "language": "Arabic",
     "url": "https://businessnews.com.tn",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Business%20News%20Tunisia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -253,14 +284,16 @@
     "continent": "Africa",
     "language": "Arabic",
     "url": "https://lapresse.tn",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=La%20Presse%20Tunisia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "tap.info.tn",
     "country": "Tunisia",
     "continent": "Africa",
-    "language": "Arabic",
+    "language": "",
     "url": "https://tap.info.tn",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=tap.info.tn%20Tunisia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -269,6 +302,7 @@
     "continent": "Africa",
     "language": "English",
     "url": "https://nilepost.co.ug",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Nile%20Post%20Uganda%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -277,22 +311,25 @@
     "continent": "Africa",
     "language": "English",
     "url": "https://independent.co.ug",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Independent%20%28Uganda%29%20Uganda%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "monitor.co.ug",
     "country": "Uganda",
     "continent": "Africa",
-    "language": "English",
+    "language": "",
     "url": "https://monitor.co.ug",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=monitor.co.ug%20Uganda%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "newvision.co.ug",
     "country": "Uganda",
     "continent": "Africa",
-    "language": "English",
+    "language": "",
     "url": "https://newvision.co.ug",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=newvision.co.ug%20Uganda%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -301,6 +338,7 @@
     "continent": "Africa",
     "language": "English",
     "url": "https://bulawayo24.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Bulawayo24%20Zimbabwe%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -309,6 +347,7 @@
     "continent": "Africa",
     "language": "English",
     "url": "https://newzimbabwe.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=New%20Zimbabwe%20Zimbabwe%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -317,22 +356,25 @@
     "continent": "Africa",
     "language": "English",
     "url": "https://thezimbabwemail.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Zimbabwe%20Mail%20Zimbabwe%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "herald.co.zw",
     "country": "Zimbabwe",
     "continent": "Africa",
-    "language": "English",
+    "language": "",
     "url": "https://herald.co.zw",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=herald.co.zw%20Zimbabwe%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "newsday.co.zw",
     "country": "Zimbabwe",
     "continent": "Africa",
-    "language": "English",
+    "language": "",
     "url": "https://newsday.co.zw",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=newsday.co.zw%20Zimbabwe%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -341,6 +383,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://clarin.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Clar%C3%ADn%20Argentina%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -349,14 +392,16 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://infobae.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Infobae%20Argentina%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "lanacion.com.ar",
     "country": "Argentina",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://lanacion.com.ar",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=lanacion.com.ar%20Argentina%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -365,6 +410,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://eldeber.com.bo",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=El%20Deber%20Bolivia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -373,22 +419,25 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://larazon.bo",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=La%20Raz%C3%B3n%20Bolivia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "la-razon.com",
     "country": "Bolivia",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://la-razon.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=la-razon.com%20Bolivia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "lostiempos.com",
     "country": "Bolivia",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://lostiempos.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=lostiempos.com%20Bolivia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -397,6 +446,7 @@
     "continent": "Americas",
     "language": "Portuguese",
     "url": "https://agenciabrasil.ebc.com.br",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Ag%C3%AAncia%20Brasil%20Brazil%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -405,6 +455,7 @@
     "continent": "Americas",
     "language": "Portuguese",
     "url": "https://cnnbrasil.com.br",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=CNN%20Brasil%20Brazil%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -413,6 +464,7 @@
     "continent": "Americas",
     "language": "Portuguese",
     "url": "https://estadao.com.br",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Estad%C3%A3o%20Brazil%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -421,6 +473,7 @@
     "continent": "Americas",
     "language": "Portuguese",
     "url": "https://g1.globo.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=G1%20%28Globo%29%20Brazil%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -429,6 +482,7 @@
     "continent": "Americas",
     "language": "Portuguese",
     "url": "https://jovempan.com.br",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Jovem%20Pan%20Brazil%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -437,6 +491,7 @@
     "continent": "Americas",
     "language": "Portuguese",
     "url": "https://odia.ig.com.br",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=O%20Dia%20Brazil%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -445,6 +500,7 @@
     "continent": "Americas",
     "language": "Portuguese",
     "url": "https://noticiabrasil.net.br",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Sputnik%20Brazil%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -453,6 +509,7 @@
     "continent": "Americas",
     "language": "Portuguese",
     "url": "https://terra.com.br",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Terra%20Brazil%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -461,22 +518,25 @@
     "continent": "Americas",
     "language": "Portuguese",
     "url": "https://riotimesonline.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Rio%20Times%20Brazil%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "folha.uol.com.br",
     "country": "Brazil",
     "continent": "Americas",
-    "language": "Portuguese",
+    "language": "",
     "url": "https://folha.uol.com.br",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=folha.uol.com.br%20Brazil%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "jb.com.br",
     "country": "Brazil",
     "continent": "Americas",
-    "language": "Portuguese",
+    "language": "",
     "url": "https://jb.com.br",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=jb.com.br%20Brazil%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -485,14 +545,16 @@
     "continent": "Americas",
     "language": "Portuguese",
     "url": "https://oglobo.globo.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=o%20Globo%20Brazil%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "r7.com",
     "country": "Brazil",
     "continent": "Americas",
-    "language": "Portuguese",
+    "language": "",
     "url": "https://r7.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=r7.com%20Brazil%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -501,6 +563,7 @@
     "continent": "Americas",
     "language": "English",
     "url": "https://cbc.ca",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=CBC%20News%20Canada%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -509,6 +572,7 @@
     "continent": "Americas",
     "language": "English",
     "url": "https://globalnews.ca",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Global%20News%20Canada%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -517,6 +581,7 @@
     "continent": "Americas",
     "language": "English",
     "url": "https://nationalpost.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=National%20Post%20Canada%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -525,6 +590,7 @@
     "continent": "Americas",
     "language": "French",
     "url": "https://ici.radio-canada.ca",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Radio-Canada%20Canada%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -533,22 +599,25 @@
     "continent": "Americas",
     "language": "English",
     "url": "https://thestar.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Toronto%20Star%20Canada%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "ctvnews.ca",
     "country": "Canada",
     "continent": "Americas",
-    "language": "English",
+    "language": "",
     "url": "https://ctvnews.ca",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=ctvnews.ca%20Canada%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "theglobeandmail.com",
     "country": "Canada",
     "continent": "Americas",
-    "language": "English",
+    "language": "",
     "url": "https://theglobeandmail.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=theglobeandmail.com%20Canada%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -557,6 +626,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://feeds.feedburner.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Biobio%20Chile%20Chile%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -565,6 +635,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://lahora.cl",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=La%20Hora%20Chile%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -573,54 +644,61 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://latercera.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=La%20Tercera%20Chile%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "biobiochile.cl",
     "country": "Chile",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://biobiochile.cl",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=biobiochile.cl%20Chile%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "cnnchile.com",
     "country": "Chile",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://cnnchile.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=cnnchile.com%20Chile%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "elmostrador.cl",
     "country": "Chile",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://elmostrador.cl",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=elmostrador.cl%20Chile%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "emol.com",
     "country": "Chile",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://emol.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=emol.com%20Chile%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "meganoticias.cl",
     "country": "Chile",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://meganoticias.cl",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=meganoticias.cl%20Chile%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "publimetro.cl",
     "country": "Chile",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://publimetro.cl",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=publimetro.cl%20Chile%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -629,6 +707,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://colombia.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Colombia.com%20Colombia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -637,6 +716,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://elespectador.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=El%20Espectador%20Colombia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -645,6 +725,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://eltiempo.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=El%20Tiempo%20Colombia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -653,6 +734,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://telemedellin.tv",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=TeleMEDELL%C3%8DN%20Colombia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -661,30 +743,34 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://thecitypaperbogota.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20City%20Paper%20Colombia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "noticias.caracoltv.com",
     "country": "Colombia",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://noticias.caracoltv.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=noticias.caracoltv.com%20Colombia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "publimetro.co",
     "country": "Colombia",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://publimetro.co",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=publimetro.co%20Colombia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "rcnradio.com",
     "country": "Colombia",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://rcnradio.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=rcnradio.com%20Colombia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -693,6 +779,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://thecostaricanews.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Costa%20Rica%20News%20Costa%20Rica%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -701,6 +788,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://news.co.cr",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Costa%20Rica%20Star%20Costa%20Rica%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -709,6 +797,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://diarioextra.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Diario%20Extra%20Costa%20Rica%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -717,6 +806,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://prensalibre.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Prensa%20Libre%20Costa%20Rica%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -725,14 +815,16 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://ticotimes.net",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Tico%20Times%20Costa%20Rica%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "nacion.com",
     "country": "Costa Rica",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://nacion.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=nacion.com%20Costa%20Rica%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -741,6 +833,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://cubadebate.cu",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Cubadebate%20Cuba%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -749,14 +842,16 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://granma.cu",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Granma%20Cuba%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "prensa-latina.cu",
     "country": "Cuba",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://prensa-latina.cu",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=prensa-latina.cu%20Cuba%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -765,6 +860,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://diariolibre.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Diario%20Libre%20Dominican%20Republic%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -773,22 +869,25 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://dominicantoday.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Dominican%20Today%20Dominican%20Republic%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "apnews.com",
     "country": "Dominican Republic",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://apnews.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=apnews.com%20Dominican%20Republic%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "elnacional.com.do",
     "country": "Dominican Republic",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://elnacional.com.do",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=elnacional.com.do%20Dominican%20Republic%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -797,6 +896,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://ecuadortimes.net",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Ecuador%20Times%20Ecuador%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -805,6 +905,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://elcomercio.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=El%20Comercio%20%28EC%29%20Ecuador%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -813,6 +914,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://metroecuador.com.ec",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Metro%20Ecuador%20Ecuador%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -821,6 +923,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://ultimasnoticias.ec",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Ultimas%20Noticias%20Ecuador%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -829,22 +932,25 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://elsalvador.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=ElSalvador.com%20El%20Salvador%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "diario.elmundo.sv",
     "country": "El Salvador",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://diario.elmundo.sv",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=diario.elmundo.sv%20El%20Salvador%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "laprensagrafica.com",
     "country": "El Salvador",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://laprensagrafica.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=laprensagrafica.com%20El%20Salvador%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -853,14 +959,16 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://republica.gt",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Rep%C3%BAblica%20Guatemala%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "soy502.com",
     "country": "Guatemala",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://soy502.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=soy502.com%20Guatemala%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -869,6 +977,7 @@
     "continent": "Americas",
     "language": "French",
     "url": "https://haitilibre.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Haiti%20Libre%20Haiti%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -877,14 +986,16 @@
     "continent": "Americas",
     "language": "French",
     "url": "https://lenouvelliste.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Le%20Nouvelliste%20Haiti%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "alterpresse.org",
     "country": "Haiti",
     "continent": "Americas",
-    "language": "French",
+    "language": "",
     "url": "https://alterpresse.org",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=alterpresse.org%20Haiti%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -893,6 +1004,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://elpulso.hn",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=El%20Pulso%20Honduras%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -901,22 +1013,25 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://proceso.hn",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Proceso%20Digital%20Honduras%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "elheraldo.hn",
     "country": "Honduras",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://elheraldo.hn",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=elheraldo.hn%20Honduras%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "laprensa.hn",
     "country": "Honduras",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://laprensa.hn",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=laprensa.hn%20Honduras%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -925,6 +1040,7 @@
     "continent": "Americas",
     "language": "English",
     "url": "https://jamaica-gleaner.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Jamaica%20Gleaner%20Jamaica%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -933,14 +1049,16 @@
     "continent": "Americas",
     "language": "English",
     "url": "https://jamaicaobserver.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Jamaica%20Observer%20Jamaica%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "jamaica.loopnews.com",
     "country": "Jamaica",
     "continent": "Americas",
-    "language": "English",
+    "language": "",
     "url": "https://jamaica.loopnews.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=jamaica.loopnews.com%20Jamaica%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -949,6 +1067,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://24-horas.mx",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=24Horas%20Mexico%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -957,6 +1076,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://889noticias.mx",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=88.9%20Noticias%20Mexico%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -965,6 +1085,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://elsoldemexico.com.mx",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=El%20Sol%20de%20M%C3%A9xico%20Mexico%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -973,6 +1094,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://pulsoslp.com.mx",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Pulso%20Mexico%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -981,70 +1103,79 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://traficozmg.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=ZMG%20-%20Guadalajara%20Mexico%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "cronica.com.mx",
     "country": "Mexico",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://cronica.com.mx",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=cronica.com.mx%20Mexico%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "elgrafico.mx",
     "country": "Mexico",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://elgrafico.mx",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=elgrafico.mx%20Mexico%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "eluniversal.com.mx",
     "country": "Mexico",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://eluniversal.com.mx",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=eluniversal.com.mx%20Mexico%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "heraldodemexico.com.mx",
     "country": "Mexico",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://heraldodemexico.com.mx",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=heraldodemexico.com.mx%20Mexico%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "jornada.com.mx",
     "country": "Mexico",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://jornada.com.mx",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=jornada.com.mx%20Mexico%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "milenio.com",
     "country": "Mexico",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://milenio.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=milenio.com%20Mexico%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "publimetro.com.mx",
     "country": "Mexico",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://publimetro.com.mx",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=publimetro.com.mx%20Mexico%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "100noticias.com.ni",
     "country": "Nicaragua",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://100noticias.com.ni",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=100noticias.com.ni%20Nicaragua%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1053,6 +1184,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://confidencial.digital",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Confidencial%20Nicaragua%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1061,14 +1193,16 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://divergentes.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Divergentes%20Nicaragua%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "laprensa.com.ni",
     "country": "Nicaragua",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://laprensa.com.ni",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=laprensa.com.ni%20Nicaragua%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1077,6 +1211,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://newsroompanama.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=News%20Room%20Panama%20Panama%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1085,46 +1220,52 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://tvn-2.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=TVN%20Panam%C3%A1%20Panama%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "elsiglo.com.pa",
     "country": "Panama",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://elsiglo.com.pa",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=elsiglo.com.pa%20Panama%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "midiario.com",
     "country": "Panama",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://midiario.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=midiario.com%20Panama%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "abc.com.py",
     "country": "Paraguay",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://abc.com.py",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=abc.com.py%20Paraguay%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "lanacion.com.py",
     "country": "Paraguay",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://lanacion.com.py",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=lanacion.com.py%20Paraguay%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "ultimahora.com",
     "country": "Paraguay",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://ultimahora.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=ultimahora.com%20Paraguay%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1133,6 +1274,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://diariocorreo.pe",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=DiarioCorreo%20Peru%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1141,6 +1283,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://elcomercio.pe",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=El%20Com%C3%A9rcio%20%28PE%29%20Peru%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1149,6 +1292,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://elnacional.pe",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=El%20Nacional%20%28PE%29%20Peru%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1157,6 +1301,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://gestion.pe",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Gest%C3%ADon%20Peru%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1165,6 +1310,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://larepublica.pe",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=La%20Rep%C3%BAblica%20Peru%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1173,14 +1319,16 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://rpp.pe",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=RPP%20Peru%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "publimetro.pe",
     "country": "Peru",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://publimetro.pe",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=publimetro.pe%20Peru%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1189,6 +1337,7 @@
     "continent": "Americas",
     "language": "English",
     "url": "https://moxie.foxnews.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Fox%20News%20United%20States%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1197,6 +1346,7 @@
     "continent": "Americas",
     "language": "English",
     "url": "https://nbcnews.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=NBC%20News%20United%20States%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1205,6 +1355,7 @@
     "continent": "Americas",
     "language": "English",
     "url": "https://rss.nytimes.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20New%20York%20Times%20United%20States%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1213,78 +1364,88 @@
     "continent": "Americas",
     "language": "English",
     "url": "https://feeds.washingtonpost.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Washington%20Post%20United%20States%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "cnn.com",
     "country": "United States",
     "continent": "Americas",
-    "language": "English",
+    "language": "",
     "url": "https://cnn.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=cnn.com%20United%20States%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "foxnews.com",
     "country": "United States",
     "continent": "Americas",
-    "language": "English",
+    "language": "",
     "url": "https://foxnews.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=foxnews.com%20United%20States%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "nytimes.com",
     "country": "United States",
     "continent": "Americas",
-    "language": "English",
+    "language": "",
     "url": "https://nytimes.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=nytimes.com%20United%20States%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "reuters.com",
     "country": "United States",
     "continent": "Americas",
-    "language": "English",
+    "language": "",
     "url": "https://reuters.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=reuters.com%20United%20States%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "usatoday.com",
     "country": "United States",
     "continent": "Americas",
-    "language": "English",
+    "language": "",
     "url": "https://usatoday.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=usatoday.com%20United%20States%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "washingtonpost.com",
     "country": "United States",
     "continent": "Americas",
-    "language": "English",
+    "language": "",
     "url": "https://washingtonpost.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=washingtonpost.com%20United%20States%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "elobservador.com.uy",
     "country": "Uruguay",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://elobservador.com.uy",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=elobservador.com.uy%20Uruguay%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "elpais.com.uy",
     "country": "Uruguay",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://elpais.com.uy",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=elpais.com.uy%20Uruguay%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "montevideo.com.uy",
     "country": "Uruguay",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://montevideo.com.uy",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=montevideo.com.uy%20Uruguay%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1293,6 +1454,7 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://efectococuyo.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Efecto%20Cocuyo%20Venezuela%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1301,14 +1463,16 @@
     "continent": "Americas",
     "language": "Spanish",
     "url": "https://elnacional.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=El%20Nacional%20Venezuela%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "ultimasnoticias.com.ve",
     "country": "Venezuela",
     "continent": "Americas",
-    "language": "Spanish",
+    "language": "",
     "url": "https://ultimasnoticias.com.ve",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=ultimasnoticias.com.ve%20Venezuela%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1317,22 +1481,25 @@
     "continent": "Asia",
     "language": "Bengali",
     "url": "https://thedailystar.net",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Daily%20Star%20Bangladesh%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "bdnews24.com",
     "country": "Bangladesh",
     "continent": "Asia",
-    "language": "Bengali",
+    "language": "",
     "url": "https://bdnews24.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=bdnews24.com%20Bangladesh%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "dhakatribune.com",
     "country": "Bangladesh",
     "continent": "Asia",
-    "language": "Bengali",
+    "language": "",
     "url": "https://dhakatribune.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=dhakatribune.com%20Bangladesh%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1341,6 +1508,7 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://cgtn.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=CGTN%20China%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1349,6 +1517,7 @@
     "continent": "Asia",
     "language": "Chinese",
     "url": "https://scmp.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=South%20China%20Morning%20Post%20China%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1357,30 +1526,34 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://xinhuanet.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Xinhua%20China%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "chinadaily.com.cn",
     "country": "China",
     "continent": "Asia",
-    "language": "Chinese",
+    "language": "",
     "url": "https://chinadaily.com.cn",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=chinadaily.com.cn%20China%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "english.news.cn",
     "country": "China",
     "continent": "Asia",
-    "language": "Chinese",
+    "language": "",
     "url": "https://english.news.cn",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=english.news.cn%20China%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "globaltimes.cn",
     "country": "China",
     "continent": "Asia",
-    "language": "Chinese",
+    "language": "",
     "url": "https://globaltimes.cn",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=globaltimes.cn%20China%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1389,6 +1562,7 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://hongkongfp.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Hong%20Kong%20Free%20Press%20Hong%20Kong%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1397,6 +1571,7 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://thehindu.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Hindu%20India%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1405,22 +1580,25 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://timesofindia.indiatimes.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Times%20of%20India%20India%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "hindustantimes.com",
     "country": "India",
     "continent": "Asia",
-    "language": "English",
+    "language": "",
     "url": "https://hindustantimes.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=hindustantimes.com%20India%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "ndtv.com",
     "country": "India",
     "continent": "Asia",
-    "language": "English",
+    "language": "",
     "url": "https://ndtv.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=ndtv.com%20India%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1429,22 +1607,25 @@
     "continent": "Asia",
     "language": "Indonesian",
     "url": "https://antaranews.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Antara%20News%20Indonesia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "kompas.com",
     "country": "Indonesia",
     "continent": "Asia",
-    "language": "Indonesian",
+    "language": "",
     "url": "https://kompas.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=kompas.com%20Indonesia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "thejakartapost.com",
     "country": "Indonesia",
     "continent": "Asia",
-    "language": "Indonesian",
+    "language": "",
     "url": "https://thejakartapost.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=thejakartapost.com%20Indonesia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1453,22 +1634,25 @@
     "continent": "Asia",
     "language": "Persian",
     "url": "https://tehrantimes.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Tehran%20Times%20Iran%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "irna.ir",
     "country": "Iran",
     "continent": "Asia",
-    "language": "Persian",
+    "language": "",
     "url": "https://irna.ir",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=irna.ir%20Iran%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "presstv.ir",
     "country": "Iran",
     "continent": "Asia",
-    "language": "Persian",
+    "language": "",
     "url": "https://presstv.ir",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=presstv.ir%20Iran%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1477,30 +1661,34 @@
     "continent": "Asia",
     "language": "Arabic",
     "url": "https://timesofisrael.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Times%20of%20Israel%20Israel%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "haaretz.com",
     "country": "Israel",
     "continent": "Asia",
-    "language": "Arabic",
+    "language": "",
     "url": "https://haaretz.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=haaretz.com%20Israel%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "jpost.com",
     "country": "Israel",
     "continent": "Asia",
-    "language": "Arabic",
+    "language": "",
     "url": "https://jpost.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=jpost.com%20Israel%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "ynetnews.com",
     "country": "Israel",
     "continent": "Asia",
-    "language": "Arabic",
+    "language": "",
     "url": "https://ynetnews.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=ynetnews.com%20Israel%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1509,6 +1697,7 @@
     "continent": "Asia",
     "language": "Japanese",
     "url": "https://www3.nhk.or.jp",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=NHK%20Japan%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1517,22 +1706,25 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://japantimes.co.jp",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Japan%20Times%20Japan%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "asahi.com",
     "country": "Japan",
     "continent": "Asia",
-    "language": "Japanese",
+    "language": "",
     "url": "https://asahi.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=asahi.com%20Japan%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "kyodonews.net",
     "country": "Japan",
     "continent": "Asia",
-    "language": "Japanese",
+    "language": "",
     "url": "https://kyodonews.net",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=kyodonews.net%20Japan%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1541,6 +1733,7 @@
     "continent": "Asia",
     "language": "",
     "url": "https://nhk.or.jp",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=nhk.or.jp%20Japan%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1549,30 +1742,34 @@
     "continent": "Asia",
     "language": "Arabic",
     "url": "https://en.royanews.tv",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Roya%20News%20Jordan%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "jordantimes.com",
     "country": "Jordan",
     "continent": "Asia",
-    "language": "Arabic",
+    "language": "",
     "url": "https://jordantimes.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=jordantimes.com%20Jordan%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "petra.gov.jo",
     "country": "Jordan",
     "continent": "Asia",
-    "language": "Arabic",
+    "language": "",
     "url": "https://petra.gov.jo",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=petra.gov.jo%20Jordan%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "royanews.tv",
     "country": "Jordan",
     "continent": "Asia",
-    "language": "Arabic",
+    "language": "",
     "url": "https://royanews.tv",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=royanews.tv%20Jordan%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1581,22 +1778,25 @@
     "continent": "Asia",
     "language": "Arabic",
     "url": "https://naharnet.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Naharnet%20Lebanon%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "dailystar.com.lb",
     "country": "Lebanon",
     "continent": "Asia",
-    "language": "Arabic",
+    "language": "",
     "url": "https://dailystar.com.lb",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=dailystar.com.lb%20Lebanon%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "lorientlejour.com",
     "country": "Lebanon",
     "continent": "Asia",
-    "language": "Arabic",
+    "language": "",
     "url": "https://lorientlejour.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=lorientlejour.com%20Lebanon%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1605,22 +1805,25 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://nst.com.my",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=New%20Straits%20Times%20Malaysia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "malaymail.com",
     "country": "Malaysia",
     "continent": "Asia",
-    "language": "English",
+    "language": "",
     "url": "https://malaymail.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=malaymail.com%20Malaysia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "thestar.com.my",
     "country": "Malaysia",
     "continent": "Asia",
-    "language": "English",
+    "language": "",
     "url": "https://thestar.com.my",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=thestar.com.my%20Malaysia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1629,6 +1832,7 @@
     "continent": "Asia",
     "language": "Burmese",
     "url": "https://eng.mizzima.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Mizzima%20Myanmar%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1637,22 +1841,25 @@
     "continent": "Asia",
     "language": "Burmese",
     "url": "https://myanmar-now.org",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Myanmar%20Now%20Myanmar%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "irrawaddy.com",
     "country": "Myanmar",
     "continent": "Asia",
-    "language": "Burmese",
+    "language": "",
     "url": "https://irrawaddy.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=irrawaddy.com%20Myanmar%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "mizzima.com",
     "country": "Myanmar",
     "continent": "Asia",
-    "language": "Burmese",
+    "language": "",
     "url": "https://mizzima.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=mizzima.com%20Myanmar%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1661,6 +1868,7 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://kathmandupost.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Kathmandu%20Post%20Nepal%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1669,22 +1877,25 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://dawn.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Dawn%20Pakistan%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "geo.tv",
     "country": "Pakistan",
     "continent": "Asia",
-    "language": "English",
+    "language": "",
     "url": "https://geo.tv",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=geo.tv%20Pakistan%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "thenews.com.pk",
     "country": "Pakistan",
     "continent": "Asia",
-    "language": "English",
+    "language": "",
     "url": "https://thenews.com.pk",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=thenews.com.pk%20Pakistan%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1693,6 +1904,7 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://inquirer.net",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Philippine%20Daily%20Inquirer%20Philippines%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1701,14 +1913,16 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://rappler.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Rappler%20Philippines%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "news.abs-cbn.com",
     "country": "Philippines",
     "continent": "Asia",
-    "language": "English",
+    "language": "",
     "url": "https://news.abs-cbn.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=news.abs-cbn.com%20Philippines%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1717,6 +1931,7 @@
     "continent": "Asia",
     "language": "Arabic",
     "url": "https://aljazeera.net",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Al%20Jazeera%20%28Arabic%29%20Qatar%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1725,22 +1940,25 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://aljazeera.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Al%20Jazeera%20%28English%29%20Qatar%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "gulf-times.com",
     "country": "Qatar",
     "continent": "Asia",
-    "language": "Arabic",
+    "language": "",
     "url": "https://gulf-times.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=gulf-times.com%20Qatar%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "thepeninsulaqatar.com",
     "country": "Qatar",
     "continent": "Asia",
-    "language": "Arabic",
+    "language": "",
     "url": "https://thepeninsulaqatar.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=thepeninsulaqatar.com%20Qatar%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1749,6 +1967,7 @@
     "continent": "Asia",
     "language": "Arabic",
     "url": "https://aawsat.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Asharq%20Al-Awsat%20Saudi%20Arabia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1757,22 +1976,25 @@
     "continent": "Asia",
     "language": "Arabic",
     "url": "https://saudigazette.com.sa",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Saudi%20Gazette%20Saudi%20Arabia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "alarabiya.net",
     "country": "Saudi Arabia",
     "continent": "Asia",
-    "language": "Arabic",
+    "language": "",
     "url": "https://alarabiya.net",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=alarabiya.net%20Saudi%20Arabia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "arabnews.com",
     "country": "Saudi Arabia",
     "continent": "Asia",
-    "language": "Arabic",
+    "language": "",
     "url": "https://arabnews.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=arabnews.com%20Saudi%20Arabia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1781,6 +2003,7 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://channelnewsasia.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Channel%20News%20Asia%20Singapore%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1789,14 +2012,16 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://straitstimes.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Straits%20Times%20Singapore%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "todayonline.com",
     "country": "Singapore",
     "continent": "Asia",
-    "language": "English",
+    "language": "",
     "url": "https://todayonline.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=todayonline.com%20Singapore%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1805,6 +2030,7 @@
     "continent": "Asia",
     "language": "Korean",
     "url": "https://koreaherald.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Korea%20Herald%20South%20Korea%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1813,22 +2039,25 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://en.yna.co.kr",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Yonhap%20%28English%29%20South%20Korea%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "kbs.co.kr",
     "country": "South Korea",
     "continent": "Asia",
-    "language": "Korean",
+    "language": "",
     "url": "https://kbs.co.kr",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=kbs.co.kr%20South%20Korea%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "yna.co.kr",
     "country": "South Korea",
     "continent": "Asia",
-    "language": "Korean",
+    "language": "",
     "url": "https://yna.co.kr",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=yna.co.kr%20South%20Korea%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1837,46 +2066,52 @@
     "continent": "Asia",
     "language": "Sinhala",
     "url": "https://adaderana.lk",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Ada%20Derana%20Sri%20Lanka%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "dailymirror.lk",
     "country": "Sri Lanka",
     "continent": "Asia",
-    "language": "Sinhala",
+    "language": "",
     "url": "https://dailymirror.lk",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=dailymirror.lk%20Sri%20Lanka%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "island.lk",
     "country": "Sri Lanka",
     "continent": "Asia",
-    "language": "Sinhala",
+    "language": "",
     "url": "https://island.lk",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=island.lk%20Sri%20Lanka%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "focustaiwan.tw",
     "country": "Taiwan",
     "continent": "Asia",
-    "language": "Chinese",
+    "language": "",
     "url": "https://focustaiwan.tw",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=focustaiwan.tw%20Taiwan%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "taipeitimes.com",
     "country": "Taiwan",
     "continent": "Asia",
-    "language": "Chinese",
+    "language": "",
     "url": "https://taipeitimes.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=taipeitimes.com%20Taiwan%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "taiwannews.com.tw",
     "country": "Taiwan",
     "continent": "Asia",
-    "language": "Chinese",
+    "language": "",
     "url": "https://taiwannews.com.tw",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=taiwannews.com.tw%20Taiwan%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1885,22 +2120,25 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://bangkokpost.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Bangkok%20Post%20Thailand%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "nationthailand.com",
     "country": "Thailand",
     "continent": "Asia",
-    "language": "English",
+    "language": "",
     "url": "https://nationthailand.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=nationthailand.com%20Thailand%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "thaipbsworld.com",
     "country": "Thailand",
     "continent": "Asia",
-    "language": "English",
+    "language": "",
     "url": "https://thaipbsworld.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=thaipbsworld.com%20Thailand%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1909,6 +2147,7 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://aa.com.tr",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Anadolu%20Agency%20Turkey%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1917,6 +2156,7 @@
     "continent": "Asia",
     "language": "Turkish",
     "url": "https://hurriyetdailynews.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=H%C3%BCrriyet%20Daily%20News%20Turkey%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1925,6 +2165,7 @@
     "continent": "Asia",
     "language": "Turkish",
     "url": "https://trtworld.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=TRT%20World%20Turkey%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1933,6 +2174,7 @@
     "continent": "Asia",
     "language": "Arabic",
     "url": "https://gulfnews.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Gulf%20News%20United%20Arab%20Emirates%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1941,14 +2183,16 @@
     "continent": "Asia",
     "language": "Arabic",
     "url": "https://khaleejtimes.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Khaleej%20Times%20United%20Arab%20Emirates%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "thenationalnews.com",
     "country": "United Arab Emirates",
     "continent": "Asia",
-    "language": "Arabic",
+    "language": "",
     "url": "https://thenationalnews.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=thenationalnews.com%20United%20Arab%20Emirates%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1957,22 +2201,25 @@
     "continent": "Asia",
     "language": "English",
     "url": "https://e.vnexpress.net",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=VnExpress%20International%20Vietnam%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "tuoitrenews.vn",
     "country": "Vietnam",
     "continent": "Asia",
-    "language": "English",
+    "language": "",
     "url": "https://tuoitrenews.vn",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=tuoitrenews.vn%20Vietnam%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "vietnamnews.vn",
     "country": "Vietnam",
     "continent": "Asia",
-    "language": "English",
+    "language": "",
     "url": "https://vietnamnews.vn",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=vietnamnews.vn%20Vietnam%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1981,6 +2228,7 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://derstandard.at",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Der%20Standard%20Austria%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -1989,22 +2237,25 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://api.krone.at",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Kronen%20Zeitung%20Austria%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "krone.at",
     "country": "Austria",
     "continent": "Europe",
-    "language": "English",
+    "language": "",
     "url": "https://krone.at",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=krone.at%20Austria%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "orf.at",
     "country": "Austria",
     "continent": "Europe",
-    "language": "English",
+    "language": "",
     "url": "https://orf.at",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=orf.at%20Austria%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2013,30 +2264,34 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://thebulletin.be",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Bulletin%20Belgium%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "brusselstimes.com",
     "country": "Belgium",
     "continent": "Europe",
-    "language": "English",
+    "language": "",
     "url": "https://brusselstimes.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=brusselstimes.com%20Belgium%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "rtbf.be",
     "country": "Belgium",
     "continent": "Europe",
-    "language": "English",
+    "language": "",
     "url": "https://rtbf.be",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=rtbf.be%20Belgium%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "vrt.be",
     "country": "Belgium",
     "continent": "Europe",
-    "language": "English",
+    "language": "",
     "url": "https://vrt.be",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=vrt.be%20Belgium%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2045,6 +2300,7 @@
     "continent": "Europe",
     "language": "Czech",
     "url": "https://ceskenoviny.cz",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=%C4%8Cesk%C3%A9%20noviny%20Czechia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2053,6 +2309,7 @@
     "continent": "Europe",
     "language": "Danish",
     "url": "https://dr.dk",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=DR%20Nyheder%20Denmark%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2061,46 +2318,52 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://cphpost.dk",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Copenhagen%20Post%20Denmark%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "berlingske.dk",
     "country": "Denmark",
     "continent": "Europe",
-    "language": "Danish",
+    "language": "",
     "url": "https://berlingske.dk",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=berlingske.dk%20Denmark%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "politiken.dk",
     "country": "Denmark",
     "continent": "Europe",
-    "language": "Danish",
+    "language": "",
     "url": "https://politiken.dk",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=politiken.dk%20Denmark%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "helsinkitimes.fi",
     "country": "Finland",
     "continent": "Europe",
-    "language": "Finnish",
+    "language": "",
     "url": "https://helsinkitimes.fi",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=helsinkitimes.fi%20Finland%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "hs.fi",
     "country": "Finland",
     "continent": "Europe",
-    "language": "Finnish",
+    "language": "",
     "url": "https://hs.fi",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=hs.fi%20Finland%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "yle.fi",
     "country": "Finland",
     "continent": "Europe",
-    "language": "Finnish",
+    "language": "",
     "url": "https://yle.fi",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=yle.fi%20Finland%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2109,6 +2372,7 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://africanews.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Africanews%20France%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2117,6 +2381,7 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://france24.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=France%2024%20France%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2125,6 +2390,7 @@
     "continent": "Europe",
     "language": "French",
     "url": "https://jeuneafrique.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Jeune%20Afrique%20France%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2133,6 +2399,7 @@
     "continent": "Europe",
     "language": "French",
     "url": "https://lemonde.fr",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Le%20Monde%20France%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2141,6 +2408,7 @@
     "continent": "Europe",
     "language": "French",
     "url": "https://rfi.fr",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=RFI%20Afrique%20France%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2149,6 +2417,7 @@
     "continent": "Europe",
     "language": "French",
     "url": "https://information.tv5monde.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=TV5%20Monde%20France%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2157,22 +2426,25 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://theafricareport.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Africa%20Report%20France%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "bfmtv.com",
     "country": "France",
     "continent": "Europe",
-    "language": "French",
+    "language": "",
     "url": "https://bfmtv.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=bfmtv.com%20France%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "lefigaro.fr",
     "country": "France",
     "continent": "Europe",
-    "language": "French",
+    "language": "",
     "url": "https://lefigaro.fr",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=lefigaro.fr%20France%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2181,6 +2453,7 @@
     "continent": "Europe",
     "language": "German",
     "url": "https://bild.de",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Bild%20Germany%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2189,6 +2462,7 @@
     "continent": "Europe",
     "language": "German",
     "url": "https://spiegel.de",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Der%20Spiegel%20Germany%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2197,6 +2471,7 @@
     "continent": "Europe",
     "language": "German",
     "url": "https://newsfeed.zeit.de",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Die%20Zeit%20Germany%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2205,22 +2480,25 @@
     "continent": "Europe",
     "language": "German",
     "url": "https://tagesschau.de",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Tagesschau%20Germany%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "dw.com",
     "country": "Germany",
     "continent": "Europe",
-    "language": "German",
+    "language": "",
     "url": "https://dw.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=dw.com%20Germany%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "zeit.de",
     "country": "Germany",
     "continent": "Europe",
-    "language": "German",
+    "language": "",
     "url": "https://zeit.de",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=zeit.de%20Germany%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2229,6 +2507,7 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://keeptalkinggreece.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Keep%20Talking%20Greece%20Greece%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2237,22 +2516,25 @@
     "continent": "Europe",
     "language": "Greek",
     "url": "https://tovima.gr",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=To%20Vima%20Greece%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "amna.gr",
     "country": "Greece",
     "continent": "Europe",
-    "language": "Greek",
+    "language": "",
     "url": "https://amna.gr",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=amna.gr%20Greece%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "ekathimerini.com",
     "country": "Greece",
     "continent": "Europe",
-    "language": "Greek",
+    "language": "",
     "url": "https://ekathimerini.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=ekathimerini.com%20Greece%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2261,6 +2543,7 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://dailynewshungary.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Daily%20News%20Hungary%20Hungary%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2269,6 +2552,7 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://hungarytoday.hu",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Hungary%20Today%20Hungary%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2277,6 +2561,7 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://rte.ie",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=RT%C3%89%20News%20Ireland%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2285,22 +2570,25 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://thejournal.ie",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=TheJournal.ie%20Ireland%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "independent.ie",
     "country": "Ireland",
     "continent": "Europe",
-    "language": "English",
+    "language": "",
     "url": "https://independent.ie",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=independent.ie%20Ireland%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "irishtimes.com",
     "country": "Ireland",
     "continent": "Europe",
-    "language": "English",
+    "language": "",
     "url": "https://irishtimes.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=irishtimes.com%20Ireland%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2309,22 +2597,25 @@
     "continent": "Europe",
     "language": "Italian",
     "url": "https://ansa.it",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=ANSA%20Italy%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "corriere.it",
     "country": "Italy",
     "continent": "Europe",
-    "language": "Italian",
+    "language": "",
     "url": "https://corriere.it",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=corriere.it%20Italy%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "repubblica.it",
     "country": "Italy",
     "continent": "Europe",
-    "language": "Italian",
+    "language": "",
     "url": "https://repubblica.it",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=repubblica.it%20Italy%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2333,6 +2624,7 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://nltimes.nl",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=NL%20Times%20Netherlands%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2341,14 +2633,16 @@
     "continent": "Europe",
     "language": "Dutch",
     "url": "https://nos.nl",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=NOS%20Netherlands%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "telegraaf.nl",
     "country": "Netherlands",
     "continent": "Europe",
-    "language": "Dutch",
+    "language": "",
     "url": "https://telegraaf.nl",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=telegraaf.nl%20Netherlands%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2357,6 +2651,7 @@
     "continent": "Europe",
     "language": "Norwegian",
     "url": "https://aftenposten.no",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Aftenposten%20Norway%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2365,6 +2660,7 @@
     "continent": "Europe",
     "language": "Norwegian",
     "url": "https://nrk.no",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=NRK%20Norway%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2373,6 +2669,7 @@
     "continent": "Europe",
     "language": "Norwegian",
     "url": "https://vg.no",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=VG%20Norway%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2381,6 +2678,7 @@
     "continent": "Europe",
     "language": "Polish",
     "url": "https://wyborcza.pl",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Gazeta%20Wyborcza%20Poland%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2389,14 +2687,16 @@
     "continent": "Europe",
     "language": "Polish",
     "url": "https://notesfrompoland.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Notes%20from%20Poland%20Poland%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "pap.pl",
     "country": "Poland",
     "continent": "Europe",
-    "language": "Polish",
+    "language": "",
     "url": "https://pap.pl",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=pap.pl%20Poland%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2405,6 +2705,7 @@
     "continent": "Europe",
     "language": "Portuguese",
     "url": "https://dn.pt",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Di%C3%A1rio%20de%20Not%C3%ADcias%20Portugal%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2413,22 +2714,25 @@
     "continent": "Europe",
     "language": "Portuguese",
     "url": "https://observador.pt",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Observador%20Portugal%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "expresso.pt",
     "country": "Portugal",
     "continent": "Europe",
-    "language": "Portuguese",
+    "language": "",
     "url": "https://expresso.pt",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=expresso.pt%20Portugal%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "publico.pt",
     "country": "Portugal",
     "continent": "Europe",
-    "language": "Portuguese",
+    "language": "",
     "url": "https://publico.pt",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=publico.pt%20Portugal%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2437,6 +2741,7 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://meduza.io",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Meduza%20%28English%29%20Russia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2445,6 +2750,7 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://rt.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=RT%20Russia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2453,6 +2759,7 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://tass.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=TASS%20Russia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2461,14 +2768,16 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://themoscowtimes.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Moscow%20Times%20Russia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "interfax.com",
     "country": "Russia",
     "continent": "Europe",
-    "language": "English",
+    "language": "",
     "url": "https://interfax.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=interfax.com%20Russia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2477,6 +2786,7 @@
     "continent": "Europe",
     "language": "Spanish",
     "url": "https://abc.es",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=ABC%20Spain%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2485,14 +2795,16 @@
     "continent": "Europe",
     "language": "Spanish",
     "url": "https://elmundo.es",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=El%20Mundo%20Spain%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "elpais.com",
     "country": "Spain",
     "continent": "Europe",
-    "language": "Spanish",
+    "language": "",
     "url": "https://elpais.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=elpais.com%20Spain%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2501,6 +2813,7 @@
     "continent": "Europe",
     "language": "Swedish",
     "url": "https://dn.se",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Dagens%20Nyheter%20Sweden%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2509,14 +2822,16 @@
     "continent": "Europe",
     "language": "Swedish",
     "url": "https://svt.se",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=SVT%20Sweden%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "sverigesradio.se",
     "country": "Sweden",
     "continent": "Europe",
-    "language": "Swedish",
+    "language": "",
     "url": "https://sverigesradio.se",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=sverigesradio.se%20Sweden%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2525,6 +2840,7 @@
     "continent": "Europe",
     "language": "French",
     "url": "https://letemps.ch",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Le%20Temps%20Switzerland%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2533,14 +2849,16 @@
     "continent": "Europe",
     "language": "French",
     "url": "https://nzz.ch",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Neue%20Z%C3%BCrcher%20Zeitung%20Switzerland%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "swissinfo.ch",
     "country": "Switzerland",
     "continent": "Europe",
-    "language": "French",
+    "language": "",
     "url": "https://swissinfo.ch",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=swissinfo.ch%20Switzerland%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2549,6 +2867,7 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://kyivindependent.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Kyiv%20Independent%20Ukraine%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2557,14 +2876,16 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://kyivpost.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Kyiv%20Post%20Ukraine%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "ukrinform.net",
     "country": "Ukraine",
     "continent": "Europe",
-    "language": "English",
+    "language": "",
     "url": "https://ukrinform.net",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=ukrinform.net%20Ukraine%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2573,6 +2894,7 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://feeds.bbci.co.uk",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=BBC%20Africa%20United%20Kingdom%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2581,6 +2903,7 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://theguardian.com",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Guardian%20%28UK%29%20United%20Kingdom%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2589,30 +2912,34 @@
     "continent": "Europe",
     "language": "English",
     "url": "https://independent.co.uk",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Independent%20United%20Kingdom%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "bbc.com",
     "country": "United Kingdom",
     "continent": "Europe",
-    "language": "English",
+    "language": "",
     "url": "https://bbc.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=bbc.com%20United%20Kingdom%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "news.sky.com",
     "country": "United Kingdom",
     "continent": "Europe",
-    "language": "English",
+    "language": "",
     "url": "https://news.sky.com",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=news.sky.com%20United%20Kingdom%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "thetimes.co.uk",
     "country": "United Kingdom",
     "continent": "Europe",
-    "language": "English",
+    "language": "",
     "url": "https://thetimes.co.uk",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=thetimes.co.uk%20United%20Kingdom%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2621,14 +2948,16 @@
     "continent": "Oceania",
     "language": "English",
     "url": "https://7news.com.au",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=7NEWS%20Australia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "9news.com.au",
     "country": "Australia",
     "continent": "Oceania",
-    "language": "English",
+    "language": "",
     "url": "https://9news.com.au",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=9news.com.au%20Australia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2637,6 +2966,7 @@
     "continent": "Oceania",
     "language": "English",
     "url": "https://smh.com.au",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Sydney%20Herald%20Australia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2645,6 +2975,7 @@
     "continent": "Oceania",
     "language": "English",
     "url": "https://theage.com.au",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Age%20Australia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2653,22 +2984,25 @@
     "continent": "Oceania",
     "language": "English",
     "url": "https://canberratimes.com.au",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=The%20Canberra%20Times%20Australia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "ntnews.com.au",
     "country": "Australia",
     "continent": "Oceania",
-    "language": "English",
+    "language": "",
     "url": "https://ntnews.com.au",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=ntnews.com.au%20Australia%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "theaustralian.com.au",
     "country": "Australia",
     "continent": "Oceania",
-    "language": "English",
+    "language": "",
     "url": "https://theaustralian.com.au",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=theaustralian.com.au%20Australia%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2677,6 +3011,7 @@
     "continent": "Oceania",
     "language": "English",
     "url": "https://rnz.co.nz",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=RNZ%20New%20Zealand%20news&sp=EgIQAg%253D%253D"
   },
   {
@@ -2685,14 +3020,16 @@
     "continent": "Oceania",
     "language": "English",
     "url": "https://stuff.co.nz",
+    "type": "Outlet",
     "youtube_search_url": "https://www.youtube.com/results?search_query=Stuff%20New%20Zealand%20news&sp=EgIQAg%253D%253D"
   },
   {
     "name": "nzherald.co.nz",
     "country": "New Zealand",
     "continent": "Oceania",
-    "language": "English",
+    "language": "",
     "url": "https://nzherald.co.nz",
+    "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=nzherald.co.nz%20New%20Zealand%20news&sp=EgIQAg%253D%253D"
   }
 ]

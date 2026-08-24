@@ -53,7 +53,7 @@ export default function Dashboard() {
   }, [searchQuery, selectedCategory]);
 
   return (
-    <div className="flex min-h-screen flex-col lg:flex-row bg-[#0a0a0c] text-cyan-50 selection:bg-cyan-500/30 font-sans relative overflow-hidden">
+    <div className="flex h-full flex-col lg:flex-row bg-[#0a0a0c] text-cyan-50 selection:bg-cyan-500/30 font-sans relative overflow-hidden">
       
       {/* Cyberpunk Grid Background */}
       <div className="absolute inset-0 z-0 pointer-events-none" 
@@ -69,7 +69,7 @@ export default function Dashboard() {
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-fuchsia-900/10 rounded-full blur-[100px] pointer-events-none translate-x-1/3 translate-y-1/3"></div>
 
       {/* Cyberpunk Sidebar */}
-      <aside className="w-full lg:w-80 flex-shrink-0 bg-[#0d0d12]/90 border-r border-cyan-900/40 flex flex-col h-auto lg:h-screen lg:sticky top-0 z-10 backdrop-blur-xl shadow-[4px_0_24px_rgba(0,255,255,0.05)]">
+      <aside className="w-full lg:w-80 flex-shrink-0 bg-[#0d0d12]/90 border-r border-cyan-900/40 flex flex-col h-auto lg:h-full lg:sticky top-0 z-10 backdrop-blur-xl shadow-[4px_0_24px_rgba(0,255,255,0.05)]">
         
         {/* Header Branding */}
         <div className="p-6 border-b border-cyan-900/50 relative overflow-hidden group">
@@ -145,7 +145,7 @@ export default function Dashboard() {
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 flex flex-col min-w-0 relative z-10 h-screen overflow-hidden">
+      <main className="flex-1 flex flex-col min-w-0 relative z-10 h-full overflow-hidden">
         
         {/* Cyberpunk Header */}
         <header className="sticky top-0 z-20 bg-[#0a0a0c]/80 backdrop-blur-md border-b border-cyan-900/30 px-6 py-5 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">

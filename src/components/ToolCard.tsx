@@ -1,4 +1,4 @@
-import { ExternalLink, ShieldCheck } from "lucide-react";
+import { ExternalLink, ShieldCheck, AlertCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ToolCardProps {
@@ -13,28 +13,42 @@ interface ToolCardProps {
 }
 
 export function ToolCard({ tool }: ToolCardProps) {
+  const isLive = tool.status === "live";
+
   return (
-    <div className="flex flex-col rounded-xl border border-neutral-800 bg-neutral-900/50 p-5 transition-all hover:border-blue-500/50 hover:bg-neutral-900 hover:shadow-lg hover:shadow-blue-900/10 h-full">
-      <div className="flex items-start justify-between gap-4">
-        <h3 className="font-semibold text-neutral-200 line-clamp-1 flex-1" title={tool.name}>
+    <div 
+      className="group relative flex flex-col bg-[#0d0d12] border border-cyan-900/40 p-5 transition-all duration-300 hover:border-cyan-500/60 hover:bg-[#111118] h-full"
+      style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%)' }}
+    >
+      {/* Glow effect on hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-cyan-500/0 group-hover:from-cyan-500/5 group-hover:to-fuchsia-500/5 transition-all duration-500 pointer-events-none"></div>
+      
+      {/* Tech accents */}
+      <div className="absolute top-0 right-0 w-16 h-px bg-gradient-to-l from-cyan-500/50 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-16 h-px bg-gradient-to-r from-cyan-500/50 to-transparent"></div>
+      
+      <div className="flex items-start justify-between gap-4 relative z-10">
+        <h3 className="font-bold text-cyan-50 tracking-wide line-clamp-1 flex-1 uppercase" title={tool.name}>
           {tool.name}
         </h3>
-        {tool.status === "live" && (
-          <ShieldCheck className="w-5 h-5 text-emerald-500 shrink-0" aria-label="Verified Live" />
+        {isLive ? (
+          <ShieldCheck className="w-5 h-5 text-cyan-500 shrink-0 drop-shadow-[0_0_8px_rgba(0,255,255,0.6)]" aria-label="Verified Live" />
+        ) : (
+          <AlertCircle className="w-5 h-5 text-red-500/70 shrink-0" aria-label="Status Unknown" />
         )}
       </div>
 
-      <p className="mt-3 text-sm text-neutral-400 line-clamp-3 flex-1" title={tool.description}>
-        {tool.description || "No description provided."}
+      <p className="mt-3 text-xs text-neutral-400 line-clamp-3 flex-1 font-mono leading-relaxed" title={tool.description}>
+        {tool.description || "NO DATASTREAM DESCRIPTION PROVIDED."}
       </p>
 
-      <div className="mt-5 flex items-center justify-between gap-2">
+      <div className="mt-6 flex flex-wrap items-center justify-between gap-3 relative z-10 border-t border-cyan-900/30 pt-4">
         <div className="flex items-center gap-2">
-          <span className="rounded-md bg-neutral-800 px-2 py-1 text-xs font-medium text-neutral-300">
-            {tool.category}
+          <span className="bg-cyan-950/40 border border-cyan-800/50 px-2 py-1 text-[10px] font-mono text-cyan-400 uppercase tracking-widest" style={{ clipPath: 'polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px)' }}>
+            {tool.category.split(' ')[0]}
           </span>
           {tool.pricing.toLowerCase() !== "free" && (
-            <span className="rounded-md bg-amber-500/10 px-2 py-1 text-xs font-medium text-amber-500 border border-amber-500/20">
+            <span className="bg-fuchsia-950/40 border border-fuchsia-800/50 px-2 py-1 text-[10px] font-mono text-fuchsia-400 uppercase tracking-widest" style={{ clipPath: 'polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px)' }}>
               {tool.pricing}
             </span>
           )}
@@ -44,10 +58,11 @@ export function ToolCard({ tool }: ToolCardProps) {
           href={tool.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1.5 rounded-lg bg-blue-600 px-3 py-1.5 text-sm font-medium text-white transition-colors hover:bg-blue-500 focus:ring-2 focus:ring-blue-500/50 focus:outline-none"
+          className="flex items-center gap-1.5 bg-cyan-950 border border-cyan-700 px-3 py-1.5 text-xs font-mono font-bold text-cyan-300 transition-all hover:bg-cyan-900 hover:text-cyan-100 hover:border-cyan-400 focus:outline-none hover:shadow-[0_0_15px_rgba(0,255,255,0.3)] group/btn"
+          style={{ clipPath: 'polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px)' }}
         >
-          <span>Open</span>
-          <ExternalLink className="w-4 h-4" />
+          <span>INIT</span>
+          <ExternalLink className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
         </a>
       </div>
     </div>

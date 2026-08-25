@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useMemo } from "react";
 import dynamic from "next/dynamic";
 import { Activity, Radio, Layers, Globe2, MapPin, Map, Crosshair, Terminal, Zap } from "lucide-react";
 import countryCoords from "@/data/country_coords.json";
-import countriesGeo from "@/data/countries.geojson";
+const countriesGeo = require("@/data/countries.geojson");
 
 const Globe = dynamic(() => import("react-globe.gl"), { ssr: false });
 const Map2D = dynamic(() => import("@/components/Map2D"), { ssr: false });
@@ -227,7 +227,7 @@ export default function GlobeMonitor() {
                 <div className="text-[10px] text-white font-bold tracking-widest mb-1">{hoveredInfo.label}</div>
                 <div className="text-[9px] text-cyan-400 leading-tight mb-2 whitespace-pre-wrap">{hoveredInfo.desc}</div>
                 <div className="text-[8px] text-cyan-700">LAT: {hoveredInfo.lat.toFixed(4)} // LNG: {hoveredInfo.lng.toFixed(4)}</div>
-                {hoveredInfo.url && <div className="text-[8px] text-[#ff003c] mt-1 animate-pulse">>>> CLICK TO INTERCEPT SIGNAL</div>}
+                {hoveredInfo.url && <div className="text-[8px] text-[#ff003c] mt-1 animate-pulse">&gt;&gt;&gt; CLICK TO INTERCEPT SIGNAL</div>}
               </div>
             ) : (
               <div className="flex-1 flex items-center justify-center text-[9px] text-cyan-900 tracking-widest">

@@ -34,10 +34,10 @@
   {
     "name": "500+ Recursos",
     "url": "https://start.me/p/0Pqbdg/osint-500-tools",
-    "description": "Colecci\u00f3n de m\u00e1s de 500 herramientas OSINT",
+    "description": "Colección de más de 500 herramientas OSINT",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "OSINT Training & Guides"
   },
   {
     "name": "527 Explorer",
@@ -80,41 +80,41 @@
     "category": "Transportation OSINT"
   },
   {
-    "name": "Afiliaci\u00f3n partido Pol\u00edtico",
+    "name": "Afiliación partido Político",
     "url": "https://afiliados.pjn.gov.ar/",
-    "description": "Consultar el Registro Nacional de Afiliados a los Partidos Pol\u00edticos para saber si un dni figura o no en \u00e9l. Argentina",
+    "description": "Consultar el Registro Nacional de Afiliados a los Partidos Políticos para saber si un dni figura o no en él. Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Business & Corporate Registers"
   },
   {
-    "name": "AFIP: constancia inscripci\u00f3n y m\u00e1s",
+    "name": "AFIP: constancia inscripción y más",
     "url": "https://seti.afip.gob.ar/padron-puc-constancia-internet/jsp/Constancia.jsp",
-    "description": "Varias herramientas de AFIP. Aquellos que est\u00e9n registrados, en la constancia de inscripci\u00f3n se puede develar hasta una direcci\u00f3n. Argentina",
+    "description": "Varias herramientas de AFIP. Aquellos que estén registrados, en la constancia de inscripción se puede develar hasta una dirección. Argentina",
     "pricing": "Free",
     "status": "live",
     "category": "Compliance, Sanctions & Legal"
   },
   {
-    "name": "Agencia de Recaudaci\u00f3n de la Provincia de Buenos Aires",
+    "name": "Agencia de Recaudación de la Provincia de Buenos Aires",
     "url": "https://app.arba.gov.ar/LiqPredet/InicioLiquidacion.do",
-    "description": "Con la patente podemos ver la deuda y m\u00e1s datos del veh\u00edculo, lo mismo con embarcaciones e inmobiliarios. Argentina",
+    "description": "Con la patente podemos ver la deuda y más datos del vehículo, lo mismo con embarcaciones e inmobiliarios. Argentina",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
   },
   {
-    "name": "AGIP: Constancia de Inscripci\u00f3n de Ingresos Brutos",
+    "name": "AGIP: Constancia de Inscripción de Ingresos Brutos",
     "url": "https://lb.agip.gob.ar/ConstanciaIB/",
-    "description": "Constancia de ingresos brutos en CABA: puede develar hasta una direcci\u00f3n. Argentina",
+    "description": "Constancia de ingresos brutos en CABA: puede develar hasta una dirección. Argentina",
     "pricing": "Free",
     "status": "live",
     "category": "Compliance, Sanctions & Legal"
   },
   {
-    "name": "Ahora Hu\u00e1nuco - Per\u00fa",
+    "name": "Ahora Huánuco - Perú",
     "url": "https://issuu.com/diarioahorahuanuco",
-    "description": "Revista digital Ahora Hu\u00e1nuco peri\u00f3dicos diarios",
+    "description": "Revista digital Ahora Huánuco periódicos diarios",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -146,7 +146,7 @@
   {
     "name": "Alertas de Google",
     "url": "https://www.google.com/alerts",
-    "description": "Google te puede alertar al correo electr\u00f3nico o crear un RSS",
+    "description": "Google te puede alertar al correo electrónico o crear un RSS",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -154,7 +154,7 @@
   {
     "name": "Alertas de Talkwalker",
     "url": "https://www.talkwalker.com/alerts",
-    "description": "Talwalker te puede alertar al correo electr\u00f3nico o crear un RSS",
+    "description": "Talwalker te puede alertar al correo electrónico o crear un RSS",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -170,7 +170,7 @@
   {
     "name": "All You Can Read",
     "url": "https://www.allyoucanread.com/peru-newspapers/",
-    "description": "Acceder a peri\u00f3dicos y revistas de Per\u00fa diarios",
+    "description": "Acceder a periódicos y revistas de Perú diarios",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -226,7 +226,7 @@
   {
     "name": "Analiza y busca usuarios",
     "url": "https://socialblade.com/",
-    "description": "An\u00e1lisis, reportes y m\u00e9tricas de usuarios de redes sociales, username, socmint",
+    "description": "Análisis, reportes y métricas de usuarios de redes sociales, username, socmint",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -234,7 +234,7 @@
   {
     "name": "Analizar cuentas",
     "url": "https://mavekite.com/",
-    "description": "Analizar m\u00e9tricas y estad\u00edsticas de cuentas de TikTok",
+    "description": "Analizar métricas y estadísticas de cuentas de TikTok",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -242,15 +242,15 @@
   {
     "name": "Analizar videos",
     "url": "https://manuelbot59.github.io/Tiktok-Timestamps/",
-    "description": "Analizar fechas y horas de publicaci\u00f3n de videos de TikTok",
+    "description": "Analizar fechas y horas de publicación de videos de TikTok",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
   },
   {
-    "name": "Anal\u00edtica de TikTok",
+    "name": "Analítica de TikTok",
     "url": "https://ads.tiktok.com/business/creativecenter/inspiration/popular/hashtag/pc/en?from=001114",
-    "description": "An\u00e1lisis de hashtags e informaci\u00f3n de Tiktok",
+    "description": "Análisis de hashtags e información de Tiktok",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -272,17 +272,17 @@
     "category": "Media & Document Analysis"
   },
   {
-    "name": "An\u00e1lisis de videos",
+    "name": "Análisis de videos",
     "url": "https://hadzy.com/",
-    "description": "Analizar estad\u00edsticas y tendencias de videos de YouTube",
+    "description": "Analizar estadísticas y tendencias de videos de YouTube",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
   },
   {
-    "name": "An\u00e1lisis forense en im\u00e1genes",
+    "name": "Análisis forense en imágenes",
     "url": "http://fotoforensics.com/",
-    "description": "Herramienta para trabajar con el an\u00e1lisis de im\u00e1genes fotoforensics",
+    "description": "Herramienta para trabajar con el análisis de imágenes fotoforensics",
     "pricing": "Free",
     "status": "live",
     "category": "Media & Document Analysis"
@@ -333,12 +333,12 @@
     "description": "Chambers of architects registry.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Business & Corporate Registers"
   },
   {
     "name": "Archive Twitter Trending",
     "url": "https://archive.twitter-trending.com/",
-    "description": "An\u00e1lisis de tendencia a lo largo del tiempo tweets hashtag Twitter",
+    "description": "Análisis de tendencia a lo largo del tiempo tweets hashtag Twitter",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -362,7 +362,7 @@
   {
     "name": "Archivo de Libros - Argentina",
     "url": "https://openlibrary.org/",
-    "description": "Archivo completo e internacional de libros peri\u00f3dicos Revista diarios",
+    "description": "Archivo completo e internacional de libros periódicos Revista diarios",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -370,7 +370,7 @@
   {
     "name": "Archivo de revistas - Argentina",
     "url": "https://ahira.com.ar/revistas/?filter_=abc",
-    "description": "Archivo completo con datos filtrable de diarios y revistas de Argentina peri\u00f3dicos Revista diarios",
+    "description": "Archivo completo con datos filtrable de diarios y revistas de Argentina periódicos Revista diarios",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -378,10 +378,10 @@
   {
     "name": "Archivo web de todo internet",
     "url": "https://archive.org/",
-    "description": "** Servi\u00e7o e banco de dados com c\u00f3pias de p\u00e1ginas ou sites da internet.",
+    "description": "** Serviço e banco de dados com cópias de páginas ou sites da internet.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Arkham Intelligence",
@@ -392,17 +392,17 @@
     "category": "Blockchain & Cryptocurrency"
   },
   {
-    "name": "Art\u00edculo Bots TG",
+    "name": "Artículo Bots TG",
     "url": "https://telegra.ph/Qu%C3%A9-saben-los-Bots-de-Telegram-sobre-nosotros-05-19",
-    "description": "Art\u00edculo sobre la recopilaci\u00f3n de datos por bots de Telegram",
+    "description": "Artículo sobre la recopilación de datos por bots de Telegram",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
   },
   {
-    "name": "Art\u00edculo IA",
+    "name": "Artículo IA",
     "url": "https://telegra.ph/La-importancia-de-la-inteligencia-artificial-en-OSINT-y-SOCMINT-04-07",
-    "description": "Art\u00edculo sobre la importancia de la IA en OSINT y SOCMINT",
+    "description": "Artículo sobre la importancia de la IA en OSINT y SOCMINT",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -410,10 +410,10 @@
   {
     "name": "Assetfinder",
     "url": "https://github.com/tomnomnom/assetfinder",
-    "description": "** Encontre dom\u00ednios e subdom\u00ednios.",
+    "description": "** Encontre domínios e subdomínios.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Atlos",
@@ -421,7 +421,7 @@
     "description": "ATLOS is a platform for collaborative and large-scale open source investigations.",
     "pricing": "Partially Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Australian Cyber Security Centre",
@@ -450,10 +450,10 @@
   {
     "name": "Avast",
     "url": "https://www.avast.com/es-mx/random-password-generator#pc",
-    "description": "Generador de contrase\u00f1as aleatorias de Avast",
+    "description": "Generador de contraseñas aleatorias de Avast",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Email & Username OSINT"
   },
   {
     "name": "Aviation Safety Network",
@@ -490,7 +490,7 @@
   {
     "name": "Baidu Maps",
     "url": "http://map.baidu.com/",
-    "description": "Baidu\u2019s mapping service offering satellite imagery, street maps, and streetview (\u201cPanorama\u201d - zh:\u767e\u5ea6\u5168\u666f).",
+    "description": "Baidu’s mapping service offering satellite imagery, street maps, and streetview (“Panorama” - zh:百度全景).",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -498,7 +498,7 @@
   {
     "name": "Base de datos de Google Dorks",
     "url": "https://www.exploit-db.com/google-hacking-database",
-    "description": "** Operadores de busca avan\u00e7ada no Google, essenciais para qualquer investiga\u00e7\u00e3o OSINT.",
+    "description": "** Operadores de busca avançada no Google, essenciais para qualquer investigação OSINT.",
     "pricing": "Free",
     "status": "live",
     "category": "Cyber Threat Intelligence (CTI)"
@@ -541,15 +541,15 @@
     "description": "Buscar beneficiaros de PAMI. Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Transportation OSINT"
   },
   {
     "name": "BetterBuys",
     "url": "https://www.betterbuys.com/estimating-password-cracking-times/",
-    "description": "Estimaci\u00f3n del tiempo de descifrado de contrase\u00f1as",
+    "description": "Estimación del tiempo de descifrado de contraseñas",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Email & Username OSINT"
   },
   {
     "name": "Bing",
@@ -573,7 +573,7 @@
     "description": "Identify bird sounds - find bird sounds on a global map.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Geospatial & Mapping"
   },
   {
     "name": "Bitcoin Abuse Database",
@@ -618,7 +618,7 @@
   {
     "name": "Blender",
     "url": "https://www.blender.org/",
-    "description": "Blender is an open-source 3D creation suite supporting the 3D pipeline\u2014modeling, rigging, animation, simulation, rendering, compositing, and motion tracking, even video editing.",
+    "description": "Blender is an open-source 3D creation suite supporting the 3D pipeline—modeling, rigging, animation, simulation, rendering, compositing, and motion tracking, even video editing.",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -690,15 +690,15 @@
   {
     "name": "Boardreader",
     "url": "https://boardreader.com",
-    "description": "** Permite encontrar f\u00f3runs nos quais os usu\u00e1rios est\u00e3o discutindo assuntos de interesse.",
+    "description": "** Permite encontrar fóruns nos quais os usuários estão discutindo assuntos de interesse.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Social Media Intelligence (SOCMINT)"
   },
   {
     "name": "Boleta o Factura",
     "url": "https://www.boletaofactura.com/",
-    "description": "Verificar informaci\u00f3n de empresas chilenas, puede buscar empresas, fundaciones de chile",
+    "description": "Verificar información de empresas chilenas, puede buscar empresas, fundaciones de chile",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -706,7 +706,7 @@
   {
     "name": "Bot de Telegram OSINT",
     "url": "https://manuelbot59.com/leaks-osint-bot/",
-    "description": "Buscar y explorar huellas digitales p\u00fablicos de Telegram",
+    "description": "Buscar y explorar huellas digitales públicos de Telegram",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -746,15 +746,15 @@
   {
     "name": "Brownbook",
     "url": "https://www.brownbook.net/",
-    "description": "** Fonte de informa\u00e7\u00e3o comercial.",
+    "description": "** Fonte de informação comercial.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Business & Corporate Registers"
   },
   {
     "name": "Browser leaks",
     "url": "https://browserleaks.com",
-    "description": "Verificar fugas de informaci\u00f3n en el navegador",
+    "description": "Verificar fugas de información en el navegador",
     "pricing": "Free",
     "status": "live",
     "category": "Domain & IP Analysis"
@@ -765,12 +765,12 @@
     "description": "Legacy cross-browser screenshot service historically used to render pages in multiple browser/OS combinations.",
     "pricing": "free",
     "status": "down",
-    "category": "Miscellaneous OSINT"
+    "category": "Media & Document Analysis"
   },
   {
     "name": "BskyFollowFinder",
     "url": "https://bsky-follow-finder.theo.io/",
-    "description": "A tool that identifies which Bluesky accounts are followed by a profile\u2019s contacts but not by that profile. Can be used for expanding networks and social graph analysis.",
+    "description": "A tool that identifies which Bluesky accounts are followed by a profile’s contacts but not by that profile. Can be used for expanding networks and social graph analysis.",
     "pricing": "Free",
     "status": "live",
     "category": "Domain & IP Analysis"
@@ -786,10 +786,10 @@
   {
     "name": "BuiltWith",
     "url": "https://builtwith.com/es",
-    "description": "** Conhe\u00e7a a tecnologia usada em um dom\u00ednio.",
+    "description": "** Conheça a tecnologia usada em um domínio.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Domain & IP Analysis"
   },
   {
     "name": "Bulletpicker",
@@ -805,12 +805,12 @@
     "description": "Federal association of German bar associations.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Business & Corporate Registers"
   },
   {
     "name": "Busca archivos y datos en internet",
     "url": "https://data.occrp.org/datasets",
-    "description": "El archivo global de material de investigaci\u00f3n para reportajes. Busca todo tipo de datos en internet",
+    "description": "El archivo global de material de investigación para reportajes. Busca todo tipo de datos en internet",
     "pricing": "Free",
     "status": "live",
     "category": "Domain & IP Analysis"
@@ -818,15 +818,15 @@
   {
     "name": "Busca emails, dominios y urls",
     "url": "https://phonebook.cz/",
-    "description": "Busca correos electr\u00f3nicos, dominios y urls relacionados a un sitio o entidad que ingresas",
+    "description": "Busca correos electrónicos, dominios y urls relacionados a un sitio o entidad que ingresas",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
   },
   {
-    "name": "Buscador de datos p\u00fablicos de ciudadanos argentinos",
+    "name": "Buscador de datos públicos de ciudadanos argentinos",
     "url": "https://datos.gob.ar/",
-    "description": "Encuentra datos abiertos OFICIALES de toda la Rep\u00fablica Argentina",
+    "description": "Encuentra datos abiertos OFICIALES de toda la República Argentina",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -834,7 +834,7 @@
   {
     "name": "Buscador de perfiles de Onlyfans",
     "url": "https://onlyfinder.com/",
-    "description": "Buscador de perfiles de Onlyfans por nombre, ubicaci\u00f3n, palabra clave, etc. onlyfinder",
+    "description": "Buscador de perfiles de Onlyfans por nombre, ubicación, palabra clave, etc. onlyfinder",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -842,7 +842,7 @@
   {
     "name": "Buscador privado",
     "url": "https://www.startpage.com/",
-    "description": "startpage. Hacer una b\u00fasqueda sin dejar rastros ni seguimiento de cookies. Funciona mejor a\u00fan en una ventana de inc\u00f3gnito. Buscador an\u00f3nimo",
+    "description": "startpage. Hacer una búsqueda sin dejar rastros ni seguimiento de cookies. Funciona mejor aún en una ventana de incógnito. Buscador anónimo",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -861,12 +861,12 @@
     "description": "Banco de datos de personas buscadas por Interpol",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Compliance, Sanctions & Legal"
   },
   {
     "name": "Buscar actividades",
     "url": "https://www.sowsearch.info/",
-    "description": "B\u00fasqueda avanzada de actividades p\u00fablicas en Facebook",
+    "description": "Búsqueda avanzada de actividades públicas en Facebook",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -874,21 +874,21 @@
   {
     "name": "Buscar canales",
     "url": "https://telegramchannels.me/",
-    "description": "Buscar y explorar canales p\u00fablicos de Telegram",
+    "description": "Buscar y explorar canales públicos de Telegram",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
   },
   {
-    "name": "Buscar documentos acad\u00e9micos y cient\u00edficos",
+    "name": "Buscar documentos académicos y científicos",
     "url": "https://www.base-search.net/",
-    "description": "Buscar documentos acad\u00e9micos y cient\u00edficos. Base search",
+    "description": "Buscar documentos académicos y científicos. Base search",
     "pricing": "Free",
     "status": "live",
     "category": "Media & Document Analysis"
   },
   {
-    "name": "Buscar N\u00b0 de serie de c\u00e1mara",
+    "name": "Buscar N° de serie de cámara",
     "url": "https://www.stolencamerafinder.com/",
     "description": "Si la imagen posee ese metadato cargado esta herramienta lo extrae",
     "pricing": "Free",
@@ -896,9 +896,9 @@
     "category": "Media & Document Analysis"
   },
   {
-    "name": "Buscar n\u00famero telef\u00f3nico",
+    "name": "Buscar número telefónico",
     "url": "https://www.abctelefonos.com/",
-    "description": "Un buscador de tel\u00e9fonos con varios filtros disponibles como instituci\u00f3n, comercio, ubicaci\u00f3n, etc.",
+    "description": "Un buscador de teléfonos con varios filtros disponibles como institución, comercio, ubicación, etc.",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -909,20 +909,20 @@
     "description": "Buscar datos de personas por DNI o por nombre",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Transportation OSINT"
   },
   {
-    "name": "Buscar por nombre, email o tel\u00e9fono",
+    "name": "Buscar por nombre, email o teléfono",
     "url": "https://www.spokeo.com/",
-    "description": "Buscar datos como email o tel\u00e9fono de personas",
+    "description": "Buscar datos como email o teléfono de personas",
     "pricing": "Paid",
     "status": "live",
     "category": "Phone OSINT"
   },
   {
-    "name": "Buscar subt\u00edtulos",
+    "name": "Buscar subtítulos",
     "url": "https://filmot.com/",
-    "description": "Buscar subt\u00edtulos y transcripciones de videos de YouTube",
+    "description": "Buscar subtítulos y transcripciones de videos de YouTube",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -930,7 +930,7 @@
   {
     "name": "Buscar Whois",
     "url": "https://viewdns.info/reversewhois/",
-    "description": "Buscar informaci\u00f3n WHOIS asociada a un correo electr\u00f3nico",
+    "description": "Buscar información WHOIS asociada a un correo electrónico",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -944,23 +944,23 @@
     "category": "Business & Corporate Registers"
   },
   {
-    "name": "B\u00fasqueda avanzada de Google",
+    "name": "Búsqueda avanzada de Google",
     "url": "https://www.google.com.ar/advanced_search",
-    "description": "B\u00fasqueda con diferentes filtros de Google para filtrar de manera m\u00e1s espec\u00edfica.",
+    "description": "Búsqueda con diferentes filtros de Google para filtrar de manera más específica.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
-    "name": "B\u00fasqueda directa en Streetview",
+    "name": "Búsqueda directa en Streetview",
     "url": "https://www.instantstreetview.com/@-12.052151,-77.034924,47.73h,5.64p,1z,oOVtBVIw8QINSlUx_IaM3w",
-    "description": "Permite compartir las im\u00e1genes por links y navegar mas c\u00f3modo que en el propio servicio de Google. Mapa y Mapas",
+    "description": "Permite compartir las imágenes por links y navegar mas cómodo que en el propio servicio de Google. Mapa y Mapas",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
   },
   {
-    "name": "B\u00fasqueda en c\u00f3digo fuente de sitios webs",
+    "name": "Búsqueda en código fuente de sitios webs",
     "url": "https://publicwww.com/",
     "description": "PublicWWW is a source code search engine that allows you to search for any alphanumeric snippet, signature, or keyword within the HTML, JavaScript, and CSS code of millions of web pages.",
     "pricing": "Partially Free",
@@ -968,7 +968,7 @@
     "category": "Archives & Databases"
   },
   {
-    "name": "B\u00fasqueda en Google Drive",
+    "name": "Búsqueda en Google Drive",
     "url": "https://cse.google.com/cse?cx=f466f6ea4886845d1",
     "description": "Telegago is a Google Custom Search Engine tailored for searching public Telegram content for OSINT purposes.",
     "pricing": "Free",
@@ -976,15 +976,15 @@
     "category": "Phone OSINT"
   },
   {
-    "name": "B\u00fasqueda inversa 2",
+    "name": "Búsqueda inversa 2",
     "url": "https://freecarrierlookup.com/",
-    "description": "Identificar el operador de un n\u00famero de tel\u00e9fono",
+    "description": "Identificar el operador de un número de teléfono",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
   },
   {
-    "name": "B\u00fasqueda inversa por rostros",
+    "name": "Búsqueda inversa por rostros",
     "url": "https://pimeyes.com/en",
     "description": "An AI-powered facial recognition reverse image search tool.",
     "pricing": "Paid",
@@ -992,9 +992,9 @@
     "category": "Media & Document Analysis"
   },
   {
-    "name": "B\u00fasqueda r\u00e1pida",
+    "name": "Búsqueda rápida",
     "url": "https://www.osintcombine.com/free-osint-tools/tiktok-quick-search",
-    "description": "B\u00fasqueda r\u00e1pida de usuarios y contenido en TikTok",
+    "description": "Búsqueda rápida de usuarios y contenido en TikTok",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -1026,7 +1026,7 @@
   {
     "name": "Cambiar la velocidad de videos",
     "url": "https://clideo.com/es/change-video-speed",
-    "description": "Editor \u00fatil para el estudio y an\u00e1lisis de videos",
+    "description": "Editor útil para el estudio y análisis de videos",
     "pricing": "Free",
     "status": "live",
     "category": "Media & Document Analysis"
@@ -1050,15 +1050,15 @@
   {
     "name": "Carnet AI",
     "url": "https://carnet.ai/",
-    "description": "Cargando una foto puedes detectar el a\u00f1o, modelo y marca de un veh\u00edculo mediante inteligencia artificial IA en Per\u00fa",
+    "description": "Cargando una foto puedes detectar el año, modelo y marca de un vehículo mediante inteligencia artificial IA en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
   },
   {
-    "name": "Carnet de Extranjer\u00eda",
+    "name": "Carnet de Extranjería",
     "url": "https://sel.migraciones.gob.pe/servmig-valreg/VerificarCE?AspxAutoDetectCookieSupport=1",
-    "description": "Verificaci\u00f3n de Carnet de Extranjer\u00eda en Per\u00fa",
+    "description": "Verificación de Carnet de Extranjería en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Business & Corporate Registers"
@@ -1069,7 +1069,7 @@
     "description": "Mapping/streetview service for Morocco",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Geospatial & Mapping"
   },
   {
     "name": "Castellum.AI",
@@ -1101,12 +1101,12 @@
     "description": "National Computer Emergency Response Team (Poland).",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Cyber Threat Intelligence (CTI)"
   },
   {
     "name": "Chat de WhatsApp",
     "url": "http://www.fakewhats.com/generator",
-    "description": "Generar conversaci\u00f3n de Whatsapp falsa",
+    "description": "Generar conversación de Whatsapp falsa",
     "pricing": "Free",
     "status": "live",
     "category": "Dating & Communities"
@@ -1128,9 +1128,9 @@
     "category": "Cloud Security & Recon"
   },
   {
-    "name": "Chequear L\u00edneas",
+    "name": "Chequear Líneas",
     "url": "https://checatuslineas.osiptel.gob.pe/",
-    "description": "Verificar l\u00edneas telef\u00f3nicas en Per\u00fa en OSIPTEL Peruanos",
+    "description": "Verificar líneas telefónicas en Perú en OSIPTEL Peruanos",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -1146,7 +1146,7 @@
   {
     "name": "Chronotrains",
     "url": "https://www.chronotrains.com/en",
-    "description": "Chronotrains is a free interactive map designed to explore the reach of Europe\u2019s extensive rail network. Enter a starting point and travel time to see reachable destinations by train.",
+    "description": "Chronotrains is a free interactive map designed to explore the reach of Europe’s extensive rail network. Enter a starting point and travel time to see reachable destinations by train.",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -1154,10 +1154,10 @@
   {
     "name": "Ciberprotector",
     "url": "https://ciberprotector.com/comprobador-de-contrase%C3%B1as/",
-    "description": "Comprobador de seguridad de contrase\u00f1as",
+    "description": "Comprobador de seguridad de contraseñas",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Email & Username OSINT"
   },
   {
     "name": "CITES Trade Database",
@@ -1170,15 +1170,15 @@
   {
     "name": "Claro Fijos",
     "url": "http://www.claro.com.pe/directorio-de-abonados-fijos/",
-    "description": "Directorio de abonados fijos de Claro en Per\u00fa",
+    "description": "Directorio de abonados fijos de Claro en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
   },
   {
-    "name": "Claro M\u00f3viles",
+    "name": "Claro Móviles",
     "url": "http://www.claro.com.pe/directorio-de-abonados-moviles/",
-    "description": "Directorio de abonados m\u00f3viles de Claro en Per\u00fa",
+    "description": "Directorio de abonados móviles de Claro en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -1192,12 +1192,12 @@
     "category": "Media & Document Analysis"
   },
   {
-    "name": "Clima y c\u00e1maras en vivo",
+    "name": "Clima y cámaras en vivo",
     "url": "https://www.windy.com/?-35.048,-58.403,5",
-    "description": "Ademas de ver el clima en un determinado lugar posiblemente exista una c\u00e1mara en vivo en esa zona",
+    "description": "Ademas de ver el clima en un determinado lugar posiblemente exista una cámara en vivo en esa zona",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Cloud Custodian (T)",
@@ -1229,7 +1229,7 @@
     "description": "** Obtenha o ID do perfil.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Commercial Register - Worldwide",
@@ -1296,9 +1296,9 @@
     "category": "Media & Document Analysis"
   },
   {
-    "name": "Comparar tama\u00f1o de pa\u00edses",
+    "name": "Comparar tamaño de países",
     "url": "https://mapfight.xyz/",
-    "description": "Puedes comprar el tama\u00f1o y otros datos de pa\u00edses y ciudades del mundo Mapa y Mapas",
+    "description": "Puedes comprar el tamaño y otros datos de países y ciudades del mundo Mapa y Mapas",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -1306,15 +1306,15 @@
   {
     "name": "Conflict Radar 360",
     "url": "https://www.conflictradar360.com",
-    "description": "** Plataforma de mapeo y visualizaci\u00f3n en tiempo real de conflictos armados, crimen organizado, infraestructura cr\u00edtica y crisis geopol\u00edticas.",
+    "description": "** Plataforma de mapeo y visualización en tiempo real de conflictos armados, crimen organizado, infraestructura crítica y crisis geopolíticas.",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
   },
   {
-    "name": "Consulta Actividades Econ\u00f3micas",
+    "name": "Consulta Actividades Económicas",
     "url": "https://seti.afip.gob.ar/padron-puc-constancia-internet/ConsultaActivEconomicaAction.do",
-    "description": "Podemos determinar toda aquella actividad econ\u00f3mica registrada de las personas. Argentina",
+    "description": "Podemos determinar toda aquella actividad económica registrada de las personas. Argentina",
     "pricing": "Free",
     "status": "live",
     "category": "Compliance, Sanctions & Legal"
@@ -1322,15 +1322,15 @@
   {
     "name": "Consulta ATU",
     "url": "https://sistemas.atu.gob.pe/ConsultaVehiculo/",
-    "description": "Sistema de consulta vehicular de la Autoridad de Transporte Urbano vehiculos Per\u00fa",
+    "description": "Sistema de consulta vehicular de la Autoridad de Transporte Urbano vehiculos Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
   },
   {
-    "name": "Consulta de afiliaci\u00f3n Pol\u00edtica",
+    "name": "Consulta de afiliación Política",
     "url": "https://sroppublico.jne.gob.pe/Consulta/Afiliado",
-    "description": "Registro de Consulta de afiliaci\u00f3n Pol\u00edtica pol\u00edticos peruanos INFOGOB JNE Per\u00fa",
+    "description": "Registro de Consulta de afiliación Política políticos peruanos INFOGOB JNE Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Business & Corporate Registers"
@@ -1338,7 +1338,7 @@
   {
     "name": "Consulta de boletas, saldos y deuda",
     "url": "https://lb.agip.gob.ar/ConsultaPat/",
-    "description": "Con la patente podemos ver la deuda y m\u00e1s datos del veh\u00edculo. Argentina",
+    "description": "Con la patente podemos ver la deuda y más datos del vehículo. Argentina",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -1357,12 +1357,12 @@
     "description": "Consultar beneficiaros con obra social. Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Consulta Placas Ahorro GNV",
     "url": "https://fise.minem.gob.pe:23308/consulta-taller/pages/consultaTaller/inicio;jsessionid=4C81723A904454D336D94192C72809A8",
-    "description": "Consulta de placa de veh\u00edculos en Per\u00fa",
+    "description": "Consulta de placa de vehículos en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -1370,13 +1370,13 @@
   {
     "name": "Consulta Placas InfoGAS",
     "url": "https://infogas.com.pe/consulta-placa/",
-    "description": "Consulta de placa de veh\u00edculos en Per\u00fa",
+    "description": "Consulta de placa de vehículos en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
   },
   {
-    "name": "Consulta por infracciones de tr\u00e1nsito",
+    "name": "Consulta por infracciones de tránsito",
     "url": "https://www.buenosaires.gob.ar/consulta-de-infracciones",
     "description": "Ingresando DNI o patente podemos ver las infracciones correspondientes a CABA. Argentina",
     "pricing": "Free",
@@ -1386,21 +1386,21 @@
   {
     "name": "Consulta RUC",
     "url": "https://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias",
-    "description": "Consulta de Registro \u00danico de Contribuyentes peruano Per\u00fa",
+    "description": "Consulta de Registro Único de Contribuyentes peruano Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Business & Corporate Registers"
   },
   {
-    "name": "Consultar filtraci\u00f3n",
+    "name": "Consultar filtración",
     "url": "https://www.activetk.jp/tools/twitter-leaked200",
-    "description": "Verificar si una cuenta est\u00e1 en la filtraci\u00f3n de datos de Twitter",
+    "description": "Verificar si una cuenta está en la filtración de datos de Twitter",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
   },
   {
-    "name": "Consultar filtraci\u00f3n",
+    "name": "Consultar filtración",
     "url": "https://haveibeenzuckered.com/",
     "description": "Check if a telephone number is present within the Facebook data breach.",
     "pricing": "Free",
@@ -1410,10 +1410,10 @@
   {
     "name": "Consultar nuevo DNI",
     "url": "https://www.mininterior.gov.ar/consultaNuevoDNI/pop-up3.php?",
-    "description": "Comprobar si una persona ya posee el nuevo dni y otra informaci\u00f3n. Argentina",
+    "description": "Comprobar si una persona ya posee el nuevo dni y otra información. Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Compliance, Sanctions & Legal"
   },
   {
     "name": "Contador de Visitas",
@@ -1426,21 +1426,21 @@
   {
     "name": "Contenido general de personas",
     "url": "https://webmii.com/",
-    "description": "Encuentra im\u00e1genes, videos, y datos usando varios buscadores al mismo tiempo. Webmii",
+    "description": "Encuentra imágenes, videos, y datos usando varios buscadores al mismo tiempo. Webmii",
     "pricing": "Free",
     "status": "live",
     "category": "Media & Document Analysis"
   },
   {
-    "name": "Contrase\u00f1as filtradas",
+    "name": "Contraseñas filtradas",
     "url": "https://leakpeek.com/",
-    "description": "Datos o credenciales filtrados en la web. B\u00fasqueda por diferentes datos",
+    "description": "Datos o credenciales filtrados en la web. Búsqueda por diferentes datos",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
   },
   {
-    "name": "Conversaci\u00f3n",
+    "name": "Conversación",
     "url": "https://chat-simulator.com/",
     "description": "Simular conversaciones de chat para demostraciones",
     "pricing": "Free",
@@ -1474,7 +1474,7 @@
   {
     "name": "Correotemporal",
     "url": "https://correotemporal.org/",
-    "description": "Generar una casilla de correo electr\u00f3nico temporal y desechable",
+    "description": "Generar una casilla de correo electrónico temporal y desechable",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -1482,7 +1482,7 @@
   {
     "name": "Country Code",
     "url": "https://countrycode.org/",
-    "description": "Consultar c\u00f3digos de pa\u00eds y prefijos telef\u00f3nicos",
+    "description": "Consultar códigos de país y prefijos telefónicos",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -1525,7 +1525,7 @@
     "description": "Scientific tools for investigating the cryosphere (areas with snow & ice)",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "OSINT Training & Guides"
   },
   {
     "name": "Crypto Scam Checker",
@@ -1544,12 +1544,12 @@
     "category": "Blockchain & Cryptocurrency"
   },
   {
-    "name": "Cr\u00e9ditos ANSES",
+    "name": "Créditos ANSES",
     "url": "https://servicioswww.anses.gob.ar/YHConsBCRASitio/ConsultaBCRA/InicioConsulta",
-    "description": "Consultar mediante CUIL personas con cr\u00e9ditos en ANSES. Argentina",
+    "description": "Consultar mediante CUIL personas con créditos en ANSES. Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "CSIS Warfare, Irregular Threats, and Terrorism Program",
@@ -1602,7 +1602,7 @@
   {
     "name": "Cybernews Security Checker",
     "url": "https://cybernews.com/website-security-checker/",
-    "description": "Escanea un sitio web en b\u00fasqueda de vulnerabilidades y alertas",
+    "description": "Escanea un sitio web en búsqueda de vulnerabilidades y alertas",
     "pricing": "Free",
     "status": "live",
     "category": "Cyber Threat Intelligence (CTI)"
@@ -1616,20 +1616,20 @@
     "category": "Digital Forensics & Incident Response (DFIR)"
   },
   {
-    "name": "C\u00e1lculos sobre mapas",
+    "name": "Cálculos sobre mapas",
     "url": "https://www.calcmaps.com/",
-    "description": "Calcula radios, alturas, distancias, y m\u00e1s sobre el mapa y Mapas",
+    "description": "Calcula radios, alturas, distancias, y más sobre el mapa y Mapas",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
   },
   {
-    "name": "C\u00f3digo Postal",
+    "name": "Código Postal",
     "url": "http://www.codigopostal.gob.pe/pages/invitado/consulta.jsf",
-    "description": "Consulta de c\u00f3digos postales en Per\u00fa",
+    "description": "Consulta de códigos postales en Perú",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Databases.Today",
@@ -1642,7 +1642,7 @@
   {
     "name": "Datasette",
     "url": "https://datasette.io",
-    "description": "Open-source \u201cWordPress-for-data\u201d that turns any SQLite database into an interactive website and JSON API in seconds; ideal for publishing, exploring and collaborating on datasets.",
+    "description": "Open-source “WordPress-for-data” that turns any SQLite database into an interactive website and JSON API in seconds; ideal for publishing, exploring and collaborating on datasets.",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -1669,15 +1669,15 @@
     "description": "Datos abiertos relacionados al fuero judicial. Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Datos Abiertos Enacom",
     "url": "https://datosabiertos.enacom.gob.ar/home",
-    "description": "Dataset de informaci\u00f3n relacionada con ENACOM. Argentina",
+    "description": "Dataset de información relacionada con ENACOM. Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Datos de empresas y microempresas de argentinos",
@@ -1688,25 +1688,25 @@
     "category": "Business & Corporate Registers"
   },
   {
-    "name": "Datos de veh\u00edculo",
+    "name": "Datos de vehículo",
     "url": "https://soap.segurosfalabella.com/soap/mi-auto",
-    "description": "Datos personales, que incluye fecha de nacimientos de personas de Chile, RUT, veh\u00edchulo",
+    "description": "Datos personales, que incluye fecha de nacimientos de personas de Chile, RUT, vehíchulo",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
   },
   {
-    "name": "Datos Jur\u00eddicos",
+    "name": "Datos Jurídicos",
     "url": "http://www.datajuridica.com/",
-    "description": "Plataforma de consulta de datos jur\u00eddicos de personas",
+    "description": "Plataforma de consulta de datos jurídicos de personas",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
-    "name": "Datos Per\u00fa",
+    "name": "Datos Perú",
     "url": "https://www.datosperu.org/",
-    "description": "Directorio de empresas y personas en Per\u00fa",
+    "description": "Directorio de empresas y personas en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -1714,15 +1714,15 @@
   {
     "name": "DatosCif",
     "url": "https://www.datoscif.es/",
-    "description": "** Fonte de informa\u00e7\u00e3o comercial.",
+    "description": "** Fonte de informação comercial.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Business & Corporate Registers"
   },
   {
     "name": "De Digger",
     "url": "https://www.dedigger.com/",
-    "description": "Buscador de archivos en Google Drive, filtra espec\u00edficamente tu b\u00fasqueda en este sitio.",
+    "description": "Buscador de archivos en Google Drive, filtra específicamente tu búsqueda en este sitio.",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -1741,7 +1741,7 @@
     "description": "Herramientas para explorar la Deep Web",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "DeepAI AI Image Detector",
@@ -1805,10 +1805,10 @@
     "description": "DeFi analytics platform aggregating Total Value Locked (TVL), yields, protocol revenue, and fees across 7000+ protocols on 500+ chains.",
     "pricing": "freemium",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Blockchain & Cryptocurrency"
   },
   {
-    "name": "Densidad de poblaci\u00f3n seg\u00fan el mapa de calor",
+    "name": "Densidad de población según el mapa de calor",
     "url": "https://www.lightpollutionmap.info/",
     "description": "Ver la densidad de habitantes en mapa de calor Mapas",
     "pricing": "Free",
@@ -1826,7 +1826,7 @@
   {
     "name": "Deudores de Alimentos",
     "url": "https://casillas.pj.gob.pe/redam/#",
-    "description": "Registro de deudores alimentarios del Poder Judicial Per\u00fa",
+    "description": "Registro de deudores alimentarios del Poder Judicial Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Business & Corporate Registers"
@@ -1834,15 +1834,15 @@
   {
     "name": "Deudores mutuales y cooperativas",
     "url": "https://central-deudores.inaes.gob.ar/cdeudores",
-    "description": "Averiguar por CUIL en la Central de Deudores de los Servicios de Cr\u00e9dito Cooperativo y/o Ayuda Econ\u00f3mica Mutual. Argentina",
+    "description": "Averiguar por CUIL en la Central de Deudores de los Servicios de Crédito Cooperativo y/o Ayuda Económica Mutual. Argentina",
     "pricing": "Free",
     "status": "live",
     "category": "Compliance, Sanctions & Legal"
   },
   {
-    "name": "Diario la Raz\u00f3n - Per\u00fa",
+    "name": "Diario la Razón - Perú",
     "url": "https://larazon.pe/edicion_impresa/",
-    "description": "Portadas de noticias del diarios La Raz\u00f3n peri\u00f3dicos Revista",
+    "description": "Portadas de noticias del diarios La Razón periódicos Revista",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -1850,15 +1850,15 @@
   {
     "name": "Diarios Online - Argentina",
     "url": "https://www.sitiosargentina.com.ar/diarios%20argentina.htm",
-    "description": "Directorio completo con los diarios en linea de Argentina peri\u00f3dicos Revista diarios",
+    "description": "Directorio completo con los diarios en linea de Argentina periódicos Revista diarios",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
   },
   {
-    "name": "Diarios Per\u00fa (Scrapping)",
+    "name": "Diarios Perú (Scrapping)",
     "url": "https://larazon.pe/edicion_impresa/ediciones-impresas-27-05-2025/",
-    "description": "Portadas de noticias del diarios La Raz\u00f3n peri\u00f3dicos Revista",
+    "description": "Portadas de noticias del diarios La Razón periódicos Revista",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -1872,7 +1872,7 @@
     "category": "Media & Document Analysis"
   },
   {
-    "name": "Diferencia entre dos im\u00e1genes",
+    "name": "Diferencia entre dos imágenes",
     "url": "https://facecomparison.toolpie.com/",
     "description": "Compares two human face photos to determine similarity.",
     "pricing": "Free",
@@ -1882,7 +1882,7 @@
   {
     "name": "Diferencia entre dos textos",
     "url": "https://www.diffchecker.com/",
-    "description": "Busca diferencias entre dos im\u00e1genes, documentos, etc.",
+    "description": "Busca diferencias entre dos imágenes, documentos, etc.",
     "pricing": "Free",
     "status": "live",
     "category": "Media & Document Analysis"
@@ -1890,7 +1890,7 @@
   {
     "name": "Digital Digging",
     "url": "https://cache.digitaldigging.org/",
-    "description": "Recuperar tweets eliminados mediante cach\u00e9s web Twitter",
+    "description": "Recuperar tweets eliminados mediante cachés web Twitter",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -1906,7 +1906,7 @@
   {
     "name": "Ding",
     "url": "https://www.ding.com/es/topup",
-    "description": "Recargar saldo y verificar n\u00fameros de tel\u00e9fono DING",
+    "description": "Recargar saldo y verificar números de teléfono DING",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -1957,28 +1957,28 @@
     "description": "Distill is a website change monitoring tool that allows users to track changes on web pages.",
     "pricing": "Partially Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Domain & IP Analysis"
   },
   {
-    "name": "Dni-Per\u00fa Online",
+    "name": "Dni-Perú Online",
     "url": "https://dni-peru.online/buscar-dni-por-nombres-y-apellidos/",
-    "description": "buscar DNI con nombres y apellidos Per\u00fa Peruanos personas",
+    "description": "buscar DNI con nombres y apellidos Perú Peruanos personas",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Transportation OSINT"
   },
   {
-    "name": "DNIPer\u00fa",
+    "name": "DNIPerú",
     "url": "https://dniperu.com/buscar-dni-por-nombres-y-apellidos/",
-    "description": "buscar DNI con nombres y apellidos Per\u00fa Peruanos personas",
+    "description": "buscar DNI con nombres y apellidos Perú Peruanos personas",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Transportation OSINT"
   },
   {
     "name": "DNS Dumpster",
     "url": "https://dnsdumpster.com",
-    "description": "** Ferramenta de investiga\u00e7\u00e3o de dom\u00ednio que pode descobrir hosts relacionados a um dom\u00ednio.",
+    "description": "** Ferramenta de investigação de domínio que pode descobrir hosts relacionados a um domínio.",
     "pricing": "Free",
     "status": "live",
     "category": "Domain & IP Analysis"
@@ -2002,7 +2002,7 @@
   {
     "name": "DNSTwist",
     "url": "https://github.com/elceef/dnstwist",
-    "description": "** Mecanismo de permuta\u00e7\u00e3o de nomes de dom\u00ednio.",
+    "description": "** Mecanismo de permutação de nomes de domínio.",
     "pricing": "Free",
     "status": "live",
     "category": "Domain & IP Analysis"
@@ -2034,7 +2034,7 @@
   {
     "name": "Dominio.es",
     "url": "https://nic.es/sgnd/dominio/publicBuscarDominios.action",
-    "description": "** Informa\u00e7\u00f5es de dom\u00ednio.",
+    "description": "** Informações de domínio.",
     "pricing": "Free",
     "status": "live",
     "category": "Domain & IP Analysis"
@@ -2042,18 +2042,18 @@
   {
     "name": "Dorks Web Cam",
     "url": "https://docs.google.com/spreadsheets/d/1vKcsluf6bscSU39ojH-fjetZ1WYC0-Cs/edit?usp=sharing&ouid=117895661947527870218&rtpof=true&sd=true",
-    "description": "Dorks para buscar c\u00e1maras web",
+    "description": "Dorks para buscar cámaras web",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
   },
   {
-    "name": "Dossi\u00ea de Dom\u00ednio",
+    "name": "Dossiê de Domínio",
     "url": "https://centralops.net/co/DomainDossier.aspx",
-    "description": "** Investigue dom\u00ednios e endere\u00e7os IP.",
+    "description": "** Investigue domínios e endereços IP.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Domain & IP Analysis"
   },
   {
     "name": "DPMAregister / DPMA",
@@ -2082,7 +2082,7 @@
   {
     "name": "Earth Cam",
     "url": "https://www.earthcam.com/",
-    "description": "C\u00e1maras web en vivo alrededor del mundo",
+    "description": "Cámaras web en vivo alrededor del mundo",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -2141,15 +2141,15 @@
     "description": "Map/tracker of environmental crimes including trade in ivory, rhino, big cats, and other exotic animals.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Geospatial & Mapping"
   },
   {
     "name": "El DNI",
     "url": "https://eldni.com/",
-    "description": "Consulta de informaci\u00f3n relacionada al DNI Per\u00fa personas peruanos",
+    "description": "Consulta de información relacionada al DNI Perú personas peruanos",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Compliance, Sanctions & Legal"
   },
   {
     "name": "Eliminar desenfoque a imagen con IA",
@@ -2160,7 +2160,7 @@
     "category": "Media & Document Analysis"
   },
   {
-    "name": "Eliminar desenfoque de im\u00e1genes",
+    "name": "Eliminar desenfoque de imágenes",
     "url": "https://app.remini.ai/",
     "description": "Detecta y elimina el blureo o desenfoque de una imagen, tratando de reconstruirla con ia",
     "pricing": "Free",
@@ -2173,12 +2173,12 @@
     "description": "Busca, detecta y caza amenazas a lo largo de conjuntos de datos.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Email Temporal",
     "url": "http://www.emailtemporalgratis.com/",
-    "description": "Generar una casilla de correo electr\u00f3nico temporal y desechable",
+    "description": "Generar una casilla de correo electrónico temporal y desechable",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -2197,7 +2197,7 @@
     "description": "Yellow Pages (Swedish Edition)",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Environmental Justice Atlas",
@@ -2218,7 +2218,7 @@
   {
     "name": "Epieos",
     "url": "https://epieos.com/",
-    "description": "** Realize pesquisas reversas de e-mail, encontre avalia\u00e7\u00f5es relacionadas no Google, registros em plataformas online e muitas outras fun\u00e7\u00f5es.",
+    "description": "** Realize pesquisas reversas de e-mail, encontre avaliações relacionadas no Google, registros em plataformas online e muitas outras funções.",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -2242,10 +2242,10 @@
   {
     "name": "Eset",
     "url": "https://www.eset.com/es/password-generator/",
-    "description": "Generador de contrase\u00f1as seguras de ESET",
+    "description": "Generador de contraseñas seguras de ESET",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Email & Username OSINT"
   },
   {
     "name": "Espacenet Advanced Search",
@@ -2322,7 +2322,7 @@
   {
     "name": "Exifmeta",
     "url": "https://exifmeta.com/",
-    "description": "Extracci\u00f3n y an\u00e1lisis de metadatos de archivos",
+    "description": "Extracción y análisis de metadatos de archivos",
     "pricing": "Free",
     "status": "live",
     "category": "Cyber Threat Intelligence (CTI)"
@@ -2338,7 +2338,7 @@
   {
     "name": "Exiftool",
     "url": "https://github.com/exiftool/exiftool",
-    "description": "** Aplicativo de linha de comando completo para ler e gravar metainforma\u00e7\u00f5es em uma ampla variedade de arquivos.",
+    "description": "** Aplicativo de linha de comando completo para ler e gravar metainformações em uma ampla variedade de arquivos.",
     "pricing": "Free",
     "status": "live",
     "category": "Media & Document Analysis"
@@ -2376,15 +2376,15 @@
     "category": "Social Media Intelligence (SOCMINT)"
   },
   {
-    "name": "Extensi\u00f3n ID",
+    "name": "Extensión ID",
     "url": "https://addons.mozilla.org/en-US/firefox/addon/facebook-instagram-osint/",
-    "description": "Extensi\u00f3n para extraer IDs y metadatos de perfiles",
+    "description": "Extensión para extraer IDs y metadatos de perfiles",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
   },
   {
-    "name": "Extens\u00e3o de Pesquisa Reversa de Imagens",
+    "name": "Extensão de Pesquisa Reversa de Imagens",
     "url": "https://chromewebstore.google.com/detail/search-by-image/cnojnbdhbhnkbcieeekonklommdnndci",
     "description": "** Ferramenta para realizar pesquisa reversa de imagens no navegador.",
     "pricing": "Free",
@@ -2416,17 +2416,17 @@
     "category": "Email & Username OSINT"
   },
   {
-    "name": "Fabricante seg\u00fan MacAddress",
+    "name": "Fabricante según MacAddress",
     "url": "https://miniwebtool.com/es/mac-address-lookup/",
     "description": "Determina fabricante por MAC ADDRESS",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Facebook Sleep Stats",
     "url": "https://github.com/sqren/fb-sleep-stats",
-    "description": "** Descubra quando as pessoas se conectam e desconectam, gerando uma imagem precisa de seus padr\u00f5es de sono.",
+    "description": "** Descubra quando as pessoas se conectam e desconectam, gerando uma imagem precisa de seus padrões de sono.",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -2469,7 +2469,7 @@
     "description": "** Gerador de nomes falsos.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "FastPeopleSearch",
@@ -2522,7 +2522,7 @@
   {
     "name": "Filtraciones por datos",
     "url": "https://breachdirectory.org/",
-    "description": "Datos o credenciales filtrados en la web. B\u00fasqueda por diferentes datos Breach Directory",
+    "description": "Datos o credenciales filtrados en la web. Búsqueda por diferentes datos Breach Directory",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -2552,7 +2552,7 @@
     "category": "Email & Username OSINT"
   },
   {
-    "name": "Filtrar b\u00fasquedas",
+    "name": "Filtrar búsquedas",
     "url": "https://recruitin.net/",
     "description": "Free X-Ray search tool for finding profiles on LinkedIn, GitHub, Twitter, and other platforms using Google's site: operator with customizable search parameters.",
     "pricing": "free",
@@ -2586,7 +2586,7 @@
   {
     "name": "Flighera",
     "url": "https://www.flightera.net/es/",
-    "description": "Plataforma de tracking de vuelos hist\u00f3ricos",
+    "description": "Plataforma de tracking de vuelos históricos",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -2594,7 +2594,7 @@
   {
     "name": "Flight Radar",
     "url": "https://www.flightradar24.com/",
-    "description": "Radar de seguimiento a\u00e9reo global Y rastrea vuelos en el mapa y visualiza trafico a\u00e9reo",
+    "description": "Radar de seguimiento aéreo global Y rastrea vuelos en el mapa y visualiza trafico aéreo",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -2610,7 +2610,7 @@
   {
     "name": "FOCA",
     "url": "https://github.com/ElevenPaths/FOCA",
-    "description": "** Ferramenta usada principalmente para encontrar metadados e informa\u00e7\u00f5es ocultas em documentos.",
+    "description": "** Ferramenta usada principalmente para encontrar metadados e informações ocultas em documentos.",
     "pricing": "Free",
     "status": "live",
     "category": "Media & Document Analysis"
@@ -2621,7 +2621,7 @@
     "description": "Low-interaction, easily configurable honeypot.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Forensically",
@@ -2653,7 +2653,7 @@
     "description": "Muchas herramientas OSINT ordenadas por secciones",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "OSINT Training & Guides"
   },
   {
     "name": "francais-a-londres.org - French Classifieds",
@@ -2666,7 +2666,7 @@
   {
     "name": "Free Breach Checker",
     "url": "https://www.digitalfootprintcheck.com/free-breach-checker.html",
-    "description": "Comprobar si un correo electr\u00f3nico ha sido filtrado",
+    "description": "Comprobar si un correo electrónico ha sido filtrado",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -2688,9 +2688,9 @@
     "category": "Blockchain & Cryptocurrency"
   },
   {
-    "name": "Funcionarios P\u00fablicos",
+    "name": "Funcionarios Públicos",
     "url": "https://www.transparencia.gob.pe/personal/pte_transparencia_personal.aspx",
-    "description": "Directorio de funcionarios p\u00fablicos en el Per\u00fa",
+    "description": "Directorio de funcionarios públicos en el Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Business & Corporate Registers"
@@ -2714,7 +2714,7 @@
   {
     "name": "Geluchat",
     "url": "https://addons.mozilla.org/es/firefox/addon/facebook-instagram-osint/",
-    "description": "** Extens\u00e3o para obter informa\u00e7\u00f5es de perfil no Instagram e Facebook.",
+    "description": "** Extensão para obter informações de perfil no Instagram e Facebook.",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -2730,7 +2730,7 @@
   {
     "name": "Generador de Rostros",
     "url": "https://generated.photos/faces",
-    "description": "Crea un rostro configurando tus propios par\u00e1metros de personas ficticias",
+    "description": "Crea un rostro configurando tus propios parámetros de personas ficticias",
     "pricing": "Free",
     "status": "live",
     "category": "Dating & Communities"
@@ -2746,7 +2746,7 @@
   {
     "name": "Geo Llaqta",
     "url": "https://catastro.cofopri.gob.pe/geollaqta/",
-    "description": "Sistema de geolocalizaci\u00f3n de predios urbanos Per\u00fa Mapa y Mapas",
+    "description": "Sistema de geolocalización de predios urbanos Perú Mapa y Mapas",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -2762,7 +2762,7 @@
   {
     "name": "Geolocalizar IP",
     "url": "https://www.cual-es-mi-ip.net/geolocalizar-ip-mapa",
-    "description": "Geolocalizar una direcci\u00f3n IP en un mapa",
+    "description": "Geolocalizar una dirección IP en un mapa",
     "pricing": "Free",
     "status": "live",
     "category": "Domain & IP Analysis"
@@ -2794,7 +2794,7 @@
   {
     "name": "Getfvid",
     "url": "https://www.getfvid.com/es/twitter",
-    "description": "** Baixe v\u00eddeos do Twitter.",
+    "description": "** Baixe vídeos do Twitter.",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -2808,9 +2808,9 @@
     "category": "Encoding & Data Conversion"
   },
   {
-    "name": "Ghunt en l\u00ednea",
+    "name": "Ghunt en línea",
     "url": "https://gmail-osint.activetk.jp/",
-    "description": "Herramienta GHunt para an\u00e1lisis de correos Gmail",
+    "description": "Herramienta GHunt para análisis de correos Gmail",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -2821,12 +2821,12 @@
     "description": "Mapping service for Albania (specially Kosovo)",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Geospatial & Mapping"
   },
   {
     "name": "Glint",
     "url": "https://glint.trade",
-    "description": "** Terminal en tiempo real que mapea y visualiza indicadores de mercados financieros, sentimiento de operadores y din\u00e1micas de riesgo geopol\u00edtico.",
+    "description": "** Terminal en tiempo real que mapea y visualiza indicadores de mercados financieros, sentimiento de operadores y dinámicas de riesgo geopolítico.",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -2853,7 +2853,7 @@
     "description": "Explore tree cover loss and gain data, recent deforestation and fire alerts, land use designations, carbon emissions, biodiversity metrics and more.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Transportation OSINT"
   },
   {
     "name": "Global Monitoring System - ECOSOLVE",
@@ -2877,7 +2877,7 @@
     "description": "A site dedicated to connect suppliers and buyers of goods from all over the world.",
     "pricing": "Partially Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Global Terrorism Database",
@@ -2994,7 +2994,7 @@
   {
     "name": "Google Search",
     "url": "https://search.google.com/search-console/remove-outdated-content",
-    "description": "Eliminaci\u00f3n de contenido obsoleto en Google Search",
+    "description": "Eliminación de contenido obsoleto en Google Search",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -3002,10 +3002,10 @@
   {
     "name": "Google Trends",
     "url": "https://trends.google.es/trends/",
-    "description": "** Acesso a dados agregados e organizados sobre tend\u00eancias de pesquisa do Google.",
+    "description": "** Acesso a dados agregados e organizados sobre tendências de pesquisa do Google.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Google/YouTube Legal Requests",
@@ -3016,7 +3016,7 @@
     "category": "Social Media Intelligence (SOCMINT)"
   },
   {
-    "name": "GOVDATA - Das Datenportal f\u00fcr Deutschland (German)",
+    "name": "GOVDATA - Das Datenportal für Deutschland (German)",
     "url": "https://www.govdata.de/",
     "description": "",
     "pricing": "Free",
@@ -3056,12 +3056,12 @@
     "category": "Cyber Threat Intelligence (CTI)"
   },
   {
-    "name": "Grados y T\u00edtulos",
+    "name": "Grados y Títulos",
     "url": "https://titulosinstitutos.minedu.gob.pe/",
-    "description": "Validaci\u00f3n de grados y t\u00edtulos t\u00e9cnicos en Per\u00fa",
+    "description": "Validación de grados y títulos técnicos en Perú",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Grammarly AI Detector",
@@ -3074,7 +3074,7 @@
   {
     "name": "Graph Tips",
     "url": "https://graph.tips/beta/",
-    "description": "Explorador de Graph API con funciones avanzadas de b\u00fasqueda",
+    "description": "Explorador de Graph API con funciones avanzadas de búsqueda",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -3096,7 +3096,7 @@
     "category": "Archives & Databases"
   },
   {
-    "name": "Gu\u00eda de Calles",
+    "name": "Guía de Calles",
     "url": "http://www.guiacalles.com/movil/",
     "description": "Directorio digital de calles y direcciones Mapa y Mapas",
     "pricing": "Free",
@@ -3117,7 +3117,7 @@
     "description": "Chambers of skilled crafts registry.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Business & Corporate Registers"
   },
   {
     "name": "Hashes",
@@ -3138,7 +3138,7 @@
   {
     "name": "Have I Been Pwned",
     "url": "https://haveibeenpwned.com/",
-    "description": "Verificar si un correo electr\u00f3nico ha sido comprometido en filtraciones. Datos o credenciales filtrados en la web",
+    "description": "Verificar si un correo electrónico ha sido comprometido en filtraciones. Datos o credenciales filtrados en la web",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -3146,7 +3146,7 @@
   {
     "name": "Hemeroteca digital (Santa Fe) - Argentina",
     "url": "http://www.santafe.gov.ar/hemerotecadigital/formbuscar.php",
-    "description": "Hemeroteca digital de la pronvincia de Santa Fe. Argentina peri\u00f3dicos Revista diarios",
+    "description": "Hemeroteca digital de la pronvincia de Santa Fe. Argentina periódicos Revista diarios",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -3157,10 +3157,10 @@
     "description": "Mapping service similar to Google Maps or Apple Maps.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Geospatial & Mapping"
   },
   {
-    "name": "Historial de im\u00e1genes satelitales",
+    "name": "Historial de imágenes satelitales",
     "url": "https://livingatlas.arcgis.com/wayback/",
     "description": "Descubre como cambio un lugar o terreno con el paso del tiempo Mapa y Mapas",
     "pricing": "Free",
@@ -3168,9 +3168,9 @@
     "category": "Geospatial & Mapping"
   },
   {
-    "name": "Historial de Verificaci\u00f3n T\u00e9cnica Vehicular",
+    "name": "Historial de Verificación Técnica Vehicular",
     "url": "https://www.vtv.minfra.gba.gob.ar/historial.php",
-    "description": "Con la patente del veh\u00edculo podemos observar el historial de las plantas donde verific\u00f3 junto con la ubicaci\u00f3n. Argentina",
+    "description": "Con la patente del vehículo podemos observar el historial de las plantas donde verificó junto con la ubicación. Argentina",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -3189,7 +3189,7 @@
     "description": "Mapping service for Sweden",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Geospatial & Mapping"
   },
   {
     "name": "Hive AI Generated Content Detection",
@@ -3237,7 +3237,7 @@
     "description": "Real-time phishing URL feed providing confirmed malicious phishing sites updated continuously.",
     "pricing": "free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Hugging Face AI Detector",
@@ -3266,15 +3266,15 @@
   {
     "name": "Hunter.io",
     "url": "https://hunter.io/",
-    "description": "** Encontre e-mails relacionados a um dom\u00ednio espec\u00edfico.",
+    "description": "** Encontre e-mails relacionados a um domínio específico.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Email & Username OSINT"
   },
   {
     "name": "Hybrid-analysis",
     "url": "https://www.hybrid-analysis.com/",
-    "description": "** Detec\u00e7\u00e3o de malware online.",
+    "description": "** Detecção de malware online.",
     "pricing": "Free",
     "status": "live",
     "category": "Digital Forensics & Incident Response (DFIR)"
@@ -3282,10 +3282,10 @@
   {
     "name": "Iberinform",
     "url": "https://www.iberinform.es/",
-    "description": "** Fonte de informa\u00e7\u00e3o comercial.",
+    "description": "** Fonte de informação comercial.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Business & Corporate Registers"
   },
   {
     "name": "IBM X-Force Exchange",
@@ -3298,7 +3298,7 @@
   {
     "name": "Icann Lookup",
     "url": "https://whois.icann.org/es",
-    "description": "Consultar informaci\u00f3n WHOIS de dominios y direcciones IP",
+    "description": "Consultar información WHOIS de dominios y direcciones IP",
     "pricing": "Free",
     "status": "live",
     "category": "Domain & IP Analysis"
@@ -3306,7 +3306,7 @@
   {
     "name": "Icann Lookup",
     "url": "https://lookup.icann.org/en/lookup",
-    "description": "Herramienta de b\u00fasqueda WHOIS de ICANN",
+    "description": "Herramienta de búsqueda WHOIS de ICANN",
     "pricing": "Free",
     "status": "live",
     "category": "Domain & IP Analysis"
@@ -3322,7 +3322,7 @@
   {
     "name": "ICIJ Offshore Leaks Database",
     "url": "http://offshoreleaks.icij.org/",
-    "description": "Find out who\u2019s behind more than 810k offshore companies, foundations and trusts from the Panama Papers, the Offshore Leaks, the Bahamas Leaks and the Paradise Papers investigations.",
+    "description": "Find out who’s behind more than 810k offshore companies, foundations and trusts from the Panama Papers, the Offshore Leaks, the Bahamas Leaks and the Paradise Papers investigations.",
     "pricing": "free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -3338,7 +3338,7 @@
   {
     "name": "ID Crawl",
     "url": "https://www.idcrawl.com/",
-    "description": "Buscar informaci\u00f3n asociada a un nombre de usuario",
+    "description": "Buscar información asociada a un nombre de usuario",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -3362,7 +3362,7 @@
   {
     "name": "Ignorant",
     "url": "https://github.com/megadose/ignorant",
-    "description": "** Permite verificar se um n\u00famero de telefone \u00e9 usado em diferentes sites como Snapchat, Instagram e Amazon.",
+    "description": "** Permite verificar se um número de telefone é usado em diferentes sites como Snapchat, Instagram e Amazon.",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -3370,10 +3370,10 @@
   {
     "name": "iKy",
     "url": "https://github.com/kennbroorg/iKy",
-    "description": "** Ferramenta que coleta informa\u00e7\u00f5es a partir de um e-mail e apresenta os resultados em uma interface visual intuitiva.",
+    "description": "** Ferramenta que coleta informações a partir de um e-mail e apresenta os resultados em uma interface visual intuitiva.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Email & Username OSINT"
   },
   {
     "name": "Illegal, unreported, unregular fishing Vessels List",
@@ -3424,7 +3424,7 @@
     "category": "Transportation OSINT"
   },
   {
-    "name": "Im\u00e1genes de Google Streetview",
+    "name": "Imágenes de Google Streetview",
     "url": "https://svd360.com/",
     "description": "Navegar en el mapa directamente desde streeview, descargar imagen y compartirlas Mapas",
     "pricing": "Free",
@@ -3445,36 +3445,36 @@
     "description": "** Resultados eleitorais.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Infoga",
     "url": "https://github.com/GiJ03/Infoga",
-    "description": "** Ferramenta que coleta informa\u00e7\u00f5es da conta de e-mail de diferentes fontes p\u00fablicas e verifica se os e-mails vazaram.",
+    "description": "** Ferramenta que coleta informações da conta de e-mail de diferentes fontes públicas e verifica se os e-mails vazaram.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Email & Username OSINT"
   },
   {
-    "name": "Informaci\u00f3n personal por DNI, CUIT o CUIL",
+    "name": "Información personal por DNI, CUIT o CUIL",
     "url": "https://www.cuitonline.com/",
-    "description": "Informaci\u00f3n sobre nombre, raz\u00f3n social, DNI, CUIL y CUIT de personas. Argentina",
+    "description": "Información sobre nombre, razón social, DNI, CUIL y CUIT de personas. Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Compliance, Sanctions & Legal"
   },
   {
-    "name": "Informaci\u00f3n por capas",
+    "name": "Información por capas",
     "url": "http://mapa.idera.gob.ar/",
-    "description": "Mapa de la Argentina con informaci\u00f3n de todo tipo ordenada por capas acorde a su ubicaci\u00f3n Mapas",
+    "description": "Mapa de la Argentina con información de todo tipo ordenada por capas acorde a su ubicación Mapas",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
   },
   {
-    "name": "Informaci\u00f3n y foto de perfil",
+    "name": "Información y foto de perfil",
     "url": "https://whatsapp.checkleaked.cc/",
-    "description": "Obtener informaci\u00f3n de n\u00fameros de WhatsApp",
+    "description": "Obtener información de números de WhatsApp",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -3482,7 +3482,7 @@
   {
     "name": "Informativo",
     "url": "http://servicioscal.org.pe/consulta_habilidad/",
-    "description": "Consulta de abogados habilitados en Per\u00fa",
+    "description": "Consulta de abogados habilitados en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Business & Corporate Registers"
@@ -3493,7 +3493,7 @@
     "description": "Por nombre o CUIL acceda a un informe comercial de personas. Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Business & Corporate Registers"
   },
   {
     "name": "Informe deuda BCRA",
@@ -3538,15 +3538,15 @@
   {
     "name": "Insecam",
     "url": "http://www.insecam.org/",
-    "description": "Explorar c\u00e1maras web en l\u00ednea",
+    "description": "Explorar cámaras web en línea",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
   },
   {
-    "name": "Inspecci\u00f3n T\u00e9cnica",
+    "name": "Inspección Técnica",
     "url": "https://rec.mtc.gob.pe/Citv/ArConsultaCitv",
-    "description": "Inspecci\u00f3n T\u00e9cnica Vehicular obligatoria en Per\u00fa MTC vehiculos",
+    "description": "Inspección Técnica Vehicular obligatoria en Perú MTC vehiculos",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -3570,7 +3570,7 @@
   {
     "name": "Instaloader",
     "url": "https://github.com/instaloader/instaloader",
-    "description": "** Ferramenta OSINT completa para an\u00e1lise no Instagram.",
+    "description": "** Ferramenta OSINT completa para análise no Instagram.",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -3610,7 +3610,7 @@
   {
     "name": "Inteltechniques",
     "url": "https://inteltechniques.com/data/workbook.pdf",
-    "description": "Gu\u00eda para eliminar datos personales de internet",
+    "description": "Guía para eliminar datos personales de internet",
     "pricing": "Free",
     "status": "live",
     "category": "OSINT Training & Guides"
@@ -3618,7 +3618,7 @@
   {
     "name": "Inteltechniques",
     "url": "https://inteltechniques.com/osint/facebook.html",
-    "description": "** Todos os tipos de op\u00e7\u00f5es de pesquisa no Facebook.",
+    "description": "** Todos os tipos de opções de pesquisa no Facebook.",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -3666,7 +3666,7 @@
   {
     "name": "IP Info",
     "url": "https://ipinfo.io/",
-    "description": "Obtener detalles de una direcci\u00f3n IP. Permite buscar informaci\u00f3n sobre varias direcciones IP al mismo tiempo",
+    "description": "Obtener detalles de una dirección IP. Permite buscar información sobre varias direcciones IP al mismo tiempo",
     "pricing": "Free",
     "status": "live",
     "category": "Domain & IP Analysis"
@@ -3674,7 +3674,7 @@
   {
     "name": "IP Logger",
     "url": "https://iplogger.org/es/",
-    "description": "** Registro e monitoramento de endere\u00e7os IP.",
+    "description": "** Registro e monitoramento de endereços IP.",
     "pricing": "Free",
     "status": "live",
     "category": "Domain & IP Analysis"
@@ -3682,7 +3682,7 @@
   {
     "name": "Iran Monitor",
     "url": "https://iranmonitor.org",
-    "description": "** Iniciativa voluntaria de monitoreo y OSINT para rastrear y reportar la situaci\u00f3n de derechos humanos, conectividad de red y protestas en Ir\u00e1n.",
+    "description": "** Iniciativa voluntaria de monitoreo y OSINT para rastrear y reportar la situación de derechos humanos, conectividad de red y protestas en Irán.",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -3701,7 +3701,7 @@
     "description": "Real-time validation engine checking if a URL is a phishing link.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Jager",
@@ -3730,7 +3730,7 @@
   {
     "name": "Jotti Malware",
     "url": "https://virusscan.jotti.org/",
-    "description": "Esc\u00e1ner de malware para archivos",
+    "description": "Escáner de malware para archivos",
     "pricing": "Free",
     "status": "live",
     "category": "Cyber Threat Intelligence (CTI)"
@@ -3754,10 +3754,10 @@
   {
     "name": "Kaspersky",
     "url": "https://password.kaspersky.com/es/",
-    "description": "Verificador de fortaleza de contrase\u00f1as de Kaspersky",
+    "description": "Verificador de fortaleza de contraseñas de Kaspersky",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Email & Username OSINT"
   },
   {
     "name": "Kijiji - Canada Classifieds",
@@ -3768,9 +3768,9 @@
     "category": "Transportation OSINT"
   },
   {
-    "name": "Kiosko Per\u00fa (Canal en Telegram)",
+    "name": "Kiosko Perú (Canal en Telegram)",
     "url": "https://t.me/kioskope",
-    "description": "Acceder a peri\u00f3dicos y revistas de Per\u00fa en Telegram diarios",
+    "description": "Acceder a periódicos y revistas de Perú en Telegram diarios",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -3784,17 +3784,17 @@
     "category": "Transportation OSINT"
   },
   {
-    "name": "La Cat\u00f3lica",
+    "name": "La Católica",
     "url": "https://eros.pucp.edu.pe/pucp/general/gewpealu/gewpealu?accion=Ingresar",
-    "description": "B\u00fasqueda de personas en la Pontificia Universidad Cat\u00f3lica del Per\u00fa",
+    "description": "Búsqueda de personas en la Pontificia Universidad Católica del Perú",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "La Molina",
     "url": "https://www.lamolina.edu.pe/portada/html/acerca/emailalumnos.htm",
-    "description": "Directorio de correos de la Universidad Agraria La Molina Per\u00fa",
+    "description": "Directorio de correos de la Universidad Agraria La Molina Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -3810,18 +3810,18 @@
   {
     "name": "Lampyre",
     "url": "https://lampyre.io/",
-    "description": "** Ferramenta OSINT que permite obter, visualizar e analisar diversos tipos de informa\u00e7\u00f5es em um \u00fanico lugar.",
+    "description": "** Ferramenta OSINT que permite obter, visualizar e analisar diversos tipos de informações em um único lugar.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Domain & IP Analysis"
   },
   {
     "name": "Last Pass",
     "url": "https://www.lastpass.com/es/features/password-generator",
-    "description": "Generador de contrase\u00f1as de LastPass",
+    "description": "Generador de contraseñas de LastPass",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Email & Username OSINT"
   },
   {
     "name": "lazys3 (T)",
@@ -3850,15 +3850,15 @@
   {
     "name": "LibreBOR",
     "url": "https://librebor.me/",
-    "description": "** Fonte de informa\u00e7\u00e3o comercial.",
+    "description": "** Fonte de informação comercial.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Business & Corporate Registers"
   },
   {
     "name": "Licencias de conducir 1",
     "url": "https://licencias.mtc.gob.pe/#/index",
-    "description": "Consulta de licencias de conducir y veh\u00edculos en Per\u00fa MTC vehiculos",
+    "description": "Consulta de licencias de conducir y vehículos en Perú MTC vehiculos",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -3866,7 +3866,7 @@
   {
     "name": "Licencias de conducir 2",
     "url": "https://slcp.mtc.gob.pe/",
-    "description": "Sistema de licencias vehiculares del Ministerio de Transportes MTC veh\u00edculos y vehiculos Per\u00fa",
+    "description": "Sistema de licencias vehiculares del Ministerio de Transportes MTC vehículos y vehiculos Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -3922,7 +3922,7 @@
   {
     "name": "Listas Spam",
     "url": "https://www.listaspam.com/",
-    "description": "Listas de n\u00fameros y correos identificados como spam. Permite buscar n\u00fameros que fueron reportados por estafas o spam",
+    "description": "Listas de números y correos identificados como spam. Permite buscar números que fueron reportados por estafas o spam",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -3981,7 +3981,7 @@
     "description": "Logseq is an open-source knowledge management tool that enables users to organize their notes, tasks, and projects.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Lumen",
@@ -4010,10 +4010,10 @@
   {
     "name": "Maltego",
     "url": "https://www.maltego.com/",
-    "description": "** Software que re\u00fane diversas ferramentas OSINT \u00fateis.",
+    "description": "** Software que reúne diversas ferramentas OSINT úteis.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Maltego Graph",
@@ -4058,7 +4058,7 @@
   {
     "name": "MalwareBazaar",
     "url": "https://bazaar.abuse.ch/",
-    "description": "Analiza comportamiento de malware y muestras de c\u00f3digo.",
+    "description": "Analiza comportamiento de malware y muestras de código.",
     "pricing": "Free",
     "status": "live",
     "category": "Digital Forensics & Incident Response (DFIR)"
@@ -4066,10 +4066,10 @@
   {
     "name": "Manolo Rocks",
     "url": "https://manolo.rocks/",
-    "description": "Herramienta OSINT para b\u00fasqueda de informaci\u00f3n personal Per\u00fa personas peruanos",
+    "description": "Herramienta OSINT para búsqueda de información personal Perú personas peruanos",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Mapa con herramientas OSINT",
@@ -4080,9 +4080,9 @@
     "category": "Geospatial & Mapping"
   },
   {
-    "name": "Mapa de Alerta de estado de v\u00eda",
+    "name": "Mapa de Alerta de estado de vía",
     "url": "https://gis.sutran.gob.pe/alerta_sutran/",
-    "description": "Mapa interactivo de alertas por bloqueo de carreteras de la Sutran en Per\u00fa Mapas",
+    "description": "Mapa interactivo de alertas por bloqueo de carreteras de la Sutran en Perú Mapas",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -4090,7 +4090,7 @@
   {
     "name": "Mapa de deportistas",
     "url": "https://www.strava.com/heatmap",
-    "description": "Un mapa donde puedes filtrar y ver la mayor concentraci\u00f3n de actividad deportiva y Mapas",
+    "description": "Un mapa donde puedes filtrar y ver la mayor concentración de actividad deportiva y Mapas",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -4098,15 +4098,15 @@
   {
     "name": "Mapa de Tweets",
     "url": "https://onemilliontweetmap.com/",
-    "description": "Mapa que muestra Tuits en tiempo real con m\u00e9tricas e indicadores Twitter",
+    "description": "Mapa que muestra Tuits en tiempo real con métricas e indicadores Twitter",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
   },
   {
-    "name": "Mapa y fotograf\u00edas a\u00e9reas",
+    "name": "Mapa y fotografías aéreas",
     "url": "http://ssplan.buenosaires.gob.ar/webfiles/mapa_aereas2",
-    "description": "Mapa cargado con vistas fotogr\u00e1ficas a\u00e9reas de la Ciudad Aut\u00f3noma de Buenos Aires. Mapas Argentina",
+    "description": "Mapa cargado con vistas fotográficas aéreas de la Ciudad Autónoma de Buenos Aires. Mapas Argentina",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -4141,12 +4141,12 @@
     "description": "Mapping service (and streetview in a couple of French cities \\[double check this!])",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Geospatial & Mapping"
   },
   {
     "name": "Maps Geodir",
     "url": "https://maps.geodir.co/",
-    "description": "Mapas detallados con informaci\u00f3n geogr\u00e1fica Mapa",
+    "description": "Mapas detallados con información geográfica Mapa",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -4165,7 +4165,7 @@
     "description": "Mapping service for Czechia",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Geospatial & Mapping"
   },
   {
     "name": "MarineTraffic",
@@ -4189,7 +4189,7 @@
     "description": "** Framework OSINT.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "OSINT Training & Guides"
   },
   {
     "name": "massive-octo-spice - csirtgadgets Github",
@@ -4202,7 +4202,7 @@
   {
     "name": "Medir distancias en mapa",
     "url": "https://www.acscdg.com/",
-    "description": "Configura puntos de inicio/final y obtiene informaci\u00f3n como distancia, coordenadas y m\u00e1s. Mapa y Mapas",
+    "description": "Configura puntos de inicio/final y obtiene información como distancia, coordenadas y más. Mapa y Mapas",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -4226,7 +4226,7 @@
   {
     "name": "Menciones en tiempo real",
     "url": "https://www.social-searcher.com/",
-    "description": "Busca menciones en tiempo real en redes sociales y crea alertas. Motor de b\u00fasqueda para redes sociales",
+    "description": "Busca menciones en tiempo real en redes sociales y crea alertas. Motor de búsqueda para redes sociales",
     "pricing": "Partially Free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -4245,7 +4245,7 @@
     "description": "Identify birds (visually), through an app.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Meta Content Library",
@@ -4341,7 +4341,7 @@
     "description": "MITRE ATT&CK framework: globally-accessible knowledge base of adversary tactics and techniques.",
     "pricing": "free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "OSINT Training & Guides"
   },
   {
     "name": "mlsecproject / combine",
@@ -4370,7 +4370,7 @@
   {
     "name": "Monitor the Situation",
     "url": "https://monitorthesituation.lol",
-    "description": "** Terminal y panel de control web que agrega noticias en tiempo real, eventos geopol\u00edticos y datos de mercados predictivos para alertas situacionales.",
+    "description": "** Terminal y panel de control web que agrega noticias en tiempo real, eventos geopolíticos y datos de mercados predictivos para alertas situacionales.",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -4386,7 +4386,7 @@
   {
     "name": "Movimientos Placa",
     "url": "https://www.placas.pe/Public/CheckPlateStatus.aspx",
-    "description": "Seguimiento de movimientos de placas vehiculares AAP vehiculos Per\u00fa",
+    "description": "Seguimiento de movimientos de placas vehiculares AAP vehiculos Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -4397,7 +4397,7 @@
     "description": "Analyse the links of any website.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Domain & IP Analysis"
   },
   {
     "name": "Mr.Looquer IOC Feed - 1st Dual Stack Threat Feed",
@@ -4426,7 +4426,7 @@
   {
     "name": "Multibuscador WEB",
     "url": "https://www.etools.ch/",
-    "description": "Realiza una b\u00fasqueda en varios buscadores al mismo tiempo sin perder privacidad y con resultados m\u00e1s organizados",
+    "description": "Realiza una búsqueda en varios buscadores al mismo tiempo sin perder privacidad y con resultados más organizados",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -4442,13 +4442,13 @@
   {
     "name": "My Temp SMS",
     "url": "https://es.mytempsms.com/receive-sms-online/phone-number/page/54.html",
-    "description": "Generar un numero de tel\u00e9fono celular temporal",
+    "description": "Generar un numero de teléfono celular temporal",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
   },
   {
-    "name": "M\u00faltiples filtros de b\u00fasqueda",
+    "name": "Múltiples filtros de búsqueda",
     "url": "https://intelx.io/tools?tab=facebook",
     "description": "Google-based search engine for Telegram (includes Telegago)",
     "pricing": "Free",
@@ -4458,10 +4458,10 @@
   {
     "name": "NameCheckUp",
     "url": "https://namecheckup.com",
-    "description": "** Encontre nomes de usu\u00e1rio nas principais redes sociais.",
+    "description": "** Encontre nomes de usuário nas principais redes sociais.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Domain & IP Analysis"
   },
   {
     "name": "NameChk",
@@ -4525,12 +4525,12 @@
     "description": "A tool for investigating Proton Mail addresses.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "News Paper Map",
     "url": "https://newspapermap.com/#-9.95803,-76.24512,6z",
-    "description": "Mapa interactivo de peri\u00f3dicos en el mundo Revista diarios",
+    "description": "Mapa interactivo de periódicos en el mundo Revista diarios",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -4538,10 +4538,10 @@
   {
     "name": "Nexfil",
     "url": "https://github.com/thewhiteh4t/nexfil",
-    "description": "** Encontre perfis usando o nome de usu\u00e1rio.",
+    "description": "** Encontre perfis usando o nome de usuário.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "NigeriaPhonebook",
@@ -4562,15 +4562,15 @@
   {
     "name": "Nmmapper",
     "url": "https://www.nmmapper.com/sys/tools/subdomainfinder",
-    "description": "** Identifique subdom\u00ednios associados com um determinado dom\u00ednio.",
+    "description": "** Identifique subdomínios associados com um determinado domínio.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Geospatial & Mapping"
   },
   {
     "name": "Nodos Bitcoin",
     "url": "https://bitnodes.io/",
-    "description": "Bitnodes estima el tama\u00f1o relativo de la red peer-to-peer de Bitcoin",
+    "description": "Bitnodes estima el tamaño relativo de la red peer-to-peer de Bitcoin",
     "pricing": "Free",
     "status": "live",
     "category": "Blockchain & Cryptocurrency"
@@ -4578,7 +4578,7 @@
   {
     "name": "Nodos Ethereum",
     "url": "https://www.ethernodes.org/",
-    "description": "Estad\u00edsticas de la red principal de Ethereum",
+    "description": "Estadísticas de la red principal de Ethereum",
     "pricing": "Free",
     "status": "live",
     "category": "Blockchain & Cryptocurrency"
@@ -4586,7 +4586,7 @@
   {
     "name": "Nombre, RUT y Firma",
     "url": "https://www.nombrerutyfirma.com/",
-    "description": "Consultar informaci\u00f3n de personas mediante nombre apellido y RUT de chile",
+    "description": "Consultar información de personas mediante nombre apellido y RUT de chile",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -4594,7 +4594,7 @@
   {
     "name": "Normativa y Ley",
     "url": "http://www.infoleg.gob.ar/",
-    "description": "Repositorio con b\u00fasqueda completo de todas las leyes Argentinas",
+    "description": "Repositorio con búsqueda completo de todas las leyes Argentinas",
     "pricing": "Free",
     "status": "live",
     "category": "Compliance, Sanctions & Legal"
@@ -4610,7 +4610,7 @@
   {
     "name": "Nosis Bigdata",
     "url": "https://bigdata.nosis.com/",
-    "description": "Segmente todas las empresas existentes seg\u00fan sus objetivos comerciales, crediticios y de marketing de Argentina",
+    "description": "Segmente todas las empresas existentes según sus objetivos comerciales, crediticios y de marketing de Argentina",
     "pricing": "Free",
     "status": "live",
     "category": "Business & Corporate Registers"
@@ -4629,23 +4629,23 @@
     "description": "",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
-    "name": "N\u00f3mina de Notarios Activos de argentinos",
+    "name": "Nómina de Notarios Activos de argentinos",
     "url": "https://www.colescba.org.ar/www/pages/nomina/indexNomina.jsf",
-    "description": "Accede a la n\u00f3mina actual de notarios activos de Buenos Aires, Argentina",
+    "description": "Accede a la nómina actual de notarios activos de Buenos Aires, Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
-    "name": "Obra social en relaci\u00f3n de dependencia",
+    "name": "Obra social en relación de dependencia",
     "url": "https://www.sssalud.gob.ar/index.php?cat=consultas&page=busopc",
-    "description": "Consultas al Padr\u00f3n de Opciones de Beneficiarios en Relaci\u00f3n de Dependencia. Argentina",
+    "description": "Consultas al Padrón de Opciones de Beneficiarios en Relación de Dependencia. Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Obsidian",
@@ -4653,7 +4653,7 @@
     "description": "A knowledge management and note-taking app with extensive customization options.",
     "pricing": "Partially Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Obtener coordenadas",
@@ -4664,7 +4664,7 @@
     "category": "Geospatial & Mapping"
   },
   {
-    "name": "Obtener direcci\u00f3n IP (Logger)",
+    "name": "Obtener dirección IP (Logger)",
     "url": "https://iplogger.org/",
     "description": "Un IP logger. Conseguir IP generando link con imagen, imagen invisible, etc. Requiere Click de la persona.",
     "pricing": "Free",
@@ -4674,7 +4674,7 @@
   {
     "name": "Obtener Foto",
     "url": "https://avatarapi.com/",
-    "description": "Obtener la foto de perfil asociada a un correo electr\u00f3nico",
+    "description": "Obtener la foto de perfil asociada a un correo electrónico",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -4738,7 +4738,7 @@
   {
     "name": "Online SMS",
     "url": "https://online-sms.org/es",
-    "description": "Generar un numero de tel\u00e9fono celular temporal",
+    "description": "Generar un numero de teléfono celular temporal",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -4746,7 +4746,7 @@
   {
     "name": "ONP",
     "url": "https://zonasegura.onp.gob.pe/onp.portalonp.web/soy_pensionista/consultar_imprimir_informacion_pensionista_onp",
-    "description": "Consulta de informaci\u00f3n de pensionistas en la ONP Per\u00fa",
+    "description": "Consulta de información de pensionistas en la ONP Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Business & Corporate Registers"
@@ -4792,7 +4792,7 @@
     "category": "Geospatial & Mapping"
   },
   {
-    "name": "Open-Data-Portal M\u00fcnchen (German)",
+    "name": "Open-Data-Portal München (German)",
     "url": "https://www.opengov-muenchen.de/",
     "description": "",
     "pricing": "Free",
@@ -4813,12 +4813,12 @@
     "description": "Power lines, telecoms, solar, oil, gas & water infrastructure mapped globally.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Geospatial & Mapping"
   },
   {
     "name": "OpenObserve",
     "url": "https://openobserve.ai/",
-    "description": "Detecta comportamientos an\u00f3malos de usuarios y amenazas internas.",
+    "description": "Detecta comportamientos anómalos de usuarios y amenazas internas.",
     "pricing": "Free",
     "status": "live",
     "category": "Domain & IP Analysis"
@@ -4829,7 +4829,7 @@
     "description": "Live feed of active phishing URLs.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "OpenRailwayMap",
@@ -4877,7 +4877,7 @@
     "description": "Data on campaign finance, lobbying, and spending in U.S. politics",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "OpenSky-Network",
@@ -4893,20 +4893,20 @@
     "description": "Lorem ipsum dolor sit amet. (Fake placeholder to check parsing safety).",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Domain & IP Analysis"
   },
   {
     "name": "OpenVAS",
     "url": "https://www.openvas.org/",
-    "description": "Escanea, eval\u00faa y gestiona vulnerabilidades de seguridad.",
+    "description": "Escanea, evalúa y gestiona vulnerabilidades de seguridad.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Operador Dorks",
     "url": "https://www.google.com.pe/search?q=site%3Afacebook.com+%22text+that+says+hotmail.com",
-    "description": "B\u00fasqueda avanzada usando operadores de Google (Dorks)",
+    "description": "Búsqueda avanzada usando operadores de Google (Dorks)",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -4946,7 +4946,7 @@
   {
     "name": "OSINT Rocks",
     "url": "https://osint.rocks/",
-    "description": "Recopilaci\u00f3n de herramientas OSINT generales tel\u00e9fonos",
+    "description": "Recopilación de herramientas OSINT generales teléfonos",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -4954,7 +4954,7 @@
   {
     "name": "Osiris",
     "url": "https://osirisai.live",
-    "description": "** Plataforma de inteligencia global de c\u00f3digo abierto equipada con rastreadores en tiempo real de sat\u00e9lites, vuelos, transmisiones de CCTV y herramientas de red.",
+    "description": "** Plataforma de inteligencia global de código abierto equipada con rastreadores en tiempo real de satélites, vuelos, transmisiones de CCTV y herramientas de red.",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -4981,7 +4981,7 @@
     "description": "",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Owler (R)",
@@ -5008,7 +5008,7 @@
     "category": "Digital Forensics & Incident Response (DFIR)"
   },
   {
-    "name": "Padr\u00f3n de Contadores Matriculados",
+    "name": "Padrón de Contadores Matriculados",
     "url": "https://www.cpbaonline.com.ar/apps/PadronMatriculados/padron/index?e=OSV7GtvLF+DJFUjFCUEkbcHBv5ew79Lr3iU2E01n5EvY8GIhmGyqmczdN4k3XzV2",
     "description": "Puedes buscar contadores registrados por apellido, dni o matricula. Argentina",
     "pricing": "Free",
@@ -5016,17 +5016,17 @@
     "category": "Compliance, Sanctions & Legal"
   },
   {
-    "name": "Padr\u00f3n: solo en elecciones",
+    "name": "Padrón: solo en elecciones",
     "url": "https://www.padron.gov.ar/",
-    "description": "Padr\u00f3n electoral: solo puede verse en \u00e9poca de elecciones. Argentina",
+    "description": "Padrón electoral: solo puede verse en época de elecciones. Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Papeletas - Andahuaylas",
     "url": "https://muniandahuaylas.gob.pe/consultar-papeleta/",
-    "description": "Consulta de Papeletas de veh\u00edculos de Andahuaylas en Per\u00fa",
+    "description": "Consulta de Papeletas de vehículos de Andahuaylas en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -5034,7 +5034,7 @@
   {
     "name": "Papeletas - Arequipa",
     "url": "https://www.muniarequipa.gob.pe/oficina-virtual/c0nInfrPermisos/faltas/papeletas.php",
-    "description": "Consulta de Papeletas de veh\u00edculos de Arequipa en Per\u00fa",
+    "description": "Consulta de Papeletas de vehículos de Arequipa en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -5042,7 +5042,7 @@
   {
     "name": "Papeletas - Cajamarca",
     "url": "https://www.satcajamarca.gob.pe/",
-    "description": "Consulta de Papeletas de veh\u00edculos de Cajamarca en Per\u00fa",
+    "description": "Consulta de Papeletas de vehículos de Cajamarca en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -5050,15 +5050,15 @@
   {
     "name": "Papeletas - Chachapoyas",
     "url": "https://app.munichachapoyas.gob.pe/servicios/consulta_papeletas/app/papeletas.php",
-    "description": "Consulta de Papeletas de veh\u00edculos de Chachapoyas en Per\u00fa",
+    "description": "Consulta de Papeletas de vehículos de Chachapoyas en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
   },
   {
-    "name": "Papeletas - Hu\u00e1nuco",
+    "name": "Papeletas - Huánuco",
     "url": "https://www.munihuanuco.gob.pe/wp-content/servicios/transportes/gt_papeletas.php",
-    "description": "Consulta de Papeletas de veh\u00edculos de Hu\u00e1nuco en Per\u00fa",
+    "description": "Consulta de Papeletas de vehículos de Huánuco en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -5066,7 +5066,7 @@
   {
     "name": "Papeletas - Ica",
     "url": "https://m.satica.gob.pe/consultapapeletas.php",
-    "description": "Consulta de Papeletas de veh\u00edculos de Ica en Per\u00fa",
+    "description": "Consulta de Papeletas de vehículos de Ica en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -5074,7 +5074,7 @@
   {
     "name": "Papeletas - Piura",
     "url": "http://www.munipiura.gob.pe/consulta-de-multas-de-transito",
-    "description": "Consulta de Papeletas de veh\u00edculos de Piura en Per\u00fa",
+    "description": "Consulta de Papeletas de vehículos de Piura en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -5082,7 +5082,7 @@
   {
     "name": "Papeletas - Tacna",
     "url": "https://www.munitacna.gob.pe/pagina/sf/servicios/papeletas",
-    "description": "Consulta de Papeletas de veh\u00edculos de Tacna en Per\u00fa",
+    "description": "Consulta de Papeletas de vehículos de Tacna en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -5090,7 +5090,7 @@
   {
     "name": "Papeletas - Tarapoto",
     "url": "https://www.sat-t.gob.pe/",
-    "description": "Consulta de Papeletas de veh\u00edculos de Tarapoto en Per\u00fa",
+    "description": "Consulta de Papeletas de vehículos de Tarapoto en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -5098,7 +5098,7 @@
   {
     "name": "Papeletas por infracciones",
     "url": "http://www.pit.gob.pe/pit2007/EstadoCuenta.aspx",
-    "description": "Consulta de deudas de peajes y multas vehiculares PIT vehiculos Per\u00fa",
+    "description": "Consulta de deudas de peajes y multas vehiculares PIT vehiculos Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -5106,7 +5106,7 @@
   {
     "name": "Papeletas SAT",
     "url": "https://www.sat.gob.pe/websitev9",
-    "description": "Consulta de papeletas y multas de tr\u00e1nsito en Lima SAT vehiculos Per\u00fa",
+    "description": "Consulta de papeletas y multas de tránsito en Lima SAT vehiculos Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -5114,15 +5114,15 @@
   {
     "name": "Partida Predial",
     "url": "https://enlinea.sunarp.gob.pe/sunarpweb/pages/acceso/ingreso.faces",
-    "description": "Acceso a partidas registrales prediales Per\u00fa",
+    "description": "Acceso a partidas registrales prediales Perú",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Pasaporte",
     "url": "https://sel.migraciones.gob.pe/servmig-valreg/VerificarPAS",
-    "description": "Validaci\u00f3n de pasaportes peruanos Migraciones Per\u00fa",
+    "description": "Validación de pasaportes peruanos Migraciones Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Business & Corporate Registers"
@@ -5162,7 +5162,7 @@
   {
     "name": "Permiso de Trabajo",
     "url": "https://sel.migraciones.gob.pe/webcarnetptp/VerificarCPTP",
-    "description": "Verificaci\u00f3n de Permisos de Trabajo para extranjeros Per\u00fa",
+    "description": "Verificación de Permisos de Trabajo para extranjeros Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Business & Corporate Registers"
@@ -5178,26 +5178,26 @@
   {
     "name": "Personas extraviadas en Argentina",
     "url": "https://www.argentina.gob.ar/seguridad/programabuscar/extraviadas",
-    "description": "Registro de personas perdidas con datos e im\u00e1genes. Argentina",
+    "description": "Registro de personas perdidas con datos e imágenes. Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Business & Corporate Registers"
   },
   {
-    "name": "Per\u00fa UTC-5",
+    "name": "Perú UTC-5",
     "url": "https://www.zeitverschiebung.net/es/timezone/america--lima",
-    "description": "Consultar la zona horaria de Per\u00fa",
+    "description": "Consultar la zona horaria de Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
   },
   {
-    "name": "Pesquisa Instant\u00e2nea de Nome de Usu\u00e1rio",
+    "name": "Pesquisa Instantânea de Nome de Usuário",
     "url": "https://instantusername.com/",
-    "description": "** Verifique se o nome de usu\u00e1rio est\u00e1 dispon\u00edvel em mais de 100 sites de m\u00eddia social.",
+    "description": "** Verifique se o nome de usuário está disponível em mais de 100 sites de mídia social.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Phenoelit Default Password List",
@@ -5226,7 +5226,7 @@
   {
     "name": "Phoneinfoga",
     "url": "https://github.com/sundowndev/phoneinfoga",
-    "description": "** Uma das ferramentas mais avan\u00e7adas para escanear n\u00fameros de telefone internacionais.",
+    "description": "** Uma das ferramentas mais avançadas para escanear números de telefone internacionais.",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -5249,11 +5249,11 @@
   },
   {
     "name": "Phunter",
-    "url": "https://github.com/N0rz3/Ca\u00e7ador",
-    "description": "** Ferramenta para encontrar informa\u00e7\u00f5es sobre um n\u00famero de telefone.",
+    "url": "https://github.com/N0rz3/Caçador",
+    "description": "** Ferramenta para encontrar informações sobre um número de telefone.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Phone OSINT"
   },
   {
     "name": "Pinpoint",
@@ -5266,7 +5266,7 @@
   {
     "name": "Pinterest Request Guidelines",
     "url": "https://policy.pinterest.com/en/law-enforcement-guidelines",
-    "description": "Pinterest\u2019s data release policies.",
+    "description": "Pinterest’s data release policies.",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -5298,7 +5298,7 @@
   {
     "name": "Poder Judicial",
     "url": "https://www.pj.gob.pe/wps/wcm/connect/CorteSuprema/s_cortes_suprema_home/as_servicios/as_internos/as_consultas_personal/",
-    "description": "Consultas de procesos judiciales y personal del Poder Judicial PJ Per\u00fa",
+    "description": "Consultas de procesos judiciales y personal del Poder Judicial PJ Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Business & Corporate Registers"
@@ -5312,9 +5312,9 @@
     "category": "Digital Forensics & Incident Response (DFIR)"
   },
   {
-    "name": "Pol\u00edticos",
+    "name": "Políticos",
     "url": "https://infogob.jne.gob.pe/Politico",
-    "description": "Registro de informaci\u00f3n sobre pol\u00edticos peruanos INFOGOB JNE Per\u00fa",
+    "description": "Registro de información sobre políticos peruanos INFOGOB JNE Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Business & Corporate Registers"
@@ -5322,7 +5322,7 @@
   {
     "name": "Portabilidad",
     "url": "https://consulta.portabilidad.pe/",
-    "description": "Consultar la portabilidad de un n\u00famero de tel\u00e9fono Per\u00fa, Peruanos",
+    "description": "Consultar la portabilidad de un número de teléfono Perú, Peruanos",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -5338,15 +5338,15 @@
   {
     "name": "Predios Cofopri",
     "url": "http://municanete.gob.pe/munivirtual/cofopri_en_linea.php",
-    "description": "Consulta de predios regularizados por COFOPRI Per\u00fa Mapa y Mapas",
+    "description": "Consulta de predios regularizados por COFOPRI Perú Mapa y Mapas",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
   },
   {
-    "name": "Prensa Sur - Per\u00fa",
+    "name": "Prensa Sur - Perú",
     "url": "https://issuu.com/prensaregional",
-    "description": "Revista digital Prensa Sur peri\u00f3dicos diarios",
+    "description": "Revista digital Prensa Sur periódicos diarios",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -5354,18 +5354,18 @@
   {
     "name": "Profesores",
     "url": "https://sistema.cppe.org.pe/view/Colegiado/",
-    "description": "Registro de profesores colegiados en Per\u00fa",
+    "description": "Registro de profesores colegiados en Perú",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Business & Corporate Registers"
   },
   {
     "name": "Profil3r",
     "url": "https://github.com/Greyjedix/Profil3r",
-    "description": "** Pesquise potenciais perfis de uma pessoa nas redes sociais, bem como seus endere\u00e7os de e-mail.",
+    "description": "** Pesquise potenciais perfis de uma pessoa nas redes sociais, bem como seus endereços de e-mail.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Email & Username OSINT"
   },
   {
     "name": "Project Honey Pot",
@@ -5378,15 +5378,15 @@
   {
     "name": "Propiedades Sunarp",
     "url": "https://www2.sunarp.gob.pe/consulta-propiedad/inicio",
-    "description": "Consulta de propiedades registradas en Per\u00fa",
+    "description": "Consulta de propiedades registradas en Perú",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Provias Emergencia Nacional",
     "url": "https://wsgcv.proviasnac.gob.pe/emergenciavial",
-    "description": "Mapa de emergencias viales en Per\u00fa Mapas",
+    "description": "Mapa de emergencias viales en Perú Mapas",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -5400,12 +5400,12 @@
     "category": "Cloud Security & Recon"
   },
   {
-    "name": "Pr\u00f3fugos buscados de Argentina",
+    "name": "Prófugos buscados de Argentina",
     "url": "https://www.dnrec.jus.gov.ar/masbuscados",
     "description": "En esta lista de buscados podemos filtrar por nombre gracias al navegador haciendo un CTRL + F. Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Compliance, Sanctions & Legal"
   },
   {
     "name": "PSNprofiles",
@@ -5450,7 +5450,7 @@
   {
     "name": "Punto PE",
     "url": "https://punto.pe/whois.php",
-    "description": "Consultar informaci\u00f3n WHOIS de dominios en Per\u00fa",
+    "description": "Consultar información WHOIS de dominios en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Domain & IP Analysis"
@@ -5466,31 +5466,31 @@
   {
     "name": "Pymeta",
     "url": "https://github.com/m8sec/pymeta",
-    "description": "** Pesquise na web por arquivos em um dom\u00ednio para baixar e extrair metadados.",
+    "description": "** Pesquise na web por arquivos em um domínio para baixar e extrair metadados.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
-    "name": "P\u00e1ginas Amarillas de Argentina",
+    "name": "Páginas Amarillas de Argentina",
     "url": "https://www.paginasamarillas.com.ar/",
-    "description": "Cl\u00e1sico buscador de paginas amarillas online: busca pymes y empresas",
+    "description": "Clásico buscador de paginas amarillas online: busca pymes y empresas",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
   },
   {
-    "name": "P\u00e1ginas Amarillas de Per\u00fa",
+    "name": "Páginas Amarillas de Perú",
     "url": "https://www.paginasamarillas.com.pe/",
-    "description": "Directorio de negocios y servicios en Per\u00fa",
+    "description": "Directorio de negocios y servicios en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
   },
   {
-    "name": "P\u00e1ginas Blancas",
+    "name": "Páginas Blancas",
     "url": "https://www.paginas-blancas.pe/",
-    "description": "Directorio telef\u00f3nico de P\u00e1ginas Blancas en Per\u00fa",
+    "description": "Directorio telefónico de Páginas Blancas en Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -5504,15 +5504,15 @@
     "category": "Geospatial & Mapping"
   },
   {
-    "name": "Qual \u00e9 o meu IP",
+    "name": "Qual é o meu IP",
     "url": "https://www.cual-es-mi-ip.net/",
-    "description": "** Geolocaliza\u00e7\u00e3o por IP.",
+    "description": "** Geolocalização por IP.",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
   },
   {
-    "name": "Qualit\u00e4tsberichte der Krankenh\u00e4user",
+    "name": "Qualitätsberichte der Krankenhäuser",
     "url": "https://www.g-ba.de/",
     "description": "Quality reports database of German hospitals.",
     "pricing": "Free",
@@ -5522,10 +5522,10 @@
   {
     "name": "Quem me leu",
     "url": "https://whoreadme.com",
-    "description": "** Servi\u00e7o gratuito de rastreamento de e-mail.",
+    "description": "** Serviço gratuito de rastreamento de e-mail.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Email & Username OSINT"
   },
   {
     "name": "Quick geolocation search",
@@ -5557,12 +5557,12 @@
     "description": "Bellingcat's radar interference tracker can be used to locate and monitor active military radar systems.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Transportation OSINT"
   },
   {
-    "name": "Radicaci\u00f3n por domicilio",
+    "name": "Radicación por domicilio",
     "url": "https://www.dnrpa.gov.ar/guia_calles/radicacionPorDomicilio.php",
-    "description": "Permite establecer una direcci\u00f3n y obtenemos datos del registro seccional que corresponde. Argentina",
+    "description": "Permite establecer una dirección y obtenemos datos del registro seccional que corresponde. Argentina",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -5594,10 +5594,10 @@
   {
     "name": "Random Face Generator",
     "url": "https://this-person-does-not-exist.com/en",
-    "description": "** Gerador de rostos aleat\u00f3rios.",
+    "description": "** Gerador de rostos aleatórios.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Random User",
@@ -5610,7 +5610,7 @@
   {
     "name": "Ransom Wiki",
     "url": "https://ransom.wiki/",
-    "description": "Informaci\u00f3n sobre ransomware y ataques cibern\u00e9ticos",
+    "description": "Información sobre ransomware y ataques cibernéticos",
     "pricing": "Free",
     "status": "live",
     "category": "Cyber Threat Intelligence (CTI)"
@@ -5637,7 +5637,7 @@
     "description": "RAWGraphs is an open-source data visualization tool designed for non-technical users, enabling the creation of customizable, editable charts without coding skills.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "RBA - Business Information Resources",
@@ -5650,10 +5650,10 @@
   {
     "name": "Recon-ng",
     "url": "https://github.com/lanmaster53/recon-ng",
-    "description": "** Permite realizar coleta de informa\u00e7\u00f5es e reconhecimento de rede automaticamente.",
+    "description": "** Permite realizar coleta de informações e reconhecimento de rede automaticamente.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Recorded Future TI Feeds",
@@ -5669,7 +5669,7 @@
     "description": "Kit de herramientas variadas para OSINT",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "OSINT Training & Guides"
   },
   {
     "name": "Recursos varios 2",
@@ -5677,12 +5677,12 @@
     "description": "Recursos adicionales para OSINT y SOCMINT",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "OSINT Training & Guides"
   },
   {
-    "name": "Red RCR - Per\u00fa",
+    "name": "Red RCR - Perú",
     "url": "https://www.rcrperu.com/portadas",
-    "description": "Portadas de noticias de RCR Per\u00fa peri\u00f3dicos Revista diarios",
+    "description": "Portadas de noticias de RCR Perú periódicos Revista diarios",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -5698,7 +5698,7 @@
   {
     "name": "RedditMetis",
     "url": "https://redditmetis.com",
-    "description": "RedditMetis is an online tool that analyses any public Reddit profile and returns charts and statistics on the user\u2019s activity, language, sentiment and favourite sub-communities.",
+    "description": "RedditMetis is an online tool that analyses any public Reddit profile and returns charts and statistics on the user’s activity, language, sentiment and favourite sub-communities.",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -5714,7 +5714,7 @@
   {
     "name": "Redes WIFI por coordenadas",
     "url": "https://wigle.net/",
-    "description": "Ubica redes wifi por coordenadas, obtiene SSID (nombre de red) y BSSID (direcci\u00f3n mac address) Mapa y Mapas",
+    "description": "Ubica redes wifi por coordenadas, obtiene SSID (nombre de red) y BSSID (dirección mac address) Mapa y Mapas",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -5730,7 +5730,7 @@
   {
     "name": "RedRoom",
     "url": "https://redroom.live",
-    "description": "** Panel unificado para analistas e investigadores que integra se\u00f1ales de c\u00f3digo abierto, inteligencia de se\u00f1ales (SIGINT) y datos geoespaciales.",
+    "description": "** Panel unificado para analistas e investigadores que integra señales de código abierto, inteligencia de señales (SIGINT) y datos geoespaciales.",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -5738,7 +5738,7 @@
   {
     "name": "Reg. Conductores",
     "url": "https://icjc.mtc.gob.pe/",
-    "description": "Registro nacional de conductores autorizados en Per\u00fa MTC vehiculos Per\u00fa",
+    "description": "Registro nacional de conductores autorizados en Perú MTC vehiculos Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -5746,7 +5746,7 @@
   {
     "name": "Registro Civil",
     "url": "https://www.registrocivil.cl/principal/servicios-en-linea",
-    "description": "Tramitaci\u00f3n de certificados oficiales en l\u00ednea en Chile",
+    "description": "Tramitación de certificados oficiales en línea en Chile",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -5754,10 +5754,10 @@
   {
     "name": "Registro de bases de datos personales",
     "url": "https://www.argentina.gob.ar/aaip/datospersonales/reclama",
-    "description": "Verificar si una persona f\u00edsica o jur\u00eddica tiene bases de datos registradas a su nombre. Argentina",
+    "description": "Verificar si una persona física o jurídica tiene bases de datos registradas a su nombre. Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Transportation OSINT"
   },
   {
     "name": "Registro de infractores al deber de votar",
@@ -5765,12 +5765,12 @@
     "description": "Infractores no votantes. Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Business & Corporate Registers"
   },
   {
     "name": "Registro de sociedades",
     "url": "https://timeline.boletinoficial.gob.ar/",
-    "description": "Registro de sociedades: b\u00fasqueda por dni, nombres y m\u00e1s. Argentina",
+    "description": "Registro de sociedades: búsqueda por dni, nombres y más. Argentina",
     "pricing": "Free",
     "status": "live",
     "category": "Compliance, Sanctions & Legal"
@@ -5800,17 +5800,17 @@
     "category": "Blockchain & Cryptocurrency"
   },
   {
-    "name": "Registros de la Propiedad del Automotor y de Cr\u00e9ditos Prendarios",
+    "name": "Registros de la Propiedad del Automotor y de Créditos Prendarios",
     "url": "https://www2.jus.gov.ar/dnrpa-site",
-    "description": "En INFORMES ONLINE ingresando un cuil el sitio nos regala informaci\u00f3n muy \u00fatil de la persona. Sistema Integral de Tr\u00e1mites Electr\u00f3nicos Argentina",
+    "description": "En INFORMES ONLINE ingresando un cuil el sitio nos regala información muy útil de la persona. Sistema Integral de Trámites Electrónicos Argentina",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
   },
   {
-    "name": "Registros geneal\u00f3gicos y familiares",
+    "name": "Registros genealógicos y familiares",
     "url": "https://www.familysearch.org/es/",
-    "description": "Buscar registros geneal\u00f3gicos y familiares de personas. Family Search",
+    "description": "Buscar registros genealógicos y familiares de personas. Family Search",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -5826,23 +5826,23 @@
   {
     "name": "Repositorio de Expedientes",
     "url": "https://www.expedientedigital.com.ar/",
-    "description": "Repositorio muy completo de expedientes con b\u00fasqueda por palabra clave: cursos, videos, instructivos, modelos y jurisprudencia. Argentina",
+    "description": "Repositorio muy completo de expedientes con búsqueda por palabra clave: cursos, videos, instructivos, modelos y jurisprudencia. Argentina",
     "pricing": "Free",
     "status": "live",
     "category": "Compliance, Sanctions & Legal"
   },
   {
-    "name": "Repositorios de c\u00f3digo fuente",
+    "name": "Repositorios de código fuente",
     "url": "https://searchcode.com/",
-    "description": "Busca en los repositorios abiertos de proyectos y c\u00f3digos fuente. Searchcode",
+    "description": "Busca en los repositorios abiertos de proyectos y códigos fuente. Searchcode",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
   },
   {
-    "name": "Reputaci\u00f3n",
+    "name": "Reputación",
     "url": "https://emailrep.io/",
-    "description": "Consultar la reputaci\u00f3n de una direcci\u00f3n de correo electr\u00f3nico",
+    "description": "Consultar la reputación de una dirección de correo electrónico",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -5864,12 +5864,12 @@
     "category": "Domain & IP Analysis"
   },
   {
-    "name": "Ressuscitar P\u00e1ginas",
+    "name": "Ressuscitar Páginas",
     "url": "https://addons.mozilla.org/es/firefox/addon/resurrect-pages",
-    "description": "** Add-on para visualizar p\u00e1ginas que est\u00e3o inativas.",
+    "description": "** Add-on para visualizar páginas que estão inativas.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "RestorePhotos.io",
@@ -5901,7 +5901,7 @@
     "description": "Calculate which water stream a drop of rain will follow",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "ROADtools (T)",
@@ -5914,10 +5914,10 @@
   {
     "name": "RocketReach",
     "url": "https://rocketreach.co/",
-    "description": "** Encontre e-mails, n\u00fameros de telefone e redes sociais de mais de 450 milh\u00f5es de profissionais.",
+    "description": "** Encontre e-mails, números de telefone e redes sociais de mais de 450 milhões de profissionais.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Phone OSINT"
   },
   {
     "name": "RootAbout",
@@ -5962,10 +5962,10 @@
   {
     "name": "Saludpol",
     "url": "https://app-gbo.saludpol.gob.pe:5049/consult/",
-    "description": "Plataforma de consulta de seguros de salud policial - salud per\u00fa seguro",
+    "description": "Plataforma de consulta de seguros de salud policial - salud perú seguro",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "SanctionsExplorer",
@@ -5986,7 +5986,7 @@
   {
     "name": "SBS",
     "url": "https://servicios.sbs.gob.pe/serviciosenlinea",
-    "description": "Servicios en l\u00ednea de la Superintendencia de Banca y Seguros Per\u00fa",
+    "description": "Servicios en línea de la Superintendencia de Banca y Seguros Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Business & Corporate Registers"
@@ -6002,10 +6002,10 @@
   {
     "name": "Science.gov",
     "url": "https://www.science.gov/",
-    "description": "** Acesso a informa\u00e7\u00f5es cient\u00edficas do governo dos Estados Unidos.",
+    "description": "** Acesso a informações científicas do governo dos Estados Unidos.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "ScoutSuite (T)",
@@ -6101,12 +6101,12 @@
     "description": "",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Security",
     "url": "https://www.security.org/how-secure-is-my-password/",
-    "description": "An\u00e1lisis de seguridad de contrase\u00f1as",
+    "description": "Análisis de seguridad de contraseñas",
     "pricing": "Free",
     "status": "live",
     "category": "Cyber Threat Intelligence (CTI)"
@@ -6128,12 +6128,12 @@
     "category": "Encoding & Data Conversion"
   },
   {
-    "name": "Seletor de Coment\u00e1rios",
+    "name": "Seletor de Comentários",
     "url": "https://commentpicker.com/instagram-user-id.php",
     "description": "** Obtenha o ID do perfil.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Servipag",
@@ -6149,7 +6149,7 @@
     "description": "ShadeMap is a global simulation of mountain, building & tree shadows for a given date & time. Base data is free, but users can buy 30cm accurate data per sq km for areas of special focus.",
     "pricing": "Partially Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Geospatial & Mapping"
   },
   {
     "name": "Shadow Finder",
@@ -6170,10 +6170,10 @@
   {
     "name": "Sherlock",
     "url": "https://github.com/sherlock-project/sherlock",
-    "description": "** Rastreie contas de m\u00eddia social por nome de usu\u00e1rio em v\u00e1rias plataformas sociais.",
+    "description": "** Rastreie contas de mídia social por nome de usuário em várias plataformas sociais.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "ShipFinder",
@@ -6205,12 +6205,12 @@
     "description": "Signal's minimal data disclosure policies.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Similar Web",
     "url": "https://www.similarweb.com/es/",
-    "description": "Analizar tr\u00e1fico y m\u00e9tricas de sitios web",
+    "description": "Analizar tráfico y métricas de sitios web",
     "pricing": "Free",
     "status": "live",
     "category": "Cyber Threat Intelligence (CTI)"
@@ -6218,23 +6218,23 @@
   {
     "name": "SIS",
     "url": "http://app.sis.gob.pe/SisConsultaEnLinea/Consulta/frmConsultaEnLinea.aspx",
-    "description": "Sistema Integral de Salud para consultas en l\u00ednea Per\u00fa SIS salud seguro",
+    "description": "Sistema Integral de Salud para consultas en línea Perú SIS salud seguro",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Sisfoh",
     "url": "https://focalizacion.sisfoh.gob.pe/ConsultaCSE/",
-    "description": "Consulta del Sistema de Focalizaci\u00f3n de Hogares Per\u00fa",
+    "description": "Consulta del Sistema de Focalización de Hogares Perú",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Sistema SPIJ",
     "url": "https://spij.minjus.gob.pe/",
-    "description": "Sistema de Informaci\u00f3n Jur\u00eddica del Ministerio de Justicia Per\u00fa",
+    "description": "Sistema de Información Jurídica del Ministerio de Justicia Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Business & Corporate Registers"
@@ -6282,7 +6282,7 @@
   {
     "name": "SOAT - Apeseg",
     "url": "https://www.apeseg.org.pe/consultas-soat/",
-    "description": "Consulta alternativa de validaci\u00f3n de p\u00f3lizas SOAT Per\u00fa",
+    "description": "Consulta alternativa de validación de pólizas SOAT Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -6293,15 +6293,15 @@
     "description": "** Software para rastrear completamente a pegada digital de um alvo.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
-    "name": "Solicitar informaci\u00f3n P\u00fablica de argentinos",
+    "name": "Solicitar información Pública de argentinos",
     "url": "https://www.argentina.gob.ar/solicitar-informacion-publica",
-    "description": "Hacer pedido de informaci\u00f3n publica en sitio oficial Argentina",
+    "description": "Hacer pedido de información publica en sitio oficial Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Solicitudes uso de armas de Argentina",
@@ -6309,20 +6309,20 @@
     "description": "Lista completa con nombres actualizada cada quincena. Argentina",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Sordum",
     "url": "https://www.sordum.org/passwordgenerator/",
-    "description": "Herramienta para generar contrase\u00f1as seguras",
+    "description": "Herramienta para generar contraseñas seguras",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Email & Username OSINT"
   },
   {
     "name": "Spam Calls",
     "url": "https://spamcalls.net/es/",
-    "description": "Identificar llamadas spam y n\u00fameros sospechosos",
+    "description": "Identificar llamadas spam y números sospechosos",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -6338,10 +6338,10 @@
   {
     "name": "Spiderfoot",
     "url": "https://github.com/smicallef/spiderfoot",
-    "description": "** Ferramenta de reconhecimento que permite escanear a partir de um dom\u00ednio, endere\u00e7o IP, e-mail, nome de usu\u00e1rio, entre outros.",
+    "description": "** Ferramenta de reconhecimento que permite escanear a partir de um domínio, endereço IP, e-mail, nome de usuário, entre outros.",
     "pricing": "free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Email & Username OSINT"
   },
   {
     "name": "Spot",
@@ -6354,7 +6354,7 @@
   {
     "name": "SSS Instagram",
     "url": "https://sssinstagram.com/es",
-    "description": "** Baixe v\u00eddeos e fotos do Instagram.",
+    "description": "** Baixe vídeos e fotos do Instagram.",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -6362,7 +6362,7 @@
   {
     "name": "SSSTIK",
     "url": "https://ssstik.io/es",
-    "description": "** Baixe v\u00eddeos do TikTok.",
+    "description": "** Baixe vídeos do TikTok.",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -6370,7 +6370,7 @@
   {
     "name": "Stalkface",
     "url": "https://stalkface.com/es/",
-    "description": "** Pesquise conte\u00fado em perfis do Facebook.",
+    "description": "** Pesquise conteúdo em perfis do Facebook.",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -6397,7 +6397,7 @@
     "description": "Lookup player names, view (more) previously used names, and when accounts befriended eachother (Free). View screenshots of account, (bulk) seach based on previously used names (paid).",
     "pricing": "Partially Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Media & Document Analysis"
   },
   {
     "name": "Steampipe (T)",
@@ -6458,7 +6458,7 @@
   {
     "name": "Sukuri",
     "url": "https://sitecheck.sucuri.net/",
-    "description": "** Detec\u00e7\u00e3o de malware em um dom\u00ednio.",
+    "description": "** Detecção de malware em um domínio.",
     "pricing": "Free",
     "status": "live",
     "category": "Digital Forensics & Incident Response (DFIR)"
@@ -6466,18 +6466,18 @@
   {
     "name": "Sunedu",
     "url": "https://enlinea.sunedu.gob.pe/",
-    "description": "Superintendencia Nacional de Educaci\u00f3n Superior Universitaria Per\u00fa",
+    "description": "Superintendencia Nacional de Educación Superior Universitaria Perú",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Susalud",
     "url": "https://app1.susalud.gob.pe/registro/",
-    "description": "Registro y consulta de seguros de salud en Per\u00fa todos los seguros salud",
+    "description": "Registro y consulta de seguros de salud en Perú todos los seguros salud",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Business & Corporate Registers"
   },
   {
     "name": "Swedish Name Register",
@@ -6490,7 +6490,7 @@
   {
     "name": "Sync.me",
     "url": "https://sync.me/es/",
-    "description": "Identificar n\u00fameros de tel\u00e9fono con Sync.me",
+    "description": "Identificar números de teléfono con Sync.me",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -6498,23 +6498,23 @@
   {
     "name": "Sync.me",
     "url": "https://sync.me/",
-    "description": "** Descubra quem ligou para voc\u00ea.",
+    "description": "** Descubra quem ligou para você.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Talos Intelligence",
     "url": "https://talosintelligence.com/",
-    "description": "Inteligencia de amenazas cibern\u00e9ticas",
+    "description": "Inteligencia de amenazas cibernéticas",
     "pricing": "Free",
     "status": "live",
     "category": "Cyber Threat Intelligence (CTI)"
   },
   {
-    "name": "Tapa de Clar\u00edn seg\u00fan fecha - Argentina",
+    "name": "Tapa de Clarín según fecha - Argentina",
     "url": "https://tapas.clarin.com/",
-    "description": "Ingresa una fecha y observa la tapa del diarios Clar\u00edn correspondiente. Argentina peri\u00f3dicos Revista",
+    "description": "Ingresa una fecha y observa la tapa del diarios Clarín correspondiente. Argentina periódicos Revista",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -6522,7 +6522,7 @@
   {
     "name": "Teceive SMS",
     "url": "https://www.receivesms.co/",
-    "description": "Recibir SMS temporales para verificaci\u00f3n",
+    "description": "Recibir SMS temporales para verificación",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -6530,7 +6530,7 @@
   {
     "name": "Teledigo",
     "url": "http://www.teledigo.com/",
-    "description": "Permite buscar n\u00fameros que fueron reportados por estafas o spam",
+    "description": "Permite buscar números que fueron reportados por estafas o spam",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -6586,7 +6586,7 @@
   {
     "name": "Temp Mail Hub (Gmail)",
     "url": "https://www.tempmailhub.org/",
-    "description": "Generar una casilla de correo electr\u00f3nico temporal y desechable GMAIL",
+    "description": "Generar una casilla de correo electrónico temporal y desechable GMAIL",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -6602,7 +6602,7 @@
   {
     "name": "Temp-mail",
     "url": "https://temp-mail.org/es/",
-    "description": "Generar una casilla de correo electr\u00f3nico temporal y desechable",
+    "description": "Generar una casilla de correo electrónico temporal y desechable",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -6610,7 +6610,7 @@
   {
     "name": "Tempmail",
     "url": "https://tempail.com/",
-    "description": "Crear correos electr\u00f3nicos temporales con Tempail",
+    "description": "Crear correos electrónicos temporales con Tempail",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -6642,7 +6642,7 @@
   {
     "name": "TGStat",
     "url": "https://tgstat.com/",
-    "description": "TGStat is a web-based analytics tool for Telegram that monitors active channels and provides profile analytics and statistics. It tracks channel subscribers\u2019 growth rate, reach, and citation index.",
+    "description": "TGStat is a web-based analytics tool for Telegram that monitors active channels and provides profile analytics and statistics. It tracks channel subscribers’ growth rate, reach, and citation index.",
     "pricing": "Partially Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -6653,7 +6653,7 @@
     "description": "** Pesquisa reversa de telefone.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Phone OSINT"
   },
   {
     "name": "The Cyber Threat / Threat Intelligence Review",
@@ -6685,7 +6685,7 @@
     "description": "",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "TheHarvester",
@@ -6730,7 +6730,7 @@
   {
     "name": "TikTok Scraper",
     "url": "https://github.com/drawrowfly/tiktok-scraper",
-    "description": "** Extraia e baixe informa\u00e7\u00f5es \u00fateis do TikTok.",
+    "description": "** Extraia e baixe informações úteis do TikTok.",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -6749,7 +6749,7 @@
     "description": "A tool for creating, visualizing, and managing timelines online.",
     "pricing": "Partially Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "TinEye",
@@ -6802,10 +6802,10 @@
   {
     "name": "Traductor de idioma con I.A",
     "url": "https://www.deepl.com/es/translator",
-    "description": "Traducir por voz: reproducir audio al micr\u00f3fono, Google reconocer\u00e1 el idioma con inteligencia artificial",
+    "description": "Traducir por voz: reproducir audio al micrófono, Google reconocerá el idioma con inteligencia artificial",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Transferencias de Inmuebles",
@@ -6818,7 +6818,7 @@
   {
     "name": "Transparentia",
     "url": "https://transparentia.newtral.es/buscador",
-    "description": "** Buscador de dinheiro p\u00fablico.",
+    "description": "** Buscador de dinheiro público.",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -6834,7 +6834,7 @@
   {
     "name": "Truecaller Bot",
     "url": "https://t.me/TrueCalleRobot",
-    "description": "Bot de Telegram para consultar n\u00fameros en TrueCaller tel\u00e9fonos",
+    "description": "Bot de Telegram para consultar números en TrueCaller teléfonos",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -6856,7 +6856,7 @@
     "category": "Email & Username OSINT"
   },
   {
-    "name": "Tr\u00e1fico A\u00e9reo",
+    "name": "Tráfico Aéreo",
     "url": "https://flightaware.com/live/",
     "description": "FlightAware is a global flight-tracking platform that provides real-time data on aircraft movements. It offers live tracking, historical data, and predictive analytics via its website and apps.",
     "pricing": "Partially Free",
@@ -6864,20 +6864,20 @@
     "category": "Transportation OSINT"
   },
   {
-    "name": "Tr\u00e1fico marino",
+    "name": "Tráfico marino",
     "url": "https://www.marinetraffic.com/en/ais/home/centerx:-58.315/centery:-34.646/zoom:13",
-    "description": "Visualiza el tr\u00e1fico marino seleccionando la zona en un mapa y Mapas",
+    "description": "Visualiza el tráfico marino seleccionando la zona en un mapa y Mapas",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
   },
   {
-    "name": "Tr\u00e1mites",
+    "name": "Trámites",
     "url": "https://www.google.com/search?q=s%C3%ADguelo+sunarp",
-    "description": "Seguimiento de tr\u00e1mites registrales Per\u00fa",
+    "description": "Seguimiento de trámites registrales Perú",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Tumblr Law Enforcement Guidelines",
@@ -6898,7 +6898,7 @@
   {
     "name": "Tweet Binder",
     "url": "https://www.tweetbinder.com/",
-    "description": "Analizar hashtags y m\u00e9tricas de tweets en tiempo real Twitter",
+    "description": "Analizar hashtags y métricas de tweets en tiempo real Twitter",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -6906,7 +6906,7 @@
   {
     "name": "Tweet Deck",
     "url": "https://tweetdeck.twitter.com/",
-    "description": "Gesti\u00f3n avanzada de m\u00faltiples cuentas y b\u00fasquedas en Twitter",
+    "description": "Gestión avanzada de múltiples cuentas y búsquedas en Twitter",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -6922,7 +6922,7 @@
   {
     "name": "Tweetdeck",
     "url": "https://create.twitter.com/es/products/tweetdeck",
-    "description": "** Monitore perfis, t\u00f3picos e organize conte\u00fado de interesse no Twitter.",
+    "description": "** Monitore perfis, tópicos e organize conteúdo de interesse no Twitter.",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -6930,7 +6930,7 @@
   {
     "name": "Twint",
     "url": "https://github.com/twintproject/twint",
-    "description": "** Ferramenta de intelig\u00eancia para an\u00e1lise de dados no Twitter.",
+    "description": "** Ferramenta de inteligência para análise de dados no Twitter.",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -6938,7 +6938,7 @@
   {
     "name": "Twiter id finder",
     "url": "https://twiteridfinder.com/",
-    "description": "Obtener el ID \u00fanico de un usuario de Twitter",
+    "description": "Obtener el ID único de un usuario de Twitter",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -6984,17 +6984,17 @@
     "category": "Domain & IP Analysis"
   },
   {
-    "name": "Ubicaci\u00f3n de celdas telef\u00f3nicas",
+    "name": "Ubicación de celdas telefónicas",
     "url": "https://opencellid.org/",
-    "description": "Ubica en el mapa diferentes celdas/torres de telef\u00f3nica m\u00f3vil registradas",
+    "description": "Ubica en el mapa diferentes celdas/torres de telefónica móvil registradas",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
   },
   {
-    "name": "Ubicaci\u00f3n de fotomultas o fotopapeletas",
+    "name": "Ubicación de fotomultas o fotopapeletas",
     "url": "https://data.buenosaires.gob.ar/dataset/camaras-fijas-control-vehicular",
-    "description": "La ubicaci\u00f3n de todas las fotomultas de CABA en archivo CSV. Argentina",
+    "description": "La ubicación de todas las fotomultas de CABA en archivo CSV. Argentina",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -7002,7 +7002,7 @@
   {
     "name": "Ubigeo Reniec",
     "url": "https://www.reniec.gob.pe/Adherentes/jsp/ListaUbigeos.jsp",
-    "description": "Consulta de c\u00f3digos de ubicaci\u00f3n geogr\u00e1fica Per\u00fa",
+    "description": "Consulta de códigos de ubicación geográfica Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -7074,10 +7074,10 @@
   {
     "name": "UNI",
     "url": "http://www.orce.uni.edu.pe/buscaalu.php?op=buscaalu#",
-    "description": "B\u00fasqueda de alumnos de la Universidad Nacional de Ingenier\u00eda Per\u00fa",
+    "description": "Búsqueda de alumnos de la Universidad Nacional de Ingeniería Perú",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "United States Patent and Trademark Office (USPTO)",
@@ -7114,15 +7114,15 @@
   {
     "name": "US-CERT (CISA)",
     "url": "https://www.cisa.gov/uscert",
-    "description": "US national Computer Emergency Response Team, now under CISA. (URL not independently verified by Claude \u2014 confirm before relying on it.)",
+    "description": "US national Computer Emergency Response Team, now under CISA. (URL not independently verified by Claude — confirm before relying on it.)",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Cyber Threat Intelligence (CTI)"
   },
   {
     "name": "Utilitarios",
     "url": "https://docs.google.com/spreadsheets/d/1vf91U__HvlNuBkY8T12CLu34AYgEbcbk/edit#gid=183866541",
-    "description": "Hoja de c\u00e1lculo con recursos \u00fatiles para OSINT",
+    "description": "Hoja de cálculo con recursos útiles para OSINT",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -7130,7 +7130,7 @@
   {
     "name": "Utilitarios Varios",
     "url": "https://fakeinfo.net/",
-    "description": "Generar informaci\u00f3n falsa para pruebas y simulaciones",
+    "description": "Generar información falsa para pruebas y simulaciones",
     "pricing": "Free",
     "status": "live",
     "category": "Dating & Communities"
@@ -7141,7 +7141,7 @@
     "description": "An overview of the Universal Transverse Mercator coordinate system.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "VAT Number Validation",
@@ -7162,13 +7162,13 @@
   {
     "name": "Velociraptor",
     "url": "https://docs.velociraptor.app/",
-    "description": "Detecci\u00f3n de endpoints, respuesta ante incidentes y caza de amenazas (threat hunting).",
+    "description": "Detección de endpoints, respuesta ante incidentes y caza de amenazas (threat hunting).",
     "pricing": "Free",
     "status": "live",
     "category": "Digital Forensics & Incident Response (DFIR)"
   },
   {
-    "name": "Ver iluminaci\u00f3n del sol",
+    "name": "Ver iluminación del sol",
     "url": "https://www.suncalc.org/#/-34.6037,-58.3816,16/2022.06.07/15:53/1/3",
     "description": "Suncalc models the relationship between the date, time of day, the geographic location of a place, and the position of the sun in the sky, together with the length & direction of the shadows it casts.",
     "pricing": "Free",
@@ -7176,7 +7176,7 @@
     "category": "Blockchain & Cryptocurrency"
   },
   {
-    "name": "Ver sombra seg\u00fan la iluminaci\u00f3n del sol",
+    "name": "Ver sombra según la iluminación del sol",
     "url": "https://app.shadowmap.org/?lat=-12.05145&lng=-77.03467&zoom=16.43&azimuth=0.00000&basemap=map&elevation=nextzen&f=29.0&hud=true&polar=0.52360&time=1740918005319&vq=2",
     "description": "Global map of 3D buildlings and the shadows they cast at a specific time a day",
     "pricing": "Free",
@@ -7192,9 +7192,9 @@
     "category": "Media & Document Analysis"
   },
   {
-    "name": "Verificaci\u00f3n",
+    "name": "Verificación",
     "url": "http://comprobarcorreo.com/",
-    "description": "Verificar la validez de una direcci\u00f3n de correo electr\u00f3nico",
+    "description": "Verificar la validez de una dirección de correo electrónico",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -7202,26 +7202,26 @@
   {
     "name": "Verificador",
     "url": "https://2chat.co/es/tools/whatsapp-checker",
-    "description": "Verificar la validez de un n\u00famero de WhatsApp",
+    "description": "Verificar la validez de un número de WhatsApp",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
   },
   {
-    "name": "Verificador de Cart\u00e3o de Cr\u00e9dito",
+    "name": "Verificador de Cartão de Crédito",
     "url": "https://www.validcreditcardnumber.com",
-    "description": "** Verifique n\u00fameros de cart\u00e3o de cr\u00e9dito.",
+    "description": "** Verifique números de cartão de crédito.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Transportation OSINT"
   },
   {
     "name": "Verificador de IBAN",
     "url": "https://www.iban.com/",
-    "description": "** Verifica\u00e7\u00e3o de IBAN.",
+    "description": "** Verificação de IBAN.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Verificar email en redes sociales",
@@ -7234,7 +7234,7 @@
   {
     "name": "Verificar IMEI",
     "url": "https://www.imei.info/",
-    "description": "Verificar informaci\u00f3n de dispositivos m\u00f3viles usando IMEI",
+    "description": "Verificar información de dispositivos móviles usando IMEI",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -7242,7 +7242,7 @@
   {
     "name": "Verificar SOAT",
     "url": "https://www.soat.com.pe/servicios-soat/",
-    "description": "Verificaci\u00f3n del Seguro Obligatorio de Accidentes de Tr\u00e1nsito MTC vehiculos Per\u00fa",
+    "description": "Verificación del Seguro Obligatorio de Accidentes de Tránsito MTC vehiculos Perú",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -7250,7 +7250,7 @@
   {
     "name": "Veriphone",
     "url": "https://veriphone.io/",
-    "description": "Verificar la validez de un n\u00famero de tel\u00e9fono",
+    "description": "Verificar la validez de un número de teléfono",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
@@ -7258,7 +7258,7 @@
   {
     "name": "Vessel Finder",
     "url": "https://www.vesselfinder.com/",
-    "description": "Sistema de localizaci\u00f3n de embarcaciones localizar nav\u00edos",
+    "description": "Sistema de localización de embarcaciones localizar navíos",
     "pricing": "Partially Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -7272,9 +7272,9 @@
     "category": "Compliance, Sanctions & Legal"
   },
   {
-    "name": "Videos seg\u00fan ubicaci\u00f3n",
+    "name": "Videos según ubicación",
     "url": "https://mattw.io/youtube-geofind/",
-    "description": "Buscar ubicaciones geogr\u00e1ficas en videos de YouTube. Videos seg\u00fan ubicaci\u00f3n",
+    "description": "Buscar ubicaciones geográficas en videos de YouTube. Videos según ubicación",
     "pricing": "Free",
     "status": "live",
     "category": "Social Media Intelligence (SOCMINT)"
@@ -7282,7 +7282,7 @@
   {
     "name": "Viento y clima en ciudades",
     "url": "https://es.weatherspark.com/",
-    "description": "Ver el viento o el clima en vivo en cualquier ubicaci\u00f3n geogr\u00e1fica. Mapa y Mapas",
+    "description": "Ver el viento o el clima en vivo en cualquier ubicación geográfica. Mapa y Mapas",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -7290,7 +7290,7 @@
   {
     "name": "Viento y clima en mapa",
     "url": "https://www.ventusky.com/",
-    "description": "Ver el viento o el clima en vivo en cualquier ubicaci\u00f3n geogr\u00e1fica. Mapa y Mapas",
+    "description": "Ver el viento o el clima en vivo en cualquier ubicación geográfica. Mapa y Mapas",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -7298,13 +7298,13 @@
   {
     "name": "Virus Total",
     "url": "https://www.virustotal.com/gui/home/upload",
-    "description": "** Verifica arquivos, dom\u00ednios, addresses IP e URLs suspeitos para detectar malware e outras amea\u00e7as \u00e0 seguran\u00e7a.",
+    "description": "** Verifica arquivos, domínios, addresses IP e URLs suspeitos para detectar malware e outras ameaças à segurança.",
     "pricing": "Free",
     "status": "live",
     "category": "Cyber Threat Intelligence (CTI)"
   },
   {
-    "name": "Visor en L\u00ednea sin registro",
+    "name": "Visor en Línea sin registro",
     "url": "https://urlebird.com/es/",
     "description": "Ver contenido de TikTok sin necesidad de una cuenta",
     "pricing": "Free",
@@ -7346,7 +7346,7 @@
   {
     "name": "Volante o Maleta",
     "url": "https://www.volanteomaleta.com/",
-    "description": "Consultar informaci\u00f3n vehicular por RUT, nombre y patente en Chile",
+    "description": "Consultar información vehicular por RUT, nombre y patente en Chile",
     "pricing": "Free",
     "status": "live",
     "category": "Transportation OSINT"
@@ -7405,7 +7405,7 @@
     "description": "Recopila, correlaciona y analiza registros (logs) en busca de amenazas.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Business & Corporate Registers"
   },
   {
     "name": "Web Archive",
@@ -7434,7 +7434,7 @@
   {
     "name": "Webcam CSE",
     "url": "https://cipher387.github.io/webcamcse/",
-    "description": "B\u00fasqueda de c\u00e1maras web p\u00fablicas",
+    "description": "Búsqueda de cámaras web públicas",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -7482,7 +7482,7 @@
   {
     "name": "WhatsMyName",
     "url": "https://whatsmyname.app/",
-    "description": "Buscar un nombre de usuario en m\u00faltiples plataformas. Encontrar un mismo usuario en diferentes sitios",
+    "description": "Buscar un nombre de usuario en múltiples plataformas. Encontrar un mismo usuario en diferentes sitios",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
@@ -7490,7 +7490,7 @@
   {
     "name": "Who.is",
     "url": "https://who.is/",
-    "description": "Consultar informaci\u00f3n WHOIS de dominios",
+    "description": "Consultar información WHOIS de dominios",
     "pricing": "Free",
     "status": "live",
     "category": "Domain & IP Analysis"
@@ -7501,12 +7501,12 @@
     "description": "** Pesquisa reversa de telefone.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Phone OSINT"
   },
   {
     "name": "Whoislogy",
     "url": "https://whoisology.com/",
-    "description": "Explorar informaci\u00f3n WHOIS de dominios",
+    "description": "Explorar información WHOIS de dominios",
     "pricing": "Free",
     "status": "live",
     "category": "Domain & IP Analysis"
@@ -7536,7 +7536,7 @@
     "category": "Email & Username OSINT"
   },
   {
-    "name": "Wikimapa con categor\u00edas",
+    "name": "Wikimapa con categorías",
     "url": "http://wikimapia.org/",
     "description": "Wikimapia was a long-running collaborative mapping project that remains partially accessible, providing open source researchers with a unique database of historical, user-generated content.",
     "pricing": "Free",
@@ -7573,7 +7573,7 @@
     "description": "Open source pattern recognition software to identify unique whales, sharks, zebras, jaguars, skunks, fish and much more.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "WIPO Hague Express",
@@ -7584,20 +7584,20 @@
     "category": "Archives & Databases"
   },
   {
-    "name": "Wirtschaftspr\u00fcferkammer (WPK)",
+    "name": "Wirtschaftsprüferkammer (WPK)",
     "url": "https://www.wpk.de/",
     "description": "Chamber of public accountants registry.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Business & Corporate Registers"
   },
   {
     "name": "Wolfram Alpha",
     "url": "https://www.wolframalpha.com",
-    "description": "** Motor de busca que fornece respostas diretas com base em artigos cient\u00edficos.",
+    "description": "** Motor de busca que fornece respostas diretas com base em artigos científicos.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "World Database on Protected and Conserved Areas",
@@ -7626,7 +7626,7 @@
   {
     "name": "World Watch",
     "url": "https://worldwatch.uk",
-    "description": "** Plataforma y reporte de alertas tempranas sobre desastres naturales, incidentes de seguridad internacional y gu\u00edas de viaje seguras.",
+    "description": "** Plataforma y reporte de alertas tempranas sobre desastres naturales, incidentes de seguridad internacional y guías de viaje seguras.",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -7722,10 +7722,10 @@
   {
     "name": "Zeek (Bro)",
     "url": "https://zeek.org/",
-    "description": "An\u00e1lisis de tr\u00e1fico de red y detecci\u00f3n de amenazas.",
+    "description": "Análisis de tráfico de red y detección de amenazas.",
     "pricing": "Free",
     "status": "live",
-    "category": "Miscellaneous OSINT"
+    "category": "Archives & Databases"
   },
   {
     "name": "Zeeschuimer",
@@ -7744,33 +7744,33 @@
     "category": "Cyber Threat Intelligence (CTI)"
   },
   {
-    "name": "\u00bfExiste el Email 2?",
+    "name": "¿Existe el Email 2?",
     "url": "https://www.melissa.com/v2/lookups/emailcheck/email/",
-    "description": "Ayuda para verificar la existencia de un correo electr\u00f3nico",
+    "description": "Ayuda para verificar la existencia de un correo electrónico",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
   },
   {
-    "name": "\u00bfExiste el Email 3?",
+    "name": "¿Existe el Email 3?",
     "url": "https://www.verifyemailaddress.org/",
-    "description": "Ayuda para verificar la existencia de un correo electr\u00f3nico",
+    "description": "Ayuda para verificar la existencia de un correo electrónico",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
   },
   {
-    "name": "\u00bfExiste el Email?",
+    "name": "¿Existe el Email?",
     "url": "https://cleantalk.org/email-checker",
-    "description": "Ayuda para verificar la existencia de un correo electr\u00f3nico",
+    "description": "Ayuda para verificar la existencia de un correo electrónico",
     "pricing": "Free",
     "status": "live",
     "category": "Email & Username OSINT"
   },
   {
-    "name": "\u00bfQui\u00e9n ha llamado?",
+    "name": "¿Quién ha llamado?",
     "url": "https://www.quienhallamado.es/",
-    "description": "Permite buscar n\u00fameros que fueron reportados por estafas o spam",
+    "description": "Permite buscar números que fueron reportados por estafas o spam",
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"

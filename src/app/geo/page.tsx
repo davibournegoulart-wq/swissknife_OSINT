@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Search, Map, ExternalLink, MapPin, Radar, Database, Radio, Youtube, Network } from "lucide-react";
+import { Search, Map, ExternalLink, MapPin, Radar, Database, Radio, PlaySquare, Network } from "lucide-react";
 import geoData from "@/data/geo_osint.json";
 import mediaData from "@/data/media.json";
 import { cn } from "@/lib/utils";
@@ -284,7 +284,7 @@ export default function GeoDashboard() {
                               className="flex items-center justify-center gap-1.5 bg-red-950/30 border border-red-900/50 px-3 py-1.5 text-xs font-mono font-bold text-red-400 transition-all hover:bg-red-900/50 hover:text-red-300 hover:border-red-500 focus:outline-none hover:shadow-[0_0_15px_rgba(255,0,0,0.3)] group/yt w-full sm:w-auto"
                               style={{ clipPath: 'polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px)' }}
                             >
-                              <Youtube className="w-3.5 h-3.5 text-red-500 group-hover/yt:animate-pulse" />
+                              <PlaySquare className="w-3.5 h-3.5 text-red-500 group-hover/yt:animate-pulse" />
                               <span>YT_CHANNEL</span>
                             </a>
                           )}

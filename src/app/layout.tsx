@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
-import { Scan, Globe, Activity, Map } from "lucide-react";
+import { Scan, Activity, Map } from "lucide-react";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -38,12 +38,7 @@ export default function RootLayout({
             
             <Link href="/geo" className="text-[10px] sm:text-xs font-mono font-bold tracking-widest uppercase text-emerald-600 hover:text-emerald-300 transition-colors flex items-center gap-2 shrink-0">
               <Map className="w-3.5 h-3.5" />
-              Geo-Intel
-            </Link>
-
-            <Link href="/media" className="text-[10px] sm:text-xs font-mono font-bold tracking-widest uppercase text-fuchsia-600 hover:text-fuchsia-300 transition-colors flex items-center gap-2 shrink-0">
-              <Globe className="w-3.5 h-3.5" />
-              Global Media
+              Nations Database
             </Link>
           </div>
           

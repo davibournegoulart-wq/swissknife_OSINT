@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
-import { Scan, Activity, Map, TerminalSquare, Newspaper } from "lucide-react";
+import { Scan, Activity, Map, TerminalSquare, Newspaper, Globe2 } from "lucide-react";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -49,6 +49,11 @@ export default function RootLayout({
             <Link href="/news" className="text-[10px] sm:text-xs font-mono font-bold tracking-widest uppercase text-red-600 hover:text-red-300 transition-colors flex items-center gap-2 shrink-0">
               <Newspaper className="w-3.5 h-3.5" />
               Global News
+            </Link>
+
+            <Link href="/globe" className="text-[10px] sm:text-xs font-mono font-bold tracking-widest uppercase text-cyan-500 hover:text-cyan-300 transition-colors flex items-center gap-2 shrink-0">
+              <Globe2 className="w-3.5 h-3.5" />
+              Geo-Pulse
             </Link>
           </div>
           

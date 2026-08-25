@@ -1,10 +1,11 @@
 "use client";
 
+import * as THREE from "three";
 import { useState, useEffect, useRef, useMemo } from "react";
 import dynamic from "next/dynamic";
 import { Activity, Radio, Layers, Globe2, MapPin, Map, Crosshair, Terminal, Zap } from "lucide-react";
 import countryCoords from "@/data/country_coords.json";
-const countriesGeo = require("@/data/countries.geojson");
+const countriesGeo = require("@/data/countries.json");
 
 const Globe = dynamic(() => import("react-globe.gl"), { ssr: false });
 const Map2D = dynamic(() => import("@/components/Map2D"), { ssr: false });
@@ -17,17 +18,39 @@ export default function GlobeMonitor() {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [quakes, setQuakes] = useState<any[]>([]);
   const [viewMode, setViewMode] = useState<"2d" | "3d">("3d");
-  const [layers, setLayers] = useState({ news: true, quakes: true, borders: true, arcs: true });
+  const [layers, setLayers] = useState({ news: true, quakes: true, borders: true, arcs: true, labels: false, weather: false, storms: true, fires: true, volcanoes: true, conflicts: true });
+  const [globeTheme, setGlobeTheme] = useState<"tactical" | "satellite">("tactical");
   const [hoveredInfo, setHoveredInfo] = useState<PointData | null>(null);
+  const [lockedInfo, setLockedInfo] = useState<PointData | null>(null);
+  const [eonetEvents, setEonetEvents] = useState<any[]>([]);
+  const [openCategory, setOpenCategory] = useState<string | null>("ARMED CONFLICTS");
+  const [conflicts, setConflicts] = useState<any[]>([]);
 
   useEffect(() => {
     fetch("/api/news?limit=200").then(r => r.json()).then(d => setNews(d.articles || []));
+    
     // Fetch only recent/ongoing earthquakes (past 24h)
     fetch("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson")
       .then(r => r.json()).then(d => setQuakes((d.features || []).slice(0, 300)));
+      
+    // Fetch all open events from NASA EONET (Storms, Wildfires, Volcanoes)
+    fetch("https://eonet.gsfc.nasa.gov/api/v3/events?status=open")
+      .then(r => r.json()).then(d => setEonetEvents(d.events || []))
+      .catch(e => console.error("EONET error", e));
+
+    // Fetch ACLED Conflict Data (simulated via mock or public subset if available, using a static set of known conflict zones for now as ACLED requires API keys)
+    setConflicts([
+      { lat: 48.3794, lng: 31.1656, title: "Russo-Ukrainian War", desc: "Ongoing conventional warfare", color: "#ffff00" },
+      { lat: 31.5, lng: 34.466667, title: "Gaza Strip Conflict", desc: "Armed conflict / Siege", color: "#ffff00" },
+      { lat: 15.5007, lng: 32.5599, title: "Sudan Civil War", desc: "Clashes between SAF and RSF", color: "#ffff00" },
+      { lat: 19.0, lng: -72.25, title: "Haiti Gang Conflict", desc: "Armed gang violence / State crisis", color: "#ffff00" },
+      { lat: 12.0, lng: 15.0, title: "Sahel Insurgency", desc: "Militant insurgency operations", color: "#ffff00" },
+      { lat: 16.0, lng: 96.0, title: "Myanmar Civil War", desc: "Junta vs Armed Ethnic Groups", color: "#ffff00" },
+      { lat: -1.4558, lng: 29.3253, title: "Kivu Conflict (DRC)", desc: "M23 Rebellion / Armed clashes", color: "#ffff00" }
+    ]);
   }, []);
 
-  const { points, arcs, rings } = useMemo(() => {
+  const { points, arcs, rings, labels, eonetPts, conflictPts } = useMemo(() => {
     const pts: PointData[] = [];
     const arcList: any[] = [];
     const ringList: any[] = [];
@@ -44,7 +67,7 @@ export default function GlobeMonitor() {
         if (coords) {
           const pt = {
             lat: coords.lat, lng: coords.lng,
-            size: 0.5 + (items.length * 0.1), // Increase radius size instead
+            size: Math.min(1.5, 0.5 + (items.length * 0.05)),
             color: "#00f3ff",
             label: `[ ${country.toUpperCase()} ]`,
             type: "news" as const,
@@ -52,12 +75,16 @@ export default function GlobeMonitor() {
             desc: `LIVE: ${items.length} intel streams\n>>> ${items[0].title}`
           };
           pts.push(pt);
-          ringList.push({ lat: coords.lat, lng: coords.lng, color: "#00f3ff", maxR: pt.size * 2, propagationSpeed: 1, repeatPeriod: 1000 });
           
-          if (layers.arcs && Math.random() > 0.5) {
+          // Only add rings for major news hubs to save performance
+          if (items.length > 5) {
+            ringList.push({ lat: coords.lat, lng: coords.lng, color: "#00f3ff", maxR: 2, propagationSpeed: 1, repeatPeriod: 2500 });
+          }
+          
+          if (layers.arcs && Math.random() > 0.8) {
             arcList.push({
               startLat: coords.lat, startLng: coords.lng,
-              endLat: 38.8951, endLng: -77.0364, // Route some data to DC hub
+              endLat: 38.8951, endLng: -77.0364,
               color: ["rgba(0,243,255,0.1)", "rgba(0,243,255,0.8)"]
             });
           }
@@ -66,33 +93,93 @@ export default function GlobeMonitor() {
     }
 
     if (layers.quakes) {
-      quakes.forEach(q => {
+      // Limit to 50 strongest quakes to prevent massive ring overlap
+      const topQuakes = [...quakes].sort((a, b) => b.properties.mag - a.properties.mag).slice(0, 50);
+      topQuakes.forEach(q => {
         const [lng, lat] = q.geometry.coordinates;
         const mag = q.properties.mag;
         pts.push({
-          lat, lng,
-          size: Math.max(0.3, (mag - 2) * 0.4), // Radius
-          color: mag > 5 ? "#ff003c" : "#ff5500",
-          label: `[ SEISMIC: M${mag} ]`,
+          lat, lng, size: mag * 0.15, color: "#ff003c",
+          label: `[ SEISMIC ] M${mag}`,
           type: "quake",
           url: q.properties.url,
-          desc: `LOC: ${q.properties.place}\nTIME: ${new Date(q.properties.time).toISOString()}`
+          desc: `LOC: ${q.properties.place.toUpperCase()}`
         });
-        if (mag > 4) {
-          ringList.push({ lat, lng, color: "#ff003c", maxR: mag * 1.5, propagationSpeed: 2, repeatPeriod: 800 });
-        }
+        
+        // Much smaller, slower rings to avoid visual mess
+        ringList.push({ lat, lng, color: "#ff003c", maxR: mag * 0.8, propagationSpeed: 1, repeatPeriod: 2000 });
       });
     }
-    return { points: pts, arcs: arcList, rings: ringList };
-  }, [news, quakes, layers]);
+
+    const eonetPtsList: any[] = [];
+    let fireCount = 0;
+    
+    eonetEvents.forEach(s => {
+      const catId = s.categories[0]?.id;
+      if (catId === "severeStorms" && !layers.storms) return;
+      if (catId === "wildfires" && !layers.fires) return;
+      if (catId === "volcanoes" && !layers.volcanoes) return;
+      
+      // Heavily throttle wildfires to top 30
+      if (catId === "wildfires") {
+        if (fireCount > 30) return;
+        fireCount++;
+      }
+      
+      const latestGeom = s.geometry[s.geometry.length - 1];
+      if (latestGeom) {
+        const [lng, lat] = latestGeom.coordinates;
+        eonetPtsList.push({
+          lat, lng,
+          size: 1.5,
+          color: catId === "wildfires" ? "#ff4500" : catId === "volcanoes" ? "#ff8c00" : "#ff00ff",
+          label: `[ ${s.title.toUpperCase()} ]`,
+          type: "eonet",
+          catId: catId,
+          url: s.sources[0]?.url,
+          desc: `CATEGORY: ${s.categories[0]?.title.toUpperCase()}\nDATE: ${new Date(latestGeom.date).toISOString()}`
+        });
+      }
+    });
+
+    const labelList: any[] = [];
+    if (layers.labels) {
+      Object.entries(countryCoords).forEach(([country, coords]: any) => {
+        labelList.push({
+          lat: coords.lat,
+          lng: coords.lng,
+          text: country.toUpperCase(),
+        });
+      });
+    }
+
+    const conflictPtsList: any[] = [];
+    if (layers.conflicts) {
+      conflicts.forEach(c => {
+        conflictPtsList.push({
+          lat: c.lat, lng: c.lng,
+          size: 2,
+          color: c.color,
+          label: `[ ${c.title.toUpperCase()} ]`,
+          type: "conflict",
+          desc: `STATUS: ${c.desc.toUpperCase()}`
+        });
+        ringList.push({ lat: c.lat, lng: c.lng, color: c.color, maxR: 4, propagationSpeed: 0.5, repeatPeriod: 3000 });
+      });
+    }
+
+    return { points: pts, arcs: arcList, rings: ringList, labels: labelList, eonetPts: eonetPtsList, conflictPts: conflictPtsList };
+  }, [news, quakes, eonetEvents, conflicts, layers]);
+
+  const [autoRotate, setAutoRotate] = useState(true);
 
   useEffect(() => {
     if (viewMode === "3d" && globeRef.current) {
-      globeRef.current.controls().autoRotate = true;
+      globeRef.current.controls().autoRotate = autoRotate;
       globeRef.current.controls().autoRotateSpeed = 0.8;
-      globeRef.current.pointOfView({ lat: 20, lng: 0, altitude: 2.2 });
+      // globeRef.current.pointOfView({ lat: 20, lng: 0, altitude: 2.2 }); // Removed so it doesn't snap back
     }
-  }, [globeRef.current, viewMode]);
+  }, [globeRef.current, viewMode, autoRotate]);
 
   return (
     <div className="flex h-full flex-col bg-[#020205] text-white overflow-hidden relative font-mono select-none">
@@ -102,9 +189,14 @@ export default function GlobeMonitor() {
         {viewMode === "3d" ? (
           <Globe
             ref={globeRef}
-            globeImageUrl="//unpkg.com/three-globe/example/img/earth-water.png"
+            globeImageUrl={
+              globeTheme === "tactical" 
+                ? "//unpkg.com/three-globe/example/img/earth-dark.jpg"
+                : "//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
+            }
+            bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
             backgroundColor="#020205"
-            atmosphereColor="#0055ff"
+            atmosphereColor={globeTheme === "tactical" ? "#0055ff" : "#ffffff"}
             atmosphereAltitude={0.15}
             
             // Polygons (Osiris Wireframe Earth)
@@ -138,8 +230,103 @@ export default function GlobeMonitor() {
             arcDashAnimateTime={2000}
             arcAltitudeAutoScale={0.3}
 
-            onPointHover={(pt: any) => setHoveredInfo(pt)}
-            onPointClick={(pt: any) => pt.url && window.open(pt.url, "_blank")}
+            // Labels (Country Names)
+            labelsData={layers.labels ? labels : []}
+            labelLat="lat"
+            labelLng="lng"
+            labelText="text"
+            labelSize={1.5}
+            labelDotRadius={0.3}
+            labelColor={() => "rgba(0, 243, 255, 0.8)"}
+            labelResolution={2}
+            labelAltitude={0.01}
+
+            // EONET Alerts (Storms, Fires, Volcanoes) & Conflicts
+            htmlElementsData={[...(eonetPts || []), ...(conflictPts || [])]}
+            htmlLat="lat"
+            htmlLng="lng"
+            htmlElement={(d: any) => {
+              const el = document.createElement('div');
+              let innerHTML = '';
+              const cat = d.catId;
+              const type = d.type;
+              
+              if (type === "conflict") {
+                innerHTML = `
+                  <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group">
+                    <div class="absolute w-12 h-12 border border-[#ffff00] rounded-full opacity-20 group-hover:scale-110 group-hover:opacity-50 transition-all"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="group-hover:scale-125 transition-transform drop-shadow-[0_0_10px_rgba(255,255,0,1)]">
+                      <polygon points="12 2 20 6 20 18 12 22 4 18 4 6" fill="none" stroke="#ffff00" stroke-width="1.5" stroke-dasharray="2 4"/>
+                      <circle cx="12" cy="12" r="3" fill="#ffff00"/>
+                      <path d="M12 2v5M12 17v5M2 12h5M17 12h5" stroke="#ffff00" stroke-width="1.5"/>
+                    </svg>
+                  </div>
+                `;
+              } else if (cat === "severeStorms") {
+                innerHTML = `
+                  <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group">
+                    <div class="absolute w-10 h-10 border-2 border-dashed border-[#ff00ff] rounded-full opacity-40 group-hover:opacity-80 group-hover:scale-110 transition-all"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="group-hover:scale-125 transition-transform drop-shadow-[0_0_8px_rgba(255,0,255,0.8)]">
+                      <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="#ff00ff" stroke-width="1.5" stroke-dasharray="4 6" fill="none"/>
+                      <path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5" stroke="#ff00ff" stroke-width="1.5" fill="none"/>
+                      <path d="M7 12a5 5 0 0 1 5-5" stroke="#ff00ff" stroke-width="1.5" fill="none"/>
+                    </svg>
+                  </div>
+                `;
+              } else if (cat === "wildfires") {
+                innerHTML = `
+                  <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="group-hover:scale-125 transition-all drop-shadow-[0_0_12px_rgba(255,69,0,1)]">
+                      <polygon points="12 1 22 21 2 21" stroke="#ff4500" stroke-width="1.5" fill="rgba(255,69,0,0.1)"/>
+                      <path d="M12 18c-2 0-3-1.5-3-3 0-2 2-3 3-6 1 3 3 4 3 6 0 1.5-1 3-3 3z" fill="#ff4500"/>
+                      <line x1="2" y1="21" x2="6" y2="21" stroke="#ff4500" stroke-width="2"/>
+                      <line x1="18" y1="21" x2="22" y2="21" stroke="#ff4500" stroke-width="2"/>
+                    </svg>
+                  </div>
+                `;
+              } else if (cat === "volcanoes") {
+                innerHTML = `
+                  <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="group-hover:scale-125 transition-all drop-shadow-[0_0_10px_rgba(255,140,0,1)]">
+                      <polygon points="3 20 10 9 14 9 21 20" stroke="#ff8c00" stroke-width="1.5" fill="rgba(255,140,0,0.2)"/>
+                      <line x1="12" y1="9" x2="12" y2="20" stroke="#ff8c00" stroke-width="1.5" stroke-dasharray="2 2"/>
+                      <circle cx="12" cy="5" r="1.5" fill="#ff8c00"/>
+                      <circle cx="15" cy="3" r="1" fill="#ff8c00"/>
+                      <circle cx="9" cy="2" r="1" fill="#ff8c00"/>
+                      <line x1="0" y1="20" x2="24" y2="20" stroke="#ff8c00" stroke-width="1"/>
+                    </svg>
+                  </div>
+                `;
+              } else {
+                innerHTML = `
+                  <div class="w-2 h-2 bg-white rounded-full shadow-[0_0_8px_#ffffff] pointer-events-auto cursor-pointer"></div>
+                `;
+              }
+
+              el.innerHTML = innerHTML;
+              el.onclick = () => setLockedInfo(d);
+              el.onmouseenter = () => { if (!lockedInfo) setHoveredInfo(d); };
+              el.onmouseleave = () => { if (!lockedInfo) setHoveredInfo(null); };
+              return el;
+            }}
+
+            // Weather (Clouds)
+            customLayerData={layers.weather ? [1] : []}
+            customThreeObject={() => {
+              const geometry = new THREE.SphereGeometry(100.5, 72, 72);
+              const material = new THREE.MeshPhongMaterial({
+                map: new THREE.TextureLoader().load('//unpkg.com/three-globe/example/img/clouds.png'),
+                transparent: true,
+                opacity: 0.8,
+                blending: THREE.AdditiveBlending,
+                side: THREE.DoubleSide,
+                depthWrite: false,
+              });
+              return new THREE.Mesh(geometry, material);
+            }}
+
+            onPointHover={(pt: any) => !lockedInfo && setHoveredInfo(pt)}
+            onPointClick={(pt: any) => setLockedInfo(pt === lockedInfo ? null : pt)}
           />
         ) : (
           <Map2D points={points} onHover={setHoveredInfo} />
@@ -148,10 +335,7 @@ export default function GlobeMonitor() {
 
       {/* ── OSIRIS HUD OVERLAYS ── */}
       
-      {/* Target Crosshair */}
-      <div className="absolute inset-0 pointer-events-none z-10 flex items-center justify-center opacity-20">
-        <Crosshair className="w-96 h-96 text-cyan-500 stroke-[0.5px]" />
-      </div>
+      {/* Target Crosshair removed per user request */}
 
       {/* Scanlines */}
       <div className="absolute inset-0 pointer-events-none z-20 opacity-[0.03]"
@@ -167,77 +351,173 @@ export default function GlobeMonitor() {
 
       <div className="absolute inset-0 pointer-events-none z-40 flex flex-col justify-between p-8">
         
-        {/* Header */}
-        <div className="flex items-start justify-between pointer-events-auto">
-          <div className="bg-[#020205]/80 p-3 border-l-2 border-cyan-500 backdrop-blur-sm">
+        {/* Header & Left Sidebar */}
+        <div className="flex flex-col gap-4 items-start pointer-events-none">
+          <div className="bg-[#020205]/80 p-3 border-l-2 border-cyan-500 backdrop-blur-sm pointer-events-auto">
             <h1 className="text-xl font-black uppercase tracking-[0.3em] text-cyan-400 drop-shadow-[0_0_8px_rgba(0,255,255,0.8)]">
-              [ OSIRIS ENGINE ]
+              SWISS KNIFE
             </h1>
             <p className="text-[10px] text-cyan-800 uppercase tracking-[0.4em] mt-1">
               GLOBAL SURVEILLANCE & INTEL MATRIX
             </p>
           </div>
 
-          <div className="flex flex-col gap-2 w-56">
+          <div className="flex flex-col gap-2 w-56 pointer-events-auto custom-scrollbar">
             <div className="bg-[#020205]/80 border border-cyan-900/50 p-1 flex">
               <button onClick={() => setViewMode("2d")} className={`flex-1 py-1.5 text-[9px] font-bold tracking-widest ${viewMode === "2d" ? "bg-cyan-950 text-cyan-300" : "text-cyan-900"}`}>[ 2D MAP ]</button>
               <button onClick={() => setViewMode("3d")} className={`flex-1 py-1.5 text-[9px] font-bold tracking-widest ${viewMode === "3d" ? "bg-cyan-950 text-cyan-300" : "text-cyan-900"}`}>[ 3D GLOBE ]</button>
             </div>
+            
+            {viewMode === "3d" && (
+              <div className="bg-[#020205]/80 border border-cyan-900/50 p-1 flex">
+                <button onClick={() => setAutoRotate(!autoRotate)} className={`flex-1 py-1.5 text-[9px] font-bold tracking-widest ${autoRotate ? "bg-cyan-950 text-cyan-300" : "text-cyan-900"}`}>
+                  [ {autoRotate ? "AUTO-SPIN: ON" : "AUTO-SPIN: OFF"} ]
+                </button>
+              </div>
+            )}
 
-            <div className="bg-[#020205]/80 border border-cyan-900/50 p-3 flex flex-col gap-2 backdrop-blur-sm">
-              <div className="text-[8px] text-cyan-600 uppercase tracking-[0.3em] mb-1">SYSTEM LAYERS</div>
+            <div className="bg-[#020205]/80 border border-cyan-900/50 p-3 flex flex-col gap-2 backdrop-blur-sm max-h-[40vh] overflow-y-auto custom-scrollbar">
+              <div className="text-[8px] text-cyan-600 uppercase tracking-[0.3em] mb-1 sticky top-0 bg-[#020205] z-10 pb-1 border-b border-cyan-900/50">SYSTEM LAYERS</div>
               
-              <button onClick={() => setLayers(l => ({ ...l, news: !l.news }))} className={`flex items-center justify-between text-[9px] tracking-widest p-1.5 border ${layers.news ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>
+              <button onClick={() => setGlobeTheme(t => t === "tactical" ? "satellite" : "tactical")} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${globeTheme === "satellite" ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>
+                <span>GLOBE TEXTURE</span>
+                <span>[{globeTheme === "tactical" ? "TACTICAL" : "SATELLITE"}]</span>
+              </button>
+
+              <button onClick={() => setLayers(l => ({ ...l, news: !l.news }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.news ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>INTEL STREAMS</span>
                 <span>[{news.length}]</span>
               </button>
               
-              <button onClick={() => setLayers(l => ({ ...l, quakes: !l.quakes }))} className={`flex items-center justify-between text-[9px] tracking-widest p-1.5 border ${layers.quakes ? "border-[#ff003c] text-[#ff003c]" : "border-cyan-900/30 text-cyan-900"}`}>
+              <button onClick={() => setLayers(l => ({ ...l, quakes: !l.quakes }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.quakes ? "border-[#ff003c] text-[#ff003c]" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>SEISMIC ACTIVITY</span>
                 <span>[{quakes.length}]</span>
               </button>
 
-              <button onClick={() => setLayers(l => ({ ...l, borders: !l.borders }))} className={`flex items-center justify-between text-[9px] tracking-widest p-1.5 border ${layers.borders ? "border-cyan-500/50 text-cyan-500/80" : "border-cyan-900/30 text-cyan-900"}`}>
+              <button onClick={() => setLayers(l => ({ ...l, borders: !l.borders }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.borders ? "border-cyan-500/50 text-cyan-500/80" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>NATION BORDERS</span>
                 <span>[ON]</span>
               </button>
 
-              <button onClick={() => setLayers(l => ({ ...l, arcs: !l.arcs }))} className={`flex items-center justify-between text-[9px] tracking-widest p-1.5 border ${layers.arcs ? "border-cyan-500/50 text-cyan-500/80" : "border-cyan-900/30 text-cyan-900"}`}>
+              <button onClick={() => setLayers(l => ({ ...l, labels: !l.labels }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.labels ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>
+                <span>NATION LABELS</span>
+                <span>[ON]</span>
+              </button>
+
+              <button onClick={() => setLayers(l => ({ ...l, arcs: !l.arcs }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.arcs ? "border-cyan-500/50 text-cyan-500/80" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>DATA TRAJECTORIES</span>
                 <span>[ON]</span>
+              </button>
+
+              <button onClick={() => setLayers(l => ({ ...l, weather: !l.weather }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.weather ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>
+                <span>CLOUD COVER (3D)</span>
+                <span>[{layers.weather ? "ON" : "OFF"}]</span>
+              </button>
+
+              <button onClick={() => setLayers(l => ({ ...l, storms: !l.storms }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.storms ? "border-[#ff00ff] text-[#ff00ff]" : "border-cyan-900/30 text-cyan-900"}`}>
+                <span>STORMS & CYCLONES</span>
+                <span>[{layers.storms ? "ON" : "OFF"}]</span>
+              </button>
+              
+              <button onClick={() => setLayers(l => ({ ...l, fires: !l.fires }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.fires ? "border-[#ff4500] text-[#ff4500]" : "border-cyan-900/30 text-cyan-900"}`}>
+                <span>WILDFIRES</span>
+                <span>[{layers.fires ? "ON" : "OFF"}]</span>
+              </button>
+              
+              <button onClick={() => setLayers(l => ({ ...l, volcanoes: !l.volcanoes }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.volcanoes ? "border-[#ff8c00] text-[#ff8c00]" : "border-cyan-900/30 text-cyan-900"}`}>
+                <span>VOLCANOES</span>
+                <span>[{layers.volcanoes ? "ON" : "OFF"}]</span>
+              </button>
+
+              <button onClick={() => setLayers(l => ({ ...l, conflicts: !l.conflicts }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.conflicts ? "border-[#ffff00] text-[#ffff00]" : "border-cyan-900/30 text-cyan-900"}`}>
+                <span>ARMED CONFLICTS</span>
+                <span>[{layers.conflicts ? "ON" : "OFF"}]</span>
               </button>
             </div>
           </div>
         </div>
 
+        {/* EONET & Conflicts Alerts Sidebar (Right) */}
+        <div className="absolute right-8 top-1/2 -translate-y-1/2 w-64 h-[60vh] flex flex-col gap-2 pointer-events-auto">
+          <div className="bg-[#020205]/80 border border-cyan-900/50 backdrop-blur-sm p-3 h-full flex flex-col custom-scrollbar overflow-y-auto">
+            <div className="text-[10px] text-cyan-500 tracking-[0.3em] font-bold border-b border-cyan-900/50 pb-2 mb-2 flex justify-between items-center sticky top-0 bg-[#020205] z-10">
+              <span>GLOBAL ALERTS</span>
+              <span className="text-[#ff003c]">{eonetPts.length + conflictPts.length}</span>
+            </div>
+            
+            {Object.entries({
+              "ARMED CONFLICTS": conflictPts,
+              "SEVERE STORMS": eonetPts.filter((p: any) => p.catId === "severeStorms"),
+              "WILDFIRES": eonetPts.filter((p: any) => p.catId === "wildfires"),
+              "VOLCANOES": eonetPts.filter((p: any) => p.catId === "volcanoes")
+            }).map(([groupName, pts]) => {
+              if (pts.length === 0) return null;
+              const isOpen = openCategory === groupName;
+              return (
+                <div key={groupName} className="mb-2 border border-cyan-900/30 shrink-0">
+                  <button 
+                    onClick={() => setOpenCategory(isOpen ? null : groupName)}
+                    className="w-full text-left p-2 bg-cyan-950/30 hover:bg-cyan-900/50 flex justify-between items-center transition-colors"
+                  >
+                    <span className="text-[9px] font-bold tracking-widest text-cyan-300">{groupName}</span>
+                    <span className="text-[9px] text-cyan-600">[{pts.length}]</span>
+                  </button>
+                  {isOpen && (
+                    <div className="p-1 flex flex-col gap-1 max-h-[30vh] overflow-y-auto custom-scrollbar bg-[#010103]">
+                      {pts.map((pt: any, i: number) => (
+                        <button key={i} className="text-left group border border-cyan-900/20 p-2 hover:border-cyan-500 transition-colors shrink-0"
+                          onClick={() => {
+                            globeRef.current.pointOfView({ lat: pt.lat, lng: pt.lng, altitude: 1.2 }, 1500);
+                            setLockedInfo(pt);
+                          }}
+                        >
+                          <div className="text-[8px] font-bold" style={{ color: pt.color }}>{pt.label}</div>
+                          <div className="text-[7px] text-cyan-700 mt-1">{pt.desc.split('\n')[0]}</div>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
         {/* Footer */}
-        <div className="flex items-end justify-between pointer-events-auto">
+        <div className="flex items-end justify-between pointer-events-none">
           {/* Terminal / Target Lock */}
-          <div className="w-80 h-32 bg-[#020205]/80 border border-cyan-900/50 p-3 backdrop-blur-sm relative flex flex-col">
+          <div className="w-80 h-32 bg-[#020205]/80 border border-cyan-900/50 p-3 backdrop-blur-sm relative flex flex-col pointer-events-auto">
             <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-cyan-400" />
             <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-cyan-400" />
             
-            <div className="flex items-center gap-2 text-[8px] text-cyan-600 tracking-[0.3em] mb-2 border-b border-cyan-900/50 pb-1">
-              <Terminal className="w-3 h-3" />
-              <span>TARGET_TELEMETRY</span>
+            <div className="flex items-center justify-between text-[8px] text-cyan-600 tracking-[0.3em] mb-2 border-b border-cyan-900/50 pb-1">
+              <div className="flex items-center gap-2">
+                <Terminal className="w-3 h-3" />
+                <span>TARGET_TELEMETRY</span>
+              </div>
+              {lockedInfo && <span className="text-[#ff003c] animate-pulse">[ LOCKED ]</span>}
             </div>
 
-            {hoveredInfo ? (
+            {lockedInfo || hoveredInfo ? (
               <div className="flex-1 overflow-hidden animate-[pulse_0.1s_ease-in-out]">
-                <div className="text-[10px] text-white font-bold tracking-widest mb-1">{hoveredInfo.label}</div>
-                <div className="text-[9px] text-cyan-400 leading-tight mb-2 whitespace-pre-wrap">{hoveredInfo.desc}</div>
-                <div className="text-[8px] text-cyan-700">LAT: {hoveredInfo.lat.toFixed(4)} // LNG: {hoveredInfo.lng.toFixed(4)}</div>
-                {hoveredInfo.url && <div className="text-[8px] text-[#ff003c] mt-1 animate-pulse">&gt;&gt;&gt; CLICK TO INTERCEPT SIGNAL</div>}
+                <div className="text-[10px] text-white font-bold tracking-widest mb-1">{(lockedInfo || hoveredInfo)?.label}</div>
+                <div className="text-[9px] text-cyan-400 leading-tight mb-2 whitespace-pre-wrap">{(lockedInfo || hoveredInfo)?.desc}</div>
+                <div className="text-[8px] text-cyan-700">LAT: {(lockedInfo || hoveredInfo)?.lat.toFixed(4)} // LNG: {(lockedInfo || hoveredInfo)?.lng.toFixed(4)}</div>
+                {(lockedInfo || hoveredInfo)?.url && (
+                  <button onClick={() => window.open((lockedInfo || hoveredInfo)?.url, "_blank")} className="text-[8px] text-[#ff003c] mt-1 hover:text-white transition-colors cursor-pointer block text-left">
+                    &gt;&gt;&gt; CLICK TO INTERCEPT SIGNAL
+                  </button>
+                )}
               </div>
             ) : (
-              <div className="flex-1 flex items-center justify-center text-[9px] text-cyan-900 tracking-widest">
-                AWAITING TARGET LOCK...
+              <div className="flex-1 flex items-center justify-center text-[9px] text-cyan-900 tracking-widest text-center">
+                AWAITING TARGET LOCK...<br/>(HOVER TO SCAN, CLICK TO LOCK)
               </div>
             )}
           </div>
           
           {/* Status block */}
-          <div className="flex flex-col items-end gap-1">
+          <div className="flex flex-col items-end gap-1 pointer-events-auto">
             <div className="flex items-center gap-2 bg-[#020205]/80 border border-cyan-900/50 px-3 py-1">
               <Radio className="w-3 h-3 text-[#ff003c] animate-pulse" />
               <span className="text-[9px] text-cyan-500 tracking-[0.3em]">SECURE UPLINK ESTABLISHED</span>

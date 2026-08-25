@@ -1,674 +1,402 @@
 [
   {
-    "date": "2024-08-23",
-    "dork": "ext:nix \"BEGIN OPENSSH PRIVATE KEY\"",
-    "category": "Files Containing Passwords",
-    "author": "kstrawn0"
+    "query": "intitle:\"webcamXP 5\" -download",
+    "category": "Cameras & IoT",
+    "description": "Exposed WebcamXP instances"
   },
   {
-    "date": "2024-08-23",
-    "dork": "site:github.com \"BEGIN OPENSSH PRIVATE KEY\"",
-    "category": "Files Containing Passwords",
-    "author": "kstrawn0"
+    "query": "intitle:\"Live View / - AXIS\"",
+    "category": "Cameras & IoT",
+    "description": "Axis network cameras"
   },
   {
-    "date": "2024-07-26",
-    "dork": "inurl:home.htm intitle:1766",
-    "category": "Various Online Devices",
-    "author": "Kishoreram"
+    "query": "inurl:\"view.shtml\" \"Live View\"",
+    "category": "Cameras & IoT",
+    "description": "Open live view cameras"
   },
   {
-    "date": "2024-07-04",
-    "dork": "intext:\"proftpd.conf\" \"index of\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Fernando Mengali"
+    "query": "inurl:\"/view/index.shtml\"",
+    "category": "Cameras & IoT",
+    "description": "General CCTV view interface"
   },
   {
-    "date": "2024-07-04",
-    "dork": "intext:\"siemens\" & inurl:\"/portal/portal.mwsl\"",
-    "category": "Vulnerable Servers",
-    "author": "Kishoreram"
+    "query": "intitle:\"Network Camera NetworkCamera\"",
+    "category": "Cameras & IoT",
+    "description": "Panasonic Network Cameras"
   },
   {
-    "date": "2024-07-04",
-    "dork": "intitle:\"SSL Network Extender Login\" -checkpoint.com",
-    "category": "Vulnerable Servers",
-    "author": "Everton Hydd3n"
+    "query": "inurl:\"MultiCameraFrame?Mode=\"",
+    "category": "Cameras & IoT",
+    "description": "Multi-camera dashboards"
   },
   {
-    "date": "2024-07-04",
-    "dork": "intext:\"aws_access_key_id\"",
-    "category": "intext:\"aws\\_secret\\_access\\_key\" filetype:json",
-    "author": "filetype:yaml"
+    "query": "intitle:\"WJ-NT104 Main Page\"",
+    "category": "Cameras & IoT",
+    "description": "Panasonic WJ-NT104 systems"
   },
   {
-    "date": "2024-07-04",
-    "dork": "intitle:index of /etc/ssh",
-    "category": "Files Containing Passwords",
-    "author": "Shivam Dhingra"
+    "query": "inurl:\"/cgi-bin/guestimage.html\"",
+    "category": "Cameras & IoT",
+    "description": "Guest image camera streams"
   },
   {
-    "date": "2024-07-04",
-    "dork": "site:.edu filetype:xls \"root\" database",
-    "category": "Files Containing Juicy Info",
-    "author": "defaltredmode"
+    "query": "inurl:\"/mjpg/video.mjpg\"",
+    "category": "Cameras & IoT",
+    "description": "Direct MJPEG video streams"
   },
   {
-    "date": "2024-07-04",
-    "dork": "inurl:\"cgi-bin/koha\"",
-    "category": "Vulnerable Servers",
-    "author": "Hilary Soita"
+    "query": "intext:\"MOBOTIX M12\"",
+    "category": "Cameras & IoT",
+    "description": "MOBOTIX network cameras"
   },
   {
-    "date": "2024-05-13",
-    "dork": "\"Header for logs at time\" ext:log",
-    "category": "Files Containing Usernames",
-    "author": "Nadir Boulacheb (RubX)"
+    "query": "inurl:\"/main.cgi?next_file=main.htm\"",
+    "category": "Cameras & IoT",
+    "description": "Generic security camera index"
   },
   {
-    "date": "2024-05-13",
-    "dork": "\"START test_database\" ext:log",
-    "category": "Files Containing Usernames",
-    "author": "Nadir Boulacheb (RubX)"
+    "query": "intitle:\"DVR Login\" inurl:\"login.rsp\"",
+    "category": "Cameras & IoT",
+    "description": "Exposed DVR login portals"
   },
   {
-    "date": "2024-05-01",
-    "dork": "intitle:\"GlobalProtect Portal\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Javier Bernardo"
+    "query": "intitle:\"SCADA Login\"",
+    "category": "Cameras & IoT",
+    "description": "Industrial SCADA control systems"
   },
   {
-    "date": "2024-05-01",
-    "dork": "intitle:\"index of\" setting.php",
-    "category": "Files Containing Juicy Info",
-    "author": "saurabh kode"
+    "query": "intext:\"Please enter your login and password\" inurl:\"/scada\"",
+    "category": "Cameras & IoT",
+    "description": "SCADA web interfaces"
   },
   {
-    "date": "2024-05-01",
-    "dork": "intitle:index of /etc/openldap",
-    "category": "Files Containing Juicy Info",
-    "author": "Joel Indra"
+    "query": "inurl:\":81/admin\" intitle:\"login\"",
+    "category": "Cameras & IoT",
+    "description": "Camera/IoT admin portals on port 81"
   },
   {
-    "date": "2024-05-01",
-    "dork": "intitle:\"/zircote/swagger-php\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Anirudh Kumar Kushwaha"
+    "query": "inurl:\":8080\" intitle:\"camera\"",
+    "category": "Cameras & IoT",
+    "description": "Cameras running on port 8080"
   },
   {
-    "date": "2024-05-01",
-    "dork": "intext:\"dhcpd.conf\" \"index of\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Prathamesh Waidande"
+    "query": "intext:\"Powered by WebcamXP 5\"",
+    "category": "Cameras & IoT",
+    "description": "WebcamXP 5 servers"
   },
   {
-    "date": "2024-05-01",
-    "dork": "\"PHP Fatal error:\" ext:log OR ext:txt",
-    "category": "Files Containing Juicy Info",
-    "author": "Nadir Boulacheb (RubX)"
+    "query": "intitle:\"iSpy\" \"connected cameras\"",
+    "category": "Cameras & IoT",
+    "description": "iSpy camera management software"
   },
   {
-    "date": "2024-05-01",
-    "dork": "site:uat.* * inurl:login",
-    "category": "Files Containing Juicy Info",
-    "author": "Jagdish rathod"
+    "query": "inurl:\"/live/index.html\" intitle:\"Network Camera\"",
+    "category": "Cameras & IoT",
+    "description": "Live network camera views"
   },
   {
-    "date": "2024-05-01",
-    "dork": "site:preprod.* * inurl:login",
-    "category": "Files Containing Juicy Info",
-    "author": "Jagdish rathod"
+    "query": "inurl:\":8000\" intitle:\"webcam\"",
+    "category": "Cameras & IoT",
+    "description": "Webcams hosted on port 8000"
   },
   {
-    "date": "2024-04-19",
-    "dork": "intitle:Index of \"/etc/network\"",
-    "category": "Sensitive Directories",
-    "author": "Files Containing Juicy Info"
+    "query": "filetype:sql \"insert into\" \"password\"",
+    "category": "Databases & Leaks",
+    "description": "SQL dumps with passwords"
   },
   {
-    "date": "2024-04-19",
-    "dork": "\"configmap.yaml\"",
-    "category": "Files Containing Juicy Info",
-    "author": "\"\\*-config.yaml\" intitle:\"index of\""
+    "query": "filetype:sql \"insert into\" \"email\" \"password\"",
+    "category": "Databases & Leaks",
+    "description": "SQL dumps with emails and passwords"
   },
   {
-    "date": "2024-04-19",
-    "dork": "inurl:/s3.amazonaws.com ext:xml intext:index of -site:github.com",
-    "category": "Files Containing Juicy Info",
-    "author": "Prathamesh Waidande"
+    "query": "filetype:sql \"CREATE TABLE\" \"users\"",
+    "category": "Databases & Leaks",
+    "description": "Database structures for users"
   },
   {
-    "date": "2024-04-19",
-    "dork": "\"rbac.yaml\"",
-    "category": "Files Containing Juicy Info",
-    "author": "\"rolebinding.yaml\""
+    "query": "inurl:\"phpmyadmin\" \"Welcome to phpMyAdmin\"",
+    "category": "Databases & Leaks",
+    "description": "Open phpMyAdmin panels"
   },
   {
-    "date": "2024-04-19",
-    "dork": "inurl:pastebin intitle:mastercard",
-    "category": "Files Containing Juicy Info",
-    "author": "Soriful Islam"
+    "query": "inurl:\"adminer.php\" intitle:\"Adminer\"",
+    "category": "Databases & Leaks",
+    "description": "Adminer database management"
   },
   {
-    "date": "2024-04-13",
-    "dork": "intitle:\"FileCatalyst file transfer solution\"",
-    "category": "Vulnerable Servers",
-    "author": "Kamran Saifullah"
+    "query": "filetype:env intext:\"DB_PASSWORD\"",
+    "category": "Databases & Leaks",
+    "description": "Exposed .env configuration files"
   },
   {
-    "date": "2024-04-13",
-    "dork": "allintitle:\"ITRS OP5 Monitor\"",
-    "category": "Vulnerable Servers",
-    "author": "Thomas Heverin"
+    "query": "filetype:env \"DB_USERNAME=\"",
+    "category": "Databases & Leaks",
+    "description": ".env files with database usernames"
   },
   {
-    "date": "2024-03-25",
-    "dork": "intitle: index of /concrete/Password",
-    "category": "Sensitive Directories",
-    "author": "Gautam Rawat"
+    "query": "filetype:env \"AWS_ACCESS_KEY_ID=\"",
+    "category": "Databases & Leaks",
+    "description": "Leaked AWS API keys"
   },
   {
-    "date": "2024-03-11",
-    "dork": "inurl:\"wa.exe?TICKET\"",
-    "category": "Vulnerable Servers",
-    "author": "Nadir Boulacheb (RubX)"
+    "query": "filetype:log intext:\"password=\"",
+    "category": "Databases & Leaks",
+    "description": "Log files containing plaintext passwords"
   },
   {
-    "date": "2024-03-08",
-    "dork": "site:com inurl:invoice",
-    "category": "Files Containing Juicy Info",
-    "author": "Sultan Shaikh"
+    "query": "filetype:log \"mysql\" \"password\"",
+    "category": "Databases & Leaks",
+    "description": "MySQL connection logs"
   },
   {
-    "date": "2024-02-26",
-    "dork": "intitle:\"Index of /confidential\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Gautam Rawat"
+    "query": "intitle:\"index of\" \"db.sqlite3\"",
+    "category": "Databases & Leaks",
+    "description": "Exposed SQLite3 databases"
   },
   {
-    "date": "2024-02-26",
-    "dork": "inurl:\"/wp-json/oembed/1.0/embed?url=\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Jeel Patel"
+    "query": "intitle:\"index of\" \"backup.sql\"",
+    "category": "Databases & Leaks",
+    "description": "SQL backup directories"
   },
   {
-    "date": "2024-02-26",
-    "dork": "\"PMB\" AND (\"changelog.txt\" OR inurl:opac_css)",
-    "category": "Vulnerable Servers",
-    "author": "Wallehazz"
+    "query": "intitle:\"index of\" \"dump.sql\"",
+    "category": "Databases & Leaks",
+    "description": "Directories with SQL dumps"
   },
   {
-    "date": "2024-02-16",
-    "dork": "inurl:* \"auditing.txt\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Gautam Rawat"
+    "query": "inurl:\"/.git/config\"",
+    "category": "Databases & Leaks",
+    "description": "Exposed Git repository configurations"
   },
   {
-    "date": "2024-02-16",
-    "dork": "intext:\"index of\" web",
-    "category": "Files Containing Juicy Info",
-    "author": "A.K.M. Mohiuddin"
+    "query": "inurl:\"/.svn/entries\"",
+    "category": "Databases & Leaks",
+    "description": "Exposed SVN repositories"
   },
   {
-    "date": "2024-02-16",
-    "dork": "intitle:\"index of\" cgi.pl",
-    "category": "Files Containing Juicy Info",
-    "author": "Gautam Rawat"
+    "query": "inurl:\"/firebase.json\"",
+    "category": "Databases & Leaks",
+    "description": "Firebase configuration files"
   },
   {
-    "date": "2024-02-13",
-    "dork": "inurl:* \"encryption.txt\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Naved Ansari"
+    "query": "inurl:\"/.aws/credentials\"",
+    "category": "Databases & Leaks",
+    "description": "Exposed AWS credential files"
   },
   {
-    "date": "2024-02-06",
-    "dork": "allintitle:\"Bright Cluster Manager\" site:.edu",
-    "category": "Vulnerable Servers",
-    "author": "Thomas Heverin"
+    "query": "filetype:json intext:\"client_secret\"",
+    "category": "Databases & Leaks",
+    "description": "JSON files with OAuth/API client secrets"
   },
   {
-    "date": "2024-02-05",
-    "dork": "intitle:\"index of\" env.cgi",
-    "category": "Files Containing Juicy Info",
-    "author": "Wallehazz"
+    "query": "filetype:yml intext:\"password:\" \"username:\"",
+    "category": "Databases & Leaks",
+    "description": "YAML configuration files with credentials"
   },
   {
-    "date": "2024-02-02",
-    "dork": "intitle:\"Welcome to iTop version\" wizard",
-    "category": "Vulnerable Servers",
-    "author": "Nadir Boulacheb (RubX)"
+    "query": "intitle:\"index of\" \".sql.gz\"",
+    "category": "Databases & Leaks",
+    "description": "Compressed SQL database backups"
   },
   {
-    "date": "2024-02-02",
-    "dork": "\"Started by upstream project\" ext:txt",
-    "category": "Files Containing Juicy Info",
-    "author": "Nadir Boulacheb (RubX)"
+    "query": "filetype:pdf \"classified\" \"confidential\"",
+    "category": "Documents & Intel",
+    "description": "Classified and confidential PDFs"
   },
   {
-    "date": "2024-02-02",
-    "dork": "intitle:\"Installation Wizard - PowerCMS v2\"",
-    "category": "Vulnerable Servers",
-    "author": "Nadir Boulacheb (RubX)"
+    "query": "filetype:pdf \"not for public release\"",
+    "category": "Documents & Intel",
+    "description": "Documents marked not for public release"
   },
   {
-    "date": "2024-02-02",
-    "dork": "ext:java intext:\"executeUpdate\"",
-    "category": "Files Containing Juicy Info",
-    "author": "BULLETMHS"
+    "query": "filetype:pdf \"strictly confidential\" \"internal use only\"",
+    "category": "Documents & Intel",
+    "description": "Strictly confidential internal documents"
   },
   {
-    "date": "2024-01-29",
-    "dork": "intitle:\"OpenVpn Status Monitor\"",
-    "category": "Vulnerable Servers",
-    "author": "Sabean Technology"
+    "query": "filetype:xls \"password\" \"username\"",
+    "category": "Documents & Intel",
+    "description": "Excel sheets with passwords"
   },
   {
-    "date": "2024-01-23",
-    "dork": "intitle:\"index of\" database.properties",
-    "category": "Sensitive Directories",
-    "author": "Odela Rohith"
+    "query": "filetype:xlsx \"credentials\" \"passwords\"",
+    "category": "Documents & Intel",
+    "description": "Modern Excel files with credentials"
   },
   {
-    "date": "2024-01-23",
-    "dork": "inurl:install.php intitle:\"Froxlor Server Management Panel - Installation\"",
-    "category": "Vulnerable Servers",
-    "author": "Nadir Boulacheb (RubX)"
+    "query": "filetype:doc \"confidential\" \"draft\"",
+    "category": "Documents & Intel",
+    "description": "Confidential draft Word documents"
   },
   {
-    "date": "2024-01-23",
-    "dork": "(site:jsonformatter.org",
-    "category": "Files Containing Juicy Info",
-    "author": "intext:bucket"
+    "query": "filetype:pdf \"top secret\"",
+    "category": "Documents & Intel",
+    "description": "Documents marked top secret"
   },
   {
-    "date": "2024-01-23",
-    "dork": "Apache Struts 2.x Path Traversal Vulnerability (CVE-2023-50164) Detection Dork",
-    "category": "Vulnerable Servers",
-    "author": "Parth Jamodkar"
+    "query": "filetype:txt \"passwords\" \"root\"",
+    "category": "Documents & Intel",
+    "description": "Text files with root passwords"
   },
   {
-    "date": "2024-01-23",
-    "dork": "filetype:reg reg HKEY_CURRENT_USER SSHHOSTKEYS",
-    "category": "Files Containing Juicy Info",
-    "author": "web work"
+    "query": "filetype:pdf \"do not distribute\"",
+    "category": "Documents & Intel",
+    "description": "Documents restricted from distribution"
   },
   {
-    "date": "2023-12-21",
-    "dork": "intitle:\"Fleet Management Portal\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Kamran Saifullah"
+    "query": "filetype:pdf \"proprietary information\"",
+    "category": "Documents & Intel",
+    "description": "Files containing proprietary information"
   },
   {
-    "date": "2023-12-21",
-    "dork": "inurl:\"?url=http\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Jeel Patel"
+    "query": "filetype:xls \"employee records\"",
+    "category": "Documents & Intel",
+    "description": "Spreadsheets with employee records"
   },
   {
-    "date": "2023-12-21",
-    "dork": "site:.com \"index of docker\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Bambang Sutrisna"
+    "query": "filetype:xlsx \"budget\" \"internal\"",
+    "category": "Documents & Intel",
+    "description": "Internal corporate budgets"
   },
   {
-    "date": "2023-12-21",
-    "dork": "intext:\"user\" filetype:php intext:\"account\" inurl:/admin",
-    "category": "Files Containing Juicy Info",
-    "author": "saurabh kode"
+    "query": "filetype:pdf \"board meeting minutes\"",
+    "category": "Documents & Intel",
+    "description": "Corporate board meeting minutes"
   },
   {
-    "date": "2023-12-14",
-    "dork": "intext:\"userfiles\" intitle:\"Index Of\" site:*.com.*",
-    "category": "Files Containing Juicy Info",
-    "author": "J. Daniel Elias Valdez"
+    "query": "filetype:txt \"social security number\"",
+    "category": "Documents & Intel",
+    "description": "Files potentially containing SSNs"
   },
   {
-    "date": "2023-12-14",
-    "dork": "intitle:\"Index of\" intext:\"php\" site:*.com.*",
-    "category": "Files Containing Juicy Info",
-    "author": "saurabh kode"
+    "query": "filetype:csv \"ssn\" \"dob\"",
+    "category": "Documents & Intel",
+    "description": "CSV files with PII (SSN, DOB)"
   },
   {
-    "date": "2023-12-12",
-    "dork": "intitle:\"Index of\" intext:\"config\" site:*.com.*",
-    "category": "Files Containing Juicy Info",
-    "author": "J. Daniel Elias Valdez"
+    "query": "filetype:pdf \"sensitive security information\"",
+    "category": "Documents & Intel",
+    "description": "Sensitive security documents"
   },
   {
-    "date": "2023-12-11",
-    "dork": "intitle:index of db.py",
-    "category": "Files Containing Juicy Info",
-    "author": "Amit Adhikari"
+    "query": "filetype:doc \"eyes only\"",
+    "category": "Documents & Intel",
+    "description": "Documents marked 'eyes only'"
   },
   {
-    "date": "2023-12-11",
-    "dork": "intext:\"index of\" app",
-    "category": "Files Containing Juicy Info",
-    "author": "Amit Adhikari"
+    "query": "filetype:pdf \"for official use only\"",
+    "category": "Documents & Intel",
+    "description": "Official use only (FOUO) documents"
   },
   {
-    "date": "2023-12-11",
-    "dork": "site:id filetype:sql",
-    "category": "Files Containing Juicy Info",
-    "author": "Bambang Sutrisna"
+    "query": "filetype:xls \"salary\" \"payroll\"",
+    "category": "Documents & Intel",
+    "description": "Spreadsheets with payroll information"
   },
   {
-    "date": "2023-12-11",
-    "dork": "allintitle:\"ASPECT Control Panel\"",
-    "category": "Pages Containing Login Portals",
-    "author": "Thomas Heverin"
+    "query": "filetype:pdf \"internal audit report\"",
+    "category": "Documents & Intel",
+    "description": "Internal company audit reports"
   },
   {
-    "date": "2023-12-11",
-    "dork": "allintitle:\"CAT12CE - WebInterface\"",
-    "category": "Pages Containing Login Portals",
-    "author": "Thomas Heverin"
+    "query": "intitle:\"Login - Admin\" inurl:\"/admin\"",
+    "category": "Admin Panels",
+    "description": "Generic admin login pages"
   },
   {
-    "date": "2023-12-11",
-    "dork": "allintitle:\"code-server login\"",
-    "category": "Pages Containing Login Portals",
-    "author": "Thomas Heverin"
+    "query": "intitle:\"Control Panel Login\"",
+    "category": "Admin Panels",
+    "description": "Hosting or server control panels"
   },
   {
-    "date": "2023-12-11",
-    "dork": "inurl:\"UserLogin/\" intitle:\"Panel\"",
-    "category": "Pages Containing Login Portals",
-    "author": "saurabh kode"
+    "query": "inurl:\"/wp-login.php\" \"Log In\"",
+    "category": "Admin Panels",
+    "description": "WordPress login pages"
   },
   {
-    "date": "2023-12-11",
-    "dork": "intext:\"administrator\" filetype:txt intext:\"account\" inurl:/admin , intext:\"administrator\" filetype:txt intext:\"account\" allinurl:",
-    "category": "Files Containing Juicy Info",
-    "author": "Skidrow"
+    "query": "inurl:\"/admin/login.php\"",
+    "category": "Admin Panels",
+    "description": "PHP admin login scripts"
   },
   {
-    "date": "2023-12-11",
-    "dork": "intitle:\"phpinfo\" site:*.com.* intext:\"HTTP_HOST\"",
-    "category": "Files Containing Juicy Info",
-    "author": "J. Daniel Elias Valdez"
+    "query": "intitle:\"Dashboard\" inurl:\"/dashboard\"",
+    "category": "Admin Panels",
+    "description": "Application dashboards"
   },
   {
-    "date": "2023-12-06",
-    "dork": "intext:\"index of\"store",
-    "category": "Files Containing Juicy Info",
-    "author": "saurabh kode"
+    "query": "intitle:\"Cisco Prime\" \"Login\"",
+    "category": "Admin Panels",
+    "description": "Cisco Prime infrastructure logins"
   },
   {
-    "date": "2023-12-06",
-    "dork": "inurl:/HappyAxis.jsp",
-    "category": "Files Containing Juicy Info",
-    "author": "Aashiq Ahamed"
+    "query": "intitle:\"pfSense - Login\"",
+    "category": "Admin Panels",
+    "description": "pfSense firewall login pages"
   },
   {
-    "date": "2023-12-04",
-    "dork": "intext:\"index of\" server.conf",
-    "category": "Files Containing Juicy Info",
-    "author": "saurabh kode"
+    "query": "intitle:\"Jenkins\" \"log in\"",
+    "category": "Admin Panels",
+    "description": "Jenkins CI/CD login portals"
   },
   {
-    "date": "2023-12-04",
-    "dork": "site:*.* inurl:php_error.log - Sensitive information disclosure",
-    "category": "Files Containing Juicy Info",
-    "author": "Shiva Medituru"
+    "query": "intitle:\"Grafana\" \"Welcome to Grafana\"",
+    "category": "Admin Panels",
+    "description": "Grafana monitoring dashboards"
   },
   {
-    "date": "2023-12-04",
-    "dork": "site:*.*.* intitle:\"index of\" *.pcapng",
-    "category": "Files Containing Juicy Info",
-    "author": "Connect2maviya"
+    "query": "intitle:\"Kibana\" \"elastic\"",
+    "category": "Admin Panels",
+    "description": "Elastic Kibana dashboards"
   },
   {
-    "date": "2023-12-01",
-    "dork": "intitle:\"index of\" \"configuration.php\"",
-    "category": "Files Containing Juicy Info",
-    "author": "saurabh kode"
+    "query": "inurl:\"/phpinfo.php\"",
+    "category": "Admin Panels",
+    "description": "Exposed PHP info pages"
   },
   {
-    "date": "2023-11-30",
-    "dork": "site:*.edu.* filetype:template",
-    "category": "Files Containing Juicy Info",
-    "author": "Connect2maviya"
+    "query": "intitle:\"phpinfo()\" \"System\"",
+    "category": "Admin Panels",
+    "description": "Alternative PHP info pages"
   },
   {
-    "date": "2023-11-30",
-    "dork": "site:*.ac.* filetype:template",
-    "category": "Files Containing Juicy Info",
-    "author": "Connect2maviya"
+    "query": "inurl:\"/server-status\" \"Apache Status\"",
+    "category": "Admin Panels",
+    "description": "Apache server status pages"
   },
   {
-    "date": "2023-11-30",
-    "dork": "inurl:.\"install.appcenter.ms/orgs/\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Kamran Saifullah"
+    "query": "intitle:\"RouterOS router configuration page\"",
+    "category": "Admin Panels",
+    "description": "MikroTik RouterOS configs"
   },
   {
-    "date": "2023-11-30",
-    "dork": "site:.edu intext:\"robotics\" inurl:/research",
-    "category": "Files Containing Juicy Info",
-    "author": "Chunfeng Huang"
+    "query": "intitle:\"VMware ESXi\" \"Log in\"",
+    "category": "Admin Panels",
+    "description": "VMware ESXi hypervisor logins"
   },
   {
-    "date": "2023-11-30",
-    "dork": "inurl:typo3/index.php",
-    "category": "Files Containing Juicy Info",
-    "author": "Appsec Jay"
+    "query": "intitle:\"Openfire Admin Console\"",
+    "category": "Admin Panels",
+    "description": "Openfire XMPP admin consoles"
   },
   {
-    "date": "2023-11-29",
-    "dork": "filetype:log intext:\"Account Number\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Noor Alhomeed"
+    "query": "intitle:\"Zabbix\" \"Welcome\"",
+    "category": "Admin Panels",
+    "description": "Zabbix monitoring logins"
   },
   {
-    "date": "2023-11-27",
-    "dork": "intitle:\"WAMPSERVER Homepage\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Saleh Lardhi"
+    "query": "inurl:\"/webmail\" intitle:\"Webmail Login\"",
+    "category": "Admin Panels",
+    "description": "Webmail login interfaces"
   },
   {
-    "date": "2023-11-27",
-    "dork": "intitle:index.of /logs.txt",
-    "category": "Files Containing Juicy Info",
-    "author": "saurabh kode"
+    "query": "intitle:\"Roundcube Webmail :: Welcome to Roundcube Webmail\"",
+    "category": "Admin Panels",
+    "description": "Roundcube webmail portals"
   },
   {
-    "date": "2023-11-27",
-    "dork": "inurl: /adminer.php",
-    "category": "Files Containing Juicy Info",
-    "author": "Satyam Singh"
-  },
-  {
-    "date": "2023-11-27",
-    "dork": "intext:\"index of\" \"pins\" site:*.com",
-    "category": "Files Containing Juicy Info",
-    "author": "Omkar Chavan"
-  },
-  {
-    "date": "2023-11-27",
-    "dork": "site:*.com */admin.txt",
-    "category": "Files Containing Juicy Info",
-    "author": "saurabh kode"
-  },
-  {
-    "date": "2023-11-24",
-    "dork": "site:s3.amazonaws.com \"index of /\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Jessar Qais"
-  },
-  {
-    "date": "2023-11-23",
-    "dork": "intext:\"Reportico\" site:.com OR site:.org OR site:.net OR site:.gov OR site:.edu",
-    "category": "Files Containing Juicy Info",
-    "author": "Aashiq Ahamed"
-  },
-  {
-    "date": "2023-11-23",
-    "dork": "site:*.ac.* intitle:\"index of\" *.ics",
-    "category": "Files Containing Juicy Info",
-    "author": "Connect2maviya"
-  },
-  {
-    "date": "2023-11-23",
-    "dork": "filetype:txt CLAVE*.txt OR clave*.txt",
-    "category": "Files Containing Juicy Info",
-    "author": "Kevin Tupiza"
-  },
-  {
-    "date": "2023-11-23",
-    "dork": "site:*.edu.* intitle:\"index of\" *.ics",
-    "category": "Files Containing Juicy Info",
-    "author": "Connect2maviya"
-  },
-  {
-    "date": "2023-11-20",
-    "dork": "inurl:\"/wp-includes/user.php\" -site:wordpress.org -site:github.com -site:fossies.org",
-    "category": "Files Containing Juicy Info",
-    "author": "Sathish Kishore"
-  },
-  {
-    "date": "2023-11-20",
-    "dork": "New GHDB Submission: Site Backup Index Exposure",
-    "category": "Files Containing Juicy Info",
-    "author": "Nyambi Blaise"
-  },
-  {
-    "date": "2023-11-20",
-    "dork": "inurl:\"/wp-content/debug.log\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Sathish Kishore"
-  },
-  {
-    "date": "2023-11-20",
-    "dork": "allinurl:\"add_vhost.php?lang=english\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Saleh Lardhi"
-  },
-  {
-    "date": "2023-11-17",
-    "dork": "inurl:signup",
-    "category": "Files Containing Juicy Info",
-    "author": "inurl:register"
-  },
-  {
-    "date": "2023-11-17",
-    "dork": "intitle:\"index of\" inurl:/config/",
-    "category": "Files Containing Juicy Info",
-    "author": "Qais Qais"
-  },
-  {
-    "date": "2023-11-17",
-    "dork": "site:*.edu.* inurl:globalprotect",
-    "category": "Files Containing Juicy Info",
-    "author": "Connect2maviya"
-  },
-  {
-    "date": "2023-11-17",
-    "dork": "intitle:\"index of\" \"wp-config.php.old\"",
-    "category": "Sensitive Directories",
-    "author": "Files Containing Juicy Info"
-  },
-  {
-    "date": "2023-11-17",
-    "dork": "intitle:\"index of\"Eventlog Analyzer",
-    "category": "Files Containing Juicy Info",
-    "author": "Connect2maviya"
-  },
-  {
-    "date": "2023-11-10",
-    "dork": "site:admin.*.* inurl:login",
-    "category": "Pages Containing Login Portals",
-    "author": "Praharsh Kumar Singh"
-  },
-  {
-    "date": "2023-11-10",
-    "dork": "intitle:\"index of\" private",
-    "category": "Files Containing Juicy Info",
-    "author": "slacker pwns"
-  },
-  {
-    "date": "2023-11-10",
-    "dork": "inurl:pastebin \"VISA\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Abhishek Patel"
-  },
-  {
-    "date": "2023-11-10",
-    "dork": "site:prod.*.* inurl:login",
-    "category": "Pages Containing Login Portals",
-    "author": "Praharsh Kumar Singh"
-  },
-  {
-    "date": "2023-11-09",
-    "dork": "intitle:\"index of \" *.js\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Jitendra Behera"
-  },
-  {
-    "date": "2023-11-09",
-    "dork": "site:login.*.* site:portal.*.*",
-    "category": "Pages Containing Login Portals",
-    "author": "Anas Zakir"
-  },
-  {
-    "date": "2023-11-08",
-    "dork": "inurl:adminpanel site:*.* -site:github.com",
-    "category": "Files Containing Juicy Info",
-    "author": "Anas Zakir"
-  },
-  {
-    "date": "2023-11-08",
-    "dork": "site:login.*.*",
-    "category": "Pages Containing Login Portals",
-    "author": "Files Containing Juicy Info"
-  },
-  {
-    "date": "2023-11-08",
-    "dork": "intitle:\"index of\" \"config.php.txt\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Aashiq Ahamed"
-  },
-  {
-    "date": "2023-11-08",
-    "dork": "inurl: edu + site: admin",
-    "category": "Files Containing Juicy Info",
-    "author": "Anand J Nair"
-  },
-  {
-    "date": "2023-11-08",
-    "dork": "intext:\"index of\" \"infophp()\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Praharsh Kumar Singh"
-  },
-  {
-    "date": "2023-11-08",
-    "dork": "intitle:\"index of\" \"secret.txt\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Aashiq Ahamed"
-  },
-  {
-    "date": "2023-11-07",
-    "dork": "site:.com inurl:login",
-    "category": "Pages Containing Login Portals",
-    "author": "inurl:sign-in"
-  },
-  {
-    "date": "2023-11-07",
-    "dork": "inurl:\"/database.json\"",
-    "category": "Files Containing Juicy Info",
-    "author": "Raouf"
-  },
-  {
-    "date": "2023-11-07",
-    "dork": "intitle:\"Webcam\" inurl:WebCam.htm",
-    "category": "Various Online Devices",
-    "author": "s Thakur"
-  },
-  {
-    "date": "2023-11-07",
-    "dork": "intitle:\"index of\" \"*robots.txt\" site:.edu",
-    "category": "Files Containing Juicy Info",
-    "author": "Safein Sadad"
+    "query": "intitle:\"SonicWALL - Authentication\"",
+    "category": "Admin Panels",
+    "description": "SonicWALL firewall authentication"
   }
 ]

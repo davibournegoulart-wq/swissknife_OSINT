@@ -1,8 +1,10 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { Rss, ExternalLink, Globe, RefreshCw, Radio, AlertTriangle, Clock, ChevronRight, Filter, Zap, Satellite, MapPin } from "lucide-react";
+import { Rss, ExternalLink, Globe, RefreshCw, Radio, AlertTriangle, Clock, ChevronRight, Filter, Zap, Satellite, MapPin, MonitorPlay } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { MarketTicker } from "@/components/MarketTicker";
+import { LiveTvPanel } from "@/components/LiveTvPanel";
 
 interface NewsItem {
   title: string;
@@ -61,6 +63,29 @@ export default function NewsCenter() {
   const [tickerIdx, setTickerIdx] = useState(0);
   const [stats, setStats] = useState({ total: 0, sources: 0, cached: false });
   const [countrySearch, setCountrySearch] = useState("");
+  
+  const [ragLoading, setRagLoading] = useState(false);
+  const [ragReport, setRagReport] = useState<string | null>(null);
+  const [showRag, setShowRag] = useState(false);
+  const [showLiveTv, setShowLiveTv] = useState(false);
+
+  const runRagAnalysis = async () => {
+    setRagLoading(true);
+    setShowRag(true);
+    try {
+      const payload = articles.slice(0, 30);
+      const res = await fetch("/api/rag", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ articles: payload })
+      });
+      const data = await res.json();
+      setRagReport(data.result || data.error || "Failed to generate.");
+    } catch (e) {
+      setRagReport("Error generating report.");
+    }
+    setRagLoading(false);
+  };
 
   const fetchNews = useCallback(async () => {
     setLoading(true);
@@ -197,12 +222,24 @@ export default function NewsCenter() {
             })}
           </div>
 
-          <div className="p-2 border-t border-red-900/30">
+          <div className="p-2 border-t border-red-900/30 flex flex-col gap-2">
+            <button onClick={() => setShowLiveTv(true)}
+              className="w-full flex items-center justify-center gap-2 py-1.5 border border-purple-800/50 text-purple-400 text-[9px] font-mono uppercase tracking-widest hover:bg-purple-950/40 hover:text-purple-300 transition-all"
+              style={{ clipPath: 'polygon(5px 0,100% 0,100% calc(100% - 5px),calc(100% - 5px) 100%,0 100%,0 5px)' }}>
+              <MonitorPlay className="w-3 h-3" />
+              GLOBAL LIVE TV
+            </button>
+            <button onClick={runRagAnalysis} disabled={ragLoading || articles.length === 0}
+              className="w-full flex items-center justify-center gap-2 py-1.5 border border-cyan-800/50 text-cyan-500 text-[9px] font-mono uppercase tracking-widest hover:bg-cyan-950/40 hover:text-cyan-300 transition-all disabled:opacity-30"
+              style={{ clipPath: 'polygon(5px 0,100% 0,100% calc(100% - 5px),calc(100% - 5px) 100%,0 100%,0 5px)' }}>
+              <Zap className={cn("w-3 h-3", ragLoading && "animate-pulse")} />
+              {ragLoading ? "ANALYZING..." : "AI RAG ANALYSIS"}
+            </button>
             <button onClick={fetchNews} disabled={loading}
               className="w-full flex items-center justify-center gap-2 py-1.5 border border-red-800/50 text-red-600 text-[9px] font-mono uppercase tracking-widest hover:bg-red-950/40 hover:text-red-300 transition-all disabled:opacity-30"
               style={{ clipPath: 'polygon(5px 0,100% 0,100% calc(100% - 5px),calc(100% - 5px) 100%,0 100%,0 5px)' }}>
               <RefreshCw className={cn("w-3 h-3", loading && "animate-spin")} />
-              {loading ? "Scanning..." : "Refresh"}
+              {loading ? "Scanning..." : "Refresh Feed"}
             </button>
           </div>
         </aside>
@@ -367,8 +404,40 @@ export default function NewsCenter() {
               </div>
             )}
           </div>
+
+          {/* RAG OVERLAY MODAL */}
+          {showRag && (
+            <div className="absolute inset-0 z-50 bg-[#080810]/98 backdrop-blur-xl flex flex-col p-6 border-l border-cyan-900/50">
+              <div className="flex items-center justify-between border-b border-cyan-900/50 pb-4 mb-4 shrink-0">
+                <div className="flex items-center gap-3 text-cyan-400">
+                  <Zap className={cn("w-6 h-6", ragLoading && "animate-pulse")} />
+                  <h2 className="text-xl font-black tracking-widest uppercase">AI RAG INTEL ANALYSIS</h2>
+                </div>
+                <button onClick={() => setShowRag(false)} className="text-cyan-600 hover:text-cyan-400 font-mono text-sm uppercase border border-cyan-900/50 px-3 py-1 hover:bg-cyan-950/30">
+                  [ CLOSE ]
+                </button>
+              </div>
+              <div className="flex-1 overflow-y-auto custom-scrollbar font-mono text-xs text-cyan-100 whitespace-pre-wrap leading-relaxed max-w-5xl w-full p-4">
+                {ragLoading ? (
+                  <div className="flex flex-col gap-4 animate-pulse text-cyan-600">
+                    <p>&gt; INITIATING RAG PIPELINE...</p>
+                    <p>&gt; INGESTING TOP {Math.min(articles.length, 30)} GLOBAL THREAT REPORTS...</p>
+                    <p>&gt; EXECUTING LLM THREAT ASSESSMENT PROMPT...</p>
+                    <p className="text-cyan-400 mt-4">Awaiting neural network response from generative AI...</p>
+                  </div>
+                ) : (
+                  <div dangerouslySetInnerHTML={{ __html: ragReport?.replace(/\*\*(.*?)\*\*/g, '<span class="text-cyan-400 font-bold">$1</span>').replace(/\*/g, '<span class="text-cyan-700">•</span>') || '' }} />
+                )}
+              </div>
+            </div>
+          )}
+          {/* LIVE TV OVERLAY MODAL */}
+          {showLiveTv && <LiveTvPanel onClose={() => setShowLiveTv(false)} />}
         </main>
       </div>
+      
+      {/* ── MARKET TICKER ── */}
+      <MarketTicker />
     </div>
   );
 }

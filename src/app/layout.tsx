@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { Inter, Share_Tech_Mono } from "next/font/google";
 import Link from "next/link";
 import { Scan, Activity, Map, TerminalSquare, Newspaper, Globe2, Crosshair, Cpu, Database, Wifi } from "lucide-react";
+import { BootSplash } from "@/components/BootSplash";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 const techMono = Share_Tech_Mono({ weight: "400", subsets: ["latin"], variable: "--font-tech" });
 
 export const metadata: Metadata = {
-  title: "SHOMER // J.A.R.V.I.S CORE",
+  title: "SWISS KNIFE // OSINT CORE",
   description: "Advanced Threat Intelligence & OSINT HUD",
 };
 
@@ -17,6 +18,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`dark ${techMono.variable}`}>
       <body className="antialiased bg-[#020205] text-cyan-400 font-tech overflow-hidden selection:bg-cyan-900 selection:text-cyan-100">
         
+        <BootSplash />
+
         {/* GLOBAL HUD OVERLAYS */}
         <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
           {/* Scanline */}
@@ -40,19 +43,24 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             
             {/* Identity */}
             <div className="flex items-center gap-4">
-              <div className="relative w-12 h-12 flex items-center justify-center">
-                <div className="absolute inset-0 border-2 border-cyan-500/30 rounded-full animate-[spin_4s_linear_infinite]" />
-                <div className="absolute inset-1 border border-cyan-400/20 rounded-full animate-[spin_3s_linear_infinite_reverse]" />
-                <Cpu className="w-5 h-5 text-cyan-400" />
+              <div className="relative w-12 h-12 flex items-center justify-center bg-cyan-950/30 border border-cyan-500/50" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }}>
+                <div className="absolute inset-0 border-2 border-cyan-400/20 animate-pulse" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }} />
+                {/* Custom Swiss Knife Geometric Logo */}
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6 text-cyan-400" strokeWidth="1.5">
+                  <path d="M4 18L18 4" strokeLinecap="round"/>
+                  <path d="M14 6L18 10" strokeLinecap="round"/>
+                  <path d="M6 14L10 18" strokeLinecap="round"/>
+                  <path d="M12 2L14 6L18 8L16 12L18 16L14 18L12 22L10 18L6 16L8 12L6 8L10 6L12 2Z" fill="currentColor" fillOpacity="0.2"/>
+                  <circle cx="12" cy="12" r="2" fill="currentColor"/>
+                </svg>
               </div>
               <div>
-                <h1 className="text-xl font-bold tracking-[0.3em] text-white drop-shadow-[0_0_8px_rgba(0,255,255,0.5)]">
-                  SHOMER <span className="text-cyan-500">CORE</span>
+                <h1 className="text-xl font-bold tracking-[0.3em] text-white drop-shadow-[0_0_8px_rgba(0,255,255,0.5)] flex items-center gap-2">
+                  SWISS <span className="text-cyan-500">KNIFE</span>
+                  <span className="px-1.5 py-0.5 text-[8px] bg-cyan-950 text-cyan-400 border border-cyan-800 tracking-widest rounded-sm">v2.0</span>
                 </h1>
-                <div className="flex items-center gap-3 text-[10px] tracking-[0.2em] text-cyan-600 mt-0.5">
-                  <span className="flex items-center gap-1"><Wifi className="w-2.5 h-2.5 text-green-500" /> UPLINK: STABLE</span>
-                  <span>//</span>
-                  <span>SYS: MK-IV</span>
+                <div className="flex items-center gap-3 text-[10px] tracking-[0.2em] text-cyan-600 mt-1">
+                  <span>GLOBAL THREAT INTELLIGENCE MATRIX</span>
                 </div>
               </div>
             </div>

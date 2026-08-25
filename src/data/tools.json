@@ -10,7 +10,7 @@
   {
     "name": "24 Time Zones",
     "url": "https://24timezones.com/es/difference",
-    "description": "Comparar diferencias de zonas horarias",
+    "description": "Compare time zone differences between cities and countries worldwide. Useful for correlating timestamps across regions.",
     "pricing": "Free",
     "status": "live",
     "category": "Geospatial & Mapping"
@@ -402,7 +402,7 @@
   {
     "name": "Australian Cyber Security Centre",
     "url": "https://www.cyber.gov.au/",
-    "description": "",
+    "description": "Australian government agency providing cybersecurity guidance, threat alerts, and national cyber incident coordination.",
     "pricing": "Free",
     "status": "live",
     "category": "Cyber Threat Intelligence (CTI)"
@@ -706,7 +706,7 @@
   {
     "name": "BRB Public Records",
     "url": "https://www.brbpub.com/",
-    "description": "",
+    "description": "Directory and gateway to US public record sources at the state and county level, including court records and property data.",
     "pricing": "Free",
     "status": "live",
     "category": "Archives & Databases"
@@ -1018,7 +1018,7 @@
   {
     "name": "Canadian Centre for Cyber Security",
     "url": "https://www.cyber.gc.ca/",
-    "description": "",
+    "description": "Canadian government authority for cybersecurity guidance, threat intelligence, and national cyber incident response.",
     "pricing": "Free",
     "status": "live",
     "category": "Cyber Threat Intelligence (CTI)"
@@ -1458,7 +1458,7 @@
   {
     "name": "CVE - MITRE",
     "url": "https://www.cve.org/",
-    "description": "",
+    "description": "MITRE authoritative dictionary of publicly known cybersecurity vulnerabilities with standardized CVE identifiers.",
     "pricing": "Free",
     "status": "live",
     "category": "Cyber Threat Intelligence (CTI)"
@@ -1466,7 +1466,7 @@
   {
     "name": "CVE Details",
     "url": "https://www.cvedetails.com/",
-    "description": "",
+    "description": "Comprehensive searchable interface for CVE vulnerability data enriched with CVSS scores, exploits, and affected software.",
     "pricing": "Free",
     "status": "live",
     "category": "Cyber Threat Intelligence (CTI)"
@@ -7246,5 +7246,53 @@
     "category": "Live Cameras & CCTV",
     "status": "live",
     "pricing": "free"
+  },
+  {
+    "name": "SAWEST — Global OSINT Directory",
+    "url": "https://sawest.eu/",
+    "description": "Curated pan-European and global OSINT resource directory for intelligence professionals, covering tools, databases, and methodologies.",
+    "category": "Archives & Databases",
+    "pricing": "Free",
+    "status": "live"
+  },
+  {
+    "name": "OCCRP ID — Investigative Databases",
+    "url": "https://id.occrp.org/databases/",
+    "description": "Organized Crime and Corruption Reporting Project gateway to global investigative databases — corporate registries, court records, sanctions lists, and leaks.",
+    "category": "Business & Corporate Registers",
+    "pricing": "Free",
+    "status": "live"
+  },
+  {
+    "name": "07 World OSINT Collection",
+    "url": "https://start.me/p/lLaoXv/07-world",
+    "description": "Community-maintained global OSINT resource list on start.me, organized by region and intelligence type.",
+    "category": "Archives & Databases",
+    "pricing": "Free",
+    "status": "live"
+  },
+  {
+    "name": "CNTY World OSINT",
+    "url": "https://start.me/p/kxNv55/cnty-world",
+    "description": "Country-by-country OSINT resource collection aggregating public databases, government portals, and media sources.",
+    "category": "Archives & Databases",
+    "pricing": "Free",
+    "status": "live"
+  },
+  {
+    "name": "OSINT International",
+    "url": "https://start.me/p/7kDabv/osint-international",
+    "description": "Comprehensive international OSINT start page aggregating global intelligence sources across multiple nations.",
+    "category": "Archives & Databases",
+    "pricing": "Free",
+    "status": "live"
+  },
+  {
+    "name": "OSINT Resources by Country",
+    "url": "https://start.me/p/kvAQBk/osint-resources-by-country",
+    "description": "Meticulously curated OSINT resources organized by country, covering public records, corporate registers, and media outlets worldwide.",
+    "category": "Archives & Databases",
+    "pricing": "Free",
+    "status": "live"
   }
 ]

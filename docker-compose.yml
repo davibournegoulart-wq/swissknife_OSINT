@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  osint-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    labels:
+      - "shomer.osint.module=true"

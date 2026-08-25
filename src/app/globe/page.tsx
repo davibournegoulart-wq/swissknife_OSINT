@@ -22,7 +22,8 @@ export default function GlobeMonitor() {
 
   useEffect(() => {
     fetch("/api/news?limit=200").then(r => r.json()).then(d => setNews(d.articles || []));
-    fetch("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojson")
+    // Fetch only recent/ongoing earthquakes (past 24h)
+    fetch("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_day.geojson")
       .then(r => r.json()).then(d => setQuakes((d.features || []).slice(0, 300)));
   }, []);
 
@@ -43,7 +44,7 @@ export default function GlobeMonitor() {
         if (coords) {
           const pt = {
             lat: coords.lat, lng: coords.lng,
-            size: 0.2 + (items.length * 0.05),
+            size: 0.5 + (items.length * 0.1), // Increase radius size instead
             color: "#00f3ff",
             label: `[ ${country.toUpperCase()} ]`,
             type: "news" as const,
@@ -51,7 +52,7 @@ export default function GlobeMonitor() {
             desc: `LIVE: ${items.length} intel streams\n>>> ${items[0].title}`
           };
           pts.push(pt);
-          ringList.push({ lat: coords.lat, lng: coords.lng, color: "#00f3ff", maxR: pt.size * 5, propagationSpeed: 1, repeatPeriod: 1000 });
+          ringList.push({ lat: coords.lat, lng: coords.lng, color: "#00f3ff", maxR: pt.size * 2, propagationSpeed: 1, repeatPeriod: 1000 });
           
           if (layers.arcs && Math.random() > 0.5) {
             arcList.push({
@@ -70,7 +71,7 @@ export default function GlobeMonitor() {
         const mag = q.properties.mag;
         pts.push({
           lat, lng,
-          size: Math.max(0.1, (mag - 2) * 0.2),
+          size: Math.max(0.3, (mag - 2) * 0.4), // Radius
           color: mag > 5 ? "#ff003c" : "#ff5500",
           label: `[ SEISMIC: M${mag} ]`,
           type: "quake",
@@ -78,7 +79,7 @@ export default function GlobeMonitor() {
           desc: `LOC: ${q.properties.place}\nTIME: ${new Date(q.properties.time).toISOString()}`
         });
         if (mag > 4) {
-          ringList.push({ lat, lng, color: "#ff003c", maxR: mag * 2, propagationSpeed: 2, repeatPeriod: 800 });
+          ringList.push({ lat, lng, color: "#ff003c", maxR: mag * 1.5, propagationSpeed: 2, repeatPeriod: 800 });
         }
       });
     }
@@ -113,12 +114,12 @@ export default function GlobeMonitor() {
             polygonSideColor={() => "rgba(0, 255, 255, 0.02)"}
             polygonStrokeColor={() => "rgba(0, 243, 255, 0.3)"}
             
-            // Points (Glowing nodes)
+            // Points (Glowing nodes - flattened to surface)
             pointsData={points}
             pointLat="lat"
             pointLng="lng"
             pointColor="color"
-            pointAltitude="size"
+            pointAltitude={0.005}
             pointRadius="size"
             pointsMerge={false}
             

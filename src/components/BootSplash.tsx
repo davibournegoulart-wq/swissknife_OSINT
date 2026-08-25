@@ -56,22 +56,8 @@ export function BootSplash() {
           </div>
         </div>
 
-        {/* Bottom Credits */}
+        {/* Bottom Action */}
         <div className="p-8 flex flex-col items-center gap-4 z-10">
-          <div className="text-xs tracking-[0.2em] text-cyan-600/80 text-center flex flex-col items-center gap-2">
-            <span>OPEN SOURCE VERSION CREATED BY</span>
-            <span className="text-cyan-400 font-bold text-sm">DAVI MARTINS</span>
-          </div>
-          <a 
-            href="https://www.linkedin.com/in/davi-martins-a40349136/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-6 py-2 bg-[#0077b5]/10 border border-[#0077b5]/50 text-[#0077b5] hover:bg-[#0077b5] hover:text-white transition-all font-bold tracking-widest text-xs"
-            onClick={(e) => e.stopPropagation()}
-          >
-            [ CONNECT ON LINKEDIN ]
-          </a>
-          
           <div className="mt-8 flex flex-col items-center gap-2">
             <button 
               onClick={() => setBooted(true)}

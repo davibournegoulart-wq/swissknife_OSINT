@@ -49,7 +49,7 @@
   },
   {
     "name": "AADInternals (T)",
-    "url": "https://github.com/Gerenios/AADInternals",
+    "url": "http://aadinternals.com/aadinternals",
     "description": "PowerShell toolkit for Azure AD and Entra ID assessment, including tenant reconnaissance and hybrid identity attack-path analysis.",
     "pricing": "free",
     "status": "live",
@@ -193,7 +193,7 @@
   },
   {
     "name": "Amass (T)",
-    "url": "https://github.com/owasp-amass/amass",
+    "url": "https://owasp.org/www-project-amass/",
     "description": "Advanced attack surface mapping framework for DNS and subdomain enumeration with graph correlation and extensive data-source support.",
     "pricing": "free",
     "status": "live",
@@ -433,7 +433,7 @@
   },
   {
     "name": "Auto Archiver",
-    "url": "https://github.com/bellingcat/auto-archiver",
+    "url": "https://pypi.org/project/auto-archiver/",
     "description": "Bellingcat's tool to automatically archive social media posts, videos, and images. Free and Open-Source.",
     "pricing": "Free",
     "status": "live",
@@ -529,7 +529,7 @@
   },
   {
     "name": "Bellingcat TikTok Hashtag Analysis",
-    "url": "https://github.com/bellingcat/tiktok-hashtag-analysis",
+    "url": "https://pypi.org/project/tiktok-hashtag-analysis/",
     "description": "Archive content and metadata from TikTok posts that contain one or more specified hashtags",
     "pricing": "Free",
     "status": "live",
@@ -609,7 +609,7 @@
   },
   {
     "name": "Black Bird",
-    "url": "https://github.com/p1ngul1n0/blackbird",
+    "url": "https://p1ngul1n0.gitbook.io/blackbird/",
     "description": "Check usernames and email addresses on websites and social networks",
     "pricing": "Free",
     "status": "live",
@@ -1121,7 +1121,7 @@
   },
   {
     "name": "Checkov (T)",
-    "url": "https://github.com/bridgecrewio/checkov",
+    "url": "https://www.checkov.io/",
     "description": "Infrastructure-as-code security scanner that checks Terraform, CloudFormation, Kubernetes, and other cloud configs against policy rules.",
     "pricing": "free",
     "status": "live",
@@ -1201,7 +1201,7 @@
   },
   {
     "name": "Cloud Custodian (T)",
-    "url": "https://github.com/cloud-custodian/cloud-custodian",
+    "url": "https://cloudcustodian.io",
     "description": "Policy-as-code engine for cloud governance and security that can detect and remediate risky cloud configurations.",
     "pricing": "free",
     "status": "live",
@@ -2001,7 +2001,7 @@
   },
   {
     "name": "DNSTwist",
-    "url": "https://github.com/elceef/dnstwist",
+    "url": "https://dnstwist.it",
     "description": "** Mecanismo de permutação de nomes de domínio.",
     "pricing": "Free",
     "status": "live",
@@ -2337,7 +2337,7 @@
   },
   {
     "name": "Exiftool",
-    "url": "https://github.com/exiftool/exiftool",
+    "url": "https://exiftool.org/",
     "description": "** Aplicativo de linha de comando completo para ler e gravar metainformações em uma ampla variedade de arquivos.",
     "pricing": "Free",
     "status": "live",
@@ -2425,7 +2425,7 @@
   },
   {
     "name": "Facebook Sleep Stats",
-    "url": "https://github.com/sqren/fb-sleep-stats",
+    "url": "https://medium.com/@sqrendk/how-you-can-use-facebook-to-track-your-friends-sleeping-habits-505ace7fffb6",
     "description": "** Descubra quando as pessoas se conectam e desconectam, gerando uma imagem precisa de seus padrões de sono.",
     "pricing": "Free",
     "status": "live",
@@ -2609,7 +2609,7 @@
   },
   {
     "name": "FOCA",
-    "url": "https://github.com/ElevenPaths/FOCA",
+    "url": "https://www.elevenpaths.com/innovation-labs/technologies/foca",
     "description": "** Ferramenta usada principalmente para encontrar metadados e informações ocultas em documentos.",
     "pricing": "Free",
     "status": "live",
@@ -3369,7 +3369,7 @@
   },
   {
     "name": "iKy",
-    "url": "https://github.com/kennbroorg/iKy",
+    "url": "https://kennbroorg.gitlab.io/ikyweb/",
     "description": "** Ferramenta que coleta informações a partir de um e-mail e apresenta os resultados em uma interface visual intuitiva.",
     "pricing": "Free",
     "status": "live",
@@ -3553,7 +3553,7 @@
   },
   {
     "name": "Instagram Location Search",
-    "url": "https://github.com/bellingcat/instagram-location-search/tree/main",
+    "url": "https://pypi.org/project/instagram-location-search/",
     "description": "A command line tool that allows users to find location tags near a specified latitude and longitude.",
     "pricing": "Free",
     "status": "live",
@@ -3569,7 +3569,7 @@
   },
   {
     "name": "Instaloader",
-    "url": "https://github.com/instaloader/instaloader",
+    "url": "https://instaloader.github.io/",
     "description": "** Ferramenta OSINT completa para análise no Instagram.",
     "pricing": "Free",
     "status": "live",
@@ -3601,7 +3601,7 @@
   },
   {
     "name": "IntelMQ",
-    "url": "https://github.com/certtools/intelmq",
+    "url": "https://docs.intelmq.org/latest/",
     "description": "Tool for security teams to collect and process threat intelligence feeds.",
     "pricing": "Free",
     "status": "live",
@@ -3657,7 +3657,7 @@
   },
   {
     "name": "iocextract (T)",
-    "url": "https://github.com/InQuest/iocextract",
+    "url": "https://inquest.readthedocs.io/projects/iocextract/",
     "description": "Python library and CLI tool for rapid IOC extraction with support for obfuscated indicators.",
     "pricing": "free",
     "status": "live",
@@ -3993,7 +3993,7 @@
   },
   {
     "name": "Maigret",
-    "url": "https://github.com/soxoj/maigret",
+    "url": "https://maigret.app",
     "description": "Maigret is a Python script that retrieves user information by searching for usernames across various websites and social media platforms.",
     "pricing": "Free",
     "status": "live",
@@ -4345,7 +4345,7 @@
   },
   {
     "name": "mlsecproject / combine",
-    "url": "https://github.com/mlsecproject/combine",
+    "url": "https://www.mlsecproject.org/",
     "description": "Tool for gathering and normalizing threat intelligence feeds from public sources.",
     "pricing": "free",
     "status": "live",
@@ -5225,7 +5225,7 @@
   },
   {
     "name": "Phoneinfoga",
-    "url": "https://github.com/sundowndev/phoneinfoga",
+    "url": "https://sundowndev.github.io/phoneinfoga/",
     "description": "** Uma das ferramentas mais avançadas para escanear números de telefone internacionais.",
     "pricing": "Free",
     "status": "live",
@@ -5393,7 +5393,7 @@
   },
   {
     "name": "Prowler (T)",
-    "url": "https://github.com/prowler-cloud/prowler",
+    "url": "https://prowler.com",
     "description": "Cloud security posture and compliance assessment framework covering AWS, Azure, GCP, Kubernetes, and SaaS surfaces.",
     "pricing": "freemium",
     "status": "live",

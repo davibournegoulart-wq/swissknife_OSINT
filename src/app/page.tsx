@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Search, LayoutGrid, ShieldAlert, Fingerprint, Map, DollarSign, Database, Server, Smartphone, MessagesSquare, Hash, Zap, Scan, Terminal, Cpu } from "lucide-react";
+import { Search, LayoutGrid, ShieldAlert, Camera, Fingerprint, Map, DollarSign, Database, Server, Smartphone, MessagesSquare, Hash, Zap, Scan, Terminal, Cpu } from "lucide-react";
 import toolsData from "@/data/tools.json";
 import { ToolCard } from "@/components/ToolCard";
 import { cn } from "@/lib/utils";
@@ -22,6 +22,7 @@ const CATEGORY_ICONS: Record<string, any> = {
   "Email & Username OSINT": MessagesSquare,
   "Encoding & Data Conversion": Hash,
   "Geospatial & Mapping": Map,
+  "Live Cameras & CCTV": Camera,
   "Media & Document Analysis": LayoutGrid,
   "Phone OSINT": Smartphone,
   "Social Media Intelligence (SOCMINT)": MessagesSquare,

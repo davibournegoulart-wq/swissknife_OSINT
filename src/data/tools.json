@@ -7774,5 +7774,69 @@
     "pricing": "Free",
     "status": "live",
     "category": "Phone OSINT"
+  },
+  {
+    "name": "SkylineWebcams",
+    "url": "https://www.skylinewebcams.com/",
+    "description": "Live high-definition webcams streaming from around the world, useful for real-time crowd and weather monitoring.",
+    "category": "Live Cameras & CCTV",
+    "status": "live",
+    "pricing": "free"
+  },
+  {
+    "name": "Windy Webcams",
+    "url": "https://www.windy.com/webcams",
+    "description": "Massive global database of outdoor webcams integrated directly into the Windy geospatial weather map.",
+    "category": "Live Cameras & CCTV",
+    "status": "live",
+    "pricing": "free"
+  },
+  {
+    "name": "WebcamTaxi",
+    "url": "https://www.webcamtaxi.com/",
+    "description": "Directory of live world webcams, traffic cams, and street cameras.",
+    "category": "Live Cameras & CCTV",
+    "status": "live",
+    "pricing": "free"
+  },
+  {
+    "name": "Kamerka",
+    "url": "https://github.com/woj-ciech/Kamerka",
+    "description": "Build interactive maps of exposed cameras (and ICS devices) globally by leveraging Shodan and geospatial data.",
+    "category": "Live Cameras & CCTV",
+    "status": "live",
+    "pricing": "free"
+  },
+  {
+    "name": "Opentopia",
+    "url": "http://www.opentopia.com/",
+    "description": "Directory of live webcams that are automatically discovered and aggregated from search engines.",
+    "category": "Live Cameras & CCTV",
+    "status": "live",
+    "pricing": "free"
+  },
+  {
+    "name": "WorldCam",
+    "url": "https://worldcam.eu/",
+    "description": "Webcams database around the world, cleanly aggregated and searchable by countries and cities.",
+    "category": "Live Cameras & CCTV",
+    "status": "live",
+    "pricing": "free"
+  },
+  {
+    "name": "TrafficLand",
+    "url": "https://www.trafficland.com/",
+    "description": "Access to live traffic cameras from cities and highways across the United States and internationally.",
+    "category": "Live Cameras & CCTV",
+    "status": "live",
+    "pricing": "free"
+  },
+  {
+    "name": "Geocam",
+    "url": "https://geocam.ru/en/",
+    "description": "Large directory of worldwide live webcams categorized by region and topic.",
+    "category": "Live Cameras & CCTV",
+    "status": "live",
+    "pricing": "free"
   }
 ]

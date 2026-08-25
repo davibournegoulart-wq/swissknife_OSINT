@@ -1,13 +1,14 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Search, TerminalSquare, ExternalLink, Code2, ShieldAlert } from "lucide-react";
+import { Search, TerminalSquare, ExternalLink, Code2, ShieldAlert, Copy, Check } from "lucide-react";
 import dorksData from "@/data/dorks.json";
 import { cn } from "@/lib/utils";
 
 export default function DorksDashboard() {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
 
   // Derive unique categories
   const categories = useMemo(() => {
@@ -35,6 +36,12 @@ export default function DorksDashboard() {
   const handleExecuteDork = (dorkStr: string) => {
     const url = `https://www.google.com/search?q=${encodeURIComponent(dorkStr)}`;
     window.open(url, '_blank');
+  };
+
+  const handleCopyDork = (dorkStr: string, idx: number) => {
+    navigator.clipboard.writeText(dorkStr);
+    setCopiedIndex(idx);
+    setTimeout(() => setCopiedIndex(null), 2000);
   };
 
   return (
@@ -185,6 +192,20 @@ export default function DorksDashboard() {
                   </div>
 
                   <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-end gap-3 relative z-10 border-t border-amber-900/30 pt-4 flex-1 items-end">
+                    <button 
+                      onClick={() => handleCopyDork(dork.dork, idx)}
+                      className={cn(
+                        "flex items-center justify-center gap-1.5 border px-4 py-2 text-xs font-mono font-bold transition-all focus:outline-none w-full sm:w-auto",
+                        copiedIndex === idx 
+                          ? "bg-green-950 border-green-700 text-green-400"
+                          : "bg-[#0a0a0c] border-amber-900/50 text-amber-600 hover:bg-amber-950/50 hover:text-amber-400 hover:border-amber-700"
+                      )}
+                      style={{ clipPath: 'polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px)' }}
+                    >
+                      {copiedIndex === idx ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                      <span>{copiedIndex === idx ? "COPIED" : "COPY"}</span>
+                    </button>
+                    
                     <button 
                       onClick={() => handleExecuteDork(dork.dork)}
                       className="flex items-center justify-center gap-1.5 bg-amber-950 border border-amber-700 px-4 py-2 text-xs font-mono font-bold text-amber-300 transition-all hover:bg-amber-900 hover:text-amber-100 hover:border-amber-400 focus:outline-none hover:shadow-[0_0_15px_rgba(245,158,11,0.3)] group/btn w-full sm:w-auto"

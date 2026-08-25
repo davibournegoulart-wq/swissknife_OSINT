@@ -3031,5 +3031,35 @@
     "url": "https://nzherald.co.nz",
     "type": "SOIS",
     "youtube_search_url": "https://www.youtube.com/results?search_query=nzherald.co.nz%20New%20Zealand%20news&sp=EgIQAg%253D%253D"
+  },
+  {
+    "name": "Ahora Huánuco",
+    "url": "https://issuu.com/diarioahorahuanuco",
+    "type": "Newspaper",
+    "country": "Peru"
+  },
+  {
+    "name": "Diario la Razón",
+    "url": "https://larazon.pe/edicion_impresa/",
+    "type": "Newspaper",
+    "country": "Peru"
+  },
+  {
+    "name": "Diarios Perú (Scrapping)",
+    "url": "https://larazon.pe/edicion_impresa/ediciones-impresas-27-05-2025/",
+    "type": "Newspaper",
+    "country": "Peru"
+  },
+  {
+    "name": "Prensa Sur",
+    "url": "https://issuu.com/prensaregional",
+    "type": "Newspaper",
+    "country": "Peru"
+  },
+  {
+    "name": "Red RCR",
+    "url": "https://www.rcrperu.com/portadas",
+    "type": "Newspaper",
+    "country": "Peru"
   }
 ]

@@ -14488,5 +14488,488 @@
     "category": "Geo-Intel Databanks",
     "status": "live",
     "pricing": "free"
+  },
+  {
+    "name": "500+ Recursos",
+    "url": "https://start.me/p/0Pqbdg/osint-500-tools",
+    "description": "Colección de más de 500 herramientas OSINT",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "All You Can Read",
+    "url": "https://www.allyoucanread.com/peru-newspapers/",
+    "description": "Acceder a periódicos y revistas de Perú diarios",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Carnet AI",
+    "url": "https://carnet.ai/",
+    "description": "Cargando una foto puedes detectar el año, modelo y marca de un vehículo mediante inteligencia artificial IA en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Carnet de Extranjería",
+    "url": "https://sel.migraciones.gob.pe/servmig-valreg/VerificarCE?AspxAutoDetectCookieSupport=1",
+    "description": "Verificación de Carnet de Extranjería en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Chequear Líneas",
+    "url": "https://checatuslineas.osiptel.gob.pe/",
+    "description": "Verificar líneas telefónicas en Perú en OSIPTEL Peruanos",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Claro Fijos",
+    "url": "http://www.claro.com.pe/directorio-de-abonados-fijos/",
+    "description": "Directorio de abonados fijos de Claro en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Claro Móviles",
+    "url": "http://www.claro.com.pe/directorio-de-abonados-moviles/",
+    "description": "Directorio de abonados móviles de Claro en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Consulta ATU",
+    "url": "https://sistemas.atu.gob.pe/ConsultaVehiculo/",
+    "description": "Sistema de consulta vehicular de la Autoridad de Transporte Urbano vehiculos Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Consulta de afiliación Política",
+    "url": "https://sroppublico.jne.gob.pe/Consulta/Afiliado",
+    "description": "Registro de Consulta de afiliación Política políticos peruanos INFOGOB JNE Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Consulta Placas Ahorro GNV",
+    "url": "https://fise.minem.gob.pe:23308/consulta-taller/pages/consultaTaller/inicio;jsessionid=4C81723A904454D336D94192C72809A8",
+    "description": "Consulta de placa de vehículos en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Consulta Placas InfoGAS",
+    "url": "https://infogas.com.pe/consulta-placa/",
+    "description": "Consulta de placa de vehículos en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Consulta RUC",
+    "url": "https://e-consultaruc.sunat.gob.pe/cl-ti-itmrconsruc/jcrS00Alias",
+    "description": "Consulta de Registro Único de Contribuyentes peruano Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Código Postal",
+    "url": "http://www.codigopostal.gob.pe/pages/invitado/consulta.jsf",
+    "description": "Consulta de códigos postales en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Datos Perú",
+    "url": "https://www.datosperu.org/",
+    "description": "Directorio de empresas y personas en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Deudores de Alimentos",
+    "url": "https://casillas.pj.gob.pe/redam/#",
+    "description": "Registro de deudores alimentarios del Poder Judicial Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Dni-Perú Online",
+    "url": "https://dni-peru.online/buscar-dni-por-nombres-y-apellidos/",
+    "description": "buscar DNI con nombres y apellidos Perú Peruanos personas",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "DNIPerú",
+    "url": "https://dniperu.com/buscar-dni-por-nombres-y-apellidos/",
+    "description": "buscar DNI con nombres y apellidos Perú Peruanos personas",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "El DNI",
+    "url": "https://eldni.com/",
+    "description": "Consulta de información relacionada al DNI Perú personas peruanos",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Funcionarios Públicos",
+    "url": "https://www.transparencia.gob.pe/personal/pte_transparencia_personal.aspx",
+    "description": "Directorio de funcionarios públicos en el Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Geo Llaqta",
+    "url": "https://catastro.cofopri.gob.pe/geollaqta/",
+    "description": "Sistema de geolocalización de predios urbanos Perú Mapa y Mapas",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Grados y Títulos",
+    "url": "https://titulosinstitutos.minedu.gob.pe/",
+    "description": "Validación de grados y títulos técnicos en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Informativo",
+    "url": "http://servicioscal.org.pe/consulta_habilidad/",
+    "description": "Consulta de abogados habilitados en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Inspección Técnica",
+    "url": "https://rec.mtc.gob.pe/Citv/ArConsultaCitv",
+    "description": "Inspección Técnica Vehicular obligatoria en Perú MTC vehiculos",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Kiosko Perú (Canal en Telegram)",
+    "url": "https://t.me/kioskope",
+    "description": "Acceder a periódicos y revistas de Perú en Telegram diarios",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "La Católica",
+    "url": "https://eros.pucp.edu.pe/pucp/general/gewpealu/gewpealu?accion=Ingresar",
+    "description": "Búsqueda de personas en la Pontificia Universidad Católica del Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "La Molina",
+    "url": "https://www.lamolina.edu.pe/portada/html/acerca/emailalumnos.htm",
+    "description": "Directorio de correos de la Universidad Agraria La Molina Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Licencias de conducir 1",
+    "url": "https://licencias.mtc.gob.pe/#/index",
+    "description": "Consulta de licencias de conducir y vehículos en Perú MTC vehiculos",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Licencias de conducir 2",
+    "url": "https://slcp.mtc.gob.pe/",
+    "description": "Sistema de licencias vehiculares del Ministerio de Transportes MTC vehículos y vehiculos Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Manolo Rocks",
+    "url": "https://manolo.rocks/",
+    "description": "Herramienta OSINT para búsqueda de información personal Perú personas peruanos",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Mapa de Alerta de estado de vía",
+    "url": "https://gis.sutran.gob.pe/alerta_sutran/",
+    "description": "Mapa interactivo de alertas por bloqueo de carreteras de la Sutran en Perú Mapas",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Movimientos Placa",
+    "url": "https://www.placas.pe/Public/CheckPlateStatus.aspx",
+    "description": "Seguimiento de movimientos de placas vehiculares AAP vehiculos Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "ONP",
+    "url": "https://zonasegura.onp.gob.pe/onp.portalonp.web/soy_pensionista/consultar_imprimir_informacion_pensionista_onp",
+    "description": "Consulta de información de pensionistas en la ONP Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Papeletas - Andahuaylas",
+    "url": "https://muniandahuaylas.gob.pe/consultar-papeleta/",
+    "description": "Consulta de Papeletas de vehículos de Andahuaylas en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Papeletas - Arequipa",
+    "url": "https://www.muniarequipa.gob.pe/oficina-virtual/c0nInfrPermisos/faltas/papeletas.php",
+    "description": "Consulta de Papeletas de vehículos de Arequipa en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Papeletas - Cajamarca",
+    "url": "https://www.satcajamarca.gob.pe/",
+    "description": "Consulta de Papeletas de vehículos de Cajamarca en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Papeletas - Chachapoyas",
+    "url": "https://app.munichachapoyas.gob.pe/servicios/consulta_papeletas/app/papeletas.php",
+    "description": "Consulta de Papeletas de vehículos de Chachapoyas en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Papeletas - Huánuco",
+    "url": "https://www.munihuanuco.gob.pe/wp-content/servicios/transportes/gt_papeletas.php",
+    "description": "Consulta de Papeletas de vehículos de Huánuco en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Papeletas - Ica",
+    "url": "https://m.satica.gob.pe/consultapapeletas.php",
+    "description": "Consulta de Papeletas de vehículos de Ica en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Papeletas - Piura",
+    "url": "http://www.munipiura.gob.pe/consulta-de-multas-de-transito",
+    "description": "Consulta de Papeletas de vehículos de Piura en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Papeletas - Tacna",
+    "url": "https://www.munitacna.gob.pe/pagina/sf/servicios/papeletas",
+    "description": "Consulta de Papeletas de vehículos de Tacna en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Papeletas - Tarapoto",
+    "url": "https://www.sat-t.gob.pe/",
+    "description": "Consulta de Papeletas de vehículos de Tarapoto en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Papeletas por infracciones",
+    "url": "http://www.pit.gob.pe/pit2007/EstadoCuenta.aspx",
+    "description": "Consulta de deudas de peajes y multas vehiculares PIT vehiculos Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Papeletas SAT",
+    "url": "https://www.sat.gob.pe/websitev9",
+    "description": "Consulta de papeletas y multas de tránsito en Lima SAT vehiculos Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Partida Predial",
+    "url": "https://enlinea.sunarp.gob.pe/sunarpweb/pages/acceso/ingreso.faces",
+    "description": "Acceso a partidas registrales prediales Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Pasaporte",
+    "url": "https://sel.migraciones.gob.pe/servmig-valreg/VerificarPAS",
+    "description": "Validación de pasaportes peruanos Migraciones Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Permiso de Trabajo",
+    "url": "https://sel.migraciones.gob.pe/webcarnetptp/VerificarCPTP",
+    "description": "Verificación de Permisos de Trabajo para extranjeros Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Perú UTC-5",
+    "url": "https://www.zeitverschiebung.net/es/timezone/america--lima",
+    "description": "Consultar la zona horaria de Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Poder Judicial",
+    "url": "https://www.pj.gob.pe/wps/wcm/connect/CorteSuprema/s_cortes_suprema_home/as_servicios/as_internos/as_consultas_personal/",
+    "description": "Consultas de procesos judiciales y personal del Poder Judicial PJ Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Políticos",
+    "url": "https://infogob.jne.gob.pe/Politico",
+    "description": "Registro de información sobre políticos peruanos INFOGOB JNE Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Portabilidad",
+    "url": "https://consulta.portabilidad.pe/",
+    "description": "Consultar la portabilidad de un número de teléfono Perú, Peruanos",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Predios Cofopri",
+    "url": "http://municanete.gob.pe/munivirtual/cofopri_en_linea.php",
+    "description": "Consulta de predios regularizados por COFOPRI Perú Mapa y Mapas",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Profesores",
+    "url": "https://sistema.cppe.org.pe/view/Colegiado/",
+    "description": "Registro de profesores colegiados en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Propiedades Sunarp",
+    "url": "https://www2.sunarp.gob.pe/consulta-propiedad/inicio",
+    "description": "Consulta de propiedades registradas en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Provias Emergencia Nacional",
+    "url": "https://wsgcv.proviasnac.gob.pe/emergenciavial",
+    "description": "Mapa de emergencias viales en Perú Mapas",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Punto PE",
+    "url": "https://punto.pe/whois.php",
+    "description": "Consultar información WHOIS de dominios en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Páginas Amarillas de Perú",
+    "url": "https://www.paginasamarillas.com.pe/",
+    "description": "Directorio de negocios y servicios en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Páginas Blancas",
+    "url": "https://www.paginas-blancas.pe/",
+    "description": "Directorio telefónico de Páginas Blancas en Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Reg. Conductores",
+    "url": "https://icjc.mtc.gob.pe/",
+    "description": "Registro nacional de conductores autorizados en Perú MTC vehiculos Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "SBS",
+    "url": "https://servicios.sbs.gob.pe/serviciosenlinea",
+    "description": "Servicios en línea de la Superintendencia de Banca y Seguros Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "SIS",
+    "url": "http://app.sis.gob.pe/SisConsultaEnLinea/Consulta/frmConsultaEnLinea.aspx",
+    "description": "Sistema Integral de Salud para consultas en línea Perú SIS salud seguro",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Sisfoh",
+    "url": "https://focalizacion.sisfoh.gob.pe/ConsultaCSE/",
+    "description": "Consulta del Sistema de Focalización de Hogares Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Sistema SPIJ",
+    "url": "https://spij.minjus.gob.pe/",
+    "description": "Sistema de Información Jurídica del Ministerio de Justicia Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "SOAT - Apeseg",
+    "url": "https://www.apeseg.org.pe/consultas-soat/",
+    "description": "Consulta alternativa de validación de pólizas SOAT Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Sunedu",
+    "url": "https://enlinea.sunedu.gob.pe/",
+    "description": "Superintendencia Nacional de Educación Superior Universitaria Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Susalud",
+    "url": "https://app1.susalud.gob.pe/registro/",
+    "description": "Registro y consulta de seguros de salud en Perú todos los seguros salud",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Trámites",
+    "url": "https://www.google.com/search?q=s%C3%ADguelo+sunarp",
+    "description": "Seguimiento de trámites registrales Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Ubigeo Reniec",
+    "url": "https://www.reniec.gob.pe/Adherentes/jsp/ListaUbigeos.jsp",
+    "description": "Consulta de códigos de ubicación geográfica Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "UNI",
+    "url": "http://www.orce.uni.edu.pe/buscaalu.php?op=buscaalu#",
+    "description": "Búsqueda de alumnos de la Universidad Nacional de Ingeniería Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
+  },
+  {
+    "name": "Verificar SOAT",
+    "url": "https://www.soat.com.pe/servicios-soat/",
+    "description": "Verificación del Seguro Obligatorio de Accidentes de Tránsito MTC vehiculos Perú",
+    "category": "Government & Public Records",
+    "country": "Peru"
   }
 ]

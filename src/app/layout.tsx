@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Link from "next/link";
-import { Scan, Activity, Map } from "lucide-react";
+import { Scan, Activity, Map, TerminalSquare } from "lucide-react";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -39,6 +39,11 @@ export default function RootLayout({
             <Link href="/geo" className="text-[10px] sm:text-xs font-mono font-bold tracking-widest uppercase text-emerald-600 hover:text-emerald-300 transition-colors flex items-center gap-2 shrink-0">
               <Map className="w-3.5 h-3.5" />
               Nations Database
+            </Link>
+
+            <Link href="/dorks" className="text-[10px] sm:text-xs font-mono font-bold tracking-widest uppercase text-amber-600 hover:text-amber-300 transition-colors flex items-center gap-2 shrink-0">
+              <TerminalSquare className="w-3.5 h-3.5" />
+              Dork Engine
             </Link>
           </div>
           

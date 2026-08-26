@@ -309,11 +309,15 @@ export default function GlobeMonitor() {
               } else if (cat === "severeStorms") {
                 innerHTML = `
                   <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group">
-                    <div class="absolute w-10 h-10 border-2 border-dashed border-[#ff00ff] rounded-full opacity-40 group-hover:opacity-80 group-hover:scale-110 transition-all"></div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="group-hover:scale-125 transition-transform drop-shadow-[0_0_8px_rgba(255,0,255,0.8)]">
-                      <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="#ff00ff" stroke-width="1.5" stroke-dasharray="4 6" fill="none"/>
-                      <path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5" stroke="#ff00ff" stroke-width="1.5" fill="none"/>
-                      <path d="M7 12a5 5 0 0 1 5-5" stroke="#ff00ff" stroke-width="1.5" fill="none"/>
+                    <div class="absolute w-12 h-12 border border-dashed border-sky-300/40 rounded-full animate-[spin_8s_linear_infinite] group-hover:scale-125 transition-all"></div>
+                    <div class="absolute w-7 h-7 bg-sky-400/10 rounded-full blur-[2px]"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" class="group-hover:scale-125 transition-transform animate-[spin_4s_linear_infinite] drop-shadow-[0_0_10px_rgba(56,189,248,0.9)]">
+                      <!-- Spiral Arm 1 -->
+                      <path d="M12 2C8.5 2 4.5 5 4.5 9.5c0 3.2 2.5 5.8 5.5 6.5-1.8-1-2.5-2.8-2.5-4.5 0-3 2.5-5.5 5.5-5.5 2 0 3.8 1 4.8 2.5.5-3.5-2.3-6.5-5.8-6.5z" fill="#38bdf8" fill-opacity="0.85" stroke="#ffffff" stroke-width="0.8"/>
+                      <!-- Spiral Arm 2 -->
+                      <path d="M12 22c3.5 0 7.5-3 7.5-7.5 0-3.2-2.5-5.8-5.5-6.5 1.8 1 2.5 2.8 2.5 4.5 0 3-2.5 5.5-5.5 5.5-2 0-3.8-1-4.8-2.5-.5 3.5 2.3 6.5 5.8 6.5z" fill="#e0f2fe" fill-opacity="0.95" stroke="#38bdf8" stroke-width="0.8"/>
+                      <!-- Eye of the Cyclone -->
+                      <circle cx="12" cy="12" r="2" fill="#030712" stroke="#ffffff" stroke-width="1"/>
                     </svg>
                   </div>
                 `;
@@ -470,7 +474,7 @@ export default function GlobeMonitor() {
                 <span>[{layers.weather ? "ON" : "OFF"}]</span>
               </button>
 
-              <button onClick={() => setLayers(l => ({ ...l, storms: !l.storms }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.storms ? "border-[#ff00ff] text-[#ff00ff]" : "border-cyan-900/30 text-cyan-900"}`}>
+              <button onClick={() => setLayers(l => ({ ...l, storms: !l.storms }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.storms ? "border-[#38bdf8] text-[#38bdf8]" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>STORMS & CYCLONES</span>
                 <span>[{layers.storms ? "ON" : "OFF"}]</span>
               </button>

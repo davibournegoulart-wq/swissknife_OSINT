@@ -450,12 +450,37 @@ export default function GlobeMonitor() {
               } else if (type === "maritime") {
                 innerHTML = `
                   <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group">
-                    <div class="absolute w-10 h-10 border border-[#00d2ff] rounded-full opacity-30 animate-pulse"></div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="group-hover:scale-125 transition-transform drop-shadow-[0_0_10px_rgba(0,210,255,0.9)]">
-                      <circle cx="12" cy="5" r="3" fill="none" stroke="#00d2ff" stroke-width="1.8"/>
-                      <line x1="12" y1="2" x2="12" y2="22" stroke="#00d2ff" stroke-width="1.8"/>
-                      <path d="M5 12H19" stroke="#00d2ff" stroke-width="1.8"/>
-                      <path d="M5 12C5 17 8 20 12 20C16 20 19 17 19 12" fill="none" stroke="#00d2ff" stroke-width="1.8"/>
+                    <!-- Outer Sonar Radar Aura -->
+                    <div class="absolute w-12 h-12 border border-dashed border-[#00f0ff]/40 rounded-full animate-[spin_10s_linear_infinite] group-hover:scale-125 transition-all pointer-events-none"></div>
+                    <div class="absolute w-8 h-8 bg-[#00f0ff]/10 rounded-full blur-[2px]"></div>
+
+                    <!-- Beautifully Crafted Tactical Naval Anchor SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32" class="group-hover:scale-125 transition-transform drop-shadow-[0_0_12px_rgba(0,240,255,0.95)]">
+                      <!-- Top Shackle & Ring -->
+                      <circle cx="16" cy="6.5" r="3.2" fill="none" stroke="#00f0ff" stroke-width="1.8"/>
+                      <circle cx="16" cy="6.5" r="1.2" fill="#020817"/>
+                      <line x1="16" y1="9.7" x2="16" y2="12" stroke="#00f0ff" stroke-width="2"/>
+
+                      <!-- Cross Stock with End Studs -->
+                      <path d="M8 12.5H24" stroke="#00f0ff" stroke-width="2" stroke-linecap="round"/>
+                      <circle cx="8" cy="12.5" r="1.5" fill="#00f0ff"/>
+                      <circle cx="24" cy="12.5" r="1.5" fill="#00f0ff"/>
+
+                      <!-- Central Fluted Shank -->
+                      <line x1="16" y1="12" x2="16" y2="26" stroke="#00f0ff" stroke-width="2.2"/>
+                      <circle cx="16" cy="19" r="1" fill="#ffffff"/>
+
+                      <!-- Sweeping Arms & Barbed Flukes (Palms) -->
+                      <path d="M5.5 20C6.5 26.5 11 28.5 16 28.5C21 28.5 25.5 26.5 26.5 20" fill="none" stroke="#00f0ff" stroke-width="2.2" stroke-linecap="round"/>
+                      
+                      <!-- Left Fluke (Sharp Arrowhead) -->
+                      <polygon points="5.5,17 3,21.5 8,20.5" fill="#00f0ff" stroke="#00f0ff" stroke-width="0.8"/>
+                      
+                      <!-- Right Fluke (Sharp Arrowhead) -->
+                      <polygon points="26.5,17 29,21.5 24,20.5" fill="#00f0ff" stroke="#00f0ff" stroke-width="0.8"/>
+                      
+                      <!-- Bottom Crown Keystone -->
+                      <polygon points="16,26.5 18,29 16,30.5 14,29" fill="#00f0ff"/>
                     </svg>
                   </div>
                 `;

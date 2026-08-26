@@ -50,6 +50,10 @@ export default function Map2D({ points, allEvents = [], theme = "tactical", targ
       style={{ height: "100%", width: "100%", background: "#020205" }}
       zoomControl={false}
       minZoom={2}
+      wheelPxPerZoomLevel={60}
+      zoomSnap={0.25}
+      zoomDelta={0.5}
+      wheelDebounceTime={30}
     >
       <MapController target={target} theme={theme} />
       

@@ -342,10 +342,25 @@ export default function GlobeMonitor() {
     return () => window.removeEventListener("keydown", handleGlobalKey);
   }, [lockedInfo, hoveredInfo, isDossierOpen]);
 
+  const configureControls = () => {
+    if (globeRef.current) {
+      const controls = globeRef.current.controls();
+      if (controls) {
+        controls.autoRotate = autoRotate;
+        controls.autoRotateSpeed = 0.8;
+        controls.zoomSpeed = 1.8; // Fast, responsive zoom for trackpads and mouse wheel
+        controls.rotateSpeed = 1.0;
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.08;
+        controls.minDistance = 104; // Allows deep, close-up inspection
+        controls.maxDistance = 550; // Fluid wide viewing bounds
+      }
+    }
+  };
+
   useEffect(() => {
-    if (viewMode === "3d" && globeRef.current) {
-      globeRef.current.controls().autoRotate = autoRotate;
-      globeRef.current.controls().autoRotateSpeed = 0.8;
+    if (viewMode === "3d") {
+      configureControls();
     }
   }, [globeRef.current, viewMode, autoRotate]);
 
@@ -357,6 +372,7 @@ export default function GlobeMonitor() {
         {viewMode === "3d" ? (
           <Globe
             ref={globeRef}
+            onGlobeReady={configureControls}
             globeImageUrl={
               globeTheme === "tactical" 
                 ? "//unpkg.com/three-globe/example/img/earth-dark.jpg"

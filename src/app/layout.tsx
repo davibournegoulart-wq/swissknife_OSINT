@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Share_Tech_Mono } from "next/font/google";
 import Link from "next/link";
-import { Scan, Activity, Map, TerminalSquare, Newspaper, Globe2, Crosshair, Cpu, Database, Wifi } from "lucide-react";
+import { Scan, Activity, Map, TerminalSquare, Newspaper, Globe2, Crosshair, Cpu, Database, Wifi, PocketKnife } from "lucide-react";
 import { BootSplash } from "@/components/BootSplash";
 import "./globals.css";
 
@@ -43,21 +43,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             
             {/* Identity */}
             <div className="flex items-center gap-4">
-              <div className="relative w-12 h-12 flex items-center justify-center bg-cyan-950/30 border border-cyan-500/50" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }}>
-                <div className="absolute inset-0 border-2 border-cyan-400/20 animate-pulse" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }} />
-                {/* Custom Swiss Knife Geometric Logo */}
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" className="w-6 h-6 text-cyan-400" strokeWidth="1.5">
-                  <path d="M4 18L18 4" strokeLinecap="round"/>
-                  <path d="M14 6L18 10" strokeLinecap="round"/>
-                  <path d="M6 14L10 18" strokeLinecap="round"/>
-                  <path d="M12 2L14 6L18 8L16 12L18 16L14 18L12 22L10 18L6 16L8 12L6 8L10 6L12 2Z" fill="currentColor" fillOpacity="0.2"/>
-                  <circle cx="12" cy="12" r="2" fill="currentColor"/>
-                </svg>
+              <div className="relative w-12 h-12 flex items-center justify-center bg-amber-950/30 border border-amber-500/50" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }}>
+                <div className="absolute inset-0 border-2 border-amber-400/20 animate-pulse" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }} />
+                {/* Official Swiss Knife Logo */}
+                <PocketKnife className="w-6 h-6 text-amber-400 drop-shadow-[0_0_8px_rgba(245,158,11,0.8)]" strokeWidth={1.5} />
               </div>
               <div>
-                <h1 className="text-xl font-bold tracking-[0.3em] text-white drop-shadow-[0_0_8px_rgba(0,255,255,0.5)] flex items-center gap-2">
-                  DAVI <span className="text-cyan-500">SWISS KNIFE</span>
-                  <span className="px-1.5 py-0.5 text-[8px] bg-cyan-950 text-cyan-400 border border-cyan-800 tracking-widest rounded-sm">v2.0</span>
+                <h1 className="text-xl font-bold tracking-[0.3em] text-white drop-shadow-[0_0_8px_rgba(245,158,11,0.5)] flex items-center gap-2">
+                  DAVI <span className="text-amber-500">SWISS KNIFE</span>
+                  <span className="px-1.5 py-0.5 text-[8px] bg-amber-950 text-amber-400 border border-amber-800 tracking-widest rounded-sm">v2.0</span>
                 </h1>
                 <div className="flex items-center gap-3 text-[10px] tracking-[0.2em] text-cyan-600 mt-1">
                   <span>GLOBAL THREAT INTELLIGENCE MATRIX</span>

@@ -3,7 +3,7 @@
 import * as THREE from "three";
 import { useState, useEffect, useRef, useMemo } from "react";
 import dynamic from "next/dynamic";
-import { Activity, Radio, Layers, Globe2, MapPin, Map, Crosshair, Terminal, Zap } from "lucide-react";
+import { Activity, Radio, Layers, Globe2, MapPin, Map, Crosshair, Terminal, Zap, PocketKnife } from "lucide-react";
 import countryCoords from "@/data/country_coords.json";
 const countriesGeo = require("@/data/countries.json");
 
@@ -403,13 +403,19 @@ export default function GlobeMonitor() {
         
         {/* Header & Left Sidebar */}
         <div className="flex flex-col gap-4 items-start pointer-events-none h-[calc(100vh-6rem)]">
-          <div className="bg-[#020205]/80 p-3 border-l-2 border-cyan-500 backdrop-blur-sm pointer-events-auto shrink-0">
-            <h1 className="text-xl font-black uppercase tracking-[0.3em] text-cyan-400 drop-shadow-[0_0_8px_rgba(0,255,255,0.8)]">
-              DAVI SWISS KNIFE
-            </h1>
-            <p className="text-[10px] text-cyan-800 uppercase tracking-[0.4em] mt-1">
-              GLOBAL SURVEILLANCE & INTEL MATRIX
-            </p>
+          <div className="bg-[#0a0600]/90 p-3 border-l-2 border-amber-500 backdrop-blur-sm pointer-events-auto shrink-0 flex items-center gap-3">
+            <div className="relative w-10 h-10 flex items-center justify-center bg-amber-950/40 border border-amber-500/50" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }}>
+              <div className="absolute inset-0 border border-amber-400/30 animate-pulse" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }} />
+              <PocketKnife className="w-5 h-5 text-amber-400 drop-shadow-[0_0_8px_rgba(245,158,11,0.8)]" strokeWidth={1.5} />
+            </div>
+            <div>
+              <h1 className="text-xl font-black uppercase tracking-[0.3em] text-amber-400 drop-shadow-[0_0_8px_rgba(245,158,11,0.8)]">
+                DAVI SWISS KNIFE
+              </h1>
+              <p className="text-[10px] text-amber-700 uppercase tracking-[0.4em] mt-0.5">
+                GLOBAL SURVEILLANCE & INTEL MATRIX
+              </p>
+            </div>
           </div>
 
           <div className="flex flex-col gap-2 w-64 pointer-events-auto custom-scrollbar flex-1 h-full">

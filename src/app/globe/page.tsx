@@ -474,7 +474,14 @@ export default function GlobeMonitor() {
             }}
           />
         ) : (
-          <Map2D points={points} onHover={setHoveredInfo} />
+          <Map2D 
+            points={points} 
+            allEvents={[...(points || []), ...(eonetPts || []), ...(conflictPts || []), ...(flightPts || [])]}
+            theme={globeTheme}
+            target={lockedInfo}
+            onHover={setHoveredInfo}
+            onSelect={focusTarget}
+          />
         )}
       </div>
 

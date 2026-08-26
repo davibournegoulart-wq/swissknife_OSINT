@@ -15,6 +15,7 @@ const Globe = dynamic(() => import("react-globe.gl"), { ssr: false });
 const Map2D = dynamic(() => import("@/components/Map2D"), { ssr: false });
 import NewsDossierModal from "@/components/NewsDossierModal";
 import AirRadarModal from "@/components/AirRadarModal";
+import AirMissionDossierModal from "@/components/AirMissionDossierModal";
 
 interface NewsItem { title: string; link: string; pubDate: string; source: string; country: string; accentColor: string; }
 export interface PointData { lat: number; lng: number; size: number; color: string; label: string; type: "news" | "quake" | "conflict" | "flight" | "eonet" | "maritime" | "cyber"; url?: string; desc?: string; [key: string]: any; }
@@ -42,8 +43,10 @@ export default function GlobeMonitor() {
   const [flightSearch, setFlightSearch] = useState<string>("");
   const [showFlightFilters, setShowFlightFilters] = useState<boolean>(true);
   const [isDossierOpen, setIsDossierOpen] = useState<boolean>(false);
+  const [isFlightDossierOpen, setIsFlightDossierOpen] = useState<boolean>(false);
   const [isAirRadarOpen, setIsAirRadarOpen] = useState<boolean>(false);
   const [dossierTarget, setDossierTarget] = useState<any>(null);
+  const [flightDossierTarget, setFlightDossierTarget] = useState<any>(null);
 
   useEffect(() => {
     fetch("/api/news?limit=200").then(r => r.json()).then(d => setNews(d.articles || []));
@@ -328,21 +331,26 @@ export default function GlobeMonitor() {
   const openDossier = (pt: any) => {
     if (!pt) return;
     focusTarget(pt);
-    setDossierTarget(pt);
-    setIsDossierOpen(true);
+    if (pt.type === "flight" || pt.flightType) {
+      setFlightDossierTarget(pt);
+      setIsFlightDossierOpen(true);
+    } else {
+      setDossierTarget(pt);
+      setIsDossierOpen(true);
+    }
   };
 
   // Keyboard shortcut listener: Press Space to open RAG Dossier on locked target
   useEffect(() => {
     const handleGlobalKey = (e: KeyboardEvent) => {
-      if (e.code === "Space" && !isDossierOpen && (lockedInfo || hoveredInfo)) {
+      if (e.code === "Space" && !isDossierOpen && !isFlightDossierOpen && !isAirRadarOpen && (lockedInfo || hoveredInfo)) {
         e.preventDefault();
         openDossier(lockedInfo || hoveredInfo);
       }
     };
     window.addEventListener("keydown", handleGlobalKey);
     return () => window.removeEventListener("keydown", handleGlobalKey);
-  }, [lockedInfo, hoveredInfo, isDossierOpen]);
+  }, [lockedInfo, hoveredInfo, isDossierOpen, isFlightDossierOpen, isAirRadarOpen]);
 
   const configureControls = () => {
     if (globeRef.current) {
@@ -1048,6 +1056,20 @@ export default function GlobeMonitor() {
         setActiveFilter={setFlightFilterType}
         searchTerm={flightSearch}
         setSearchTerm={setFlightSearch}
+      />
+
+      {/* 3D Holographic Flight Intel & Cross-Referencing Mission Dossier */}
+      <AirMissionDossierModal 
+        isOpen={isFlightDossierOpen}
+        onClose={() => setIsFlightDossierOpen(false)}
+        flight={flightDossierTarget || (lockedInfo?.type === "flight" ? lockedInfo : null)}
+        allEvents={[
+          ...(eonetPts || []),
+          ...(conflictPts || []),
+          ...(maritimePts || []),
+          ...(cyberPts || [])
+        ]}
+        allNews={news as any}
       />
     </div>
   );

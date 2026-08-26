@@ -265,16 +265,17 @@ export default function GlobeMonitor() {
             arcDashAnimateTime={2000}
             arcAltitudeAutoScale={0.3}
 
-            // Labels (Country Names)
+            // Nation Labels
             labelsData={layers.labels ? labels : []}
             labelLat="lat"
             labelLng="lng"
             labelText="text"
-            labelSize={1.5}
+            labelSize={0.4}
             labelDotRadius={0.3}
-            labelColor={() => "rgba(0, 243, 255, 0.8)"}
+            labelColor={() => "rgba(245, 158, 11, 0.6)"}
+            labelIncludeDot={false}
             labelResolution={2}
-            labelAltitude={0.01}
+            labelAltitude={0.005}
 
             // EONET Alerts, Conflicts & Flights
             htmlElementsData={[...(eonetPts || []), ...(conflictPts || []), ...(flightPts || [])]}
@@ -347,7 +348,10 @@ export default function GlobeMonitor() {
               }
 
               el.innerHTML = innerHTML;
-              el.onclick = () => setLockedInfo(d);
+              el.onclick = () => {
+                setLockedInfo(d);
+                if (globeRef.current) globeRef.current.pointOfView({ lat: d.lat, lng: d.lng, altitude: 0.8 }, 1200);
+              };
               el.onmouseenter = () => { if (!lockedInfo) setHoveredInfo(d); };
               el.onmouseleave = () => { if (!lockedInfo) setHoveredInfo(null); };
               return el;
@@ -369,7 +373,10 @@ export default function GlobeMonitor() {
             }}
 
             onPointHover={(pt: any) => !lockedInfo && setHoveredInfo(pt)}
-            onPointClick={(pt: any) => setLockedInfo(pt === lockedInfo ? null : pt)}
+            onPointClick={(pt: any) => {
+              setLockedInfo(pt === lockedInfo ? null : pt);
+              if (pt !== lockedInfo && globeRef.current) globeRef.current.pointOfView({ lat: pt.lat, lng: pt.lng, altitude: 0.8 }, 1200);
+            }}
           />
         ) : (
           <Map2D points={points} onHover={setHoveredInfo} />
@@ -395,17 +402,17 @@ export default function GlobeMonitor() {
       <div className="absolute inset-0 pointer-events-none z-40 flex flex-col justify-between p-8">
         
         {/* Header & Left Sidebar */}
-        <div className="flex flex-col gap-4 items-start pointer-events-none">
-          <div className="bg-[#020205]/80 p-3 border-l-2 border-cyan-500 backdrop-blur-sm pointer-events-auto">
+        <div className="flex flex-col gap-4 items-start pointer-events-none h-[calc(100vh-6rem)]">
+          <div className="bg-[#020205]/80 p-3 border-l-2 border-cyan-500 backdrop-blur-sm pointer-events-auto shrink-0">
             <h1 className="text-xl font-black uppercase tracking-[0.3em] text-cyan-400 drop-shadow-[0_0_8px_rgba(0,255,255,0.8)]">
-              SWISS KNIFE
+              DAVI SWISS KNIFE
             </h1>
             <p className="text-[10px] text-cyan-800 uppercase tracking-[0.4em] mt-1">
               GLOBAL SURVEILLANCE & INTEL MATRIX
             </p>
           </div>
 
-          <div className="flex flex-col gap-2 w-56 pointer-events-auto custom-scrollbar">
+          <div className="flex flex-col gap-2 w-64 pointer-events-auto custom-scrollbar flex-1 h-full">
             <div className="bg-[#020205]/80 border border-cyan-900/50 p-1 flex">
               <button onClick={() => setViewMode("2d")} className={`flex-1 py-1.5 text-[9px] font-bold tracking-widest ${viewMode === "2d" ? "bg-cyan-950 text-cyan-300" : "text-cyan-900"}`}>[ 2D MAP ]</button>
               <button onClick={() => setViewMode("3d")} className={`flex-1 py-1.5 text-[9px] font-bold tracking-widest ${viewMode === "3d" ? "bg-cyan-950 text-cyan-300" : "text-cyan-900"}`}>[ 3D GLOBE ]</button>
@@ -419,7 +426,7 @@ export default function GlobeMonitor() {
               </div>
             )}
 
-            <div className="bg-[#020205]/80 border border-cyan-900/50 p-3 flex flex-col gap-2 backdrop-blur-sm max-h-[40vh] overflow-y-auto custom-scrollbar">
+            <div className="bg-[#020205]/80 border border-cyan-900/50 p-3 flex flex-col gap-2 backdrop-blur-sm flex-1 overflow-y-auto custom-scrollbar">
               <div className="text-[8px] text-cyan-600 uppercase tracking-[0.3em] mb-1 sticky top-0 bg-[#020205] z-10 pb-1 border-b border-cyan-900/50">SYSTEM LAYERS</div>
               
               <button onClick={() => setGlobeTheme(t => t === "tactical" ? "satellite" : "tactical")} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${globeTheme === "satellite" ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>
@@ -482,6 +489,38 @@ export default function GlobeMonitor() {
                 <span>[{flights.length}]</span>
               </button>
             </div>
+
+            {/* Terminal / Target Lock */}
+            <div className="w-full min-h-[12rem] bg-[#0a0600]/90 border-t border-amber-900 shadow-[0_-5px_20px_rgba(245,158,11,0.05)] border border-amber-900/50 p-3 backdrop-blur-sm relative flex flex-col pointer-events-auto mt-2">
+              <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-amber-500" />
+              <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-amber-500" />
+              
+              <div className="flex items-center justify-between text-[8px] text-amber-600 tracking-[0.3em] mb-2 border-b border-amber-900/50 pb-1">
+                <div className="flex items-center gap-2">
+                  <Terminal className="w-3 h-3" />
+                  <span>TARGET_TELEMETRY</span>
+                </div>
+                {lockedInfo && <span className="text-[#ff003c] animate-pulse">[ LOCKED ]</span>}
+              </div>
+
+              {lockedInfo || hoveredInfo ? (
+                <div className="flex-1 overflow-hidden animate-[pulse_0.1s_ease-in-out]">
+                  <div className="text-[10px] text-white font-bold tracking-widest mb-1">{(lockedInfo || hoveredInfo)?.label}</div>
+                  <div className="text-[9px] text-amber-400 leading-tight mb-2 whitespace-pre-wrap">{(lockedInfo || hoveredInfo)?.desc}</div>
+                  <div className="text-[8px] text-amber-700">LAT: {(lockedInfo || hoveredInfo)?.lat.toFixed(4)} // LNG: {(lockedInfo || hoveredInfo)?.lng.toFixed(4)}</div>
+                  {(lockedInfo || hoveredInfo)?.url && (
+                    <button onClick={() => window.open((lockedInfo || hoveredInfo)?.url, "_blank")} className="text-[8px] text-[#ff003c] mt-1 hover:text-white transition-colors cursor-pointer block text-left">
+                      &gt;&gt;&gt; CLICK TO INTERCEPT SIGNAL
+                    </button>
+                  )}
+                </div>
+              ) : (
+                <div className="flex-1 flex items-center justify-center text-[9px] text-amber-900/60 tracking-widest text-center">
+                  AWAITING TARGET LOCK...<br/>(HOVER TO SCAN, CLICK TO LOCK)
+                </div>
+              )}
+            </div>
+
           </div>
         </div>
 
@@ -532,45 +571,15 @@ export default function GlobeMonitor() {
         </div>
 
         {/* Footer */}
-        <div className="flex items-end justify-between pointer-events-none">
-          {/* Terminal / Target Lock */}
-          <div className="w-80 h-32 bg-[#020205]/80 border border-cyan-900/50 p-3 backdrop-blur-sm relative flex flex-col pointer-events-auto">
-            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-cyan-400" />
-            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-cyan-400" />
-            
-            <div className="flex items-center justify-between text-[8px] text-cyan-600 tracking-[0.3em] mb-2 border-b border-cyan-900/50 pb-1">
-              <div className="flex items-center gap-2">
-                <Terminal className="w-3 h-3" />
-                <span>TARGET_TELEMETRY</span>
-              </div>
-              {lockedInfo && <span className="text-[#ff003c] animate-pulse">[ LOCKED ]</span>}
-            </div>
-
-            {lockedInfo || hoveredInfo ? (
-              <div className="flex-1 overflow-hidden animate-[pulse_0.1s_ease-in-out]">
-                <div className="text-[10px] text-white font-bold tracking-widest mb-1">{(lockedInfo || hoveredInfo)?.label}</div>
-                <div className="text-[9px] text-cyan-400 leading-tight mb-2 whitespace-pre-wrap">{(lockedInfo || hoveredInfo)?.desc}</div>
-                <div className="text-[8px] text-cyan-700">LAT: {(lockedInfo || hoveredInfo)?.lat.toFixed(4)} // LNG: {(lockedInfo || hoveredInfo)?.lng.toFixed(4)}</div>
-                {(lockedInfo || hoveredInfo)?.url && (
-                  <button onClick={() => window.open((lockedInfo || hoveredInfo)?.url, "_blank")} className="text-[8px] text-[#ff003c] mt-1 hover:text-white transition-colors cursor-pointer block text-left">
-                    &gt;&gt;&gt; CLICK TO INTERCEPT SIGNAL
-                  </button>
-                )}
-              </div>
-            ) : (
-              <div className="flex-1 flex items-center justify-center text-[9px] text-cyan-900 tracking-widest text-center">
-                AWAITING TARGET LOCK...<br/>(HOVER TO SCAN, CLICK TO LOCK)
-              </div>
-            )}
-          </div>
-          
+        <div className="flex items-end justify-between pointer-events-none mt-auto pt-4">
+          <div /> {/* Empty div to push Status block to the right */}
           {/* Status block */}
           <div className="flex flex-col items-end gap-1 pointer-events-auto">
-            <div className="flex items-center gap-2 bg-[#020205]/80 border border-cyan-900/50 px-3 py-1">
+            <div className="flex items-center gap-2 bg-[#0a0600]/90 border border-amber-900/50 px-3 py-1">
               <Radio className="w-3 h-3 text-[#ff003c] animate-pulse" />
-              <span className="text-[9px] text-cyan-500 tracking-[0.3em]">SECURE UPLINK ESTABLISHED</span>
+              <span className="text-[9px] text-amber-500 tracking-[0.3em]">SECURE UPLINK ESTABLISHED</span>
             </div>
-            <div className="text-[7px] text-cyan-800 tracking-[0.4em]">SYS.MEM: 4096TB // LATENCY: 12MS</div>
+            <div className="text-[7px] text-amber-800 tracking-[0.4em]">SYS.MEM: 4096TB // LATENCY: 12MS</div>
           </div>
         </div>
       </div>

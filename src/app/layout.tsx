@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 const techMono = Share_Tech_Mono({ weight: "400", subsets: ["latin"], variable: "--font-tech" });
 
 export const metadata: Metadata = {
-  title: "SWISS KNIFE // OSINT CORE",
+  title: "DAVI SWISS KNIFE // OSINT CORE",
   description: "Advanced Threat Intelligence & OSINT HUD",
 };
 
@@ -56,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
               <div>
                 <h1 className="text-xl font-bold tracking-[0.3em] text-white drop-shadow-[0_0_8px_rgba(0,255,255,0.5)] flex items-center gap-2">
-                  SWISS <span className="text-cyan-500">KNIFE</span>
+                  DAVI <span className="text-cyan-500">SWISS KNIFE</span>
                   <span className="px-1.5 py-0.5 text-[8px] bg-cyan-950 text-cyan-400 border border-cyan-800 tracking-widest rounded-sm">v2.0</span>
                 </h1>
                 <div className="flex items-center gap-3 text-[10px] tracking-[0.2em] text-cyan-600 mt-1">

@@ -770,12 +770,62 @@ export default function GlobeMonitor() {
                   </button>
                   <button 
                     onClick={() => setShowFlightFilters(!showFlightFilters)}
-                    className="ml-1 p-1 text-[8px] border border-cyan-900/50 text-cyan-500 hover:text-cyan-300 hover:border-cyan-400"
+                    className={`ml-1 p-1 text-[8px] border transition-colors ${showFlightFilters ? "border-cyan-400 text-cyan-300 bg-cyan-950/60" : "border-cyan-900/50 text-cyan-600 hover:text-cyan-300"}`}
                     title="Toggle Radar Filters"
                   >
                     <SlidersHorizontal className="w-3 h-3" />
                   </button>
                 </div>
+
+                {/* Interactive Flight Filter Sub-Panel */}
+                {layers.flights && showFlightFilters && (
+                  <div className="flex flex-col gap-1.5 pt-1.5 border-t border-cyan-900/40 bg-black/60 p-1.5">
+                    {/* Search Callsign / Unit / Country */}
+                    <div className="relative flex items-center">
+                      <Search className="w-2.5 h-2.5 absolute left-1.5 text-cyan-500 pointer-events-none" />
+                      <input 
+                        type="text" 
+                        value={flightSearch}
+                        onChange={(e) => setFlightSearch(e.target.value)}
+                        placeholder="SEARCH CALLSIGN / UNIT..."
+                        className="w-full bg-[#030610] border border-cyan-700/60 pl-5 pr-4 py-1 text-[8px] text-cyan-200 placeholder:text-cyan-800 focus:outline-none focus:border-cyan-400 font-mono uppercase"
+                      />
+                      {flightSearch && (
+                        <button onClick={() => setFlightSearch("")} className="absolute right-1 text-cyan-600 hover:text-cyan-300">
+                          <X className="w-2.5 h-2.5" />
+                        </button>
+                      )}
+                    </div>
+
+                    {/* Flight Class Filters */}
+                    <div className="grid grid-cols-2 gap-1 text-[8px]">
+                      <button 
+                        onClick={() => setFlightFilterType("all")} 
+                        className={`p-1 border text-center font-bold tracking-wider transition-colors ${flightFilterType === "all" ? "border-cyan-400 bg-cyan-950/80 text-cyan-200" : "border-cyan-900/40 text-cyan-700 hover:text-cyan-400"}`}
+                      >
+                        ALL ({flights.length})
+                      </button>
+                      <button 
+                        onClick={() => setFlightFilterType("military")} 
+                        className={`p-1 border text-center font-bold tracking-wider flex items-center justify-center gap-1 transition-colors ${flightFilterType === "military" ? "border-[#ff003c] bg-[#ff003c]/25 text-[#ff003c]" : "border-cyan-900/40 text-cyan-700 hover:text-[#ff003c]"}`}
+                      >
+                        <ShieldAlert className="w-2.5 h-2.5" /> MILITARY ({flights.filter(f => f.type === "military").length})
+                      </button>
+                      <button 
+                        onClick={() => setFlightFilterType("commercial")} 
+                        className={`p-1 border text-center font-bold tracking-wider transition-colors ${flightFilterType === "commercial" ? "border-[#00ff88] bg-[#00ff88]/25 text-[#00ff88]" : "border-cyan-900/40 text-cyan-700 hover:text-[#00ff88]"}`}
+                      >
+                        AIRLINERS ({flights.filter(f => f.type === "commercial").length})
+                      </button>
+                      <button 
+                        onClick={() => setFlightFilterType("vip")} 
+                        className={`p-1 border text-center font-bold tracking-wider flex items-center justify-center gap-1 transition-colors ${flightFilterType === "vip" ? "border-[#ffd700] bg-[#ffd700]/25 text-[#ffd700]" : "border-cyan-900/40 text-cyan-700 hover:text-[#ffd700]"}`}
+                      >
+                        <Crown className="w-2.5 h-2.5" /> VIP ({flights.filter(f => f.type === "vip").length})
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 

@@ -84,7 +84,6 @@ export default function Map2D({ points, allEvents = [], theme = "tactical", targ
               mouseout: () => onHover(null),
               click: () => {
                 if (onSelect) onSelect(pt);
-                if (pt.url) window.open(pt.url, "_blank");
               }
             }}
           />

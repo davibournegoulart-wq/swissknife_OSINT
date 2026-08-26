@@ -14,6 +14,7 @@ const countriesGeo = require("@/data/countries.json");
 const Globe = dynamic(() => import("react-globe.gl"), { ssr: false });
 const Map2D = dynamic(() => import("@/components/Map2D"), { ssr: false });
 import NewsDossierModal from "@/components/NewsDossierModal";
+import AirRadarModal from "@/components/AirRadarModal";
 
 interface NewsItem { title: string; link: string; pubDate: string; source: string; country: string; accentColor: string; }
 export interface PointData { lat: number; lng: number; size: number; color: string; label: string; type: "news" | "quake" | "conflict" | "flight" | "eonet" | "maritime" | "cyber"; url?: string; desc?: string; [key: string]: any; }
@@ -41,6 +42,7 @@ export default function GlobeMonitor() {
   const [flightSearch, setFlightSearch] = useState<string>("");
   const [showFlightFilters, setShowFlightFilters] = useState<boolean>(true);
   const [isDossierOpen, setIsDossierOpen] = useState<boolean>(false);
+  const [isAirRadarOpen, setIsAirRadarOpen] = useState<boolean>(false);
   const [dossierTarget, setDossierTarget] = useState<any>(null);
 
   useEffect(() => {
@@ -756,7 +758,7 @@ export default function GlobeMonitor() {
                 <span>[{layers.volcanoes ? "ON" : "OFF"}]</span>
               </button>
 
-              {/* Flight Radar Master Toggle */}
+              {/* Flight Radar Master Toggle & Control Suite */}
               <div className="border border-cyan-900/40 bg-black/40 p-1.5 flex flex-col gap-1.5">
                 <div className="flex items-center justify-between">
                   <button 
@@ -776,6 +778,14 @@ export default function GlobeMonitor() {
                     <SlidersHorizontal className="w-3 h-3" />
                   </button>
                 </div>
+
+                {/* Direct Launch Air Radar Console Button */}
+                <button 
+                  onClick={() => setIsAirRadarOpen(true)}
+                  className="w-full py-1 bg-cyan-950/80 hover:bg-cyan-900 border border-cyan-500/70 hover:border-[#00ff88] text-[#00ff88] hover:text-white text-[8px] font-bold tracking-widest flex items-center justify-center gap-1.5 transition-all shadow-[0_0_8px_rgba(0,255,136,0.2)] cursor-pointer"
+                >
+                  <Plane className="w-2.5 h-2.5 text-[#00ff88]" /> OPEN AIR RADAR SUITE [ADS-B]
+                </button>
 
                 {/* Interactive Flight Filter Sub-Panel */}
                 {layers.flights && showFlightFilters && (
@@ -1010,6 +1020,34 @@ export default function GlobeMonitor() {
         onClose={() => setIsDossierOpen(false)}
         target={dossierTarget || lockedInfo}
         allNews={news as any}
+      />
+
+      {/* Full Tactical Airspace Radar Command Console Modal */}
+      <AirRadarModal 
+        isOpen={isAirRadarOpen}
+        onClose={() => setIsAirRadarOpen(false)}
+        flights={flights as any}
+        onSelectFlight={(f: any) => {
+          const pt = flightPts.find((p: any) => p.callsign === f.callsign) || {
+            lat: f.lat, lng: f.lng,
+            title: `Flight ${f.callsign}`,
+            label: `[ ${f.type.toUpperCase()}: ${f.callsign} ]`,
+            type: "flight",
+            flightType: f.type,
+            country: f.country,
+            altitude: f.altitude,
+            velocity: f.velocity,
+            aircraftType: f.aircraftType,
+            mission: f.mission,
+            desc: `TYPE: ${f.aircraftType || f.type.toUpperCase()}${f.mission ? `\nMISSION: ${f.mission}` : ''}\nALT: ${f.altitude}m | VEL: ${f.velocity}m/s\nNATION: ${f.country.toUpperCase()}`
+          };
+          focusTarget(pt);
+          openDossier(pt);
+        }}
+        activeFilter={flightFilterType}
+        setActiveFilter={setFlightFilterType}
+        searchTerm={flightSearch}
+        setSearchTerm={setFlightSearch}
       />
     </div>
   );

@@ -34,6 +34,11 @@
   animation: scanline 8s linear infinite;
 }
 
+.leaflet-div-icon.tactical-map-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
 body {
   background-color: #020205;
   background-image: 

@@ -43,17 +43,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             
             {/* Identity */}
             <div className="flex items-center gap-4">
-              <div className="relative w-12 h-12 flex items-center justify-center bg-amber-950/30 border border-amber-500/50" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }}>
-                <div className="absolute inset-0 border-2 border-amber-400/20 animate-pulse" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }} />
-                {/* Official Swiss Knife Logo */}
-                <PocketKnife className="w-6 h-6 text-amber-400 drop-shadow-[0_0_8px_rgba(245,158,11,0.8)]" strokeWidth={1.5} />
+              <div className="relative flex items-center justify-center">
+                <div className="absolute inset-0 border-2 border-amber-500/30 blur-md rounded-full" />
+                <div className="absolute -inset-1 border border-amber-500/40 animate-[spin_4s_linear_infinite] rounded-full" />
+                <div className="relative w-12 h-12 flex items-center justify-center bg-[#0a0600] border border-amber-500/40 rounded-full shadow-[0_0_15px_rgba(245,158,11,0.3)]" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }}>
+                  <PocketKnife className="w-6 h-6 text-amber-400 drop-shadow-[0_0_8px_rgba(245,158,11,0.9)]" strokeWidth={1.6} />
+                </div>
               </div>
               <div>
                 <h1 className="text-xl font-bold tracking-[0.3em] text-white drop-shadow-[0_0_8px_rgba(245,158,11,0.5)] flex items-center gap-2">
                   DAVI <span className="text-amber-500">SWISS KNIFE</span>
                   <span className="px-1.5 py-0.5 text-[8px] bg-amber-950 text-amber-400 border border-amber-800 tracking-widest rounded-sm">v2.0</span>
                 </h1>
-                <div className="flex items-center gap-3 text-[10px] tracking-[0.2em] text-cyan-600 mt-1">
+                <div className="flex items-center gap-3 text-[10px] tracking-[0.2em] text-amber-700 mt-0.5">
                   <span>GLOBAL THREAT INTELLIGENCE MATRIX</span>
                 </div>
               </div>

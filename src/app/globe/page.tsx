@@ -238,18 +238,12 @@ export default function GlobeMonitor() {
     setHoveredInfo(pt);
     setAutoRotate(false); // Pause auto-rotation so user can inspect the target
 
-    if (viewMode !== "3d") {
-      setViewMode("3d");
+    if (viewMode === "3d" && globeRef.current) {
+      globeRef.current.pointOfView(
+        { lat: pt.lat, lng: pt.lng, altitude: 0.45 },
+        1400
+      );
     }
-
-    setTimeout(() => {
-      if (globeRef.current) {
-        globeRef.current.pointOfView(
-          { lat: pt.lat, lng: pt.lng, altitude: 0.55 },
-          1500
-        );
-      }
-    }, 50);
   };
 
   useEffect(() => {

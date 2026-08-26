@@ -22,9 +22,12 @@ function MapController({ target, theme }: { target?: any; theme?: string }) {
 
   useEffect(() => {
     if (target && typeof target.lat === "number" && typeof target.lng === "number") {
-      map.flyTo([target.lat, target.lng], 5.5, { duration: 1.5 });
+      map.flyTo([target.lat, target.lng], 6, {
+        duration: 1.2,
+        easeLinearity: 0.25
+      });
     }
-  }, [target, map]);
+  }, [target?.lat, target?.lng, target?.label, map]);
 
   return null;
 }

@@ -3,7 +3,11 @@
 import * as THREE from "three";
 import { useState, useEffect, useRef, useMemo } from "react";
 import dynamic from "next/dynamic";
-import { Activity, Radio, Layers, Globe2, MapPin, Map, Crosshair, Terminal, Zap, PocketKnife } from "lucide-react";
+import { 
+  Activity, Radio, Layers, Globe2, MapPin, Map, Crosshair, 
+  Terminal, Zap, PocketKnife, Search, Plane, ShieldAlert, 
+  Crown, SlidersHorizontal, Compass, X, Filter
+} from "lucide-react";
 import countryCoords from "@/data/country_coords.json";
 const countriesGeo = require("@/data/countries.json");
 
@@ -11,7 +15,7 @@ const Globe = dynamic(() => import("react-globe.gl"), { ssr: false });
 const Map2D = dynamic(() => import("@/components/Map2D"), { ssr: false });
 
 interface NewsItem { title: string; link: string; pubDate: string; source: string; country: string; accentColor: string; }
-export interface PointData { lat: number; lng: number; size: number; color: string; label: string; type: "news" | "quake"; url?: string; desc?: string; }
+export interface PointData { lat: number; lng: number; size: number; color: string; label: string; type: "news" | "quake" | "conflict" | "flight" | "eonet"; url?: string; desc?: string; [key: string]: any; }
 
 export default function GlobeMonitor() {
   const globeRef = useRef<any>();
@@ -23,9 +27,12 @@ export default function GlobeMonitor() {
   const [hoveredInfo, setHoveredInfo] = useState<PointData | null>(null);
   const [lockedInfo, setLockedInfo] = useState<PointData | null>(null);
   const [eonetEvents, setEonetEvents] = useState<any[]>([]);
-  const [openCategory, setOpenCategory] = useState<string | null>("ARMED CONFLICTS");
+  const [openCategory, setOpenCategory] = useState<string | null>("TACTICAL AIR PATROLS");
   const [conflicts, setConflicts] = useState<any[]>([]);
   const [flights, setFlights] = useState<any[]>([]);
+  const [flightFilterType, setFlightFilterType] = useState<"all" | "military" | "commercial" | "vip">("all");
+  const [flightSearch, setFlightSearch] = useState<string>("");
+  const [showFlightFilters, setShowFlightFilters] = useState<boolean>(true);
 
   useEffect(() => {
     fetch("/api/news?limit=200").then(r => r.json()).then(d => setNews(d.articles || []));
@@ -181,20 +188,47 @@ export default function GlobeMonitor() {
 
     const flightPtsList: any[] = [];
     if (layers.flights) {
-      flights.forEach(f => {
+      const filtered = flights.filter(f => {
+        const matchesType = flightFilterType === "all" || f.type === flightFilterType;
+        const matchesSearch = !flightSearch || 
+          f.callsign.toLowerCase().includes(flightSearch.toLowerCase()) || 
+          f.country.toLowerCase().includes(flightSearch.toLowerCase()) || 
+          (f.aircraftType && f.aircraftType.toLowerCase().includes(flightSearch.toLowerCase())) ||
+          (f.mission && f.mission.toLowerCase().includes(flightSearch.toLowerCase()));
+        return matchesType && matchesSearch;
+      });
+
+      filtered.forEach(f => {
+        const isMil = f.type === "military";
+        const isVip = f.type === "vip";
+        const color = isMil ? "#ff003c" : isVip ? "#ffd700" : "#00ff88";
+
         flightPtsList.push({
-          lat: f.lat, lng: f.lng,
-          size: 0.8,
-          color: "#00ff88",
-          label: `[ FLIGHT: ${f.callsign || 'UNKNOWN'} ]`,
+          lat: f.lat, 
+          lng: f.lng,
+          size: isMil ? 1.4 : isVip ? 1.1 : 0.8,
+          color: color,
+          label: isMil ? `[ ⚔️ MILITARY: ${f.callsign} ]` : isVip ? `[ 👑 VIP: ${f.callsign} ]` : `[ ✈️ FLIGHT: ${f.callsign} ]`,
           type: "flight",
-          desc: `ALT: ${f.altitude}m | VEL: ${f.velocity}m/s | ORG: ${f.country}`
+          flightType: f.type,
+          callsign: f.callsign,
+          country: f.country,
+          altitude: f.altitude,
+          velocity: f.velocity,
+          aircraftType: f.aircraftType || (isMil ? "Tactical Military Recon / Transport" : isVip ? "Private Jet" : "Commercial Airliner"),
+          mission: f.mission,
+          track: f.track,
+          desc: `TYPE: ${f.aircraftType || f.type.toUpperCase()}${f.mission ? `\nMISSION: ${f.mission}` : ''}\nALT: ${f.altitude}m | VEL: ${f.velocity}m/s\nNATION / AFFILIATION: ${f.country.toUpperCase()}`
         });
+
+        if (isMil) {
+          ringList.push({ lat: f.lat, lng: f.lng, color: "#ff003c", maxR: 3, propagationSpeed: 1.5, repeatPeriod: 2000 });
+        }
       });
     }
 
     return { points: pts, arcs: arcList, rings: ringList, labels: labelList, eonetPts: eonetPtsList, conflictPts: conflictPtsList, flightPts: flightPtsList };
-  }, [news, quakes, layers, eonetEvents, conflicts, flights]);
+  }, [news, quakes, layers, eonetEvents, conflicts, flights, flightFilterType, flightSearch]);
 
   const [autoRotate, setAutoRotate] = useState(true);
 
@@ -318,13 +352,48 @@ export default function GlobeMonitor() {
                   </div>
                 `;
               } else if (type === "flight") {
-                innerHTML = `
-                  <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group" style="transform: rotate(${d.track || 45}deg);">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="group-hover:scale-150 transition-all drop-shadow-[0_0_8px_rgba(0,255,136,0.8)]">
-                      <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.6L3 8l6 5-3 3-3-1-1 1 2.5 4.5L13 22l1-1-1-3 3-3 5 6l1.2-.7c.4-.2.7-.6.6-1.1z" fill="none" stroke="#00ff88" stroke-width="2"/>
-                    </svg>
-                  </div>
-                `;
+                const isMil = d.flightType === "military";
+                const isVip = d.flightType === "vip";
+                const color = isMil ? "#ff003c" : isVip ? "#ffd700" : "#00ff88";
+                const dropShadow = isMil 
+                  ? "drop-shadow-[0_0_12px_rgba(255,0,60,1)]" 
+                  : isVip 
+                  ? "drop-shadow-[0_0_10px_rgba(255,215,0,0.9)]" 
+                  : "drop-shadow-[0_0_8px_rgba(0,255,136,0.8)]";
+
+                if (isMil) {
+                  // Stealth Bomber / Fighter Delta-wing Icon for Military Units
+                  innerHTML = `
+                    <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group" style="transform: rotate(${d.track || 45}deg);">
+                      <div class="absolute w-8 h-8 border border-dashed border-[#ff003c]/60 rounded-full animate-ping pointer-events-none"></div>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="group-hover:scale-150 transition-all ${dropShadow}">
+                        <path d="M12 2L2 20L12 16L22 20L12 2Z" fill="rgba(255,0,60,0.35)" stroke="#ff003c" stroke-width="1.8" stroke-linejoin="round"/>
+                        <circle cx="12" cy="11" r="1.5" fill="#ffffff"/>
+                      </svg>
+                      <div class="absolute -top-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/95 border border-[#ff003c] text-[#ff003c] text-[7px] font-mono font-bold px-1.5 py-0.5 rounded-xs pointer-events-none whitespace-nowrap z-50">
+                        ${d.label}
+                      </div>
+                    </div>
+                  `;
+                } else if (isVip) {
+                  // Executive Sleek Private Jet Icon for VIPs
+                  innerHTML = `
+                    <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group" style="transform: rotate(${d.track || 45}deg);">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="group-hover:scale-150 transition-all ${dropShadow}">
+                        <path d="M12 2L15 8L22 13L15 14L14 22L12 18L10 22L9 14L2 13L9 8L12 2Z" fill="rgba(255,215,0,0.25)" stroke="#ffd700" stroke-width="1.6"/>
+                      </svg>
+                    </div>
+                  `;
+                } else {
+                  // Commercial Airliner Icon
+                  innerHTML = `
+                    <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group" style="transform: rotate(${d.track || 45}deg);">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="group-hover:scale-150 transition-all ${dropShadow}">
+                        <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.6L3 8l6 5-3 3-3-1-1 1 2.5 4.5L13 22l1-1-1-3 3-3 5 6l1.2-.7c.4-.2.7-.6.6-1.1z" fill="rgba(0,255,136,0.15)" stroke="#00ff88" stroke-width="1.8"/>
+                      </svg>
+                    </div>
+                  `;
+                }
               } else if (cat === "severeStorms") {
                 innerHTML = `
                   <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group">
@@ -516,10 +585,77 @@ export default function GlobeMonitor() {
                 <span>[{conflictPts.length}]</span>
               </button>
 
-              <button onClick={() => setLayers(l => ({ ...l, flights: !l.flights }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.flights ? "border-[#00ff88] text-[#00ff88]" : "border-cyan-900/30 text-cyan-900"}`}>
-                <span>FLIGHT RADAR (ADS-B)</span>
-                <span>[{flights.length}]</span>
-              </button>
+              {/* Flight Radar Master Toggle */}
+              <div className="border border-cyan-900/40 bg-black/40 p-1.5 flex flex-col gap-1.5">
+                <div className="flex items-center justify-between">
+                  <button 
+                    onClick={() => setLayers(l => ({ ...l, flights: !l.flights }))} 
+                    className={`flex-1 text-left flex items-center justify-between text-[9px] tracking-widest p-1 border ${layers.flights ? "border-[#00ff88] text-[#00ff88]" : "border-cyan-900/30 text-cyan-900"}`}
+                  >
+                    <span className="flex items-center gap-1">
+                      <Plane className="w-3 h-3" /> FLIGHT RADAR (ADS-B)
+                    </span>
+                    <span>[{flightPts.length}/{flights.length}]</span>
+                  </button>
+                  <button 
+                    onClick={() => setShowFlightFilters(!showFlightFilters)}
+                    className="ml-1 p-1 text-[8px] border border-cyan-900/50 text-cyan-500 hover:text-cyan-300 hover:border-cyan-400"
+                    title="Toggle Radar Filters"
+                  >
+                    <SlidersHorizontal className="w-3 h-3" />
+                  </button>
+                </div>
+
+                {/* Interactive Flight Filter Sub-Panel */}
+                {layers.flights && showFlightFilters && (
+                  <div className="flex flex-col gap-1 pt-1 border-t border-cyan-900/30">
+                    {/* Search Callsign / Country */}
+                    <div className="relative flex items-center">
+                      <Search className="w-2.5 h-2.5 absolute left-1.5 text-cyan-700 pointer-events-none" />
+                      <input 
+                        type="text" 
+                        value={flightSearch}
+                        onChange={(e) => setFlightSearch(e.target.value)}
+                        placeholder="SEARCH CALLSIGN / UNIT..."
+                        className="w-full bg-[#050912] border border-cyan-900/60 pl-5 pr-4 py-1 text-[8px] text-cyan-300 placeholder:text-cyan-900 focus:outline-none focus:border-cyan-500 font-mono uppercase"
+                      />
+                      {flightSearch && (
+                        <button onClick={() => setFlightSearch("")} className="absolute right-1 text-cyan-700 hover:text-cyan-300">
+                          <X className="w-2.5 h-2.5" />
+                        </button>
+                      )}
+                    </div>
+
+                    {/* Flight Class Filters */}
+                    <div className="grid grid-cols-2 gap-1 text-[8px]">
+                      <button 
+                        onClick={() => setFlightFilterType("all")} 
+                        className={`p-1 border text-center font-bold tracking-wider ${flightFilterType === "all" ? "border-cyan-400 bg-cyan-950/60 text-cyan-200" : "border-cyan-900/40 text-cyan-700 hover:text-cyan-400"}`}
+                      >
+                        ALL ({flights.length})
+                      </button>
+                      <button 
+                        onClick={() => setFlightFilterType("military")} 
+                        className={`p-1 border text-center font-bold tracking-wider flex items-center justify-center gap-1 ${flightFilterType === "military" ? "border-[#ff003c] bg-[#ff003c]/20 text-[#ff003c]" : "border-cyan-900/40 text-cyan-700 hover:text-[#ff003c]"}`}
+                      >
+                        <ShieldAlert className="w-2.5 h-2.5" /> MILITARY ({flights.filter(f => f.type === "military").length})
+                      </button>
+                      <button 
+                        onClick={() => setFlightFilterType("commercial")} 
+                        className={`p-1 border text-center font-bold tracking-wider ${flightFilterType === "commercial" ? "border-[#00ff88] bg-[#00ff88]/20 text-[#00ff88]" : "border-cyan-900/40 text-cyan-700 hover:text-[#00ff88]"}`}
+                      >
+                        AIRLINERS ({flights.filter(f => f.type === "commercial").length})
+                      </button>
+                      <button 
+                        onClick={() => setFlightFilterType("vip")} 
+                        className={`p-1 border text-center font-bold tracking-wider flex items-center justify-center gap-1 ${flightFilterType === "vip" ? "border-[#ffd700] bg-[#ffd700]/20 text-[#ffd700]" : "border-cyan-900/40 text-cyan-700 hover:text-[#ffd700]"}`}
+                      >
+                        <Crown className="w-2.5 h-2.5" /> VIP ({flights.filter(f => f.type === "vip").length})
+                      </button>
+                    </div>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Target Telemetry (Embedded in Left Sidebar in Deus Ex Amber styling) */}
@@ -566,14 +702,16 @@ export default function GlobeMonitor() {
           <div className="bg-[#020205]/80 border border-cyan-900/50 backdrop-blur-sm p-3 h-full flex flex-col custom-scrollbar overflow-y-auto">
             <div className="text-[10px] text-cyan-500 tracking-[0.3em] font-bold border-b border-cyan-900/50 pb-2 mb-2 flex justify-between items-center sticky top-0 bg-[#020205] z-10">
               <span>GLOBAL ALERTS</span>
-              <span className="text-[#ff003c]">{eonetPts.length + conflictPts.length}</span>
+              <span className="text-[#ff003c]">{eonetPts.length + conflictPts.length + flightPts.filter((p: any) => p.flightType === "military").length}</span>
             </div>
             
             {Object.entries({
+              "TACTICAL AIR PATROLS": flightPts.filter((p: any) => p.flightType === "military"),
               "ARMED CONFLICTS": conflictPts,
               "SEVERE STORMS": eonetPts.filter((p: any) => p.catId === "severeStorms"),
               "WILDFIRES": eonetPts.filter((p: any) => p.catId === "wildfires"),
-              "VOLCANOES": eonetPts.filter((p: any) => p.catId === "volcanoes")
+              "VOLCANOES": eonetPts.filter((p: any) => p.catId === "volcanoes"),
+              "VIP FLIGHTS": flightPts.filter((p: any) => p.flightType === "vip")
             }).map(([groupName, pts]) => {
               if (pts.length === 0) return null;
               const isOpen = openCategory === groupName;

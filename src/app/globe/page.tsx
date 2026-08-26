@@ -71,7 +71,7 @@ export default function GlobeMonitor() {
     ]);
   }, []);
 
-  const { points, arcs, rings, labels, eonetPts, conflictPts } = useMemo(() => {
+  const { points, arcs, rings, labels, eonetPts, conflictPts, flightPts } = useMemo(() => {
     const pts: PointData[] = [];
     const arcList: any[] = [];
     const ringList: any[] = [];

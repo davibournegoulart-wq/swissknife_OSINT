@@ -6,33 +6,42 @@ import dynamic from "next/dynamic";
 import { 
   Activity, Radio, Layers, Globe2, MapPin, Map, Crosshair, 
   Terminal, Zap, PocketKnife, Search, Plane, ShieldAlert, 
-  Crown, SlidersHorizontal, Compass, X, Filter
+  Crown, SlidersHorizontal, Compass, X, Filter, Anchor, Wifi, Sparkles
 } from "lucide-react";
 import countryCoords from "@/data/country_coords.json";
 const countriesGeo = require("@/data/countries.json");
 
 const Globe = dynamic(() => import("react-globe.gl"), { ssr: false });
 const Map2D = dynamic(() => import("@/components/Map2D"), { ssr: false });
+import NewsDossierModal from "@/components/NewsDossierModal";
 
 interface NewsItem { title: string; link: string; pubDate: string; source: string; country: string; accentColor: string; }
-export interface PointData { lat: number; lng: number; size: number; color: string; label: string; type: "news" | "quake" | "conflict" | "flight" | "eonet"; url?: string; desc?: string; [key: string]: any; }
+export interface PointData { lat: number; lng: number; size: number; color: string; label: string; type: "news" | "quake" | "conflict" | "flight" | "eonet" | "maritime" | "cyber"; url?: string; desc?: string; [key: string]: any; }
 
 export default function GlobeMonitor() {
   const globeRef = useRef<any>();
   const [news, setNews] = useState<NewsItem[]>([]);
   const [quakes, setQuakes] = useState<any[]>([]);
   const [viewMode, setViewMode] = useState<"2d" | "3d">("3d");
-  const [layers, setLayers] = useState({ news: true, quakes: true, borders: true, arcs: true, labels: false, weather: false, storms: true, fires: true, volcanoes: true, conflicts: true, flights: true });
+  const [layers, setLayers] = useState({ 
+    news: true, quakes: true, borders: true, arcs: true, labels: false, 
+    weather: false, storms: true, fires: true, volcanoes: true, 
+    conflicts: true, flights: true, maritime: true, cyber: true 
+  });
   const [globeTheme, setGlobeTheme] = useState<"tactical" | "satellite">("tactical");
   const [hoveredInfo, setHoveredInfo] = useState<PointData | null>(null);
   const [lockedInfo, setLockedInfo] = useState<PointData | null>(null);
   const [eonetEvents, setEonetEvents] = useState<any[]>([]);
   const [openCategory, setOpenCategory] = useState<string | null>("TACTICAL AIR PATROLS");
   const [conflicts, setConflicts] = useState<any[]>([]);
+  const [maritime, setMaritime] = useState<any[]>([]);
+  const [cyber, setCyber] = useState<any[]>([]);
   const [flights, setFlights] = useState<any[]>([]);
   const [flightFilterType, setFlightFilterType] = useState<"all" | "military" | "commercial" | "vip">("all");
   const [flightSearch, setFlightSearch] = useState<string>("");
   const [showFlightFilters, setShowFlightFilters] = useState<boolean>(true);
+  const [isDossierOpen, setIsDossierOpen] = useState<boolean>(false);
+  const [dossierTarget, setDossierTarget] = useState<any>(null);
 
   useEffect(() => {
     fetch("/api/news?limit=200").then(r => r.json()).then(d => setNews(d.articles || []));
@@ -56,19 +65,40 @@ export default function GlobeMonitor() {
       })
       .catch(e => console.error("Flight Radar fetch error", e));
 
-    // Fetch ACLED Conflict Data (simulated via mock or public subset if available, using a static set of known conflict zones for now as ACLED requires API keys)
+    // Global Armed Conflicts & Warzones
     setConflicts([
-      { lat: 48.3794, lng: 31.1656, title: "Russo-Ukrainian War", desc: "Ongoing conventional warfare", color: "#ffff00" },
-      { lat: 31.5, lng: 34.466667, title: "Gaza Strip Conflict", desc: "Armed conflict / Siege", color: "#ffff00" },
-      { lat: 15.5007, lng: 32.5599, title: "Sudan Civil War", desc: "Clashes between SAF and RSF", color: "#ffff00" },
-      { lat: 19.0, lng: -72.25, title: "Haiti Gang Conflict", desc: "Armed gang violence / State crisis", color: "#ffff00" },
-      { lat: 12.0, lng: 15.0, title: "Sahel Insurgency", desc: "Militant insurgency operations", color: "#ffff00" },
-      { lat: 16.0, lng: 96.0, title: "Myanmar Civil War", desc: "Junta vs Armed Ethnic Groups", color: "#ffff00" },
-      { lat: -1.4558, lng: 29.3253, title: "Kivu Conflict (DRC)", desc: "M23 Rebellion / Armed clashes", color: "#ffff00" }
+      { lat: 48.3794, lng: 31.1656, title: "Russo-Ukrainian War", country: "Ukraine", desc: "Conventional warfare, missile strikes & frontlines", color: "#ffff00" },
+      { lat: 31.5, lng: 34.466667, title: "Gaza Strip & Levant Conflict", country: "Israel", desc: "Active combat operations, airstrikes & border skirmishes", color: "#ffff00" },
+      { lat: 15.5007, lng: 32.5599, title: "Sudan Civil War", country: "Sudan", desc: "Clashes between SAF and RSF paramilitary", color: "#ffff00" },
+      { lat: 14.8, lng: 43.0, title: "Red Sea & Yemen Escalation", country: "Yemen", desc: "Houthi anti-ship missile & drone intercept operations", color: "#ffff00" },
+      { lat: 19.0, lng: -72.25, title: "Haiti Gang Warfare & State Crisis", country: "Haiti", desc: "Armed gang turf wars & Port-au-Prince security lockdown", color: "#ffff00" },
+      { lat: 12.0, lng: 15.0, title: "Sahel & Mali Insurgency", country: "Mali", desc: "Militant insurgency & counter-terror operations", color: "#ffff00" },
+      { lat: 16.0, lng: 96.0, title: "Myanmar Civil War", country: "Myanmar", desc: "Junta military operations vs Ethnic Armed Alliances", color: "#ffff00" },
+      { lat: -1.4558, lng: 29.3253, title: "Kivu Conflict (DRC)", country: "DR Congo", desc: "M23 rebel offensive & AFC clashes in North Kivu", color: "#ffff00" },
+      { lat: 35.0, lng: 38.0, title: "Syria & Levant Clashes", country: "Syria", desc: "Insurgent activity & cross-border drone strikes", color: "#ffff00" },
+      { lat: 38.3, lng: 127.1, title: "Korean Peninsula DMZ Alert", country: "South Korea", desc: "Heightened military readiness & ballistic tests", color: "#ffff00" }
+    ]);
+
+    // Strategic Maritime Chokepoints & Naval Security Zones
+    setMaritime([
+      { lat: 12.58, lng: 43.33, title: "Bab-el-Mandeb Strait", country: "Djibouti", desc: "High-threat maritime chokepoint / Anti-ship missile zone", color: "#00d2ff" },
+      { lat: 26.56, lng: 56.25, title: "Strait of Hormuz", country: "Oman", desc: "Critical oil transit corridor / Naval surveillance patrol", color: "#00d2ff" },
+      { lat: 1.43, lng: 102.89, title: "Malacca Strait Corridor", country: "Singapore", desc: "High-density commercial shipping channel & piracy watch", color: "#00d2ff" },
+      { lat: 10.5, lng: 115.2, title: "Spratly Islands / South China Sea", country: "Philippines", desc: "Disputed maritime EEZ / Coast Guard standoff zone", color: "#00d2ff" },
+      { lat: 24.2, lng: 119.8, title: "Taiwan Strait Maritime Median", country: "Taiwan", desc: "Naval patrol line & maritime exclusion surveillance", color: "#00d2ff" },
+      { lat: 8.95, lng: -79.55, title: "Panama Canal Transit Gateway", country: "Panama", desc: "Global maritime canal operations & drought queue watch", color: "#00d2ff" }
+    ]);
+
+    // Critical Cyber Incidents & Subsea Infrastructure
+    setCyber([
+      { lat: 56.5, lng: 19.2, title: "Baltic Subsea Cable Watch (C-Lion1)", country: "Sweden", desc: "Undersea telecommunications cable sabotage investigation", color: "#a855f7" },
+      { lat: 44.5, lng: 34.2, title: "Black Sea GPS/GNSS Spoofing Sector", country: "Ukraine", desc: "Severe electronic warfare & satellite navigation denial", color: "#a855f7" },
+      { lat: 19.5, lng: 39.0, title: "Red Sea Subsea Fiber Junction", country: "Saudi Arabia", desc: "Undersea internet infrastructure alert & acoustic monitoring", color: "#a855f7" },
+      { lat: 25.1, lng: 121.6, title: "Taiwan Subsea Cable Landing Hub", country: "Taiwan", desc: "Transpacific internet cable array security surveillance", color: "#a855f7" }
     ]);
   }, []);
 
-  const { points, arcs, rings, labels, eonetPts, conflictPts, flightPts } = useMemo(() => {
+  const { points, arcs, rings, labels, eonetPts, conflictPts, maritimePts, cyberPts, flightPts } = useMemo(() => {
     const pts: PointData[] = [];
     const arcList: any[] = [];
     const ringList: any[] = [];
@@ -178,11 +208,47 @@ export default function GlobeMonitor() {
           lat: c.lat, lng: c.lng,
           size: 2,
           color: c.color,
-          label: `[ ${c.title.toUpperCase()} ]`,
+          label: `[ ⚔️ ${c.title.toUpperCase()} ]`,
+          title: c.title,
+          country: c.country,
           type: "conflict",
           desc: c.desc
         });
         ringList.push({ lat: c.lat, lng: c.lng, color: c.color, maxR: 4, propagationSpeed: 0.5, repeatPeriod: 3000 });
+      });
+    }
+
+    const maritimePtsList: any[] = [];
+    if (layers.maritime) {
+      maritime.forEach(m => {
+        maritimePtsList.push({
+          lat: m.lat, lng: m.lng,
+          size: 1.8,
+          color: m.color,
+          label: `[ ⚓ ${m.title.toUpperCase()} ]`,
+          title: m.title,
+          country: m.country,
+          type: "maritime",
+          desc: m.desc
+        });
+        ringList.push({ lat: m.lat, lng: m.lng, color: m.color, maxR: 3.5, propagationSpeed: 0.8, repeatPeriod: 3500 });
+      });
+    }
+
+    const cyberPtsList: any[] = [];
+    if (layers.cyber) {
+      cyber.forEach(cy => {
+        cyberPtsList.push({
+          lat: cy.lat, lng: cy.lng,
+          size: 1.8,
+          color: cy.color,
+          label: `[ ⚡ ${cy.title.toUpperCase()} ]`,
+          title: cy.title,
+          country: cy.country,
+          type: "cyber",
+          desc: cy.desc
+        });
+        ringList.push({ lat: cy.lat, lng: cy.lng, color: cy.color, maxR: 3, propagationSpeed: 1.2, repeatPeriod: 2500 });
       });
     }
 
@@ -209,6 +275,7 @@ export default function GlobeMonitor() {
           size: isMil ? 1.4 : isVip ? 1.1 : 0.8,
           color: color,
           label: isMil ? `[ ⚔️ MILITARY: ${f.callsign} ]` : isVip ? `[ 👑 VIP: ${f.callsign} ]` : `[ ✈️ FLIGHT: ${f.callsign} ]`,
+          title: isMil ? `Military Patrol ${f.callsign}` : isVip ? `VIP Transport ${f.callsign}` : `Flight ${f.callsign}`,
           type: "flight",
           flightType: f.type,
           callsign: f.callsign,
@@ -227,8 +294,18 @@ export default function GlobeMonitor() {
       });
     }
 
-    return { points: pts, arcs: arcList, rings: ringList, labels: labelList, eonetPts: eonetPtsList, conflictPts: conflictPtsList, flightPts: flightPtsList };
-  }, [news, quakes, layers, eonetEvents, conflicts, flights, flightFilterType, flightSearch]);
+    return { 
+      points: pts, 
+      arcs: arcList, 
+      rings: ringList, 
+      labels: labelList, 
+      eonetPts: eonetPtsList, 
+      conflictPts: conflictPtsList, 
+      maritimePts: maritimePtsList,
+      cyberPts: cyberPtsList,
+      flightPts: flightPtsList 
+    };
+  }, [news, quakes, layers, eonetEvents, conflicts, maritime, cyber, flights, flightFilterType, flightSearch]);
 
   const [autoRotate, setAutoRotate] = useState(true);
 
@@ -245,6 +322,25 @@ export default function GlobeMonitor() {
       );
     }
   };
+
+  const openDossier = (pt: any) => {
+    if (!pt) return;
+    focusTarget(pt);
+    setDossierTarget(pt);
+    setIsDossierOpen(true);
+  };
+
+  // Keyboard shortcut listener: Press Space to open RAG Dossier on locked target
+  useEffect(() => {
+    const handleGlobalKey = (e: KeyboardEvent) => {
+      if (e.code === "Space" && !isDossierOpen && (lockedInfo || hoveredInfo)) {
+        e.preventDefault();
+        openDossier(lockedInfo || hoveredInfo);
+      }
+    };
+    window.addEventListener("keydown", handleGlobalKey);
+    return () => window.removeEventListener("keydown", handleGlobalKey);
+  }, [lockedInfo, hoveredInfo, isDossierOpen]);
 
   useEffect(() => {
     if (viewMode === "3d" && globeRef.current) {
@@ -324,8 +420,14 @@ export default function GlobeMonitor() {
             labelResolution={2}
             labelAltitude={0.005}
 
-            // EONET Alerts, Conflicts & Flights
-            htmlElementsData={[...(eonetPts || []), ...(conflictPts || []), ...(flightPts || [])]}
+            // EONET Alerts, Conflicts, Maritime, Cyber & Flights
+            htmlElementsData={[
+              ...(eonetPts || []), 
+              ...(conflictPts || []), 
+              ...(maritimePts || []),
+              ...(cyberPts || []),
+              ...(flightPts || [])
+            ]}
             htmlLat="lat"
             htmlLng="lng"
             htmlElement={(d: any) => {
@@ -342,6 +444,27 @@ export default function GlobeMonitor() {
                       <polygon points="12 2 20 6 20 18 12 22 4 18 4 6" fill="none" stroke="#ffff00" stroke-width="1.5" stroke-dasharray="2 4"/>
                       <circle cx="12" cy="12" r="3" fill="#ffff00"/>
                       <path d="M12 2v5M12 17v5M2 12h5M17 12h5" stroke="#ffff00" stroke-width="1.5"/>
+                    </svg>
+                  </div>
+                `;
+              } else if (type === "maritime") {
+                innerHTML = `
+                  <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group">
+                    <div class="absolute w-10 h-10 border border-[#00d2ff] rounded-full opacity-30 animate-pulse"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="group-hover:scale-125 transition-transform drop-shadow-[0_0_10px_rgba(0,210,255,0.9)]">
+                      <circle cx="12" cy="5" r="3" fill="none" stroke="#00d2ff" stroke-width="1.8"/>
+                      <line x1="12" y1="2" x2="12" y2="22" stroke="#00d2ff" stroke-width="1.8"/>
+                      <path d="M5 12H19" stroke="#00d2ff" stroke-width="1.8"/>
+                      <path d="M5 12C5 17 8 20 12 20C16 20 19 17 19 12" fill="none" stroke="#00d2ff" stroke-width="1.8"/>
+                    </svg>
+                  </div>
+                `;
+              } else if (type === "cyber") {
+                innerHTML = `
+                  <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group">
+                    <div class="absolute w-10 h-10 border border-[#a855f7] rounded-full opacity-30 animate-ping"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="group-hover:scale-125 transition-transform drop-shadow-[0_0_12px_rgba(168,85,247,0.9)]">
+                      <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="rgba(168,85,247,0.3)" stroke="#a855f7" stroke-width="1.8"/>
                     </svg>
                   </div>
                 `;
@@ -436,7 +559,7 @@ export default function GlobeMonitor() {
               el.innerHTML = innerHTML;
               el.onclick = (e) => {
                 e.stopPropagation();
-                focusTarget(d);
+                openDossier(d);
               };
               el.onmouseenter = () => { if (!lockedInfo) setHoveredInfo(d); };
               el.onmouseleave = () => { if (!lockedInfo) setHoveredInfo(null); };
@@ -460,29 +583,30 @@ export default function GlobeMonitor() {
 
             onPointHover={(pt: any) => !lockedInfo && setHoveredInfo(pt)}
             onPointClick={(pt: any) => {
-              if (pt === lockedInfo) {
-                setLockedInfo(null);
-              } else {
-                focusTarget(pt);
-              }
+              openDossier(pt);
             }}
           />
         ) : (
           <Map2D 
             points={points} 
-            allEvents={[...(points || []), ...(eonetPts || []), ...(conflictPts || []), ...(flightPts || [])]}
+            allEvents={[
+              ...(points || []), 
+              ...(eonetPts || []), 
+              ...(conflictPts || []), 
+              ...(maritimePts || []), 
+              ...(cyberPts || []), 
+              ...(flightPts || [])
+            ]}
             theme={globeTheme}
             target={lockedInfo}
             onHover={setHoveredInfo}
-            onSelect={focusTarget}
+            onSelect={openDossier}
           />
         )}
       </div>
 
       {/* ── OSIRIS HUD OVERLAYS ── */}
       
-      {/* Target Crosshair removed per user request */}
-
       {/* Scanlines */}
       <div className="absolute inset-0 pointer-events-none z-20 opacity-[0.03]"
         style={{ backgroundImage: 'repeating-linear-gradient(0deg,transparent,transparent 2px,#fff 2px,#fff 4px)' }} />
@@ -501,33 +625,38 @@ export default function GlobeMonitor() {
         <div className="flex flex-col gap-4 items-start pointer-events-none h-[calc(100vh-6rem)]">
           <div className="bg-[#0a0600]/90 p-3 border-l-2 border-amber-500 backdrop-blur-sm pointer-events-auto shrink-0 flex items-center gap-3">
             <div className="relative w-10 h-10 flex items-center justify-center bg-amber-950/40 border border-amber-500/50" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }}>
-              <div className="absolute inset-0 border border-amber-400/30 animate-pulse" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }} />
-              <PocketKnife className="w-5 h-5 text-amber-400 drop-shadow-[0_0_8px_rgba(245,158,11,0.8)]" strokeWidth={1.5} />
+              <div className="absolute inset-0 border border-amber-400/40 animate-[spin_4s_linear_infinite]" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }} />
+              <PocketKnife className="w-5 h-5 text-amber-400 relative z-10" />
             </div>
             <div>
-              <h1 className="text-xl font-black uppercase tracking-[0.3em] text-amber-400 drop-shadow-[0_0_8px_rgba(245,158,11,0.8)]">
-                DAVI SWISS KNIFE
-              </h1>
-              <p className="text-[10px] text-amber-700 uppercase tracking-[0.4em] mt-0.5">
-                GLOBAL SURVEILLANCE & INTEL MATRIX
-              </p>
+              <div className="text-xs font-bold text-amber-500 tracking-[0.2em] flex items-center gap-2">
+                <span>DAVI SWISS KNIFE</span>
+                <span className="text-[9px] px-1 py-0.2 bg-amber-950/80 border border-amber-500/60 text-amber-300 font-mono">OSINT_CORE</span>
+              </div>
+              <div className="text-[8px] text-amber-600/80 tracking-[0.3em] font-mono">GLOBAL SURVEILLANCE &amp; INTEL MATRIX</div>
             </div>
           </div>
 
-          <div className="flex flex-col gap-2 w-64 pointer-events-auto custom-scrollbar flex-1 h-full">
-            <div className="bg-[#020205]/80 border border-cyan-900/50 p-1 flex">
-              <button onClick={() => setViewMode("2d")} className={`flex-1 py-1.5 text-[9px] font-bold tracking-widest ${viewMode === "2d" ? "bg-cyan-950 text-cyan-300" : "text-cyan-900"}`}>[ 2D MAP ]</button>
-              <button onClick={() => setViewMode("3d")} className={`flex-1 py-1.5 text-[9px] font-bold tracking-widest ${viewMode === "3d" ? "bg-cyan-950 text-cyan-300" : "text-cyan-900"}`}>[ 3D GLOBE ]</button>
-            </div>
+          {/* Left Sub-Matrix (Controls & Telemetry) */}
+          <div className="flex flex-col gap-2 w-64 pointer-events-auto flex-1 min-h-0">
             
-            {viewMode === "3d" && (
-              <div className="bg-[#020205]/80 border border-cyan-900/50 p-1 flex">
-                <button onClick={() => setAutoRotate(!autoRotate)} className={`flex-1 py-1.5 text-[9px] font-bold tracking-widest ${autoRotate ? "bg-cyan-950 text-cyan-300" : "text-cyan-900"}`}>
-                  [ {autoRotate ? "AUTO-SPIN: ON" : "AUTO-SPIN: OFF"} ]
-                </button>
-              </div>
-            )}
+            {/* View Mode Toggle */}
+            <div className="bg-[#020205]/80 border border-cyan-900/50 p-1.5 flex gap-1 backdrop-blur-sm shrink-0">
+              <button 
+                onClick={() => setViewMode("2d")}
+                className={`flex-1 py-1 text-[9px] tracking-widest border transition-all ${viewMode === "2d" ? "border-cyan-400 bg-cyan-950 text-cyan-200 shadow-[0_0_10px_rgba(0,243,255,0.3)]" : "border-cyan-900/30 text-cyan-700 hover:text-cyan-400"}`}
+              >
+                [ 2D MAP ]
+              </button>
+              <button 
+                onClick={() => setViewMode("3d")}
+                className={`flex-1 py-1 text-[9px] tracking-widest border transition-all ${viewMode === "3d" ? "border-cyan-400 bg-cyan-950 text-cyan-200 shadow-[0_0_10px_rgba(0,243,255,0.3)]" : "border-cyan-900/30 text-cyan-700 hover:text-cyan-400"}`}
+              >
+                [ 3D GLOBE ]
+              </button>
+            </div>
 
+            {/* Layer Toggles */}
             <div className="bg-[#020205]/80 border border-cyan-900/50 p-3 flex flex-col gap-2 backdrop-blur-sm flex-1 overflow-y-auto custom-scrollbar">
               <div className="text-[8px] text-cyan-600 uppercase tracking-[0.3em] mb-1 sticky top-0 bg-[#020205] z-10 pb-1 border-b border-cyan-900/50">SYSTEM LAYERS</div>
               
@@ -556,18 +685,23 @@ export default function GlobeMonitor() {
                 <span>[{layers.labels ? "ON" : "OFF"}]</span>
               </button>
 
-              <button onClick={() => setLayers(l => ({ ...l, arcs: !l.arcs }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.arcs ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>
-                <span>DATA TRAJECTORIES</span>
-                <span>[ON]</span>
+              <button onClick={() => setLayers(l => ({ ...l, conflicts: !l.conflicts }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.conflicts ? "border-[#ffff00] text-[#ffff00]" : "border-cyan-900/30 text-cyan-900"}`}>
+                <span>ARMED CONFLICTS</span>
+                <span>[{conflictPts.length}]</span>
               </button>
 
-              <button onClick={() => setLayers(l => ({ ...l, weather: !l.weather }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.weather ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>
-                <span>CLOUD COVER (3D)</span>
-                <span>[{layers.weather ? "ON" : "OFF"}]</span>
+              <button onClick={() => setLayers(l => ({ ...l, maritime: !l.maritime }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.maritime ? "border-[#00d2ff] text-[#00d2ff]" : "border-cyan-900/30 text-cyan-900"}`}>
+                <span>MARITIME CHOKEPOINTS</span>
+                <span>[{maritimePts.length}]</span>
+              </button>
+
+              <button onClick={() => setLayers(l => ({ ...l, cyber: !l.cyber }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.cyber ? "border-[#a855f7] text-[#a855f7]" : "border-cyan-900/30 text-cyan-900"}`}>
+                <span>CYBER &amp; SUBSEA</span>
+                <span>[{cyberPts.length}]</span>
               </button>
 
               <button onClick={() => setLayers(l => ({ ...l, storms: !l.storms }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.storms ? "border-[#38bdf8] text-[#38bdf8]" : "border-cyan-900/30 text-cyan-900"}`}>
-                <span>STORMS & CYCLONES</span>
+                <span>STORMS &amp; CYCLONES</span>
                 <span>[{layers.storms ? "ON" : "OFF"}]</span>
               </button>
               
@@ -579,11 +713,6 @@ export default function GlobeMonitor() {
               <button onClick={() => setLayers(l => ({ ...l, volcanoes: !l.volcanoes }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.volcanoes ? "border-[#ff8c00] text-[#ff8c00]" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>VOLCANOES</span>
                 <span>[{layers.volcanoes ? "ON" : "OFF"}]</span>
-              </button>
-
-              <button onClick={() => setLayers(l => ({ ...l, conflicts: !l.conflicts }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.conflicts ? "border-[#ffff00] text-[#ffff00]" : "border-cyan-900/30 text-cyan-900"}`}>
-                <span>ARMED CONFLICTS</span>
-                <span>[{conflictPts.length}]</span>
               </button>
 
               {/* Flight Radar Master Toggle */}
@@ -606,62 +735,12 @@ export default function GlobeMonitor() {
                     <SlidersHorizontal className="w-3 h-3" />
                   </button>
                 </div>
-
-                {/* Interactive Flight Filter Sub-Panel */}
-                {layers.flights && showFlightFilters && (
-                  <div className="flex flex-col gap-1 pt-1 border-t border-cyan-900/30">
-                    {/* Search Callsign / Country */}
-                    <div className="relative flex items-center">
-                      <Search className="w-2.5 h-2.5 absolute left-1.5 text-cyan-700 pointer-events-none" />
-                      <input 
-                        type="text" 
-                        value={flightSearch}
-                        onChange={(e) => setFlightSearch(e.target.value)}
-                        placeholder="SEARCH CALLSIGN / UNIT..."
-                        className="w-full bg-[#050912] border border-cyan-900/60 pl-5 pr-4 py-1 text-[8px] text-cyan-300 placeholder:text-cyan-900 focus:outline-none focus:border-cyan-500 font-mono uppercase"
-                      />
-                      {flightSearch && (
-                        <button onClick={() => setFlightSearch("")} className="absolute right-1 text-cyan-700 hover:text-cyan-300">
-                          <X className="w-2.5 h-2.5" />
-                        </button>
-                      )}
-                    </div>
-
-                    {/* Flight Class Filters */}
-                    <div className="grid grid-cols-2 gap-1 text-[8px]">
-                      <button 
-                        onClick={() => setFlightFilterType("all")} 
-                        className={`p-1 border text-center font-bold tracking-wider ${flightFilterType === "all" ? "border-cyan-400 bg-cyan-950/60 text-cyan-200" : "border-cyan-900/40 text-cyan-700 hover:text-cyan-400"}`}
-                      >
-                        ALL ({flights.length})
-                      </button>
-                      <button 
-                        onClick={() => setFlightFilterType("military")} 
-                        className={`p-1 border text-center font-bold tracking-wider flex items-center justify-center gap-1 ${flightFilterType === "military" ? "border-[#ff003c] bg-[#ff003c]/20 text-[#ff003c]" : "border-cyan-900/40 text-cyan-700 hover:text-[#ff003c]"}`}
-                      >
-                        <ShieldAlert className="w-2.5 h-2.5" /> MILITARY ({flights.filter(f => f.type === "military").length})
-                      </button>
-                      <button 
-                        onClick={() => setFlightFilterType("commercial")} 
-                        className={`p-1 border text-center font-bold tracking-wider ${flightFilterType === "commercial" ? "border-[#00ff88] bg-[#00ff88]/20 text-[#00ff88]" : "border-cyan-900/40 text-cyan-700 hover:text-[#00ff88]"}`}
-                      >
-                        AIRLINERS ({flights.filter(f => f.type === "commercial").length})
-                      </button>
-                      <button 
-                        onClick={() => setFlightFilterType("vip")} 
-                        className={`p-1 border text-center font-bold tracking-wider flex items-center justify-center gap-1 ${flightFilterType === "vip" ? "border-[#ffd700] bg-[#ffd700]/20 text-[#ffd700]" : "border-cyan-900/40 text-cyan-700 hover:text-[#ffd700]"}`}
-                      >
-                        <Crown className="w-2.5 h-2.5" /> VIP ({flights.filter(f => f.type === "vip").length})
-                      </button>
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
 
             {/* Target Telemetry (Embedded in Left Sidebar in Deus Ex Amber styling) */}
-            <div className="bg-[#0a0600]/95 border border-amber-500/50 p-3 h-36 flex flex-col shrink-0">
-              <div className="text-[9px] text-amber-500 tracking-[0.3em] font-bold border-b border-amber-900/60 pb-1 mb-2 flex justify-between items-center">
+            <div className="bg-[#0a0600]/95 border border-amber-500/50 p-3 h-44 flex flex-col shrink-0">
+              <div className="text-[9px] text-amber-500 tracking-[0.3em] font-bold border-b border-amber-900/60 pb-1 mb-1.5 flex justify-between items-center">
                 <span>TARGET_TELEMETRY</span>
                 <span className="text-[8px] text-amber-400 font-mono">
                   {lockedInfo ? "[LOCKED]" : hoveredInfo ? "[TRACKING]" : "[IDLE]"}
@@ -682,15 +761,18 @@ export default function GlobeMonitor() {
                     <span>LAT: {(lockedInfo || hoveredInfo)?.lat.toFixed(4)}</span>
                     <span>LNG: {(lockedInfo || hoveredInfo)?.lng.toFixed(4)}</span>
                   </div>
-                  {(lockedInfo || hoveredInfo)?.url && (
-                    <button onClick={() => window.open((lockedInfo || hoveredInfo)?.url, "_blank")} className="text-[8px] text-amber-400 mt-1 hover:text-white transition-colors cursor-pointer block text-left underline">
-                      &gt;&gt;&gt; CLICK TO INTERCEPT SIGNAL
-                    </button>
-                  )}
+                  
+                  {/* Button to Open RAG Dossier */}
+                  <button 
+                    onClick={() => openDossier(lockedInfo || hoveredInfo)}
+                    className="w-full mt-1.5 py-1 bg-amber-950/60 hover:bg-amber-900/80 border border-amber-500 text-amber-300 text-[8px] font-bold tracking-widest flex items-center justify-center gap-1.5 transition-all shadow-[0_0_10px_rgba(245,158,11,0.25)] cursor-pointer"
+                  >
+                    <Sparkles className="w-2.5 h-2.5 text-amber-400" /> OPEN RAG INTEL DOSSIER (3D)
+                  </button>
                 </div>
               ) : (
                 <div className="flex-1 flex items-center justify-center text-[9px] text-amber-900/60 tracking-widest text-center">
-                  AWAITING TARGET LOCK...<br/>(CLICK ANY EVENT TO ZOOM)
+                  AWAITING TARGET LOCK...<br/>(CLICK ANY EVENT TO INTERCEPT)
                 </div>
               )}
             </div>
@@ -698,17 +780,21 @@ export default function GlobeMonitor() {
           </div>
         </div>
 
-        {/* EONET & Conflicts Alerts Sidebar (Right) */}
-        <div className="absolute right-8 top-1/2 -translate-y-1/2 w-64 h-[60vh] flex flex-col gap-2 pointer-events-auto">
+        {/* EONET, Conflicts, Maritime, Cyber & Flights Alerts Sidebar (Right) */}
+        <div className="absolute right-8 top-1/2 -translate-y-1/2 w-64 h-[65vh] flex flex-col gap-2 pointer-events-auto">
           <div className="bg-[#020205]/80 border border-cyan-900/50 backdrop-blur-sm p-3 h-full flex flex-col custom-scrollbar overflow-y-auto">
             <div className="text-[10px] text-cyan-500 tracking-[0.3em] font-bold border-b border-cyan-900/50 pb-2 mb-2 flex justify-between items-center sticky top-0 bg-[#020205] z-10">
               <span>GLOBAL ALERTS</span>
-              <span className="text-[#ff003c]">{eonetPts.length + conflictPts.length + flightPts.filter((p: any) => p.flightType === "military").length}</span>
+              <span className="text-[#ff003c]">
+                {eonetPts.length + conflictPts.length + maritimePts.length + cyberPts.length + flightPts.filter((p: any) => p.flightType === "military").length}
+              </span>
             </div>
             
             {Object.entries({
               "TACTICAL AIR PATROLS": flightPts.filter((p: any) => p.flightType === "military"),
               "ARMED CONFLICTS": conflictPts,
+              "MARITIME CHOKEPOINTS": maritimePts,
+              "CYBER & SUBSEA": cyberPts,
               "SEVERE STORMS": eonetPts.filter((p: any) => p.catId === "severeStorms"),
               "WILDFIRES": eonetPts.filter((p: any) => p.catId === "wildfires"),
               "VOLCANOES": eonetPts.filter((p: any) => p.catId === "volcanoes"),
@@ -730,14 +816,14 @@ export default function GlobeMonitor() {
                       {pts.map((pt: any, i: number) => {
                         const isSelected = lockedInfo?.lat === pt.lat && lockedInfo?.lng === pt.lng;
                         return (
-                          <button key={i} className={`text-left group border p-2 transition-all shrink-0 ${isSelected ? "border-amber-500 bg-amber-950/30 shadow-[0_0_10px_rgba(245,158,11,0.3)]" : "border-cyan-900/20 hover:border-amber-500/60"}`}
-                            onClick={() => focusTarget(pt)}
+                          <button key={i} className={`text-left group border p-2 transition-all shrink-0 cursor-pointer ${isSelected ? "border-amber-500 bg-amber-950/30 shadow-[0_0_10px_rgba(245,158,11,0.3)]" : "border-cyan-900/20 hover:border-amber-500/60"}`}
+                            onClick={() => openDossier(pt)}
                           >
                             <div className="text-[8px] font-bold flex items-center justify-between" style={{ color: pt.color }}>
                               <span className="truncate">{pt.label}</span>
                               {isSelected && <span className="text-amber-400 text-[7px]">[LOCKED]</span>}
                             </div>
-                            <div className="text-[7px] text-cyan-700 mt-1">{pt.desc.split('\n')[0]}</div>
+                            <div className="text-[7px] text-cyan-700 mt-1">{pt.desc ? pt.desc.split('\n')[0] : ''}</div>
                           </button>
                         );
                       })}
@@ -749,11 +835,75 @@ export default function GlobeMonitor() {
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="flex items-end justify-between pointer-events-none mt-auto pt-4">
-          <div /> {/* Empty div to push Status block to the right */}
-          {/* Status block */}
-          <div className="flex flex-col items-end gap-1 pointer-events-auto">
+        {/* Footer & Floating Situation Summary HUD */}
+        <div className="flex items-end justify-between pointer-events-none mt-auto pt-4 relative">
+          
+          {/* Left spacing */}
+          <div className="w-64" />
+
+          {/* Prominent Floating Tactical Situation Briefing Card (Bottom Center) */}
+          {(lockedInfo || hoveredInfo) && (
+            <div className="pointer-events-auto max-w-xl w-full mx-4 bg-[#0a0600]/95 border-2 border-amber-500/80 shadow-[0_0_30px_rgba(245,158,11,0.3)] p-3 rounded-xs backdrop-blur-md animate-in fade-in slide-in-from-bottom-3 duration-200">
+              <div className="flex items-center justify-between border-b border-amber-900/60 pb-1.5 mb-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 rounded-full animate-ping" style={{ backgroundColor: (lockedInfo || hoveredInfo)?.color || "#f59e0b" }} />
+                  <span className="text-[10px] font-bold tracking-[0.25em] text-amber-400">
+                    SITUATION_RESUME // {((lockedInfo || hoveredInfo)?.type || 'INTEL').toUpperCase()}
+                  </span>
+                  <span className="text-[8px] px-1.5 py-0.2 bg-amber-950 border border-amber-500/60 text-amber-300 font-mono">
+                    {lockedInfo ? "LOCKED" : "TRACKING"}
+                  </span>
+                </div>
+                
+                <div className="flex items-center gap-3 text-[9px] text-amber-600 font-mono">
+                  <span>LAT: {(lockedInfo || hoveredInfo)?.lat?.toFixed(4)}</span>
+                  <span>LNG: {(lockedInfo || hoveredInfo)?.lng?.toFixed(4)}</span>
+                  {lockedInfo && (
+                    <button 
+                      onClick={() => { setLockedInfo(null); setHoveredInfo(null); }}
+                      className="text-amber-500 hover:text-white border border-amber-900/60 px-1 py-0.2 cursor-pointer"
+                    >
+                      [UNLOCK]
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Title & Detailed Resume */}
+              <div className="flex flex-col gap-1">
+                <h3 className="text-xs sm:text-sm font-bold tracking-wide" style={{ color: (lockedInfo || hoveredInfo)?.color }}>
+                  {(lockedInfo || hoveredInfo)?.label || (lockedInfo || hoveredInfo)?.title}
+                </h3>
+                <p className="text-[10px] text-amber-200/90 font-sans leading-relaxed">
+                  {(lockedInfo || hoveredInfo)?.desc || "Active operational incident being monitored by global telemetry feeds."}
+                </p>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="mt-2.5 pt-2 border-t border-amber-950/80 flex items-center justify-between gap-2">
+                <button 
+                  onClick={() => openDossier(lockedInfo || hoveredInfo)}
+                  className="flex-1 py-1.5 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500 text-amber-300 hover:text-white text-[9px] font-bold tracking-widest flex items-center justify-center gap-1.5 transition-all shadow-[0_0_10px_rgba(245,158,11,0.2)] cursor-pointer"
+                >
+                  <Sparkles className="w-3 h-3 text-amber-400" /> OPEN 3D RAG NEWS DOSSIER [SPACE]
+                </button>
+
+                {(lockedInfo || hoveredInfo)?.url && (
+                  <a 
+                    href={(lockedInfo || hoveredInfo)?.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 bg-cyan-950/40 hover:bg-cyan-900 border border-cyan-700 text-cyan-300 text-[9px] tracking-widest font-bold transition-colors"
+                  >
+                    DISPATCH &gt;&gt;&gt;
+                  </a>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Right Status block */}
+          <div className="flex flex-col items-end gap-1 pointer-events-auto ml-auto">
             <div className="flex items-center gap-2 bg-[#0a0600]/90 border border-amber-900/50 px-3 py-1">
               <Radio className="w-3 h-3 text-[#ff003c] animate-pulse" />
               <span className="text-[9px] text-amber-500 tracking-[0.3em]">SECURE UPLINK ESTABLISHED</span>
@@ -762,6 +912,14 @@ export default function GlobeMonitor() {
           </div>
         </div>
       </div>
+
+      {/* 3D Holographic RAG News Dossier Modal */}
+      <NewsDossierModal 
+        isOpen={isDossierOpen}
+        onClose={() => setIsDossierOpen(false)}
+        target={dossierTarget || lockedInfo}
+        allNews={news as any}
+      />
     </div>
   );
 }

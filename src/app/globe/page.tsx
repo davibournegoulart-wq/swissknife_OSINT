@@ -18,7 +18,7 @@ export default function GlobeMonitor() {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [quakes, setQuakes] = useState<any[]>([]);
   const [viewMode, setViewMode] = useState<"2d" | "3d">("3d");
-  const [layers, setLayers] = useState({ news: true, quakes: true, borders: true, arcs: true, labels: false, weather: false, storms: true, fires: true, volcanoes: true, conflicts: true, flights: false });
+  const [layers, setLayers] = useState({ news: true, quakes: true, borders: true, arcs: true, labels: false, weather: false, storms: true, fires: true, volcanoes: true, conflicts: true, flights: true });
   const [globeTheme, setGlobeTheme] = useState<"tactical" | "satellite">("tactical");
   const [hoveredInfo, setHoveredInfo] = useState<PointData | null>(null);
   const [lockedInfo, setLockedInfo] = useState<PointData | null>(null);
@@ -39,25 +39,15 @@ export default function GlobeMonitor() {
       .then(r => r.json()).then(d => setEonetEvents(d.events || []))
       .catch(e => console.error("EONET error", e));
 
-    // Fetch OpenSky Network ADS-B Flight Data
-    fetch("https://opensky-network.org/api/states/all")
+    // Fetch Live ADS-B Flight Data via internal API proxy
+    fetch("/api/flights")
       .then(r => r.json())
       .then(d => {
-        const activeFlights = (d.states || [])
-          .filter((s: any) => !s[8] && s[5] && s[6]) // not on ground, has valid lng/lat
-          .slice(0, 400) // cap to 400 to maintain 60FPS WebGL performance
-          .map((s: any) => ({
-            lat: s[6],
-            lng: s[5],
-            callsign: (s[1] || '').trim(),
-            country: s[2],
-            altitude: s[7],
-            velocity: s[9],
-            track: s[10]
-          }));
-        setFlights(activeFlights);
+        if (d && Array.isArray(d.flights)) {
+          setFlights(d.flights);
+        }
       })
-      .catch(e => console.error("OpenSky API error (Rate limited or blocked)", e));
+      .catch(e => console.error("Flight Radar fetch error", e));
 
     // Fetch ACLED Conflict Data (simulated via mock or public subset if available, using a static set of known conflict zones for now as ACLED requires API keys)
     setConflicts([

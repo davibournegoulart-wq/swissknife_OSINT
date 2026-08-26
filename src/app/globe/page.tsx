@@ -18,13 +18,14 @@ export default function GlobeMonitor() {
   const [news, setNews] = useState<NewsItem[]>([]);
   const [quakes, setQuakes] = useState<any[]>([]);
   const [viewMode, setViewMode] = useState<"2d" | "3d">("3d");
-  const [layers, setLayers] = useState({ news: true, quakes: true, borders: true, arcs: true, labels: false, weather: false, storms: true, fires: true, volcanoes: true, conflicts: true });
+  const [layers, setLayers] = useState({ news: true, quakes: true, borders: true, arcs: true, labels: false, weather: false, storms: true, fires: true, volcanoes: true, conflicts: true, flights: false });
   const [globeTheme, setGlobeTheme] = useState<"tactical" | "satellite">("tactical");
   const [hoveredInfo, setHoveredInfo] = useState<PointData | null>(null);
   const [lockedInfo, setLockedInfo] = useState<PointData | null>(null);
   const [eonetEvents, setEonetEvents] = useState<any[]>([]);
   const [openCategory, setOpenCategory] = useState<string | null>("ARMED CONFLICTS");
   const [conflicts, setConflicts] = useState<any[]>([]);
+  const [flights, setFlights] = useState<any[]>([]);
 
   useEffect(() => {
     fetch("/api/news?limit=200").then(r => r.json()).then(d => setNews(d.articles || []));
@@ -37,6 +38,26 @@ export default function GlobeMonitor() {
     fetch("https://eonet.gsfc.nasa.gov/api/v3/events?status=open")
       .then(r => r.json()).then(d => setEonetEvents(d.events || []))
       .catch(e => console.error("EONET error", e));
+
+    // Fetch OpenSky Network ADS-B Flight Data
+    fetch("https://opensky-network.org/api/states/all")
+      .then(r => r.json())
+      .then(d => {
+        const activeFlights = (d.states || [])
+          .filter((s: any) => !s[8] && s[5] && s[6]) // not on ground, has valid lng/lat
+          .slice(0, 400) // cap to 400 to maintain 60FPS WebGL performance
+          .map((s: any) => ({
+            lat: s[6],
+            lng: s[5],
+            callsign: (s[1] || '').trim(),
+            country: s[2],
+            altitude: s[7],
+            velocity: s[9],
+            track: s[10]
+          }));
+        setFlights(activeFlights);
+      })
+      .catch(e => console.error("OpenSky API error (Rate limited or blocked)", e));
 
     // Fetch ACLED Conflict Data (simulated via mock or public subset if available, using a static set of known conflict zones for now as ACLED requires API keys)
     setConflicts([
@@ -162,14 +183,28 @@ export default function GlobeMonitor() {
           color: c.color,
           label: `[ ${c.title.toUpperCase()} ]`,
           type: "conflict",
-          desc: `STATUS: ${c.desc.toUpperCase()}`
+          desc: c.desc
         });
         ringList.push({ lat: c.lat, lng: c.lng, color: c.color, maxR: 4, propagationSpeed: 0.5, repeatPeriod: 3000 });
       });
     }
 
-    return { points: pts, arcs: arcList, rings: ringList, labels: labelList, eonetPts: eonetPtsList, conflictPts: conflictPtsList };
-  }, [news, quakes, eonetEvents, conflicts, layers]);
+    const flightPtsList: any[] = [];
+    if (layers.flights) {
+      flights.forEach(f => {
+        flightPtsList.push({
+          lat: f.lat, lng: f.lng,
+          size: 0.8,
+          color: "#00ff88",
+          label: `[ FLIGHT: ${f.callsign || 'UNKNOWN'} ]`,
+          type: "flight",
+          desc: `ALT: ${f.altitude}m | VEL: ${f.velocity}m/s | ORG: ${f.country}`
+        });
+      });
+    }
+
+    return { points: pts, arcs: arcList, rings: ringList, labels: labelList, eonetPts: eonetPtsList, conflictPts: conflictPtsList, flightPts: flightPtsList };
+  }, [news, quakes, layers, eonetEvents, conflicts, flights]);
 
   const [autoRotate, setAutoRotate] = useState(true);
 
@@ -241,8 +276,8 @@ export default function GlobeMonitor() {
             labelResolution={2}
             labelAltitude={0.01}
 
-            // EONET Alerts (Storms, Fires, Volcanoes) & Conflicts
-            htmlElementsData={[...(eonetPts || []), ...(conflictPts || [])]}
+            // EONET Alerts, Conflicts & Flights
+            htmlElementsData={[...(eonetPts || []), ...(conflictPts || []), ...(flightPts || [])]}
             htmlLat="lat"
             htmlLng="lng"
             htmlElement={(d: any) => {
@@ -259,6 +294,14 @@ export default function GlobeMonitor() {
                       <polygon points="12 2 20 6 20 18 12 22 4 18 4 6" fill="none" stroke="#ffff00" stroke-width="1.5" stroke-dasharray="2 4"/>
                       <circle cx="12" cy="12" r="3" fill="#ffff00"/>
                       <path d="M12 2v5M12 17v5M2 12h5M17 12h5" stroke="#ffff00" stroke-width="1.5"/>
+                    </svg>
+                  </div>
+                `;
+              } else if (type === "flight") {
+                innerHTML = `
+                  <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group" style="transform: rotate(${d.track || 45}deg);">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="group-hover:scale-150 transition-all drop-shadow-[0_0_8px_rgba(0,255,136,0.8)]">
+                      <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.6L3 8l6 5-3 3-3-1-1 1 2.5 4.5L13 22l1-1-1-3 3-3 5 6l1.2-.7c.4-.2.7-.6.6-1.1z" fill="none" stroke="#00ff88" stroke-width="2"/>
                     </svg>
                   </div>
                 `;
@@ -431,7 +474,12 @@ export default function GlobeMonitor() {
 
               <button onClick={() => setLayers(l => ({ ...l, conflicts: !l.conflicts }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.conflicts ? "border-[#ffff00] text-[#ffff00]" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>ARMED CONFLICTS</span>
-                <span>[{layers.conflicts ? "ON" : "OFF"}]</span>
+                <span>[{conflictPts.length}]</span>
+              </button>
+
+              <button onClick={() => setLayers(l => ({ ...l, flights: !l.flights }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.flights ? "border-[#00ff88] text-[#00ff88]" : "border-cyan-900/30 text-cyan-900"}`}>
+                <span>FLIGHT RADAR (ADS-B)</span>
+                <span>[{flights.length}]</span>
               </button>
             </div>
           </div>

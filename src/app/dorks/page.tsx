@@ -21,9 +21,9 @@ export default function DorksDashboard() {
     return dorksData.filter(dork => {
       const matchesCategory = selectedCategory ? dork.category === selectedCategory : true;
       const matchesSearch = searchQuery 
-        ? dork.dork.toLowerCase().includes(searchQuery.toLowerCase()) || 
+        ? dork.query.toLowerCase().includes(searchQuery.toLowerCase()) || 
           dork.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          dork.author.toLowerCase().includes(searchQuery.toLowerCase())
+          dork.description.toLowerCase().includes(searchQuery.toLowerCase())
         : true;
       return matchesCategory && matchesSearch;
     });
@@ -160,7 +160,7 @@ export default function DorksDashboard() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 auto-rows-fr pb-20">
               {filteredDorks.map((dork, idx) => (
                 <div 
-                  key={`${dork.dork}-${idx}`}
+                  key={`${dork.query}-${idx}`}
                   className="group relative flex flex-col bg-[#0d0d12] border border-amber-900/40 p-5 transition-all duration-300 hover:border-amber-500/60 hover:bg-[#120d0a] h-full"
                   style={{ clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%)' }}
                 >
@@ -183,17 +183,16 @@ export default function DorksDashboard() {
 
                   <div className="bg-black/50 border border-neutral-800 p-3 font-mono text-sm text-amber-100 break-all mb-4 mt-1 relative">
                     <div className="absolute top-0 left-0 w-1 h-full bg-amber-500/30"></div>
-                    <code>{dork.dork}</code>
+                    <code>{dork.query}</code>
                   </div>
 
-                  <div className="flex items-center gap-4 text-[10px] font-mono text-neutral-500 uppercase tracking-widest mt-auto">
-                    <span>Author: <span className="text-amber-700">{dork.author}</span></span>
-                    <span>Date: <span className="text-amber-700">{dork.date}</span></span>
+                  <div className="flex items-center gap-4 text-[10px] font-mono text-neutral-500 uppercase tracking-widest mt-auto mb-2">
+                    <span>Target: <span className="text-amber-700">{dork.description}</span></span>
                   </div>
 
-                  <div className="mt-4 flex flex-col sm:flex-row sm:items-center justify-end gap-3 relative z-10 border-t border-amber-900/30 pt-4 flex-1 items-end">
+                  <div className="mt-auto flex flex-col sm:flex-row sm:items-center justify-end gap-3 relative z-10 border-t border-amber-900/30 pt-4 items-end">
                     <button 
-                      onClick={() => handleCopyDork(dork.dork, idx)}
+                      onClick={() => handleCopyDork(dork.query, idx)}
                       className={cn(
                         "flex items-center justify-center gap-1.5 border px-4 py-2 text-xs font-mono font-bold transition-all focus:outline-none w-full sm:w-auto",
                         copiedIndex === idx 
@@ -207,7 +206,7 @@ export default function DorksDashboard() {
                     </button>
                     
                     <button 
-                      onClick={() => handleExecuteDork(dork.dork)}
+                      onClick={() => handleExecuteDork(dork.query)}
                       className="flex items-center justify-center gap-1.5 bg-amber-950 border border-amber-700 px-4 py-2 text-xs font-mono font-bold text-amber-300 transition-all hover:bg-amber-900 hover:text-amber-100 hover:border-amber-400 focus:outline-none hover:shadow-[0_0_15px_rgba(245,158,11,0.3)] group/btn w-full sm:w-auto"
                       style={{ clipPath: 'polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px)' }}
                     >

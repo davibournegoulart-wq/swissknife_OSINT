@@ -17,6 +17,7 @@ export interface DossierArticle {
   description?: string;
   thumbnail?: string;
   accentColor?: string;
+  videoUrl?: string;
 }
 
 interface NewsDossierModalProps {
@@ -32,7 +33,7 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
   const [isAnimating, setIsAnimating] = useState(false);
   const [direction, setDirection] = useState<"next" | "prev">("next");
 
-  // Event-Specific Multi-Source Intelligence Engine: Generates strict multi-source dispatches for the exact clicked incident
+  // Event-Specific Multi-Source Intelligence Engine: Generates strict multi-source dispatches + live video feed
   useEffect(() => {
     if (!target || !isOpen) {
       setRelatedArticles([]);
@@ -52,6 +53,8 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
     const lng = target.lng?.toFixed(4);
     const encodedQuery = encodeURIComponent(`${cleanTitle} ${country}`);
     const searchUrl = `https://news.google.com/search?q=${encodedQuery}`;
+    const ytSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(cleanTitle + " " + country + " news live")}`;
+    const ytEmbedUrl = `https://www.youtube-nocookie.com/embed?listType=search&list=${encodeURIComponent(cleanTitle + " " + country + " live news")}`;
 
     // 1. Strict semantic matching against live RSS feeds (only keep if high semantic match to exact event)
     const exactTokens = cleanTitle.toLowerCase().split(/[\s,–—\-\:\/]+/).filter(t => t.length > 3);
@@ -62,11 +65,19 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
       return matchCount >= Math.min(2, exactTokens.length);
     });
 
-    // 2. Synthesize Multi-Source Accredited Media Dispatches tailored 100% strictly to this event
+    // 2. Synthesize Multi-Source Accredited Media Dispatches + Live Video Feed tailored 100% strictly to this event
     const now = new Date();
-    const isoDate = now.toISOString();
 
     const multiSourceDispatches: DossierArticle[] = [
+      {
+        source: "LIVE VIDEO INTERCEPT (RAG STREAM)",
+        country: country,
+        pubDate: now.toISOString(),
+        title: `🔴 LIVE VIDEO INTERCEPT: ${cleanTitle}`,
+        description: `Direct audiovisual telemetry stream intercepted from global broadcasts and field cameras covering ${cleanTitle} in ${country}. Real-time satellite video downlink active at coordinates [${lat}, ${lng}].`,
+        link: ytSearchUrl,
+        videoUrl: ytEmbedUrl
+      },
       {
         source: "REUTERS INTELLIGENCE",
         country: country,
@@ -115,8 +126,8 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
       }
     ];
 
-    // Combine matched live RSS articles + the tailored multi-source reports
-    const combined = [...matchedLiveRss, ...multiSourceDispatches];
+    // Combine: Live Video first, then matched live RSS articles, then multi-source reports
+    const combined = [multiSourceDispatches[0], ...matchedLiveRss, ...multiSourceDispatches.slice(1)];
     setRelatedArticles(combined);
     setCurrentIndex(0);
   }, [target, isOpen, allNews]);
@@ -241,6 +252,23 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
                 {currentArticle.title}
               </h2>
 
+              {/* Embedded Video Feed (if video card) */}
+              {currentArticle.videoUrl && (
+                <div className="relative aspect-video w-full bg-black border border-cyan-500/60 rounded-xs overflow-hidden shadow-[0_0_25px_rgba(0,243,255,0.25)] my-1">
+                  <iframe 
+                    src={currentArticle.videoUrl}
+                    title="Live Tactical Video Stream"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="w-full h-full border-0"
+                  />
+                  <div className="absolute top-2 left-2 flex items-center gap-1.5 bg-black/85 border border-[#ff003c] px-2 py-0.5 pointer-events-none">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#ff003c] animate-ping" />
+                    <span className="text-[8px] text-[#ff003c] font-mono tracking-widest font-bold">LIVE BROADCAST INTERCEPT</span>
+                  </div>
+                </div>
+              )}
+
               {/* RAG Synthesized Summary */}
               <div className="bg-[#02050e]/90 border border-cyan-900/80 p-3.5 rounded-xs text-[11px] text-cyan-200/90 leading-relaxed font-sans relative">
                 <div className="text-[8px] text-amber-500 font-mono tracking-widest uppercase mb-1 flex items-center gap-1">
@@ -257,7 +285,7 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500 text-amber-400 hover:text-amber-300 text-[10px] tracking-widest font-bold transition-all group"
                 >
-                  <span>&gt;&gt;&gt; ACCESS FULL DISPATCH SOURCE</span>
+                  <span>&gt;&gt;&gt; {currentArticle.videoUrl ? "ACCESS LIVE VIDEO CHANNEL" : "ACCESS FULL DISPATCH SOURCE"}</span>
                   <ExternalLink className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                 </a>
 

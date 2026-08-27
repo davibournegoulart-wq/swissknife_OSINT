@@ -726,8 +726,13 @@ export default function GlobeMonitor() {
                       <polygon points="3 20 10 9 14 9 21 20" stroke="#ff8c00" stroke-width="1.5" fill="rgba(255,140,0,0.2)"/>
                       <line x1="12" y1="9" x2="12" y2="20" stroke="#ff8c00" stroke-width="1.5" stroke-dasharray="2 2"/>
                       <circle cx="12" cy="5" r="1.5" fill="#ff8c00"/>
-
-              if (type === "satellite") {
+                      <circle cx="15" cy="3" r="1" fill="#ff8c00"/>
+                      <circle cx="9" cy="2" r="1" fill="#ff8c00"/>
+                      <line x1="0" y1="20" x2="24" y2="20" stroke="#ff8c00" stroke-width="1"/>
+                    </svg>
+                  </div>
+                `;
+              } else if (type === "satellite") {
                 innerHTML = `
                   <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group">
                     <div class="absolute w-10 h-10 border border-dashed border-cyan-400/50 rounded-full animate-[spin_8s_linear_infinite] group-hover:scale-125 transition-all pointer-events-none"></div>

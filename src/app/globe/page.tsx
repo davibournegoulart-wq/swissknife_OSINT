@@ -943,7 +943,7 @@ export default function GlobeMonitor() {
       <div className="absolute inset-0 pointer-events-none z-40 flex flex-col justify-between p-8">
         
         {/* Header & Left Sidebar */}
-        <div className="flex flex-col gap-4 items-start pointer-events-none h-[calc(100vh-6rem)] relative">
+        <div className="flex flex-col gap-4 items-start pointer-events-none flex-1 min-h-0 relative">
           <div className="bg-[#0a0600]/90 p-3 border-l-2 border-amber-500 backdrop-blur-sm pointer-events-auto shrink-0 flex items-center justify-between gap-4 w-64">
             <div className="flex items-center gap-2.5">
               <div className="relative w-9 h-9 flex items-center justify-center bg-amber-950/40 border border-amber-500/50 shrink-0" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }}>

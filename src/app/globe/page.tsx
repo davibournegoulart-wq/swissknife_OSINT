@@ -40,7 +40,7 @@ export default function GlobeMonitor() {
     news: true, quakes: true, borders: true, arcs: true, labels: false, 
     weather: false, storms: true, fires: true, volcanoes: true, 
     conflicts: true, flights: true, maritime: true, cyber: true,
-    satellites: true, graticule: true, fir: true, cameras: true
+    satellites: true, graticule: true, fir: true, cameras: false
   });
   const [globeTheme, setGlobeTheme] = useState<"tactical" | "satellite">("tactical");
   const [hoveredInfo, setHoveredInfo] = useState<PointData | null>(null);
@@ -1041,6 +1041,12 @@ export default function GlobeMonitor() {
               <button onClick={() => { sfx.playClick(); setGlobeTheme(t => t === "tactical" ? "satellite" : "tactical"); }} className="flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border border-cyan-900/30 hover:border-cyan-500 transition-colors">
                 <span className="text-cyan-300">GLOBE TEXTURE</span>
                 <span className="text-cyan-400">[{globeTheme.toUpperCase()}]</span>
+              </button>
+
+              {/* Public Global Cameras Layer Toggle */}
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, cameras: !l.cameras })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.cameras ? "border-[#00ff88] text-[#00ff88]" : "border-cyan-900/30 text-cyan-900 transition-colors hover:border-cyan-500"}`}>
+                <span className="flex items-center gap-1"><Camera className="w-3 h-3" /> GLOBAL PUBLIC CAMERAS</span>
+                <span>[{PUBLIC_CAMERAS.length}]</span>
               </button>
 
 

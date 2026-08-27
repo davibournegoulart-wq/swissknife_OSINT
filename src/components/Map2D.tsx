@@ -1,9 +1,8 @@
-"use client";
-
 import { useEffect } from "react";
-import { MapContainer, TileLayer, Marker, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Polyline, Circle, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { GeodesicMeasurement, ThreatZone } from "@/utils/geoCalc";
 
 interface Map2DProps {
   points: any[];
@@ -12,6 +11,9 @@ interface Map2DProps {
   target?: any;
   onHover: (info: any) => void;
   onSelect?: (info: any) => void;
+  measurement?: GeodesicMeasurement | null;
+  threatHubs?: ThreatZone[];
+  threatRingsEnabled?: boolean;
 }
 
 function MapController({ target, theme }: { target?: any; theme?: string }) {
@@ -189,7 +191,17 @@ function createTacticalIcon(pt: any, isSelected: boolean) {
   });
 }
 
-export default function Map2D({ points, allEvents = [], theme = "tactical", target, onHover, onSelect }: Map2DProps) {
+export default function Map2D({ 
+  points, 
+  allEvents = [], 
+  theme = "tactical", 
+  target, 
+  onHover, 
+  onSelect,
+  measurement,
+  threatHubs = [],
+  threatRingsEnabled = false
+}: Map2DProps) {
   const tileUrl = theme === "satellite" 
     ? "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
     : "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
@@ -220,6 +232,40 @@ export default function Map2D({ points, allEvents = [], theme = "tactical", targ
         attribution={attribution}
         maxZoom={18}
       />
+
+      {/* Geodesic Range Measurement Line */}
+      {measurement && (
+        <Polyline 
+          positions={[
+            [measurement.pointA.lat, measurement.pointA.lng],
+            [measurement.pointB.lat, measurement.pointB.lng]
+          ]}
+          pathOptions={{
+            color: "#f59e0b",
+            weight: 2.5,
+            dashArray: "6, 6",
+            opacity: 0.9
+          }}
+        />
+      )}
+
+      {/* Threat Radius Circles on 2D Map */}
+      {threatRingsEnabled && threatHubs.map((hub) => (
+        hub.ranges.map((range, rIdx) => (
+          <Circle 
+            key={`${hub.id}-${rIdx}`}
+            center={[hub.lat, hub.lng]}
+            radius={range.radiusKm * 1000}
+            pathOptions={{
+              color: range.color,
+              fillColor: range.color,
+              fillOpacity: 0.04,
+              weight: 1.2,
+              dashArray: "4, 6"
+            }}
+          />
+        ))
+      ))}
       
       {renderData.map((pt, i) => {
         const isSelected = target?.lat === pt.lat && target?.lng === pt.lng;

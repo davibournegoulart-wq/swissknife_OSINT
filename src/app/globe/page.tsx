@@ -7,7 +7,7 @@ import {
   Activity, Radio, Layers, Globe2, MapPin, Map, Crosshair, 
   Terminal, Zap, PocketKnife, Search, Plane, ShieldAlert, 
   Crown, SlidersHorizontal, Compass, X, Filter, Anchor, Wifi, Sparkles,
-  Satellite as SatelliteIcon, Volume2, VolumeX, FileText
+  Satellite as SatelliteIcon, Volume2, VolumeX, FileText, Ruler
 } from "lucide-react";
 import { sfx } from "@/utils/sfxEngine";
 import countryCoords from "@/data/country_coords.json";
@@ -20,7 +20,9 @@ import AirRadarModal from "@/components/AirRadarModal";
 import AirMissionDossierModal from "@/components/AirMissionDossierModal";
 import SatelliteDossierModal from "@/components/SatelliteDossierModal";
 import SitrepModal from "@/components/SitrepModal";
+import RangeMeasureModal from "@/components/RangeMeasureModal";
 import { SATELLITE_CATALOG, getSatellitePosition, getOrbitPath } from "@/data/satellites";
+import { computeGeodesicMeasurement, GeodesicMeasurement, ThreatZone, STRATEGIC_THREAT_HUBS } from "@/utils/geoCalc";
 
 interface NewsItem { title: string; link: string; pubDate: string; source: string; country: string; accentColor: string; }
 export interface PointData { lat: number; lng: number; size: number; color: string; label: string; type: "news" | "quake" | "conflict" | "flight" | "eonet" | "maritime" | "cyber" | "satellite"; url?: string; desc?: string; [key: string]: any; }
@@ -58,6 +60,13 @@ export default function GlobeMonitor() {
   const [satDossierTarget, setSatDossierTarget] = useState<any>(null);
   const [satTick, setSatTick] = useState<number>(0);
   const [isSfxEnabled, setIsSfxEnabled] = useState<boolean>(true);
+
+  // Geodesic Range Ruler & Threat Radius State
+  const [isMeasureMode, setIsMeasureMode] = useState<boolean>(false);
+  const [measurePointA, setMeasurePointA] = useState<any>(null);
+  const [measurement, setMeasurement] = useState<GeodesicMeasurement | null>(null);
+  const [threatRingsEnabled, setThreatRingsEnabled] = useState<boolean>(false);
+  const [selectedThreatHub, setSelectedThreatHub] = useState<ThreatZone | null>(null);
 
   useEffect(() => {
     fetch("/api/news?limit=200").then(r => r.json()).then(d => setNews(d.articles || []));
@@ -407,17 +416,62 @@ export default function GlobeMonitor() {
     }
   };
 
+  const handlePointOrGlobeSelect = (pt: any) => {
+    if (!pt) return;
+    if (isMeasureMode) {
+      sfx.playTargetLock();
+      if (!measurePointA) {
+        setMeasurePointA(pt);
+      } else {
+        const m = computeGeodesicMeasurement(measurePointA, pt);
+        setMeasurement(m);
+      }
+      return;
+    }
+    openDossier(pt);
+  };
+
+  const geodesicArc = useMemo(() => {
+    if (!measurement) return [];
+    return [{
+      startLat: measurement.pointA.lat,
+      startLng: measurement.pointA.lng,
+      endLat: measurement.pointB.lat,
+      endLng: measurement.pointB.lng,
+      color: "#f59e0b"
+    }];
+  }, [measurement]);
+
+  const threatRings = useMemo(() => {
+    if (!threatRingsEnabled) return [];
+    const hubs = selectedThreatHub ? [selectedThreatHub] : STRATEGIC_THREAT_HUBS;
+    const res: any[] = [];
+    hubs.forEach(hub => {
+      hub.ranges.forEach(r => {
+        res.push({
+          lat: hub.lat,
+          lng: hub.lng,
+          color: r.color,
+          maxR: r.radiusKm / 111.32,
+          propagationSpeed: 0.8,
+          repeatPeriod: 1500
+        });
+      });
+    });
+    return res;
+  }, [threatRingsEnabled, selectedThreatHub]);
+
   // Keyboard shortcut listener: Press Space to open RAG Dossier on locked target
   useEffect(() => {
     const handleGlobalKey = (e: KeyboardEvent) => {
-      if (e.code === "Space" && !isDossierOpen && !isFlightDossierOpen && !isAirRadarOpen && !isSatDossierOpen && (lockedInfo || hoveredInfo)) {
+      if (e.code === "Space" && !isDossierOpen && !isFlightDossierOpen && !isAirRadarOpen && !isSatDossierOpen && !isSitrepOpen && (lockedInfo || hoveredInfo)) {
         e.preventDefault();
         openDossier(lockedInfo || hoveredInfo);
       }
     };
     window.addEventListener("keydown", handleGlobalKey);
     return () => window.removeEventListener("keydown", handleGlobalKey);
-  }, [lockedInfo, hoveredInfo, isDossierOpen, isFlightDossierOpen, isAirRadarOpen, isSatDossierOpen]);
+  }, [lockedInfo, hoveredInfo, isDossierOpen, isFlightDossierOpen, isAirRadarOpen, isSatDossierOpen, isSitrepOpen]);
 
   const configureControls = () => {
     if (globeRef.current) {
@@ -672,21 +726,16 @@ export default function GlobeMonitor() {
                       <polygon points="3 20 10 9 14 9 21 20" stroke="#ff8c00" stroke-width="1.5" fill="rgba(255,140,0,0.2)"/>
                       <line x1="12" y1="9" x2="12" y2="20" stroke="#ff8c00" stroke-width="1.5" stroke-dasharray="2 2"/>
                       <circle cx="12" cy="5" r="1.5" fill="#ff8c00"/>
-                      <circle cx="15" cy="3" r="1" fill="#ff8c00"/>
-                      <circle cx="9" cy="2" r="1" fill="#ff8c00"/>
-                      <line x1="0" y1="20" x2="24" y2="20" stroke="#ff8c00" stroke-width="1"/>
-                    </svg>
-                  </div>
-                `;
-              } else if (type === "satellite") {
+
+              if (type === "satellite") {
                 innerHTML = `
                   <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group">
-                    <div class="absolute w-12 h-12 border border-dashed border-cyan-400/50 rounded-full animate-ping pointer-events-none"></div>
-                    <div class="absolute w-6 h-6 bg-cyan-400/10 rounded-full blur-[2px]"></div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32" class="group-hover:scale-150 transition-all drop-shadow-[0_0_15px_rgba(0,243,255,1)]">
-                      <!-- Central Bus -->
-                      <rect x="12" y="12" width="8" height="8" fill="#020817" stroke="${d.color || '#00f3ff'}" stroke-width="1.8" rx="1.5"/>
-                      <circle cx="16" cy="16" r="2" fill="${d.color || '#00f3ff'}"/>
+                    <div class="absolute w-10 h-10 border border-dashed border-cyan-400/50 rounded-full animate-[spin_8s_linear_infinite] group-hover:scale-125 transition-all pointer-events-none"></div>
+                    <div class="absolute w-6 h-6 bg-cyan-400/15 rounded-full blur-[2px]"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32" class="group-hover:scale-125 transition-transform drop-shadow-[0_0_12px_rgba(0,243,255,0.95)]">
+                      <!-- Central Body -->
+                      <rect x="11" y="11" width="10" height="10" rx="1.5" fill="#030814" stroke="${d.color || '#00f3ff'}" stroke-width="1.8"/>
+                      <circle cx="16" cy="16" r="2.5" fill="${d.color || '#00f3ff'}"/>
                       <!-- Left Solar Array -->
                       <rect x="2" y="13" width="8" height="6" fill="rgba(0,243,255,0.25)" stroke="${d.color || '#00f3ff'}" stroke-width="1.2"/>
                       <line x1="5" y1="13" x2="5" y2="19" stroke="${d.color || '#00f3ff'}" stroke-width="0.8"/>
@@ -700,21 +749,14 @@ export default function GlobeMonitor() {
                       <path d="M12 7 Q16 4 20 7" fill="none" stroke="${d.color || '#00f3ff'}" stroke-width="1.5"/>
                       <circle cx="16" cy="5.5" r="1.2" fill="#ffffff"/>
                     </svg>
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/95 border border-cyan-400 text-cyan-300 text-[7px] font-mono font-bold px-1.5 py-0.5 rounded-xs pointer-events-none whitespace-nowrap z-50">
-                      ${d.label}
-                    </div>
                   </div>
-                `;
-              } else {
-                innerHTML = `
-                  <div class="w-2 h-2 bg-white rounded-full shadow-[0_0_8px_#ffffff] pointer-events-auto cursor-pointer"></div>
                 `;
               }
 
               el.innerHTML = innerHTML;
               el.onclick = (e) => {
                 e.stopPropagation();
-                openDossier(d);
+                handlePointOrGlobeSelect(d);
               };
               el.onmouseenter = () => { if (!lockedInfo) setHoveredInfo(d); };
               el.onmouseleave = () => { if (!lockedInfo) setHoveredInfo(null); };
@@ -736,9 +778,14 @@ export default function GlobeMonitor() {
               return new THREE.Mesh(geometry, material);
             }}
 
+            onGlobeClick={(coords: any) => {
+              if (isMeasureMode) {
+                handlePointOrGlobeSelect(coords);
+              }
+            }}
             onPointHover={(pt: any) => !lockedInfo && setHoveredInfo(pt)}
             onPointClick={(pt: any) => {
-              openDossier(pt);
+              handlePointOrGlobeSelect(pt);
             }}
           />
         ) : (
@@ -750,13 +797,16 @@ export default function GlobeMonitor() {
               ...(conflictPts || []), 
               ...(maritimePts || []), 
               ...(cyberPts || []), 
-              ...(flightPts || []),
+              ...(flightPts || []), 
               ...(satellitePts || [])
             ]}
             theme={globeTheme}
             target={lockedInfo}
             onHover={setHoveredInfo}
-            onSelect={openDossier}
+            onSelect={handlePointOrGlobeSelect}
+            measurement={measurement}
+            threatHubs={selectedThreatHub ? [selectedThreatHub] : STRATEGIC_THREAT_HUBS}
+            threatRingsEnabled={threatRingsEnabled}
           />
         )}
       </div>
@@ -828,6 +878,27 @@ export default function GlobeMonitor() {
                 [ 3D GLOBE ]
               </button>
             </div>
+
+            {/* Geodesic Range Ruler Mode Toggle */}
+            <button 
+              onClick={() => { 
+                sfx.playClick(); 
+                const nextMode = !isMeasureMode;
+                setIsMeasureMode(nextMode); 
+                if (!nextMode) {
+                  setMeasurePointA(null);
+                  setMeasurement(null);
+                }
+              }}
+              className={`w-full py-1 text-[8px] font-bold tracking-widest flex items-center justify-center gap-1.5 border transition-all cursor-pointer shrink-0 ${
+                isMeasureMode 
+                  ? "border-amber-400 bg-amber-950/80 text-amber-300 shadow-[0_0_12px_rgba(245,158,11,0.3)] animate-pulse" 
+                  : "border-cyan-900/40 bg-black/40 text-cyan-700 hover:text-cyan-300"
+              }`}
+            >
+              <Ruler className="w-3 h-3 text-amber-400" />
+              <span>RANGE RULER: [{isMeasureMode ? (measurePointA ? "CLICK TARGET B" : "CLICK ORIGIN A") : "OFF"}]</span>
+            </button>
 
             {/* Direct Launch Executive SITREP Generator */}
             <button 
@@ -1234,6 +1305,19 @@ export default function GlobeMonitor() {
         cyber={cyberPts}
         eonetEvents={eonetPts}
         news={news}
+      />
+
+      {/* Geodesic Range Ruler & Threat Intercept HUD Panel */}
+      <RangeMeasureModal 
+        measurement={measurement}
+        onClear={() => {
+          setMeasurePointA(null);
+          setMeasurement(null);
+        }}
+        threatRingsEnabled={threatRingsEnabled}
+        onToggleThreatRings={() => setThreatRingsEnabled(!threatRingsEnabled)}
+        selectedThreatHub={selectedThreatHub}
+        onSelectThreatHub={setSelectedThreatHub}
       />
     </div>
   );

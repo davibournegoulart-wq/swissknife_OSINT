@@ -19,7 +19,7 @@ import NewsDossierModal from "@/components/NewsDossierModal";
 import AirRadarModal from "@/components/AirRadarModal";
 import AirMissionDossierModal from "@/components/AirMissionDossierModal";
 import SatelliteDossierModal from "@/components/SatelliteDossierModal";
-import SitrepModal from "@/components/SitrepModal";
+
 import RangeMeasureModal from "@/components/RangeMeasureModal";
 import TimeScrubber from "@/components/TimeScrubber";
 import PublicCamerasModal from "@/components/PublicCamerasModal";
@@ -58,7 +58,7 @@ export default function GlobeMonitor() {
   const [isFlightDossierOpen, setIsFlightDossierOpen] = useState<boolean>(false);
   const [isAirRadarOpen, setIsAirRadarOpen] = useState<boolean>(false);
   const [isSatDossierOpen, setIsSatDossierOpen] = useState<boolean>(false);
-  const [isSitrepOpen, setIsSitrepOpen] = useState<boolean>(false);
+
   const [dossierTarget, setDossierTarget] = useState<any>(null);
   const [flightDossierTarget, setFlightDossierTarget] = useState<any>(null);
   const [satDossierTarget, setSatDossierTarget] = useState<any>(null);
@@ -534,14 +534,14 @@ export default function GlobeMonitor() {
   // Keyboard shortcut listener: Press Space to open RAG Dossier on locked target
   useEffect(() => {
     const handleGlobalKey = (e: KeyboardEvent) => {
-      if (e.code === "Space" && !isDossierOpen && !isFlightDossierOpen && !isAirRadarOpen && !isSatDossierOpen && !isSitrepOpen && (lockedInfo || hoveredInfo)) {
+      if (e.code === "Space" && !isDossierOpen && !isFlightDossierOpen && !isAirRadarOpen && !isSatDossierOpen && (lockedInfo || hoveredInfo)) {
         e.preventDefault();
         openDossier(lockedInfo || hoveredInfo);
       }
     };
     window.addEventListener("keydown", handleGlobalKey);
     return () => window.removeEventListener("keydown", handleGlobalKey);
-  }, [lockedInfo, hoveredInfo, isDossierOpen, isFlightDossierOpen, isAirRadarOpen, isSatDossierOpen, isSitrepOpen]);
+  }, [lockedInfo, hoveredInfo, isDossierOpen, isFlightDossierOpen, isAirRadarOpen, isSatDossierOpen]);
 
   const configureControls = () => {
     if (globeRef.current) {
@@ -999,13 +999,7 @@ export default function GlobeMonitor() {
               <span>TIME-MACHINE: [{isTimeScrubberOpen ? (timeOffsetHours < 0 ? `-${Math.abs(Math.round(timeOffsetHours*10)/10)}H` : "LIVE") : "OFF"}]</span>
             </button>
 
-            {/* Direct Launch Executive SITREP Generator */}
-            <button 
-              onClick={() => { sfx.playClick(); setIsSitrepOpen(true); }}
-              className="w-full py-1.5 bg-cyan-950/90 hover:bg-cyan-900 border border-cyan-500/80 hover:border-cyan-300 text-cyan-300 hover:text-white text-[8px] font-bold tracking-widest flex items-center justify-center gap-1.5 transition-all shadow-[0_0_12px_rgba(0,243,255,0.25)] cursor-pointer shrink-0"
-            >
-              <FileText className="w-3 h-3 text-cyan-400" /> EXPORT EXECUTIVE SITREP
-            </button>
+
 
             {/* Direct Launch Public Global Cameras Matrix Modal */}
             <button 
@@ -1418,19 +1412,7 @@ export default function GlobeMonitor() {
         ]}
       />
 
-      {/* 1-Click Executive SITREP Intelligence Report Modal */}
-      <SitrepModal 
-        isOpen={isSitrepOpen}
-        onClose={() => setIsSitrepOpen(false)}
-        target={lockedInfo || hoveredInfo}
-        conflicts={conflictPts}
-        flights={flights}
-        satellites={satellitePts}
-        maritime={maritimePts}
-        cyber={cyberPts}
-        eonetEvents={eonetPts}
-        news={news}
-      />
+
 
       {/* Geodesic Range Ruler & Threat Intercept HUD Panel */}
       <RangeMeasureModal 

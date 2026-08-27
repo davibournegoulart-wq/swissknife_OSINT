@@ -5,7 +5,7 @@ import {
   Plane, ShieldAlert, Crown, X, Crosshair, 
   ArrowUpRight, Radio, ExternalLink, Calendar, 
   MapPin, Compass, Gauge, Sparkles, Navigation, 
-  ChevronLeft, ChevronRight, Activity, Globe, Eye
+  Minus, ChevronLeft, ChevronRight, Activity, Globe, Eye
 } from "lucide-react";
 import { sfx } from "@/utils/sfxEngine";
 
@@ -258,12 +258,22 @@ Telemetry cross-matched against live global incident databases indicates the air
             <span className="text-[9px] text-cyan-600 tracking-widest hidden sm:inline">
               USE [◀] [▶] OR [A]/[D] TO SWIPE // [ESC] TO CLOSE
             </span>
-            <button 
-              onClick={onClose}
-              className="p-1 border border-cyan-900/80 hover:border-amber-400 hover:text-amber-400 text-cyan-500 transition-colors cursor-pointer"
-            >
-              <X className="w-4 h-4" />
-            </button>
+            <div className="flex gap-2">
+              <button 
+                onClick={onClose}
+                title="Minimize to Telemetry HUD"
+                className="p-1 border border-cyan-900/80 hover:border-amber-400 hover:bg-amber-950/40 hover:text-amber-400 text-cyan-500 transition-colors cursor-pointer"
+              >
+                <Minus className="w-4 h-4" />
+              </button>
+              <button 
+                onClick={onClose}
+                title="Close Dossier"
+                className="p-1 border border-cyan-900/80 hover:border-red-400 hover:bg-red-950/40 hover:text-red-400 text-cyan-500 transition-colors cursor-pointer"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
 
@@ -385,7 +395,7 @@ Telemetry cross-matched against live global incident databases indicates the air
             disabled={intelCards.length <= 1}
             className="flex items-center gap-1 px-3 py-1 bg-cyan-950/50 hover:bg-cyan-900 border border-cyan-800 hover:border-cyan-400 text-cyan-300 disabled:opacity-30 text-[10px] tracking-widest transition-all cursor-pointer"
           >
-            <ChevronLeft className="w-3.5 h-3.5" /> PREV [A/◀]
+            <Minus, ChevronLeft className="w-3.5 h-3.5" /> PREV [A/◀]
           </button>
 
           {/* Dots Indicator */}

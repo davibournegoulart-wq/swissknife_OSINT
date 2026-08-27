@@ -444,6 +444,37 @@ export default function GlobeMonitor() {
 
   const [autoRotate, setAutoRotate] = useState(true);
 
+  const flightPath = useMemo(() => {
+    if (!lockedInfo || lockedInfo.type !== "flight") return [];
+    
+    const speedKmh = (lockedInfo.velocity || 250) * 3.6;
+    const headingRad = ((lockedInfo.track || 0) * Math.PI) / 180;
+    const reverseHeadingRad = headingRad + Math.PI;
+    
+    const points = [];
+    const numSegments = 20;
+    const trailDistanceKm = speedKmh * 1.5; // 1.5 hours of trail
+    
+    for (let i = 0; i <= numSegments; i++) {
+      const dKm = (trailDistanceKm * i) / numSegments;
+      const deltaLat = (dKm * Math.cos(reverseHeadingRad)) / 111.32;
+      const deltaLng = (dKm * Math.sin(reverseHeadingRad)) / (111.32 * Math.cos((lockedInfo.lat * Math.PI) / 180) || 1);
+      
+      points.push([
+        lockedInfo.lat + deltaLat,
+        ((lockedInfo.lng + deltaLng + 180) % 360) - 180,
+        lockedInfo.altitude ? (lockedInfo.altitude / 150000) : 0.05 // Normalize altitude
+      ]);
+    }
+    
+    return [{
+      path: points.reverse(),
+      name: lockedInfo.callsign + " Flight Path",
+      color: lockedInfo.color || "#00ff88",
+      type: "flight_route"
+    }];
+  }, [lockedInfo]);
+
   const focusTarget = (pt: any) => {
     if (!pt) return;
     sfx.playTargetLock();
@@ -628,7 +659,8 @@ export default function GlobeMonitor() {
             // Paths (Satellite Orbit Trajectories + Military MGRS Graticule & FIR Sectors)
             pathsData={[
               ...(layers.satellites ? satelliteOrbitPaths : []),
-              ...graticulePaths
+              ...graticulePaths,
+              ...flightPath
             ]}
             pathPoints="coords"
             pathColor="color"
@@ -1131,6 +1163,18 @@ export default function GlobeMonitor() {
                         type="text" 
                         value={flightSearch}
                         onChange={(e) => setFlightSearch(e.target.value)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Enter" && flightSearch.trim()) {
+                            const term = flightSearch.toLowerCase();
+                            const match = flightPts.find(f => f.callsign.toLowerCase().includes(term) || (f.aircraftType && f.aircraftType.toLowerCase().includes(term)));
+                            if (match) {
+                              focusTarget(match);
+                              setIsFlightDossierOpen(true);
+                            } else {
+                              sfx.playError();
+                            }
+                          }
+                        }}
                         placeholder="SEARCH CALLSIGN / UNIT..."
                         className="w-full bg-[#030610] border border-cyan-700/60 pl-5 pr-4 py-1 text-[8px] text-cyan-200 placeholder:text-cyan-800 focus:outline-none focus:border-cyan-400 font-mono uppercase"
                       />

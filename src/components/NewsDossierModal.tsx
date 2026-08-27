@@ -193,7 +193,7 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
   const targetType = target.aircraftType || target.catId || target.type?.toUpperCase() || "INTEL EVENT";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200 select-none">
+    <div className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200 select-none">
       {/* Background click dismiss */}
       <div className="absolute inset-0" onClick={onClose} />
 

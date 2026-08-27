@@ -83,7 +83,7 @@ export default function TimeScrubber({
   };
 
   return (
-    <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-3xl bg-[#02050e]/95 border border-cyan-500/80 shadow-[0_0_35px_rgba(0,243,255,0.2)] font-mono text-cyan-200 backdrop-blur-md animate-in slide-in-from-bottom-4 duration-200">
+    <div className="absolute bottom-24 left-1/2 -translate-x-1/2 z-40 w-[92%] max-w-3xl bg-[#02050e]/95 border border-cyan-500/80 shadow-[0_0_35px_rgba(0,243,255,0.2)] font-mono text-cyan-200 backdrop-blur-md animate-in slide-in-from-bottom-4 duration-200">
       
       {/* Header Bar */}
       <div className="flex items-center justify-between p-2 bg-[#03091a] border-b border-cyan-900/80 text-[10px]">

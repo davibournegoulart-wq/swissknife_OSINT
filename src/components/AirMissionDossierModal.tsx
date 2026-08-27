@@ -218,7 +218,7 @@ Telemetry cross-matched against live global incident databases indicates the air
   const accentColor = isMil ? "#ff003c" : isVip ? "#ffd700" : "#00ff88";
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200 select-none font-mono text-cyan-300">
+    <div className="absolute inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200 select-none font-mono text-cyan-300">
       {/* Background click dismiss */}
       <div className="absolute inset-0" onClick={onClose} />
 

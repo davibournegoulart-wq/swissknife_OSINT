@@ -30,7 +30,7 @@ export default function RangeMeasureModal({
   if (!measurement && !threatRingsEnabled) return null;
 
   return (
-    <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 w-[95%] max-w-2xl bg-[#02050e]/95 border border-amber-500/80 shadow-[0_0_30px_rgba(245,158,11,0.25)] font-mono text-amber-200 backdrop-blur-md animate-in slide-in-from-bottom-5 duration-200">
+    <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-40 w-[95%] max-w-2xl bg-[#02050e]/95 border border-amber-500/80 shadow-[0_0_30px_rgba(245,158,11,0.25)] font-mono text-amber-200 backdrop-blur-md animate-in slide-in-from-bottom-5 duration-200">
       
       {/* Header Bar */}
       <div className="flex items-center justify-between p-2.5 bg-[#080500] border-b border-amber-900/60 text-[10px]">

@@ -269,22 +269,7 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
                 {currentArticle.title}
               </h2>
 
-              {/* Embedded Video Feed (if video card) */}
-              {currentArticle.videoUrl && (
-                <div className="relative aspect-video w-full bg-black border border-cyan-500/60 rounded-xs overflow-hidden shadow-[0_0_25px_rgba(0,243,255,0.25)] my-1">
-                  <iframe 
-                    src={currentArticle.videoUrl}
-                    title="Live Tactical Video Stream"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    className="w-full h-full border-0"
-                  />
-                  <div className="absolute top-2 left-2 flex items-center gap-1.5 bg-black/85 border border-[#ff003c] px-2 py-0.5 pointer-events-none">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#ff003c] animate-ping" />
-                    <span className="text-[8px] text-[#ff003c] font-mono tracking-widest font-bold">LIVE BROADCAST INTERCEPT</span>
-                  </div>
-                </div>
-              )}
+              
 
               {/* RAG Synthesized Summary */}
               <div className="bg-[#02050e]/90 border border-cyan-900/80 p-3.5 rounded-xs text-[11px] text-cyan-200/90 leading-relaxed font-sans relative">
@@ -303,7 +288,7 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500 text-amber-400 hover:text-amber-300 text-[10px] tracking-widest font-bold transition-all group"
                   >
-                    <span>&gt;&gt;&gt; {currentArticle.videoUrl ? "WATCH LIVE VIDEO BROADCAST" : "ACCESS FULL DISPATCH"}</span>
+                    <span>&gt;&gt;&gt; ACCESS FULL DISPATCH</span>
                     <ExternalLink className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </a>
 

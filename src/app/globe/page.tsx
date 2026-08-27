@@ -1033,13 +1033,6 @@ export default function GlobeMonitor() {
 
 
 
-            {/* Direct Launch Public Global Cameras Matrix Modal */}
-            <button 
-              onClick={() => { sfx.playClick(); setIsCamerasModalOpen(true); }}
-              className="w-full py-1.5 bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-500/80 hover:border-emerald-300 text-emerald-300 hover:text-white text-[8px] font-bold tracking-widest flex items-center justify-center gap-1.5 transition-all shadow-[0_0_12px_rgba(0,255,136,0.25)] cursor-pointer shrink-0"
-            >
-              <Camera className="w-3 h-3 text-emerald-400" /> PUBLIC GLOBAL CAMERAS ({PUBLIC_CAMERAS.length})
-            </button>
 
             {/* Layer Toggles */}
             <div className="bg-[#020205]/80 border border-cyan-900/50 p-3 flex flex-col gap-2 backdrop-blur-sm flex-1 overflow-y-auto custom-scrollbar">
@@ -1050,11 +1043,6 @@ export default function GlobeMonitor() {
                 <span className="text-cyan-400">[{globeTheme.toUpperCase()}]</span>
               </button>
 
-              {/* Public Global Cameras Layer Toggle */}
-              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, cameras: !l.cameras })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.cameras ? "border-[#00ff88] text-[#00ff88]" : "border-cyan-900/30 text-cyan-900"}`}>
-                <span className="flex items-center gap-1"><Camera className="w-3 h-3 text-[#00ff88]" /> GLOBAL PUBLIC CAMERAS</span>
-                <span>[{PUBLIC_CAMERAS.length}]</span>
-              </button>
 
               <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, news: !l.news })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.news ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>INTEL STREAMS</span>

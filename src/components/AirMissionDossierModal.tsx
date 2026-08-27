@@ -106,22 +106,22 @@ export default function AirMissionDossierModal({
         : `ROUTINE CORRIDOR: Operating on upper airway cruise profile at optimal fuel burn. ADS-B transponder telemetry nominal with ground radar handoffs verified.`;
     }
 
-    let aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/c/c5/Boeing_787-9_Dreamliner.jpg";
+    let aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Boeing_787_N1015B_ANA_Airlines_%2827611880663%29_%28cropped%29.jpg/1280px-Boeing_787_N1015B_ANA_Airlines_%2827611880663%29_%28cropped%29.jpg";
     let aircraftDescription = "A wide-body, twin-engine jet airliner designed for long-haul commercial flights, featuring composite materials and high fuel efficiency.";
     if (aircraftModel.includes("Global Hawk")) {
-        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/4/47/RQ-4_Global_Hawk_taxiing.jpg";
+        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Global_Hawk_1.jpg/1280px-Global_Hawk_1.jpg";
         aircraftDescription = "High-altitude, long-endurance, remotely piloted unmanned aircraft system (UAS) providing global all-weather, day or night intelligence, surveillance, and reconnaissance (ISR) capability.";
     } else if (aircraftModel.includes("Rivet Joint")) {
-        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/9/91/USAF_RC-135W_Rivet_Joint.jpg";
+        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/RC-135_Rivet_Joint_in_flight.jpg/1280px-RC-135_Rivet_Joint_in_flight.jpg";
         aircraftDescription = "Reconnaissance aircraft equipped with advanced sensor suites to track, intercept, and decrypt electronic emissions, radar signals, and communications from adversaries.";
     } else if (aircraftModel.includes("Poseidon")) {
-        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/d/da/Boeing_P-8A_Poseidon_in_flight.jpg";
+        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/3/3f/US_Navy_P-8_Poseidon_taking_off_at_Perth_Airport.jpg";
         aircraftDescription = "Multi-mission maritime patrol aircraft armed with torpedoes and Harpoon anti-ship missiles, specializing in anti-submarine warfare (ASW) and shipping interdiction.";
     } else if (aircraftModel.includes("AWACS") || aircraftModel.includes("Sentry")) {
-        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/9/90/E-3_Sentry_AWACS.jpg";
+        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/c/c5/E-3_Sentry_Airborne_Warning_and_Control_System_%28AWACS%29_conducts_a_mission.jpg";
         aircraftDescription = "Airborne warning and control system (AWACS) providing all-weather surveillance, command, control, and communications to tactical and air defense forces.";
     } else if (aircraftModel.includes("Gulfstream") || aircraftModel.includes("Bombardier")) {
-        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/0/05/Gulfstream_G650ER.jpg";
+        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/2010-07-08_BD700_Tyrolean_OE-IGS_EDDF_03.jpg/1280px-2010-07-08_BD700_Tyrolean_OE-IGS_EDDF_03.jpg";
         aircraftDescription = "Ultra long-range business jet utilized by high-net-worth individuals, corporations, and government agencies for rapid, secure, VIP executive transport.";
     }
 
@@ -243,7 +243,7 @@ Telemetry cross-matched against live global incident databases indicates the air
       <div className="absolute inset-0" onClick={onClose} />
 
       {/* Main Flight Dossier Container */}
-      <div className="relative z-10 w-full max-w-3xl bg-[#02050e]/95 border-2 rounded-xs overflow-hidden flex flex-col shadow-[0_0_50px_rgba(0,255,136,0.25)]" style={{ borderColor: accentColor }}>
+      <div className="relative z-10 w-full max-w-3xl bg-[#02050e]/95 border-2 rounded-xs overflow-hidden flex flex-col shadow-[0_0_50px_rgba(0,255,136,0.25)] max-h-[calc(100vh-2rem)]" style={{ borderColor: accentColor }}>
         
         {/* Top Header */}
         <div className="bg-[#040b18] border-b border-cyan-900/60 p-3 flex items-center justify-between">
@@ -294,7 +294,7 @@ Telemetry cross-matched against live global incident databases indicates the air
         </div>
 
         {/* 3D Perspective Card Viewport */}
-        <div className="relative p-5 sm:p-6 min-h-[340px] flex flex-col justify-between overflow-hidden" style={{ perspective: "1000px" }}>
+        <div className="relative p-5 sm:p-6 min-h-[340px] flex flex-col justify-between overflow-x-hidden overflow-y-auto custom-scrollbar" style={{ perspective: "1000px" }}>
           
           {currentCard && (
             <div 

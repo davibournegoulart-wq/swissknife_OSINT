@@ -181,7 +181,7 @@ Direct high-speed X-Band / Ka-Band microwave downlink transmitting real-time enc
       <div className="absolute inset-0" onClick={onClose} />
 
       {/* Main Satellite Dossier Container */}
-      <div className="relative z-10 w-full max-w-3xl bg-[#02050e]/95 border-2 rounded-xs overflow-hidden flex flex-col shadow-[0_0_50px_rgba(0,243,255,0.3)]" style={{ borderColor: accentColor }}>
+      <div className="relative z-10 w-full max-w-3xl bg-[#02050e]/95 border-2 rounded-xs overflow-hidden flex flex-col shadow-[0_0_50px_rgba(0,243,255,0.3)] max-h-[calc(100vh-2rem)]" style={{ borderColor: accentColor }}>
         
         {/* Top Header */}
         <div className="bg-[#040b18] border-b border-cyan-900/60 p-3 flex items-center justify-between">
@@ -221,7 +221,7 @@ Direct high-speed X-Band / Ka-Band microwave downlink transmitting real-time enc
         </div>
 
         {/* 3D Perspective Card Viewport */}
-        <div className="relative p-5 sm:p-6 min-h-[340px] flex flex-col justify-between overflow-hidden" style={{ perspective: "1000px" }}>
+        <div className="relative p-5 sm:p-6 min-h-[340px] flex flex-col justify-between overflow-x-hidden overflow-y-auto custom-scrollbar" style={{ perspective: "1000px" }}>
           
           {currentCard && (
             <div 

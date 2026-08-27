@@ -7,6 +7,7 @@ import {
   MapPin, Compass, Gauge, Sparkles, Navigation, 
   ChevronLeft, ChevronRight, Activity, Globe, Eye
 } from "lucide-react";
+import { sfx } from "@/utils/sfxEngine";
 
 interface AirMissionDossierProps {
   isOpen: boolean;
@@ -164,6 +165,7 @@ Telemetry cross-matched against live global incident databases indicates the air
 
   const handleNext = useCallback(() => {
     if (intelCards.length <= 1) return;
+    sfx.playCardFlip();
     setDirection("next");
     setIsAnimating(true);
     setCurrentSlide((prev) => (prev + 1) % intelCards.length);
@@ -172,6 +174,7 @@ Telemetry cross-matched against live global incident databases indicates the air
 
   const handlePrev = useCallback(() => {
     if (intelCards.length <= 1) return;
+    sfx.playCardFlip();
     setDirection("prev");
     setIsAnimating(true);
     setCurrentSlide((prev) => (prev - 1 + intelCards.length) % intelCards.length);

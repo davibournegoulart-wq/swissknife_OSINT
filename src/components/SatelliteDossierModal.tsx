@@ -7,6 +7,7 @@ import {
   ChevronLeft, ChevronRight, Activity, Sparkles, Eye, ShieldAlert, Cpu
 } from "lucide-react";
 import { SatelliteDef } from "@/data/satellites";
+import { sfx } from "@/utils/sfxEngine";
 
 interface SatelliteDossierProps {
   isOpen: boolean;
@@ -105,6 +106,7 @@ Direct high-speed X-Band / Ka-Band microwave downlink transmitting real-time enc
 
   const handleNext = useCallback(() => {
     if (intelCards.length <= 1) return;
+    sfx.playCardFlip();
     setDirection("next");
     setIsAnimating(true);
     setCurrentSlide((prev) => (prev + 1) % intelCards.length);
@@ -113,6 +115,7 @@ Direct high-speed X-Band / Ka-Band microwave downlink transmitting real-time enc
 
   const handlePrev = useCallback(() => {
     if (intelCards.length <= 1) return;
+    sfx.playCardFlip();
     setDirection("prev");
     setIsAnimating(true);
     setCurrentSlide((prev) => (prev - 1 + intelCards.length) % intelCards.length);

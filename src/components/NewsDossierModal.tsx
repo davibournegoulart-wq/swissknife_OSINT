@@ -6,6 +6,7 @@ import {
   Radio, Sparkles, Newspaper, Calendar, Globe, Navigation, 
   Cpu, Terminal, ArrowRight, CornerDownRight
 } from "lucide-react";
+import { sfx } from "@/utils/sfxEngine";
 
 export interface DossierArticle {
   title: string;
@@ -134,6 +135,7 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
 
   const handleNext = useCallback(() => {
     if (relatedArticles.length <= 1) return;
+    sfx.playCardFlip();
     setDirection("next");
     setIsAnimating(true);
     setCurrentIndex((prev) => (prev + 1) % relatedArticles.length);
@@ -142,6 +144,7 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
 
   const handlePrev = useCallback(() => {
     if (relatedArticles.length <= 1) return;
+    sfx.playCardFlip();
     setDirection("prev");
     setIsAnimating(true);
     setCurrentIndex((prev) => (prev - 1 + relatedArticles.length) % relatedArticles.length);

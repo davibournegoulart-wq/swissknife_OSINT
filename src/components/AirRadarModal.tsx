@@ -5,6 +5,7 @@ import {
   Plane, ShieldAlert, Crown, Search, X, Crosshair, 
   ArrowUpRight, Radio, SlidersHorizontal, Navigation, Compass, Gauge
 } from "lucide-react";
+import { sfx } from "@/utils/sfxEngine";
 
 export interface FlightItem {
   callsign: string;
@@ -132,7 +133,7 @@ export default function AirRadarModal({
           {/* Quick Category Buttons */}
           <div className="flex items-center gap-1">
             <button 
-              onClick={() => setActiveFilter("all")}
+              onClick={() => { sfx.playClick(); setActiveFilter("all"); }}
               className={`px-2.5 py-1.5 border font-bold tracking-wider transition-all cursor-pointer ${
                 activeFilter === "all" ? "border-cyan-400 bg-cyan-950 text-cyan-200 shadow-[0_0_10px_rgba(0,243,255,0.3)]" : "border-cyan-900/50 text-cyan-700 hover:text-cyan-400"
               }`}
@@ -140,7 +141,7 @@ export default function AirRadarModal({
               ALL ({flights.length})
             </button>
             <button 
-              onClick={() => setActiveFilter("military")}
+              onClick={() => { sfx.playClick(); setActiveFilter("military"); }}
               className={`px-2.5 py-1.5 border font-bold tracking-wider flex items-center gap-1 transition-all cursor-pointer ${
                 activeFilter === "military" ? "border-[#ff003c] bg-[#ff003c]/25 text-[#ff003c] shadow-[0_0_12px_rgba(255,0,60,0.4)]" : "border-cyan-900/50 text-cyan-700 hover:text-[#ff003c]"
               }`}
@@ -148,7 +149,7 @@ export default function AirRadarModal({
               <ShieldAlert className="w-3 h-3" /> MILITARY ({milCount})
             </button>
             <button 
-              onClick={() => setActiveFilter("vip")}
+              onClick={() => { sfx.playClick(); setActiveFilter("vip"); }}
               className={`px-2.5 py-1.5 border font-bold tracking-wider flex items-center gap-1 transition-all cursor-pointer ${
                 activeFilter === "vip" ? "border-[#ffd700] bg-[#ffd700]/25 text-[#ffd700] shadow-[0_0_12px_rgba(255,215,0,0.4)]" : "border-cyan-900/50 text-cyan-700 hover:text-[#ffd700]"
               }`}
@@ -156,7 +157,7 @@ export default function AirRadarModal({
               <Crown className="w-3 h-3" /> VIP ({vipCount})
             </button>
             <button 
-              onClick={() => setActiveFilter("commercial")}
+              onClick={() => { sfx.playClick(); setActiveFilter("commercial"); }}
               className={`px-2.5 py-1.5 border font-bold tracking-wider transition-all cursor-pointer ${
                 activeFilter === "commercial" ? "border-[#00ff88] bg-[#00ff88]/25 text-[#00ff88] shadow-[0_0_10px_rgba(0,255,136,0.3)]" : "border-cyan-900/50 text-cyan-700 hover:text-[#00ff88]"
               }`}
@@ -171,25 +172,25 @@ export default function AirRadarModal({
           <div className="flex items-center gap-2">
             <span>ALTITUDE:</span>
             <button 
-              onClick={() => setAltitudeFilter("all")} 
+              onClick={() => { sfx.playClick(); setAltitudeFilter("all"); }} 
               className={`px-1.5 py-0.5 border ${altitudeFilter === "all" ? "border-cyan-400 text-cyan-200 bg-cyan-950" : "border-transparent hover:border-cyan-900"}`}
             >
               ALL
             </button>
             <button 
-              onClick={() => setAltitudeFilter("low")} 
+              onClick={() => { sfx.playClick(); setAltitudeFilter("low"); }} 
               className={`px-1.5 py-0.5 border ${altitudeFilter === "low" ? "border-cyan-400 text-cyan-200 bg-cyan-950" : "border-transparent hover:border-cyan-900"}`}
             >
               LOW (&lt;4,000m)
             </button>
             <button 
-              onClick={() => setAltitudeFilter("mid")} 
+              onClick={() => { sfx.playClick(); setAltitudeFilter("mid"); }} 
               className={`px-1.5 py-0.5 border ${altitudeFilter === "mid" ? "border-cyan-400 text-cyan-200 bg-cyan-950" : "border-transparent hover:border-cyan-900"}`}
             >
               CRUISE (4k-10km)
             </button>
             <button 
-              onClick={() => setAltitudeFilter("high")} 
+              onClick={() => { sfx.playClick(); setAltitudeFilter("high"); }} 
               className={`px-1.5 py-0.5 border ${altitudeFilter === "high" ? "border-cyan-400 text-cyan-200 bg-cyan-950" : "border-transparent hover:border-cyan-900"}`}
             >
               HIGH RECON (&gt;10,000m)
@@ -199,19 +200,19 @@ export default function AirRadarModal({
           <div className="flex items-center gap-2">
             <span>SORT:</span>
             <button 
-              onClick={() => setSelectedSort("altitude")} 
+              onClick={() => { sfx.playClick(); setSelectedSort("altitude"); }} 
               className={`px-1.5 py-0.5 border ${selectedSort === "altitude" ? "border-amber-400 text-amber-300 bg-amber-950/40" : "border-transparent hover:border-cyan-900"}`}
             >
               ALTITUDE ▼
             </button>
             <button 
-              onClick={() => setSelectedSort("velocity")} 
+              onClick={() => { sfx.playClick(); setSelectedSort("velocity"); }} 
               className={`px-1.5 py-0.5 border ${selectedSort === "velocity" ? "border-amber-400 text-amber-300 bg-amber-950/40" : "border-transparent hover:border-cyan-900"}`}
             >
               SPEED ▼
             </button>
             <button 
-              onClick={() => setSelectedSort("callsign")} 
+              onClick={() => { sfx.playClick(); setSelectedSort("callsign"); }} 
               className={`px-1.5 py-0.5 border ${selectedSort === "callsign" ? "border-amber-400 text-amber-300 bg-amber-950/40" : "border-transparent hover:border-cyan-900"}`}
             >
               CALLSIGN
@@ -232,6 +233,7 @@ export default function AirRadarModal({
                   <div 
                     key={`${flight.callsign}-${idx}`}
                     onClick={() => {
+                      sfx.playTargetLock();
                       onSelectFlight(flight);
                       onClose();
                     }}

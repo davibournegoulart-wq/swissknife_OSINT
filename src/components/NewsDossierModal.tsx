@@ -198,7 +198,7 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
       <div className="absolute inset-0" onClick={onClose} />
 
       {/* Hologram 3D Perspective Modal Container */}
-      <div className="relative z-10 w-full max-w-2xl bg-[#040812]/95 border-2 border-cyan-500/60 shadow-[0_0_50px_rgba(0,243,255,0.25)] rounded-sm overflow-hidden flex flex-col font-mono text-cyan-300">
+      <div className="relative z-10 w-full max-w-2xl bg-[#040812]/95 border-2 border-cyan-500/60 shadow-[0_0_50px_rgba(0,243,255,0.25)] rounded-sm overflow-hidden flex flex-col font-mono text-cyan-300 max-h-full">
         
         {/* Top Cyberpunk Scanner Header */}
         <div className="bg-[#02050c] border-b border-cyan-500/40 p-3 flex items-center justify-between">
@@ -236,7 +236,7 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
         </div>
 
         {/* 3D Holographic Card Viewport */}
-        <div className="relative p-6 min-h-[300px] flex flex-col justify-between overflow-hidden" style={{ perspective: "1000px" }}>
+        <div className="relative p-6 min-h-[300px] flex flex-col justify-between overflow-y-auto custom-scrollbar flex-1" style={{ perspective: "1000px" }}>
           
           {currentArticle ? (
             <div 

@@ -80,7 +80,7 @@ export default function PublicCamerasModal({
       <div className="absolute inset-0" onClick={onClose} />
 
       {/* Main Command Console Container */}
-      <div className="relative z-10 w-full max-w-6xl h-[92vh] bg-[#02050e]/95 border-2 border-cyan-500/70 shadow-[0_0_60px_rgba(0,243,255,0.25)] rounded-sm flex flex-col overflow-hidden">
+      <div className="relative z-10 w-full max-w-6xl h-full bg-[#02050e]/95 border-2 border-cyan-500/70 shadow-[0_0_60px_rgba(0,243,255,0.25)] rounded-sm flex flex-col overflow-hidden">
         
         {/* Header Bar */}
         <div className="bg-[#020714] border-b border-cyan-500/40 px-4 py-2.5 flex items-center justify-between shrink-0">

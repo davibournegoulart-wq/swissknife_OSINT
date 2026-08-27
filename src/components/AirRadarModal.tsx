@@ -85,7 +85,7 @@ export default function AirRadarModal({
       <div className="absolute inset-0" onClick={onClose} />
 
       {/* Main Tactical Radar Console */}
-      <div className="relative z-10 w-full max-w-4xl max-h-[85vh] bg-[#02050e]/95 border-2 border-cyan-500/70 shadow-[0_0_50px_rgba(0,243,255,0.3)] rounded-xs overflow-hidden flex flex-col">
+      <div className="relative z-10 w-full max-w-4xl max-h-full bg-[#02050e]/95 border-2 border-cyan-500/70 shadow-[0_0_50px_rgba(0,243,255,0.3)] rounded-xs overflow-hidden flex flex-col">
         
         {/* Top Header */}
         <div className="bg-[#040b18] border-b border-cyan-500/50 p-3 flex items-center justify-between">

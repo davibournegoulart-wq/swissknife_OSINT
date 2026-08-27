@@ -243,7 +243,7 @@ Telemetry cross-matched against live global incident databases indicates the air
       <div className="absolute inset-0" onClick={onClose} />
 
       {/* Main Flight Dossier Container */}
-      <div className="relative z-10 w-full max-w-3xl bg-[#02050e]/95 border-2 rounded-xs overflow-hidden flex flex-col shadow-[0_0_50px_rgba(0,255,136,0.25)] max-h-[calc(100vh-2rem)]" style={{ borderColor: accentColor }}>
+      <div className="relative z-10 w-full max-w-3xl bg-[#02050e]/95 border-2 rounded-xs overflow-hidden flex flex-col shadow-[0_0_50px_rgba(0,255,136,0.25)] max-h-full" style={{ borderColor: accentColor }}>
         
         {/* Top Header */}
         <div className="bg-[#040b18] border-b border-cyan-900/60 p-3 flex items-center justify-between">

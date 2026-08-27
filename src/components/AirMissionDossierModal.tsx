@@ -395,7 +395,7 @@ Telemetry cross-matched against live global incident databases indicates the air
             disabled={intelCards.length <= 1}
             className="flex items-center gap-1 px-3 py-1 bg-cyan-950/50 hover:bg-cyan-900 border border-cyan-800 hover:border-cyan-400 text-cyan-300 disabled:opacity-30 text-[10px] tracking-widest transition-all cursor-pointer"
           >
-            <Minus, ChevronLeft className="w-3.5 h-3.5" /> PREV [A/◀]
+            <ChevronLeft className="w-3.5 h-3.5" /> PREV [A/◀]
           </button>
 
           {/* Dots Indicator */}

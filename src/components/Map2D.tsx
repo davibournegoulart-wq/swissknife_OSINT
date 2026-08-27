@@ -127,6 +127,21 @@ function createTacticalIcon(pt: any, isSelected: boolean) {
         </svg>
       </div>
     `;
+  } else if (type === "satellite") {
+    html = `
+      <div class="relative flex items-center justify-center ${isSelected ? 'scale-125' : ''}">
+        <div class="absolute w-10 h-10 border border-dashed border-cyan-400/60 rounded-full animate-ping"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32" class="drop-shadow-[0_0_15px_rgba(0,243,255,1)]">
+          <rect x="12" y="12" width="8" height="8" fill="#020817" stroke="${pt.color || '#00f3ff'}" stroke-width="1.8" rx="1.5"/>
+          <circle cx="16" cy="16" r="2" fill="${pt.color || '#00f3ff'}"/>
+          <rect x="2" y="13" width="8" height="6" fill="rgba(0,243,255,0.25)" stroke="${pt.color || '#00f3ff'}" stroke-width="1.2"/>
+          <rect x="22" y="13" width="8" height="6" fill="rgba(0,243,255,0.25)" stroke="${pt.color || '#00f3ff'}" stroke-width="1.2"/>
+          <line x1="16" y1="12" x2="16" y2="7" stroke="${pt.color || '#00f3ff'}" stroke-width="1.5"/>
+          <path d="M12 7 Q16 4 20 7" fill="none" stroke="${pt.color || '#00f3ff'}" stroke-width="1.5"/>
+          <circle cx="16" cy="5.5" r="1.2" fill="#ffffff"/>
+        </svg>
+      </div>
+    `;
   } else if (cat === "volcanoes") {
     html = `
       <div class="relative flex items-center justify-center ${isSelected ? 'scale-125' : ''}">

@@ -6,7 +6,8 @@ import dynamic from "next/dynamic";
 import { 
   Activity, Radio, Layers, Globe2, MapPin, Map, Crosshair, 
   Terminal, Zap, PocketKnife, Search, Plane, ShieldAlert, 
-  Crown, SlidersHorizontal, Compass, X, Filter, Anchor, Wifi, Sparkles
+  Crown, SlidersHorizontal, Compass, X, Filter, Anchor, Wifi, Sparkles,
+  Satellite as SatelliteIcon
 } from "lucide-react";
 import countryCoords from "@/data/country_coords.json";
 const countriesGeo = require("@/data/countries.json");
@@ -16,9 +17,11 @@ const Map2D = dynamic(() => import("@/components/Map2D"), { ssr: false });
 import NewsDossierModal from "@/components/NewsDossierModal";
 import AirRadarModal from "@/components/AirRadarModal";
 import AirMissionDossierModal from "@/components/AirMissionDossierModal";
+import SatelliteDossierModal from "@/components/SatelliteDossierModal";
+import { SATELLITE_CATALOG, getSatellitePosition, getOrbitPath } from "@/data/satellites";
 
 interface NewsItem { title: string; link: string; pubDate: string; source: string; country: string; accentColor: string; }
-export interface PointData { lat: number; lng: number; size: number; color: string; label: string; type: "news" | "quake" | "conflict" | "flight" | "eonet" | "maritime" | "cyber"; url?: string; desc?: string; [key: string]: any; }
+export interface PointData { lat: number; lng: number; size: number; color: string; label: string; type: "news" | "quake" | "conflict" | "flight" | "eonet" | "maritime" | "cyber" | "satellite"; url?: string; desc?: string; [key: string]: any; }
 
 export default function GlobeMonitor() {
   const globeRef = useRef<any>();
@@ -28,13 +31,14 @@ export default function GlobeMonitor() {
   const [layers, setLayers] = useState({ 
     news: true, quakes: true, borders: true, arcs: true, labels: false, 
     weather: false, storms: true, fires: true, volcanoes: true, 
-    conflicts: true, flights: true, maritime: true, cyber: true 
+    conflicts: true, flights: true, maritime: true, cyber: true,
+    satellites: true
   });
   const [globeTheme, setGlobeTheme] = useState<"tactical" | "satellite">("tactical");
   const [hoveredInfo, setHoveredInfo] = useState<PointData | null>(null);
   const [lockedInfo, setLockedInfo] = useState<PointData | null>(null);
   const [eonetEvents, setEonetEvents] = useState<any[]>([]);
-  const [openCategory, setOpenCategory] = useState<string | null>("TACTICAL AIR PATROLS");
+  const [openCategory, setOpenCategory] = useState<string | null>("ORBITAL RECON (SATELLITES)");
   const [conflicts, setConflicts] = useState<any[]>([]);
   const [maritime, setMaritime] = useState<any[]>([]);
   const [cyber, setCyber] = useState<any[]>([]);
@@ -45,8 +49,11 @@ export default function GlobeMonitor() {
   const [isDossierOpen, setIsDossierOpen] = useState<boolean>(false);
   const [isFlightDossierOpen, setIsFlightDossierOpen] = useState<boolean>(false);
   const [isAirRadarOpen, setIsAirRadarOpen] = useState<boolean>(false);
+  const [isSatDossierOpen, setIsSatDossierOpen] = useState<boolean>(false);
   const [dossierTarget, setDossierTarget] = useState<any>(null);
   const [flightDossierTarget, setFlightDossierTarget] = useState<any>(null);
+  const [satDossierTarget, setSatDossierTarget] = useState<any>(null);
+  const [satTick, setSatTick] = useState<number>(0);
 
   useEffect(() => {
     fetch("/api/news?limit=200").then(r => r.json()).then(d => setNews(d.articles || []));
@@ -103,7 +110,13 @@ export default function GlobeMonitor() {
     ]);
   }, []);
 
-  const { points, arcs, rings, labels, eonetPts, conflictPts, maritimePts, cyberPts, flightPts } = useMemo(() => {
+  // Update satellite orbital telemetry every 1 second
+  useEffect(() => {
+    const iv = setInterval(() => setSatTick(t => t + 1), 1000);
+    return () => clearInterval(iv);
+  }, []);
+
+  const { points, arcs, rings, labels, eonetPts, conflictPts, maritimePts, cyberPts, flightPts, satellitePts, satelliteOrbitPaths } = useMemo(() => {
     const pts: PointData[] = [];
     const arcList: any[] = [];
     const ringList: any[] = [];
@@ -299,6 +312,49 @@ export default function GlobeMonitor() {
       });
     }
 
+    const satellitePtsList: any[] = [];
+    if (layers.satellites) {
+      const now = Date.now();
+      SATELLITE_CATALOG.forEach(sat => {
+        const pos = getSatellitePosition(sat, now);
+        satellitePtsList.push({
+          lat: pos.lat,
+          lng: pos.lng,
+          alt: pos.alt,
+          altitudeKm: pos.altitudeKm,
+          velocityKmS: pos.velocityKmS,
+          size: 1.5,
+          color: sat.color,
+          label: `[ 🛰️ ${sat.name} ]`,
+          title: sat.name,
+          type: "satellite",
+          satDef: sat,
+          operator: sat.operator,
+          payload: sat.payload,
+          resolution: sat.resolution,
+          desc: `OPERATOR: ${sat.operator.toUpperCase()}\nORBIT ALTITUDE: ${sat.altitudeKm} km | SPEED: ${sat.velocityKmS} km/s (${Math.round(sat.velocityKmS * 3600).toLocaleString()} km/h)\nPERIOD: ${sat.periodMin} min | NORAD ID: #${sat.noradId}\nPAYLOAD: ${sat.payload}`
+        });
+
+        // Satellite sensor swath ground footprint
+        ringList.push({
+          lat: pos.lat,
+          lng: pos.lng,
+          color: sat.color,
+          maxR: 6,
+          propagationSpeed: 1.5,
+          repeatPeriod: 1200
+        });
+      });
+    }
+
+    const satelliteOrbitPaths = layers.satellites 
+      ? SATELLITE_CATALOG.map(sat => ({
+          name: sat.name,
+          color: sat.color,
+          coords: getOrbitPath(sat, 80).map(p => [p.lat, p.lng, p.alt])
+        }))
+      : [];
+
     return { 
       points: pts, 
       arcs: arcList, 
@@ -308,9 +364,11 @@ export default function GlobeMonitor() {
       conflictPts: conflictPtsList, 
       maritimePts: maritimePtsList,
       cyberPts: cyberPtsList,
-      flightPts: flightPtsList 
+      flightPts: flightPtsList,
+      satellitePts: satellitePtsList,
+      satelliteOrbitPaths
     };
-  }, [news, quakes, layers, eonetEvents, conflicts, maritime, cyber, flights, flightFilterType, flightSearch]);
+  }, [news, quakes, layers, eonetEvents, conflicts, maritime, cyber, flights, flightFilterType, flightSearch, satTick]);
 
   const [autoRotate, setAutoRotate] = useState(true);
 
@@ -334,6 +392,9 @@ export default function GlobeMonitor() {
     if (pt.type === "flight" || pt.flightType) {
       setFlightDossierTarget(pt);
       setIsFlightDossierOpen(true);
+    } else if (pt.type === "satellite") {
+      setSatDossierTarget(pt);
+      setIsSatDossierOpen(true);
     } else {
       setDossierTarget(pt);
       setIsDossierOpen(true);
@@ -343,14 +404,14 @@ export default function GlobeMonitor() {
   // Keyboard shortcut listener: Press Space to open RAG Dossier on locked target
   useEffect(() => {
     const handleGlobalKey = (e: KeyboardEvent) => {
-      if (e.code === "Space" && !isDossierOpen && !isFlightDossierOpen && !isAirRadarOpen && (lockedInfo || hoveredInfo)) {
+      if (e.code === "Space" && !isDossierOpen && !isFlightDossierOpen && !isAirRadarOpen && !isSatDossierOpen && (lockedInfo || hoveredInfo)) {
         e.preventDefault();
         openDossier(lockedInfo || hoveredInfo);
       }
     };
     window.addEventListener("keydown", handleGlobalKey);
     return () => window.removeEventListener("keydown", handleGlobalKey);
-  }, [lockedInfo, hoveredInfo, isDossierOpen, isFlightDossierOpen, isAirRadarOpen]);
+  }, [lockedInfo, hoveredInfo, isDossierOpen, isFlightDossierOpen, isAirRadarOpen, isSatDossierOpen]);
 
   const configureControls = () => {
     if (globeRef.current) {
@@ -434,6 +495,15 @@ export default function GlobeMonitor() {
             arcDashAnimateTime={2000}
             arcAltitudeAutoScale={0.3}
 
+            // Satellite 3D Orbit Trajectory Ribbons
+            pathsData={layers.satellites ? satelliteOrbitPaths : []}
+            pathPoints="coords"
+            pathColor="color"
+            pathStroke={1.5}
+            pathDashLength={0.3}
+            pathDashGap={0.1}
+            pathDashAnimateTime={3000}
+
             // Nation Labels
             labelsData={layers.labels ? labels : []}
             labelLat="lat"
@@ -446,13 +516,14 @@ export default function GlobeMonitor() {
             labelResolution={2}
             labelAltitude={0.005}
 
-            // EONET Alerts, Conflicts, Maritime, Cyber & Flights
+            // EONET Alerts, Conflicts, Maritime, Cyber, Flights & Satellites
             htmlElementsData={[
               ...(eonetPts || []), 
               ...(conflictPts || []), 
               ...(maritimePts || []),
               ...(cyberPts || []),
-              ...(flightPts || [])
+              ...(flightPts || []),
+              ...(satellitePts || [])
             ]}
             htmlLat="lat"
             htmlLng="lng"
@@ -601,6 +672,33 @@ export default function GlobeMonitor() {
                     </svg>
                   </div>
                 `;
+              } else if (type === "satellite") {
+                innerHTML = `
+                  <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group">
+                    <div class="absolute w-12 h-12 border border-dashed border-cyan-400/50 rounded-full animate-ping pointer-events-none"></div>
+                    <div class="absolute w-6 h-6 bg-cyan-400/10 rounded-full blur-[2px]"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32" class="group-hover:scale-150 transition-all drop-shadow-[0_0_15px_rgba(0,243,255,1)]">
+                      <!-- Central Bus -->
+                      <rect x="12" y="12" width="8" height="8" fill="#020817" stroke="${d.color || '#00f3ff'}" stroke-width="1.8" rx="1.5"/>
+                      <circle cx="16" cy="16" r="2" fill="${d.color || '#00f3ff'}"/>
+                      <!-- Left Solar Array -->
+                      <rect x="2" y="13" width="8" height="6" fill="rgba(0,243,255,0.25)" stroke="${d.color || '#00f3ff'}" stroke-width="1.2"/>
+                      <line x1="5" y1="13" x2="5" y2="19" stroke="${d.color || '#00f3ff'}" stroke-width="0.8"/>
+                      <line x1="8" y1="13" x2="8" y2="19" stroke="${d.color || '#00f3ff'}" stroke-width="0.8"/>
+                      <!-- Right Solar Array -->
+                      <rect x="22" y="13" width="8" height="6" fill="rgba(0,243,255,0.25)" stroke="${d.color || '#00f3ff'}" stroke-width="1.2"/>
+                      <line x1="25" y1="13" x2="25" y2="19" stroke="${d.color || '#00f3ff'}" stroke-width="0.8"/>
+                      <line x1="28" y1="13" x2="28" y2="19" stroke="${d.color || '#00f3ff'}" stroke-width="0.8"/>
+                      <!-- Uplink Antenna Dish -->
+                      <line x1="16" y1="12" x2="16" y2="7" stroke="${d.color || '#00f3ff'}" stroke-width="1.5"/>
+                      <path d="M12 7 Q16 4 20 7" fill="none" stroke="${d.color || '#00f3ff'}" stroke-width="1.5"/>
+                      <circle cx="16" cy="5.5" r="1.2" fill="#ffffff"/>
+                    </svg>
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/95 border border-cyan-400 text-cyan-300 text-[7px] font-mono font-bold px-1.5 py-0.5 rounded-xs pointer-events-none whitespace-nowrap z-50">
+                      ${d.label}
+                    </div>
+                  </div>
+                `;
               } else {
                 innerHTML = `
                   <div class="w-2 h-2 bg-white rounded-full shadow-[0_0_8px_#ffffff] pointer-events-auto cursor-pointer"></div>
@@ -646,7 +744,8 @@ export default function GlobeMonitor() {
               ...(conflictPts || []), 
               ...(maritimePts || []), 
               ...(cyberPts || []), 
-              ...(flightPts || [])
+              ...(flightPts || []),
+              ...(satellitePts || [])
             ]}
             theme={globeTheme}
             target={lockedInfo}
@@ -764,6 +863,12 @@ export default function GlobeMonitor() {
               <button onClick={() => setLayers(l => ({ ...l, volcanoes: !l.volcanoes }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.volcanoes ? "border-[#ff8c00] text-[#ff8c00]" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>VOLCANOES</span>
                 <span>[{layers.volcanoes ? "ON" : "OFF"}]</span>
+              </button>
+
+              {/* Satellites Layer Toggle */}
+              <button onClick={() => setLayers(l => ({ ...l, satellites: !l.satellites }))} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.satellites ? "border-cyan-400 text-cyan-300" : "border-cyan-900/30 text-cyan-900"}`}>
+                <span className="flex items-center gap-1"><SatelliteIcon className="w-3 h-3 text-cyan-400" /> SATELLITES (ORBITAL ISR)</span>
+                <span>[{satellitePts.length}]</span>
               </button>
 
               {/* Flight Radar Master Toggle & Control Suite */}
@@ -889,17 +994,18 @@ export default function GlobeMonitor() {
           </div>
         </div>
 
-        {/* EONET, Conflicts, Maritime, Cyber & Flights Alerts Sidebar (Right) */}
+        {/* EONET, Conflicts, Maritime, Cyber, Flights & Satellites Alerts Sidebar (Right) */}
         <div className="absolute right-8 top-1/2 -translate-y-1/2 w-64 h-[65vh] flex flex-col gap-2 pointer-events-auto">
           <div className="bg-[#020205]/80 border border-cyan-900/50 backdrop-blur-sm p-3 h-full flex flex-col custom-scrollbar overflow-y-auto">
             <div className="text-[10px] text-cyan-500 tracking-[0.3em] font-bold border-b border-cyan-900/50 pb-2 mb-2 flex justify-between items-center sticky top-0 bg-[#020205] z-10">
               <span>GLOBAL ALERTS</span>
               <span className="text-[#ff003c]">
-                {eonetPts.length + conflictPts.length + maritimePts.length + cyberPts.length + flightPts.filter((p: any) => p.flightType === "military").length}
+                {eonetPts.length + conflictPts.length + maritimePts.length + cyberPts.length + satellitePts.length + flightPts.filter((p: any) => p.flightType === "military").length}
               </span>
             </div>
             
             {Object.entries({
+              "ORBITAL RECON (SATELLITES)": satellitePts,
               "TACTICAL AIR PATROLS": flightPts.filter((p: any) => p.flightType === "military"),
               "ARMED CONFLICTS": conflictPts,
               "MARITIME CHOKEPOINTS": maritimePts,
@@ -1070,6 +1176,19 @@ export default function GlobeMonitor() {
           ...(cyberPts || [])
         ]}
         allNews={news as any}
+      />
+
+      {/* 3D Holographic Satellite Recon & Orbital ISR Dossier */}
+      <SatelliteDossierModal 
+        isOpen={isSatDossierOpen}
+        onClose={() => setIsSatDossierOpen(false)}
+        satellite={satDossierTarget || (lockedInfo?.type === "satellite" ? lockedInfo : null)}
+        allEvents={[
+          ...(eonetPts || []),
+          ...(conflictPts || []),
+          ...(maritimePts || []),
+          ...(cyberPts || [])
+        ]}
       />
     </div>
   );

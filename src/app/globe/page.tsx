@@ -911,7 +911,7 @@ export default function GlobeMonitor() {
       <div className="absolute inset-0 pointer-events-none z-40 flex flex-col justify-between p-8">
         
         {/* Header & Left Sidebar */}
-        <div className="flex flex-col gap-4 items-start pointer-events-none h-[calc(100vh-6rem)]">
+        <div className="flex flex-col gap-4 items-start pointer-events-none h-[calc(100vh-6rem)] relative">
           <div className="bg-[#0a0600]/90 p-3 border-l-2 border-amber-500 backdrop-blur-sm pointer-events-auto shrink-0 flex items-center justify-between gap-4 w-64">
             <div className="flex items-center gap-2.5">
               <div className="relative w-9 h-9 flex items-center justify-center bg-amber-950/40 border border-amber-500/50 shrink-0" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }}>
@@ -1173,45 +1173,47 @@ export default function GlobeMonitor() {
               </div>
             </div>
 
-            {/* Target Telemetry (Embedded in Left Sidebar in Deus Ex Amber styling) */}
-            <div className="bg-[#0a0600]/95 border border-amber-500/50 p-3 h-44 flex flex-col shrink-0">
-              <div className="text-[9px] text-amber-500 tracking-[0.3em] font-bold border-b border-amber-900/60 pb-1 mb-1.5 flex justify-between items-center">
-                <span>TARGET_TELEMETRY</span>
-                <span className="text-[8px] text-amber-400 font-mono">
-                  {lockedInfo ? "[LOCKED]" : hoveredInfo ? "[TRACKING]" : "[IDLE]"}
-                </span>
-              </div>
 
-              {(lockedInfo || hoveredInfo) ? (
-                <div className="flex-1 flex flex-col justify-between font-mono text-[9px]">
-                  <div>
-                    <div className="font-bold tracking-wider truncate" style={{ color: (lockedInfo || hoveredInfo)?.color }}>
-                      {(lockedInfo || hoveredInfo)?.label}
-                    </div>
-                    <div className="text-amber-400/80 text-[8px] mt-0.5 line-clamp-2">
-                      {(lockedInfo || hoveredInfo)?.desc}
-                    </div>
-                  </div>
-                  <div className="text-amber-700 text-[8px] flex justify-between border-t border-amber-950/80 pt-1 mt-1">
-                    <span>LAT: {(lockedInfo || hoveredInfo)?.lat.toFixed(4)}</span>
-                    <span>LNG: {(lockedInfo || hoveredInfo)?.lng.toFixed(4)}</span>
-                  </div>
-                  
-                  {/* Button to Open RAG Dossier */}
-                  <button 
-                    onClick={() => openDossier(lockedInfo || hoveredInfo)}
-                    className="w-full mt-1.5 py-1 bg-amber-950/60 hover:bg-amber-900/80 border border-amber-500 text-amber-300 text-[8px] font-bold tracking-widest flex items-center justify-center gap-1.5 transition-all shadow-[0_0_10px_rgba(245,158,11,0.25)] cursor-pointer"
-                  >
-                    <Sparkles className="w-2.5 h-2.5 text-amber-400" /> OPEN RAG INTEL DOSSIER (3D)
-                  </button>
-                </div>
-              ) : (
-                <div className="flex-1 flex items-center justify-center text-[9px] text-amber-900/60 tracking-widest text-center">
-                  AWAITING TARGET LOCK...<br/>(CLICK ANY EVENT TO INTERCEPT)
-                </div>
-              )}
+
+          </div>
+
+          {/* Target Telemetry (Floating right beside the 3D globe option) */}
+          <div className="absolute top-[4.75rem] left-[17rem] w-64 bg-[#0a0600]/95 border border-amber-500/50 p-3 h-44 flex flex-col shrink-0 pointer-events-auto shadow-[0_0_20px_rgba(245,158,11,0.15)]">
+            <div className="text-[9px] text-amber-500 tracking-[0.3em] font-bold border-b border-amber-900/60 pb-1 mb-1.5 flex justify-between items-center">
+              <span>TARGET_TELEMETRY</span>
+              <span className="text-[8px] text-amber-400 font-mono">
+                {lockedInfo ? "[LOCKED]" : hoveredInfo ? "[TRACKING]" : "[IDLE]"}
+              </span>
             </div>
 
+            {(lockedInfo || hoveredInfo) ? (
+              <div className="flex-1 flex flex-col justify-between font-mono text-[9px]">
+                <div>
+                  <div className="font-bold tracking-wider truncate" style={{ color: (lockedInfo || hoveredInfo)?.color }}>
+                    {(lockedInfo || hoveredInfo)?.label}
+                  </div>
+                  <div className="text-amber-400/80 text-[8px] mt-0.5 line-clamp-2">
+                    {(lockedInfo || hoveredInfo)?.desc}
+                  </div>
+                </div>
+                <div className="text-amber-700 text-[8px] flex justify-between border-t border-amber-950/80 pt-1 mt-1">
+                  <span>LAT: {(lockedInfo || hoveredInfo)?.lat.toFixed(4)}</span>
+                  <span>LNG: {(lockedInfo || hoveredInfo)?.lng.toFixed(4)}</span>
+                </div>
+                
+                {/* Button to Open RAG Dossier */}
+                <button 
+                  onClick={() => openDossier(lockedInfo || hoveredInfo)}
+                  className="w-full mt-1.5 py-1 bg-amber-950/60 hover:bg-amber-900/80 border border-amber-500 text-amber-300 text-[8px] font-bold tracking-widest flex items-center justify-center gap-1.5 transition-all shadow-[0_0_10px_rgba(245,158,11,0.25)] cursor-pointer"
+                >
+                  <Sparkles className="w-2.5 h-2.5 text-amber-400" /> OPEN RAG INTEL DOSSIER (3D)
+                </button>
+              </div>
+            ) : (
+              <div className="flex-1 flex items-center justify-center text-[9px] text-amber-900/60 tracking-widest text-center">
+                AWAITING TARGET LOCK...<br/>(CLICK ANY EVENT TO INTERCEPT)
+              </div>
+            )}
           </div>
         </div>
 

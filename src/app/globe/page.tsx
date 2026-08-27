@@ -1171,7 +1171,7 @@ export default function GlobeMonitor() {
                               focusTarget(match);
                               setIsFlightDossierOpen(true);
                             } else {
-                              sfx.playError();
+                              sfx.playClick();
                             }
                           }
                         }}
@@ -1222,7 +1222,7 @@ export default function GlobeMonitor() {
           </div>
 
           {/* Target Telemetry (Floating right beside the 3D globe option) */}
-          <div className="absolute top-[4.75rem] left-[17rem] w-64 bg-[#0a0600]/95 border border-amber-500/50 p-3 h-44 flex flex-col shrink-0 pointer-events-auto shadow-[0_0_20px_rgba(245,158,11,0.15)]">
+          <div className={`group absolute top-[4.75rem] left-[17rem] w-64 bg-[#0a0600]/95 border border-amber-500/50 p-3 flex flex-col shrink-0 pointer-events-auto shadow-[0_0_20px_rgba(245,158,11,0.15)] transition-all duration-300 overflow-hidden ${(!lockedInfo && !hoveredInfo) ? "h-10 opacity-70 hover:h-44 hover:opacity-100" : "h-44 opacity-100"}`}>
             <div className="text-[9px] text-amber-500 tracking-[0.3em] font-bold border-b border-amber-900/60 pb-1 mb-1.5 flex justify-between items-center">
               <span>TARGET_TELEMETRY</span>
               <span className="text-[8px] text-amber-400 font-mono">

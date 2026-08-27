@@ -57,12 +57,39 @@ export default function SatelliteDossierModal({
       ? `TACTICAL GROUND INTERSECT: Ground sensor footprint currently sweeps over [${groundTargets[0].label || groundTargets[0].title}]. Active multi-spectral imaging downlinking optical, infrared and radar data to ground telemetry stations.`
       : `ORBITAL SWATH MONITORING: Satellite currently traversing open maritime / continental corridor. High-aperture optics capturing wide-angle situational telemetry.`;
 
-    const ytEmbedUrl = `https://www.youtube-nocookie.com/embed/21X5lGlDOfg?autoplay=1&mute=1&controls=1&rel=0`;
+    let imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/International_Space_Station_after_undocking_of_STS-132.jpg/1280px-International_Space_Station_after_undocking_of_STS-132.jpg";
+    let imageDescription = "ORBITAL TELEMETRY INTERCEPT";
+
+    if (name.includes("ISS")) {
+      imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/International_Space_Station_after_undocking_of_STS-132.jpg/1280px-International_Space_Station_after_undocking_of_STS-132.jpg";
+      imageDescription = "Modular space station in low Earth orbit, jointly operated by NASA, Roscosmos, JAXA, ESA, and CSA. Primary observation and research outpost.";
+    } else if (name.includes("SENTINEL")) {
+      imageUrl = "https://upload.wikimedia.org/wikipedia/commons/0/07/Sentinel-2_%2816578029315%29.jpg";
+      imageDescription = "Copernicus program optical imaging satellite. Provides high-resolution optical imagery for land services, agricultural monitoring, and emergency management.";
+    } else if (name.includes("LANDSAT")) {
+      imageUrl = "https://upload.wikimedia.org/wikipedia/commons/c/c5/Landsat_9_illustration.jpg";
+      imageDescription = "Earth observation satellite jointly managed by NASA and the USGS. Captures critical multispectral data for global land surface monitoring.";
+    } else if (name.includes("WORLDVIEW") || name.includes("MAXAR")) {
+      imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/WorldView-2.jpg/1024px-WorldView-2.jpg";
+      imageDescription = "High-resolution commercial Earth observation satellite. Provides panchromatic and multispectral optical imagery for military, intelligence, and commercial mapping.";
+    } else if (name.includes("NOAA")) {
+      imageUrl = "https://upload.wikimedia.org/wikipedia/commons/5/52/NOAA-20_artist_rendering.jpg";
+      imageDescription = "Joint Polar Satellite System (JPSS) environmental satellite. Tracks global weather patterns, thermal anomalies, and severe storm systems.";
+    } else if (name.includes("STARLINK")) {
+      imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Starlink_Mission_%2847926144123%29.jpg/1024px-Starlink_Mission_%2847926144123%29.jpg";
+      imageDescription = "Low Earth Orbit (LEO) satellite constellation providing global broadband coverage and resilient tactical communications networks.";
+    } else if (name.includes("GOES")) {
+      imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/GOES-R_SpX_artist_rendering.jpg/1024px-GOES-R_SpX_artist_rendering.jpg";
+      imageDescription = "Geostationary Operational Environmental Satellite. Provides continuous, high-definition meteorological observation and space weather monitoring.";
+    } else {
+      imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/NROL-39_patch.png/800px-NROL-39_patch.png";
+      imageDescription = "Classified orbital reconnaissance asset. Intercepted telemetry suggests active intelligence gathering and signal downlink.";
+    }
 
     return [
       // Card 1: Live Downlink & Orbital Telemetry
       {
-        badge: "ORBITAL TELEMETRY & LIVE SATELLITE DOWNLINK",
+        badge: "ORBITAL TELEMETRY & SATELLITE ASSET INTEL",
         badgeColor: "border-cyan-400 text-cyan-300 bg-cyan-950/60",
         headline: `${name}`,
         subline: `OPERATED BY ${operator.toUpperCase()}`,
@@ -72,7 +99,8 @@ export default function SatelliteDossierModal({
 • GROUND SPEED: ${speedKmS} km/s (${speedKmH} km/h / Mach ${Math.round(speedKmS * 2.915)})
 • ORBITAL PERIOD: ${period} minutes (15.5 orbits per 24-hour cycle)
 • SUB-SATELLITE POINT (SSP): LAT ${lat}, LNG ${lng}`,
-        videoUrl: ytEmbedUrl
+        imageUrl: imageUrl,
+        imageDescription: imageDescription
       },
 
       // Card 2: Optical / SAR Sensor Payload Specifications
@@ -231,20 +259,27 @@ Direct high-speed X-Band / Ka-Band microwave downlink transmitting real-time enc
                 </div>
               </div>
 
-              {/* Embedded Video Downlink if video card */}
-              {currentCard.videoUrl && (
+              {/* Tactical Image Representation */}
+              {currentCard.imageUrl && (
                 <div className="relative aspect-video w-full bg-black border border-cyan-500/60 rounded-xs overflow-hidden shadow-[0_0_25px_rgba(0,243,255,0.25)] my-1">
-                  <iframe 
-                    src={currentCard.videoUrl}
-                    title="Live Satellite Earth Downlink"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    className="w-full h-full border-0"
-                  />
-                  <div className="absolute top-2 left-2 flex items-center gap-1.5 bg-black/85 border border-cyan-400 px-2 py-0.5 pointer-events-none">
-                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
-                    <span className="text-[8px] text-cyan-300 font-mono tracking-widest font-bold">● SATELLITE OPTICAL RECON DOWNLINK</span>
+                  <img src={currentCard.imageUrl} alt={currentCard.headline} className="w-full h-full object-cover opacity-80 mix-blend-screen" />
+                  
+                  {/* Label */}
+                  <div className="absolute top-2 left-2 flex items-center gap-1.5 px-2 py-0.5 bg-cyan-950/80 border border-cyan-500/50 rounded-sm shadow-[0_0_10px_rgba(0,243,255,0.2)]">
+                    <Eye className="w-2.5 h-2.5 text-cyan-400" />
+                    <span className="text-[7px] text-cyan-300 font-bold tracking-widest uppercase">OSINT SATELLITE ASSET DATABASE</span>
                   </div>
+
+                  {/* Description Bar */}
+                  {currentCard.imageDescription && (
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/85 backdrop-blur-md border-t border-cyan-900/50 p-2 sm:p-3 text-[9px] text-cyan-300 leading-relaxed font-mono flex items-start gap-2 shadow-[0_-5px_15px_rgba(0,0,0,0.5)]">
+                      <div className="shrink-0 mt-0.5"><SatelliteIcon className="w-3.5 h-3.5 text-cyan-400" /></div>
+                      <div>
+                        <span className="font-bold text-cyan-400 mr-1 block sm:inline mb-0.5 sm:mb-0">ORBITAL INTEL:</span>
+                        <span className="text-cyan-200/90">{currentCard.imageDescription}</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 

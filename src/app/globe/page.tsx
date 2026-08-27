@@ -7,7 +7,7 @@ import {
   Activity, Radio, Layers, Globe2, MapPin, Map, Crosshair, 
   Terminal, Zap, PocketKnife, Search, Plane, ShieldAlert, 
   Crown, SlidersHorizontal, Compass, X, Filter, Anchor, Wifi, Sparkles,
-  Satellite as SatelliteIcon, Volume2, VolumeX, FileText, Ruler
+  Satellite as SatelliteIcon, Volume2, VolumeX, FileText, Ruler, Clock
 } from "lucide-react";
 import { sfx } from "@/utils/sfxEngine";
 import countryCoords from "@/data/country_coords.json";
@@ -21,6 +21,7 @@ import AirMissionDossierModal from "@/components/AirMissionDossierModal";
 import SatelliteDossierModal from "@/components/SatelliteDossierModal";
 import SitrepModal from "@/components/SitrepModal";
 import RangeMeasureModal from "@/components/RangeMeasureModal";
+import TimeScrubber from "@/components/TimeScrubber";
 import { SATELLITE_CATALOG, getSatellitePosition, getOrbitPath } from "@/data/satellites";
 import { computeGeodesicMeasurement, GeodesicMeasurement, ThreatZone, STRATEGIC_THREAT_HUBS } from "@/utils/geoCalc";
 
@@ -67,6 +68,12 @@ export default function GlobeMonitor() {
   const [measurement, setMeasurement] = useState<GeodesicMeasurement | null>(null);
   const [threatRingsEnabled, setThreatRingsEnabled] = useState<boolean>(false);
   const [selectedThreatHub, setSelectedThreatHub] = useState<ThreatZone | null>(null);
+
+  // 24-Hour Operational Time Scrubber State
+  const [isTimeScrubberOpen, setIsTimeScrubberOpen] = useState<boolean>(false);
+  const [timeOffsetHours, setTimeOffsetHours] = useState<number>(0);
+  const [isPlayingTimeline, setIsPlayingTimeline] = useState<boolean>(false);
+  const [playbackSpeed, setPlaybackSpeed] = useState<number>(2);
 
   useEffect(() => {
     fetch("/api/news?limit=200").then(r => r.json()).then(d => setNews(d.articles || []));
@@ -300,9 +307,22 @@ export default function GlobeMonitor() {
         const isVip = f.type === "vip";
         const color = isMil ? "#ff003c" : isVip ? "#ffd700" : "#00ff88";
 
+        // Calculate time-scrubbed simulated flight coordinates
+        let simLat = f.lat;
+        let simLng = f.lng;
+        if (timeOffsetHours !== 0) {
+          const speedKmh = (f.velocity || 250) * 3.6;
+          const headingRad = ((f.track || 45) * Math.PI) / 180;
+          const dKm = speedKmh * timeOffsetHours;
+          const deltaLat = (dKm * Math.cos(headingRad)) / 111.32;
+          const deltaLng = (dKm * Math.sin(headingRad)) / (111.32 * Math.cos((f.lat * Math.PI) / 180) || 1);
+          simLat = Math.max(-85, Math.min(85, f.lat + deltaLat));
+          simLng = ((f.lng + deltaLng + 180) % 360) - 180;
+        }
+
         flightPtsList.push({
-          lat: f.lat, 
-          lng: f.lng,
+          lat: simLat, 
+          lng: simLng,
           size: isMil ? 1.4 : isVip ? 1.1 : 0.8,
           color: color,
           label: isMil ? `[ ⚔️ MILITARY: ${f.callsign} ]` : isVip ? `[ 👑 VIP: ${f.callsign} ]` : `[ ✈️ FLIGHT: ${f.callsign} ]`,
@@ -320,14 +340,14 @@ export default function GlobeMonitor() {
         });
 
         if (isMil) {
-          ringList.push({ lat: f.lat, lng: f.lng, color: "#ff003c", maxR: 3, propagationSpeed: 1.5, repeatPeriod: 2000 });
+          ringList.push({ lat: simLat, lng: simLng, color: "#ff003c", maxR: 3, propagationSpeed: 1.5, repeatPeriod: 2000 });
         }
       });
     }
 
     const satellitePtsList: any[] = [];
     if (layers.satellites) {
-      const now = Date.now();
+      const now = Date.now() + (timeOffsetHours * 3600 * 1000);
       SATELLITE_CATALOG.forEach(sat => {
         const pos = getSatellitePosition(sat, now);
         satellitePtsList.push({
@@ -381,7 +401,7 @@ export default function GlobeMonitor() {
       satellitePts: satellitePtsList,
       satelliteOrbitPaths
     };
-  }, [news, quakes, layers, eonetEvents, conflicts, maritime, cyber, flights, flightFilterType, flightSearch, satTick]);
+  }, [news, quakes, layers, eonetEvents, conflicts, maritime, cyber, flights, flightFilterType, flightSearch, satTick, timeOffsetHours]);
 
   const [autoRotate, setAutoRotate] = useState(true);
 
@@ -905,6 +925,22 @@ export default function GlobeMonitor() {
               <span>RANGE RULER: [{isMeasureMode ? (measurePointA ? "CLICK TARGET B" : "CLICK ORIGIN A") : "OFF"}]</span>
             </button>
 
+            {/* 24-Hour Time Scrubber Mode Toggle */}
+            <button 
+              onClick={() => { 
+                sfx.playClick(); 
+                setIsTimeScrubberOpen(!isTimeScrubberOpen); 
+              }}
+              className={`w-full py-1 text-[8px] font-bold tracking-widest flex items-center justify-center gap-1.5 border transition-all cursor-pointer shrink-0 ${
+                isTimeScrubberOpen 
+                  ? "border-cyan-400 bg-cyan-950/80 text-cyan-200 shadow-[0_0_12px_rgba(0,243,255,0.3)]" 
+                  : "border-cyan-900/40 bg-black/40 text-cyan-700 hover:text-cyan-300"
+              }`}
+            >
+              <Clock className="w-3 h-3 text-cyan-400" />
+              <span>TIME-MACHINE: [{isTimeScrubberOpen ? (timeOffsetHours < 0 ? `-${Math.abs(Math.round(timeOffsetHours*10)/10)}H` : "LIVE") : "OFF"}]</span>
+            </button>
+
             {/* Direct Launch Executive SITREP Generator */}
             <button 
               onClick={() => { sfx.playClick(); setIsSitrepOpen(true); }}
@@ -1324,6 +1360,19 @@ export default function GlobeMonitor() {
         selectedThreatHub={selectedThreatHub}
         onSelectThreatHub={setSelectedThreatHub}
       />
+
+      {/* 24-Hour Operational Historical Time Scrubber */}
+      {isTimeScrubberOpen && (
+        <TimeScrubber 
+          timeOffsetHours={timeOffsetHours}
+          setTimeOffsetHours={setTimeOffsetHours}
+          isPlaying={isPlayingTimeline}
+          setIsPlaying={setIsPlayingTimeline}
+          playbackSpeed={playbackSpeed}
+          setPlaybackSpeed={setPlaybackSpeed}
+          totalFilteredEvents={points.length + eonetPts.length + conflictPts.length + flightPts.length + satellitePts.length}
+        />
+      )}
     </div>
   );
 }

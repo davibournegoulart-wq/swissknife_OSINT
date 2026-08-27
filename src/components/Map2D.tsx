@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Polyline, Circle, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Polyline, Circle, Polygon, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import { GeodesicMeasurement, ThreatZone } from "@/utils/geoCalc";
+import { STRATEGIC_FIR_SECTORS } from "@/data/firSectors";
 
 interface Map2DProps {
   points: any[];
@@ -14,6 +15,7 @@ interface Map2DProps {
   measurement?: GeodesicMeasurement | null;
   threatHubs?: ThreatZone[];
   threatRingsEnabled?: boolean;
+  firSectorsEnabled?: boolean;
 }
 
 function MapController({ target, theme }: { target?: any; theme?: string }) {
@@ -232,6 +234,21 @@ export default function Map2D({
         attribution={attribution}
         maxZoom={18}
       />
+
+      {/* Strategic NATO / ICAO FIR & ADIZ Sectors */}
+      {firSectorsEnabled && STRATEGIC_FIR_SECTORS.map((sector) => (
+        <Polygon
+          key={sector.id}
+          positions={sector.boundaries}
+          pathOptions={{
+            color: sector.color,
+            fillColor: sector.color,
+            fillOpacity: 0.05,
+            weight: 1.5,
+            dashArray: "5, 5"
+          }}
+        />
+      ))}
 
       {/* Geodesic Range Measurement Line */}
       {measurement && (

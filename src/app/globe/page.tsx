@@ -24,6 +24,7 @@ import RangeMeasureModal from "@/components/RangeMeasureModal";
 import TimeScrubber from "@/components/TimeScrubber";
 import { SATELLITE_CATALOG, getSatellitePosition, getOrbitPath } from "@/data/satellites";
 import { computeGeodesicMeasurement, GeodesicMeasurement, ThreatZone, STRATEGIC_THREAT_HUBS } from "@/utils/geoCalc";
+import { generateGraticulePaths, STRATEGIC_FIR_SECTORS } from "@/data/firSectors";
 
 interface NewsItem { title: string; link: string; pubDate: string; source: string; country: string; accentColor: string; }
 export interface PointData { lat: number; lng: number; size: number; color: string; label: string; type: "news" | "quake" | "conflict" | "flight" | "eonet" | "maritime" | "cyber" | "satellite"; url?: string; desc?: string; [key: string]: any; }
@@ -37,7 +38,7 @@ export default function GlobeMonitor() {
     news: true, quakes: true, borders: true, arcs: true, labels: false, 
     weather: false, storms: true, fires: true, volcanoes: true, 
     conflicts: true, flights: true, maritime: true, cyber: true,
-    satellites: true
+    satellites: true, graticule: true, fir: true
   });
   const [globeTheme, setGlobeTheme] = useState<"tactical" | "satellite">("tactical");
   const [hoveredInfo, setHoveredInfo] = useState<PointData | null>(null);
@@ -481,6 +482,14 @@ export default function GlobeMonitor() {
     return res;
   }, [threatRingsEnabled, selectedThreatHub]);
 
+  const graticulePaths = useMemo(() => {
+    if (!layers.graticule && !layers.fir) return [];
+    const all = generateGraticulePaths();
+    if (layers.graticule && layers.fir) return all;
+    if (layers.graticule) return all.filter(p => !p.name.includes("FIR") && !p.name.includes("SECTOR") && !p.name.includes("ADIZ"));
+    return all.filter(p => p.name.includes("FIR") || p.name.includes("SECTOR") || p.name.includes("ADIZ"));
+  }, [layers.graticule, layers.fir]);
+
   // Keyboard shortcut listener: Press Space to open RAG Dossier on locked target
   useEffect(() => {
     const handleGlobalKey = (e: KeyboardEvent) => {
@@ -575,8 +584,11 @@ export default function GlobeMonitor() {
             arcDashAnimateTime={2000}
             arcAltitudeAutoScale={0.3}
 
-            // Satellite 3D Orbit Trajectory Ribbons
-            pathsData={layers.satellites ? satelliteOrbitPaths : []}
+            // Paths (Satellite Orbit Trajectories + Military MGRS Graticule & FIR Sectors)
+            pathsData={[
+              ...(layers.satellites ? satelliteOrbitPaths : []),
+              ...graticulePaths
+            ]}
             pathPoints="coords"
             pathColor="color"
             pathStroke={1.5}
@@ -832,6 +844,7 @@ export default function GlobeMonitor() {
             measurement={measurement}
             threatHubs={selectedThreatHub ? [selectedThreatHub] : STRATEGIC_THREAT_HUBS}
             threatRingsEnabled={threatRingsEnabled}
+            firSectorsEnabled={layers.fir}
           />
         )}
       </div>
@@ -1012,6 +1025,18 @@ export default function GlobeMonitor() {
               <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, satellites: !l.satellites })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.satellites ? "border-cyan-400 text-cyan-300" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span className="flex items-center gap-1"><SatelliteIcon className="w-3 h-3 text-cyan-400" /> SATELLITES (ORBITAL ISR)</span>
                 <span>[{satellitePts.length}]</span>
+              </button>
+
+              {/* Tactical Graticule / MGRS Grid Toggle */}
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, graticule: !l.graticule })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.graticule ? "border-cyan-400 text-cyan-300" : "border-cyan-900/30 text-cyan-900"}`}>
+                <span>LAT/LNG MGRS GRID</span>
+                <span>[{layers.graticule ? "ON" : "OFF"}]</span>
+              </button>
+
+              {/* NATO / ICAO FIR Airspace Sectors Toggle */}
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, fir: !l.fir })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.fir ? "border-[#ff003c] text-[#ff003c]" : "border-cyan-900/30 text-cyan-900"}`}>
+                <span>NATO/ICAO FIR SECTORS</span>
+                <span>[{STRATEGIC_FIR_SECTORS.length} ACTIVE]</span>
               </button>
 
               {/* Flight Radar Master Toggle & Control Suite */}

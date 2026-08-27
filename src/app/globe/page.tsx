@@ -7,7 +7,7 @@ import {
   Activity, Radio, Layers, Globe2, MapPin, Map, Crosshair, 
   Terminal, Zap, PocketKnife, Search, Plane, ShieldAlert, 
   Crown, SlidersHorizontal, Compass, X, Filter, Anchor, Wifi, Sparkles,
-  Satellite as SatelliteIcon, Volume2, VolumeX, FileText, Ruler, Clock
+  Satellite as SatelliteIcon, Volume2, VolumeX, FileText, Ruler, Clock, Camera, Video
 } from "lucide-react";
 import { sfx } from "@/utils/sfxEngine";
 import countryCoords from "@/data/country_coords.json";
@@ -22,12 +22,14 @@ import SatelliteDossierModal from "@/components/SatelliteDossierModal";
 import SitrepModal from "@/components/SitrepModal";
 import RangeMeasureModal from "@/components/RangeMeasureModal";
 import TimeScrubber from "@/components/TimeScrubber";
+import PublicCamerasModal from "@/components/PublicCamerasModal";
 import { SATELLITE_CATALOG, getSatellitePosition, getOrbitPath } from "@/data/satellites";
 import { computeGeodesicMeasurement, GeodesicMeasurement, ThreatZone, STRATEGIC_THREAT_HUBS } from "@/utils/geoCalc";
 import { generateGraticulePaths, STRATEGIC_FIR_SECTORS } from "@/data/firSectors";
+import { PUBLIC_CAMERAS, PublicCamera } from "@/data/publicCameras";
 
 interface NewsItem { title: string; link: string; pubDate: string; source: string; country: string; accentColor: string; }
-export interface PointData { lat: number; lng: number; size: number; color: string; label: string; type: "news" | "quake" | "conflict" | "flight" | "eonet" | "maritime" | "cyber" | "satellite"; url?: string; desc?: string; [key: string]: any; }
+export interface PointData { lat: number; lng: number; size: number; color: string; label: string; type: "news" | "quake" | "conflict" | "flight" | "eonet" | "maritime" | "cyber" | "satellite" | "camera"; url?: string; desc?: string; [key: string]: any; }
 
 export default function GlobeMonitor() {
   const globeRef = useRef<any>();
@@ -38,7 +40,7 @@ export default function GlobeMonitor() {
     news: true, quakes: true, borders: true, arcs: true, labels: false, 
     weather: false, storms: true, fires: true, volcanoes: true, 
     conflicts: true, flights: true, maritime: true, cyber: true,
-    satellites: true, graticule: true, fir: true
+    satellites: true, graticule: true, fir: true, cameras: true
   });
   const [globeTheme, setGlobeTheme] = useState<"tactical" | "satellite">("tactical");
   const [hoveredInfo, setHoveredInfo] = useState<PointData | null>(null);
@@ -75,6 +77,10 @@ export default function GlobeMonitor() {
   const [timeOffsetHours, setTimeOffsetHours] = useState<number>(0);
   const [isPlayingTimeline, setIsPlayingTimeline] = useState<boolean>(false);
   const [playbackSpeed, setPlaybackSpeed] = useState<number>(2);
+
+  // Public Global Cameras State
+  const [isCamerasModalOpen, setIsCamerasModalOpen] = useState<boolean>(false);
+  const [selectedCameraForModal, setSelectedCameraForModal] = useState<PublicCamera | null>(null);
 
   useEffect(() => {
     fetch("/api/news?limit=200").then(r => r.json()).then(d => setNews(d.articles || []));
@@ -137,7 +143,7 @@ export default function GlobeMonitor() {
     return () => clearInterval(iv);
   }, []);
 
-  const { points, arcs, rings, labels, eonetPts, conflictPts, maritimePts, cyberPts, flightPts, satellitePts, satelliteOrbitPaths } = useMemo(() => {
+  const { points, arcs, rings, labels, eonetPts, conflictPts, maritimePts, cyberPts, flightPts, satellitePts, cameraPts, satelliteOrbitPaths } = useMemo(() => {
     const pts: PointData[] = [];
     const arcList: any[] = [];
     const ringList: any[] = [];
@@ -381,6 +387,37 @@ export default function GlobeMonitor() {
       });
     }
 
+    const cameraPtsList: any[] = [];
+    if (layers.cameras) {
+      PUBLIC_CAMERAS.forEach(cam => {
+        cameraPtsList.push({
+          lat: cam.lat,
+          lng: cam.lng,
+          size: 1.5,
+          color: cam.color || "#00ff88",
+          label: `[ 📹 CAM: ${cam.name.toUpperCase()} ]`,
+          title: cam.name,
+          type: "camera",
+          camDef: cam,
+          city: cam.city,
+          country: cam.country,
+          category: cam.category,
+          operator: cam.operator,
+          youtubeId: cam.youtubeId,
+          desc: `LOCATION: ${cam.city.toUpperCase()}, ${cam.country.toUpperCase()}\nCATEGORY: ${cam.category.toUpperCase()}\nOPERATOR: ${cam.operator.toUpperCase()}\n${cam.description}`
+        });
+
+        ringList.push({
+          lat: cam.lat,
+          lng: cam.lng,
+          color: cam.color || "#00ff88",
+          maxR: 3.5,
+          propagationSpeed: 1.0,
+          repeatPeriod: 2200
+        });
+      });
+    }
+
     const satelliteOrbitPaths = layers.satellites 
       ? SATELLITE_CATALOG.map(sat => ({
           name: sat.name,
@@ -400,6 +437,7 @@ export default function GlobeMonitor() {
       cyberPts: cyberPtsList,
       flightPts: flightPtsList,
       satellitePts: satellitePtsList,
+      cameraPts: cameraPtsList,
       satelliteOrbitPaths
     };
   }, [news, quakes, layers, eonetEvents, conflicts, maritime, cyber, flights, flightFilterType, flightSearch, satTick, timeOffsetHours]);
@@ -431,6 +469,9 @@ export default function GlobeMonitor() {
     } else if (pt.type === "satellite") {
       setSatDossierTarget(pt);
       setIsSatDossierOpen(true);
+    } else if (pt.type === "camera" || pt.camDef) {
+      setSelectedCameraForModal(pt.camDef || pt);
+      setIsCamerasModalOpen(true);
     } else {
       setDossierTarget(pt);
       setIsDossierOpen(true);
@@ -608,14 +649,15 @@ export default function GlobeMonitor() {
             labelResolution={2}
             labelAltitude={0.005}
 
-            // EONET Alerts, Conflicts, Maritime, Cyber, Flights & Satellites
+            // EONET Alerts, Conflicts, Maritime, Cyber, Flights, Satellites & Public Cameras
             htmlElementsData={[
               ...(eonetPts || []), 
               ...(conflictPts || []), 
               ...(maritimePts || []),
               ...(cyberPts || []),
               ...(flightPts || []),
-              ...(satellitePts || [])
+              ...(satellitePts || []),
+              ...(cameraPts || [])
             ]}
             htmlLat="lat"
             htmlLng="lng"
@@ -648,27 +690,21 @@ export default function GlobeMonitor() {
                       <!-- Top Shackle & Ring -->
                       <circle cx="16" cy="6.5" r="3.2" fill="none" stroke="#00f0ff" stroke-width="1.8"/>
                       <circle cx="16" cy="6.5" r="1.2" fill="#020817"/>
+                      <!-- Stock Crossbar -->
                       <line x1="16" y1="9.7" x2="16" y2="12" stroke="#00f0ff" stroke-width="2"/>
-
-                      <!-- Cross Stock with End Studs -->
                       <path d="M8 12.5H24" stroke="#00f0ff" stroke-width="2" stroke-linecap="round"/>
                       <circle cx="8" cy="12.5" r="1.5" fill="#00f0ff"/>
                       <circle cx="24" cy="12.5" r="1.5" fill="#00f0ff"/>
-
-                      <!-- Central Fluted Shank -->
+                      <!-- Main Shank Body -->
                       <line x1="16" y1="12" x2="16" y2="26" stroke="#00f0ff" stroke-width="2.2"/>
                       <circle cx="16" cy="19" r="1" fill="#ffffff"/>
-
-                      <!-- Sweeping Arms & Barbed Flukes (Palms) -->
+                      <!-- Lower Curved Arms & Flukes -->
                       <path d="M5.5 20C6.5 26.5 11 28.5 16 28.5C21 28.5 25.5 26.5 26.5 20" fill="none" stroke="#00f0ff" stroke-width="2.2" stroke-linecap="round"/>
-                      
-                      <!-- Left Fluke (Sharp Arrowhead) -->
+                      <!-- Left Fluke Arrow -->
                       <polygon points="5.5,17 3,21.5 8,20.5" fill="#00f0ff" stroke="#00f0ff" stroke-width="0.8"/>
-                      
-                      <!-- Right Fluke (Sharp Arrowhead) -->
+                      <!-- Right Fluke Arrow -->
                       <polygon points="26.5,17 29,21.5 24,20.5" fill="#00f0ff" stroke="#00f0ff" stroke-width="0.8"/>
-                      
-                      <!-- Bottom Crown Keystone -->
+                      <!-- Crown Point -->
                       <polygon points="16,26.5 18,29 16,30.5 14,29" fill="#00f0ff"/>
                     </svg>
                   </div>
@@ -676,8 +712,8 @@ export default function GlobeMonitor() {
               } else if (type === "cyber") {
                 innerHTML = `
                   <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group">
-                    <div class="absolute w-10 h-10 border border-[#a855f7] rounded-full opacity-30 animate-ping"></div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="group-hover:scale-125 transition-transform drop-shadow-[0_0_12px_rgba(168,85,247,0.9)]">
+                    <div class="absolute w-8 h-8 border border-[#a855f7] rounded-full opacity-40 animate-ping"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="group-hover:scale-125 transition-all drop-shadow-[0_0_12px_rgba(168,85,247,0.95)]">
                       <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" fill="rgba(168,85,247,0.3)" stroke="#a855f7" stroke-width="1.8"/>
                     </svg>
                   </div>
@@ -685,42 +721,31 @@ export default function GlobeMonitor() {
               } else if (type === "flight") {
                 const isMil = d.flightType === "military";
                 const isVip = d.flightType === "vip";
-                const color = isMil ? "#ff003c" : isVip ? "#ffd700" : "#00ff88";
-                const dropShadow = isMil 
-                  ? "drop-shadow-[0_0_12px_rgba(255,0,60,1)]" 
-                  : isVip 
-                  ? "drop-shadow-[0_0_10px_rgba(255,215,0,0.9)]" 
-                  : "drop-shadow-[0_0_8px_rgba(0,255,136,0.8)]";
+                const track = d.track || 45;
 
                 if (isMil) {
-                  // Stealth Bomber / Fighter Delta-wing Icon for Military Units
                   innerHTML = `
-                    <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group" style="transform: rotate(${d.track || 45}deg);">
+                    <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group" style="transform: rotate(${track}deg);">
                       <div class="absolute w-8 h-8 border border-dashed border-[#ff003c]/60 rounded-full animate-ping pointer-events-none"></div>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" class="group-hover:scale-150 transition-all ${dropShadow}">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="group-hover:scale-125 transition-transform drop-shadow-[0_0_12px_rgba(255,0,60,1)]">
                         <path d="M12 2L2 20L12 16L22 20L12 2Z" fill="rgba(255,0,60,0.35)" stroke="#ff003c" stroke-width="1.8" stroke-linejoin="round"/>
                         <circle cx="12" cy="11" r="1.5" fill="#ffffff"/>
                       </svg>
-                      <div class="absolute -top-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/95 border border-[#ff003c] text-[#ff003c] text-[7px] font-mono font-bold px-1.5 py-0.5 rounded-xs pointer-events-none whitespace-nowrap z-50">
-                        ${d.label}
-                      </div>
                     </div>
                   `;
                 } else if (isVip) {
-                  // Executive Sleek Private Jet Icon for VIPs
                   innerHTML = `
-                    <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group" style="transform: rotate(${d.track || 45}deg);">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="group-hover:scale-150 transition-all ${dropShadow}">
+                    <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group" style="transform: rotate(${track}deg);">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="group-hover:scale-125 transition-transform drop-shadow-[0_0_10px_rgba(255,215,0,0.9)]">
                         <path d="M12 2L15 8L22 13L15 14L14 22L12 18L10 22L9 14L2 13L9 8L12 2Z" fill="rgba(255,215,0,0.25)" stroke="#ffd700" stroke-width="1.6"/>
                       </svg>
                     </div>
                   `;
                 } else {
-                  // Commercial Airliner Icon
                   innerHTML = `
-                    <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group" style="transform: rotate(${d.track || 45}deg);">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" class="group-hover:scale-150 transition-all ${dropShadow}">
-                        <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.6L3 8l6 5-3 3-3-1-1 1 2.5 4.5L13 22l1-1-1-3 3-3 5 6l1.2-.7c.4-.2.7-.6.6-1.1z" fill="rgba(0,255,136,0.15)" stroke="#00ff88" stroke-width="1.8"/>
+                    <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group" style="transform: rotate(${track}deg);">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" class="group-hover:scale-125 transition-transform drop-shadow-[0_0_8px_rgba(0,255,136,0.8)]">
+                        <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.2-1.1.6L3 8l6 5-3 3-3-1-1 1 2.5 4.5L13 22l1-1-1-3 3-3 5 6l1.2-.7c.4-.2.7-.6.6-1.1z" fill="rgba(0,255,136,0.2)" stroke="#00ff88" stroke-width="1.8"/>
                       </svg>
                     </div>
                   `;
@@ -788,6 +813,25 @@ export default function GlobeMonitor() {
                     </svg>
                   </div>
                 `;
+              } else if (type === "camera") {
+                innerHTML = `
+                  <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group">
+                    <div class="absolute w-10 h-10 border border-dashed border-[#00ff88]/60 rounded-full animate-ping pointer-events-none"></div>
+                    <div class="absolute w-6 h-6 bg-[#00ff88]/15 rounded-full blur-[2px]"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="group-hover:scale-125 transition-transform drop-shadow-[0_0_12px_rgba(0,255,136,0.95)]">
+                      <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" fill="rgba(0,255,136,0.3)" stroke="#00ff88" stroke-width="1.8"/>
+                      <circle cx="12" cy="13" r="3" fill="#020817" stroke="#00ff88" stroke-width="1.8"/>
+                      <circle cx="12" cy="13" r="1" fill="#ffffff"/>
+                    </svg>
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/95 border border-[#00ff88] text-[#00ff88] text-[7px] font-mono font-bold px-1.5 py-0.5 rounded-xs pointer-events-none whitespace-nowrap z-50">
+                      ${d.label}
+                    </div>
+                  </div>
+                `;
+              } else {
+                innerHTML = `
+                  <div class="w-2 h-2 bg-white rounded-full shadow-[0_0_8px_#ffffff] pointer-events-auto cursor-pointer"></div>
+                `;
               }
 
               el.innerHTML = innerHTML;
@@ -835,7 +879,8 @@ export default function GlobeMonitor() {
               ...(maritimePts || []), 
               ...(cyberPts || []), 
               ...(flightPts || []), 
-              ...(satellitePts || [])
+              ...(satellitePts || []),
+              ...(cameraPts || [])
             ]}
             theme={globeTheme}
             target={lockedInfo}
@@ -962,6 +1007,14 @@ export default function GlobeMonitor() {
               <FileText className="w-3 h-3 text-cyan-400" /> EXPORT EXECUTIVE SITREP
             </button>
 
+            {/* Direct Launch Public Global Cameras Matrix Modal */}
+            <button 
+              onClick={() => { sfx.playClick(); setIsCamerasModalOpen(true); }}
+              className="w-full py-1.5 bg-emerald-950/80 hover:bg-emerald-900 border border-emerald-500/80 hover:border-emerald-300 text-emerald-300 hover:text-white text-[8px] font-bold tracking-widest flex items-center justify-center gap-1.5 transition-all shadow-[0_0_12px_rgba(0,255,136,0.25)] cursor-pointer shrink-0"
+            >
+              <Camera className="w-3 h-3 text-emerald-400" /> PUBLIC GLOBAL CAMERAS ({PUBLIC_CAMERAS.length})
+            </button>
+
             {/* Layer Toggles */}
             <div className="bg-[#020205]/80 border border-cyan-900/50 p-3 flex flex-col gap-2 backdrop-blur-sm flex-1 overflow-y-auto custom-scrollbar">
               <div className="text-[8px] text-cyan-600 uppercase tracking-[0.3em] mb-1 sticky top-0 bg-[#020205] z-10 pb-1 border-b border-cyan-900/50">SYSTEM LAYERS</div>
@@ -969,6 +1022,12 @@ export default function GlobeMonitor() {
               <button onClick={() => { sfx.playClick(); setGlobeTheme(t => t === "tactical" ? "satellite" : "tactical"); }} className="flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border border-cyan-900/30 hover:border-cyan-500 transition-colors">
                 <span className="text-cyan-300">GLOBE TEXTURE</span>
                 <span className="text-cyan-400">[{globeTheme.toUpperCase()}]</span>
+              </button>
+
+              {/* Public Global Cameras Layer Toggle */}
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, cameras: !l.cameras })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.cameras ? "border-[#00ff88] text-[#00ff88]" : "border-cyan-900/30 text-cyan-900"}`}>
+                <span className="flex items-center gap-1"><Camera className="w-3 h-3 text-[#00ff88]" /> GLOBAL PUBLIC CAMERAS</span>
+                <span>[{PUBLIC_CAMERAS.length}]</span>
               </button>
 
               <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, news: !l.news })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.news ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>
@@ -1398,6 +1457,31 @@ export default function GlobeMonitor() {
           totalFilteredEvents={points.length + eonetPts.length + conflictPts.length + flightPts.length + satellitePts.length}
         />
       )}
+
+      {/* Public Global Cameras CCTV & Satellite Matrix Modal */}
+      <PublicCamerasModal 
+        isOpen={isCamerasModalOpen}
+        onClose={() => setIsCamerasModalOpen(false)}
+        selectedCamera={selectedCameraForModal}
+        onFocusCameraOnMap={(cam) => {
+          focusTarget({
+            lat: cam.lat,
+            lng: cam.lng,
+            size: 1.5,
+            color: cam.color || "#00ff88",
+            label: `[ 📹 CAM: ${cam.name.toUpperCase()} ]`,
+            title: cam.name,
+            type: "camera",
+            camDef: cam,
+            city: cam.city,
+            country: cam.country,
+            category: cam.category,
+            operator: cam.operator,
+            youtubeId: cam.youtubeId,
+            desc: `LOCATION: ${cam.city.toUpperCase()}, ${cam.country.toUpperCase()}\nCATEGORY: ${cam.category.toUpperCase()}\nOPERATOR: ${cam.operator.toUpperCase()}\n${cam.description}`
+          });
+        }}
+      />
     </div>
   );
 }

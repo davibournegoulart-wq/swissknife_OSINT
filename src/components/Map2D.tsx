@@ -158,6 +158,17 @@ function createTacticalIcon(pt: any, isSelected: boolean) {
         </svg>
       </div>
     `;
+  } else if (type === "camera") {
+    html = `
+      <div class="relative flex items-center justify-center ${isSelected ? 'scale-125' : ''}">
+        <div class="absolute w-8 h-8 border border-dashed border-[#00ff88]/60 rounded-full animate-ping"></div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="drop-shadow-[0_0_12px_rgba(0,255,136,0.95)]">
+          <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" fill="rgba(0,255,136,0.25)" stroke="#00ff88" stroke-width="1.8"/>
+          <circle cx="12" cy="13" r="3" fill="#020817" stroke="#00ff88" stroke-width="1.8"/>
+          <circle cx="12" cy="13" r="1" fill="#ffffff"/>
+        </svg>
+      </div>
+    `;
   } else if (type === "quake") {
     html = `
       <div class="relative flex items-center justify-center ${isSelected ? 'scale-125' : ''}">

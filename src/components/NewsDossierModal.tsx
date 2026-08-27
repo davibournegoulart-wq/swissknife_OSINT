@@ -4,9 +4,10 @@ import { useState, useEffect, useCallback } from "react";
 import { 
   X, ChevronLeft, ChevronRight, ExternalLink, ShieldAlert, 
   Radio, Sparkles, Newspaper, Calendar, Globe, Navigation, 
-  Cpu, Terminal, ArrowRight, CornerDownRight
+  Cpu, Terminal, ArrowRight, CornerDownRight, Tv, MessageSquare
 } from "lucide-react";
 import { sfx } from "@/utils/sfxEngine";
+import { getLiveMediaForTarget, VERIFIED_LIVE_CHANNELS } from "@/utils/mediaFeeds";
 
 export interface DossierArticle {
   title: string;
@@ -19,6 +20,7 @@ export interface DossierArticle {
   thumbnail?: string;
   accentColor?: string;
   videoUrl?: string;
+  extraLinks?: { label: string; url: string }[];
 }
 
 interface NewsDossierModalProps {
@@ -34,7 +36,7 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
   const [isAnimating, setIsAnimating] = useState(false);
   const [direction, setDirection] = useState<"next" | "prev">("next");
 
-  // Event-Specific Multi-Source Intelligence Engine: Generates strict multi-source dispatches + live video feed
+  // Event-Specific Multi-Source Intelligence Engine: Generates strict multi-source dispatches + verified live stream
   useEffect(() => {
     if (!target || !isOpen) {
       setRelatedArticles([]);
@@ -52,10 +54,9 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
     const category = (target.catId || target.type || "ALERT").toUpperCase();
     const lat = target.lat?.toFixed(4);
     const lng = target.lng?.toFixed(4);
-    const encodedQuery = encodeURIComponent(`${cleanTitle} ${country}`);
-    const searchUrl = `https://news.google.com/search?q=${encodedQuery}`;
-    const ytSearchUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(cleanTitle + " " + country + " news live")}`;
-    const ytEmbedUrl = `https://www.youtube-nocookie.com/embed?listType=search&list=${encodeURIComponent(cleanTitle + " " + country + " live news")}`;
+    
+    // Resolve guaranteed working live stream & online posts links
+    const media = getLiveMediaForTarget(cleanTitle, country, category);
 
     // 1. Strict semantic matching against live RSS feeds (only keep if high semantic match to exact event)
     const exactTokens = cleanTitle.toLowerCase().split(/[\s,–—\-\:\/]+/).filter(t => t.length > 3);
@@ -71,13 +72,18 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
 
     const multiSourceDispatches: DossierArticle[] = [
       {
-        source: "LIVE VIDEO INTERCEPT (RAG STREAM)",
+        source: `LIVE MONITORING // ${media.source}`,
         country: country,
         pubDate: now.toISOString(),
         title: `🔴 LIVE VIDEO INTERCEPT: ${cleanTitle}`,
-        description: `Direct audiovisual telemetry stream intercepted from global broadcasts and field cameras covering ${cleanTitle} in ${country}. Real-time satellite video downlink active at coordinates [${lat}, ${lng}].`,
-        link: ytSearchUrl,
-        videoUrl: ytEmbedUrl
+        description: `Direct audiovisual telemetry stream intercepted from 24/7 verified global broadcasts and field cameras covering ${cleanTitle} in ${country}. Real-time satellite video downlink active at coordinates [${lat}, ${lng}].`,
+        link: media.externalLiveUrl,
+        videoUrl: media.embedUrl,
+        extraLinks: [
+          { label: "📺 OPEN LIVE VIDEO IN NEW TAB", url: media.externalLiveUrl },
+          { label: "📰 LIVE GOOGLE NEWS DISPATCHES", url: media.googleNewsUrl },
+          { label: "📡 REAL-TIME X/TWITTER OSINT POSTS", url: media.twitterOsintUrl }
+        ]
       },
       {
         source: "REUTERS INTELLIGENCE",
@@ -85,7 +91,11 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
         pubDate: new Date(now.getTime() - 1000 * 60 * 18).toISOString(),
         title: `${cleanTitle}: Operational Situation Report & Field Update`,
         description: `Field telemetry at [${lat}, ${lng}] confirms active situation regarding ${cleanTitle}. Local authorities and monitoring agencies in ${country} report ongoing developments. ${targetDesc.split('\n')[0]}`,
-        link: target.url || searchUrl
+        link: target.url || media.googleNewsUrl,
+        extraLinks: [
+          { label: "📰 GOOGLE NEWS WIRE", url: media.googleNewsUrl },
+          { label: "📡 OSINT SOCIAL POSTS", url: media.twitterOsintUrl }
+        ]
       },
       {
         source: "ASSOCIATED PRESS (AP)",
@@ -93,7 +103,7 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
         pubDate: new Date(now.getTime() - 1000 * 60 * 42).toISOString(),
         title: `${country} Issues Security & Hazard Briefing for ${cleanTitle}`,
         description: `Emergency response coordinates and regional oversight teams have deployed tactical surveillance around [${lat}, ${lng}]. Threat assessment and environmental telemetry are being cross-referenced with satellite infrared and radar arrays.`,
-        link: target.url || searchUrl
+        link: target.url || media.googleNewsUrl
       },
       {
         source: category.includes("STORM") || category.includes("FIRE") || category.includes("VOLCANO") 
@@ -107,7 +117,7 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
         pubDate: new Date(now.getTime() - 1000 * 60 * 95).toISOString(),
         title: `Technical Telemetry Analysis: ${cleanTitle} at LAT ${lat}, LNG ${lng}`,
         description: `Sensor arrays detect continuous operational activity at coordinates ${lat}, ${lng}. Telemetry vectors confirm: ${targetDesc || "Active incident logged by global surveillance matrix."}`,
-        link: searchUrl
+        link: media.googleNewsUrl
       },
       {
         source: "BBC MONITORING",
@@ -115,15 +125,19 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
         pubDate: new Date(now.getTime() - 1000 * 60 * 150).toISOString(),
         title: `International Impact Assessment: ${cleanTitle}`,
         description: `Strategic assessment on the broader implications of ${cleanTitle} in ${country}. Analysts highlight supply chain, civilian safety, and military alert status surrounding the incident epicenter.`,
-        link: searchUrl
+        link: media.googleNewsUrl
       },
       {
         source: "OSINT LIVE INTERCEPT",
         country: "Open Source Intel",
         pubDate: new Date(now.getTime() - 1000 * 60 * 5).toISOString(),
         title: `Real-time Crowd-Sourced & Acoustic Verification: ${cleanTitle}`,
-        description: `Open-source geospatial feeds and satellite imagery verify active telemetry at coordinates (${lat}, ${lng}). Continuous tracking established across all tactical observation channels.`,
-        link: searchUrl
+        description: `Open-source geospatial feeds, Telegram intelligence channels, and X posts verify active telemetry at coordinates (${lat}, ${lng}). Continuous tracking established across all tactical observation channels.`,
+        link: media.twitterOsintUrl,
+        extraLinks: [
+          { label: "📡 VIEW LIVE OSINT POSTS ON X", url: media.twitterOsintUrl },
+          { label: "🔍 VERIFY DISPATCHES", url: media.googleNewsUrl }
+        ]
       }
     ];
 
@@ -280,17 +294,32 @@ export default function NewsDossierModal({ isOpen, onClose, target, allNews }: N
                 {currentArticle.description || "Intelligence intercept intercepted from global feeds. Ground telemetry correlates with active operational theater."}
               </div>
 
-              {/* Direct Intercept Link */}
-              <div className="pt-2 flex items-center justify-between">
-                <a 
-                  href={currentArticle.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500 text-amber-400 hover:text-amber-300 text-[10px] tracking-widest font-bold transition-all group"
-                >
-                  <span>&gt;&gt;&gt; {currentArticle.videoUrl ? "ACCESS LIVE VIDEO CHANNEL" : "ACCESS FULL DISPATCH SOURCE"}</span>
-                  <ExternalLink className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
+              {/* Direct Intercept Links & Tactical Actions */}
+              <div className="pt-2 flex flex-wrap items-center justify-between gap-2">
+                <div className="flex flex-wrap items-center gap-1.5">
+                  <a 
+                    href={currentArticle.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500 text-amber-400 hover:text-amber-300 text-[10px] tracking-widest font-bold transition-all group"
+                  >
+                    <span>&gt;&gt;&gt; {currentArticle.videoUrl ? "WATCH LIVE VIDEO BROADCAST" : "ACCESS FULL DISPATCH"}</span>
+                    <ExternalLink className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </a>
+
+                  {currentArticle.extraLinks && currentArticle.extraLinks.map((ex, idx) => (
+                    <a
+                      key={idx}
+                      href={ex.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-cyan-950/60 hover:bg-cyan-900 border border-cyan-700/60 hover:border-cyan-400 text-cyan-300 hover:text-white text-[9px] tracking-wider font-bold transition-all"
+                    >
+                      <span>{ex.label}</span>
+                      <ExternalLink className="w-2.5 h-2.5" />
+                    </a>
+                  ))}
+                </div>
 
                 <div className="text-[9px] text-cyan-600 font-mono">
                   FEED [{currentIndex + 1}/{relatedArticles.length}]

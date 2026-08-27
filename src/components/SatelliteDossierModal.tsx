@@ -57,8 +57,7 @@ export default function SatelliteDossierModal({
       ? `TACTICAL GROUND INTERSECT: Ground sensor footprint currently sweeps over [${groundTargets[0].label || groundTargets[0].title}]. Active multi-spectral imaging downlinking optical, infrared and radar data to ground telemetry stations.`
       : `ORBITAL SWATH MONITORING: Satellite currently traversing open maritime / continental corridor. High-aperture optics capturing wide-angle situational telemetry.`;
 
-    const videoSearch = satData?.videoSearch || `${name} satellite earth live nasa stream`;
-    const ytEmbedUrl = `https://www.youtube-nocookie.com/embed?listType=search&list=${encodeURIComponent(videoSearch)}`;
+    const ytEmbedUrl = `https://www.youtube-nocookie.com/embed/21X5lGlDOfg?autoplay=1&mute=1&controls=1&rel=0`;
 
     return [
       // Card 1: Live Downlink & Orbital Telemetry

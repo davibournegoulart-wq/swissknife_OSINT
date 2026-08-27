@@ -120,7 +120,11 @@ export default function AirMissionDossierModal({
 • GEOGRAPHIC POSITION: LAT ${lat}, LNG ${lng}
 • SQUAWK: ${flight.squawk || "1200 (VFR/Tactical)"} | NATION AFFILIATION: ${country.toUpperCase()}`,
         isTelemetry: true,
-        videoUrl: `https://www.youtube-nocookie.com/embed?listType=search&list=${encodeURIComponent(callsign + " " + aircraftModel + " cockpit flight footage")}`
+        videoUrl: `https://www.youtube-nocookie.com/embed/9Auq9mYxFEE?autoplay=1&mute=1&controls=1&rel=0`,
+        extraLinks: [
+          { label: "✈️ LIVE FLIGHTRADAR24 TRACK", url: `https://www.flightradar24.com/${callsign}` },
+          { label: "📡 ADS-B EXCHANGE INTERCEPT", url: `https://globe.adsbexchange.com/?icao=${flight.icao || callsign}` }
+        ]
       },
 
       // Card 2: Geospatial RAG Event Correlation & Mission Cross-Referencing
@@ -134,7 +138,11 @@ export default function AirMissionDossierModal({
 GEO-INTELLIGENCE SUMMARY:
 Telemetry cross-matched against live global incident databases indicates the aircraft is operating in high proximity to ${nearbyEvents.length} tracked operational nodes on today's matrix. Flight altitude and speed suggest active mission execution rather than transit holding patterns.`,
         isTelemetry: false,
-        videoUrl: `https://www.youtube-nocookie.com/embed?listType=search&list=${encodeURIComponent(callsign + " " + country + " military recon news live")}`
+        videoUrl: `https://www.youtube-nocookie.com/embed/07d2-7Wd_d4?autoplay=1&mute=1&controls=1&rel=0`,
+        extraLinks: [
+          { label: "📰 AEROSPACE NEWS DISPATCHES", url: `https://news.google.com/search?q=${encodeURIComponent(callsign + " " + country + " military aviation")}` },
+          { label: "📡 REAL-TIME OSINT ON X", url: `https://x.com/search?q=${encodeURIComponent(callsign + " flight OR intercept")}&f=live` }
+        ]
       },
 
       // Card 3: Jane's Defense & Aviation Dispatch

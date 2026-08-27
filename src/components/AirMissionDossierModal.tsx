@@ -106,6 +106,26 @@ export default function AirMissionDossierModal({
         : `ROUTINE CORRIDOR: Operating on upper airway cruise profile at optimal fuel burn. ADS-B transponder telemetry nominal with ground radar handoffs verified.`;
     }
 
+    let aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/c/c5/Boeing_787-9_Dreamliner.jpg";
+    let aircraftDescription = "A wide-body, twin-engine jet airliner designed for long-haul commercial flights, featuring composite materials and high fuel efficiency.";
+    if (aircraftModel.includes("Global Hawk")) {
+        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/4/47/RQ-4_Global_Hawk_taxiing.jpg";
+        aircraftDescription = "High-altitude, long-endurance, remotely piloted unmanned aircraft system (UAS) providing global all-weather, day or night intelligence, surveillance, and reconnaissance (ISR) capability.";
+    } else if (aircraftModel.includes("Rivet Joint")) {
+        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/9/91/USAF_RC-135W_Rivet_Joint.jpg";
+        aircraftDescription = "Reconnaissance aircraft equipped with advanced sensor suites to track, intercept, and decrypt electronic emissions, radar signals, and communications from adversaries.";
+    } else if (aircraftModel.includes("Poseidon")) {
+        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/d/da/Boeing_P-8A_Poseidon_in_flight.jpg";
+        aircraftDescription = "Multi-mission maritime patrol aircraft armed with torpedoes and Harpoon anti-ship missiles, specializing in anti-submarine warfare (ASW) and shipping interdiction.";
+    } else if (aircraftModel.includes("AWACS") || aircraftModel.includes("Sentry")) {
+        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/9/90/E-3_Sentry_AWACS.jpg";
+        aircraftDescription = "Airborne warning and control system (AWACS) providing all-weather surveillance, command, control, and communications to tactical and air defense forces.";
+    } else if (aircraftModel.includes("Gulfstream") || aircraftModel.includes("Bombardier")) {
+        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/0/05/Gulfstream_G650ER.jpg";
+        aircraftDescription = "Ultra long-range business jet utilized by high-net-worth individuals, corporations, and government agencies for rapid, secure, VIP executive transport.";
+    }
+
+
     const cards = [
       // Card 1: Tactical Aircraft Profile & Specifications
       {
@@ -120,7 +140,7 @@ export default function AirMissionDossierModal({
 • GEOGRAPHIC POSITION: LAT ${lat}, LNG ${lng}
 • SQUAWK: ${flight.squawk || "1200 (VFR/Tactical)"} | NATION AFFILIATION: ${country.toUpperCase()}`,
         isTelemetry: true,
-        videoUrl: `https://www.youtube-nocookie.com/embed/9Auq9mYxFEE?autoplay=1&mute=1&controls=1&rel=0`,
+        imageUrl: aircraftImage, imageDescription: aircraftDescription,
         extraLinks: [
           { label: "✈️ LIVE FLIGHTRADAR24 TRACK", url: `https://www.flightradar24.com/${callsign}` },
           { label: "📡 ADS-B EXCHANGE INTERCEPT", url: `https://globe.adsbexchange.com/?icao=${flight.icao || callsign}` }
@@ -138,7 +158,7 @@ export default function AirMissionDossierModal({
 GEO-INTELLIGENCE SUMMARY:
 Telemetry cross-matched against live global incident databases indicates the aircraft is operating in high proximity to ${nearbyEvents.length} tracked operational nodes on today's matrix. Flight altitude and speed suggest active mission execution rather than transit holding patterns.`,
         isTelemetry: false,
-        videoUrl: `https://www.youtube-nocookie.com/embed/07d2-7Wd_d4?autoplay=1&mute=1&controls=1&rel=0`,
+        imageUrl: aircraftImage, imageDescription: aircraftDescription,
         extraLinks: [
           { label: "📰 AEROSPACE NEWS DISPATCHES", url: `https://news.google.com/search?q=${encodeURIComponent(callsign + " " + country + " military aviation")}` },
           { label: "📡 REAL-TIME OSINT ON X", url: `https://x.com/search?q=${encodeURIComponent(callsign + " flight OR intercept")}&f=live` }
@@ -153,7 +173,7 @@ Telemetry cross-matched against live global incident databases indicates the air
         subline: `JANE'S ALL THE WORLD'S AIRCRAFT & TACTICAL LOGS`,
         content: `Sensor payload includes digital radar warning receivers, tactical link-16 datalink gateways, long-range electro-optical cameras, and real-time satellite communications antennas. The airframe represents critical strategic mobility for ${country}.`,
         isTelemetry: false,
-        videoUrl: undefined
+        imageUrl: undefined
       },
 
       // Card 4: Open Source Flight Telemetry Record
@@ -164,7 +184,7 @@ Telemetry cross-matched against live global incident databases indicates the air
         subline: `INTERNATIONAL OPEN-SKY NETWORK LOGS`,
         content: `Signal integrity verified via multi-lateration ground receivers. Continuous transponder broadcast captured across all primary frequencies without signal dropouts. Vector confirms standard holding / patrol race-track pattern at cruise altitude.`,
         isTelemetry: false,
-        videoUrl: undefined
+        imageUrl: undefined
       }
     ];
 
@@ -302,20 +322,27 @@ Telemetry cross-matched against live global incident databases indicates the air
                 </div>
               </div>
 
-              {/* Embedded Video Downlink if video card */}
-              {currentCard.videoUrl && (
-                <div className="relative aspect-video w-full bg-black border border-cyan-500/60 rounded-xs overflow-hidden shadow-[0_0_25px_rgba(0,243,255,0.25)] my-1">
-                  <iframe 
-                    src={currentCard.videoUrl}
-                    title="Tactical Airborne Video Stream"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    className="w-full h-full border-0"
-                  />
-                  <div className="absolute top-2 left-2 flex items-center gap-1.5 bg-black/85 border border-[#ff003c] px-2 py-0.5 pointer-events-none">
-                    <div className="w-1.5 h-1.5 rounded-full bg-[#ff003c] animate-ping" />
-                    <span className="text-[8px] text-[#ff003c] font-mono tracking-widest font-bold">● SATELLITE VIDEO INTERCEPT</span>
+                            {/* Media Asset (Video or Image) */}
+              {currentCard.imageUrl && (
+                <div className="relative aspect-video w-full bg-black border border-cyan-500/60 rounded-xs overflow-hidden shadow-[0_0_25px_rgba(0,243,255,0.25)] my-1 flex">
+                  <img src={currentCard.imageUrl} alt={currentCard.headline} className="w-full h-full object-cover opacity-80 mix-blend-screen" />
+                  
+                  {/* Label */}
+                  <div className="absolute top-2 left-2 flex items-center gap-1.5 px-2 py-0.5 bg-amber-950/80 border border-amber-500/50 rounded-sm shadow-[0_0_10px_rgba(245,158,11,0.2)]">
+                    <Eye className="w-2.5 h-2.5 text-amber-500" />
+                    <span className="text-[7px] text-amber-400 font-bold tracking-widest uppercase">OSINT ASSET DATABASE</span>
                   </div>
+
+                  {/* Description Bar */}
+                  {currentCard.imageDescription && (
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/85 backdrop-blur-md border-t border-cyan-900/50 p-2 sm:p-3 text-[9px] text-cyan-300 leading-relaxed font-mono flex items-start gap-2 shadow-[0_-5px_15px_rgba(0,0,0,0.5)]">
+                      <div className="shrink-0 mt-0.5"><Activity className="w-3.5 h-3.5 text-amber-500" /></div>
+                      <div>
+                        <span className="font-bold text-amber-400 mr-1 block sm:inline mb-0.5 sm:mb-0">AIRCRAFT INTEL:</span>
+                        <span className="text-cyan-200/90">{currentCard.imageDescription}</span>
+                      </div>
+                    </div>
+                  )}
                 </div>
               )}
 

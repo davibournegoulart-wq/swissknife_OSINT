@@ -1093,7 +1093,7 @@ export default function GlobeMonitor() {
               </button>
 
               {/* Flight Radar Master Toggle & Control Suite */}
-              <div className="border border-cyan-900/40 bg-black/40 p-1.5 flex flex-col gap-1.5">
+              <div className="border border-cyan-900/40 bg-black/40 p-1.5 flex flex-col gap-1.5 shrink-0">
                 <div className="flex items-center justify-between">
                   <button 
                     onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, flights: !l.flights })); }} 

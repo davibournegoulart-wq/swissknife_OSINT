@@ -7,7 +7,7 @@ import {
   Activity, Radio, Layers, Globe2, MapPin, Map, Crosshair, 
   Terminal, Zap, PocketKnife, Search, Plane, ShieldAlert, 
   Crown, SlidersHorizontal, Compass, X, Filter, Anchor, Wifi, Sparkles,
-  Satellite as SatelliteIcon, Volume2, VolumeX
+  Satellite as SatelliteIcon, Volume2, VolumeX, FileText
 } from "lucide-react";
 import { sfx } from "@/utils/sfxEngine";
 import countryCoords from "@/data/country_coords.json";
@@ -19,6 +19,7 @@ import NewsDossierModal from "@/components/NewsDossierModal";
 import AirRadarModal from "@/components/AirRadarModal";
 import AirMissionDossierModal from "@/components/AirMissionDossierModal";
 import SatelliteDossierModal from "@/components/SatelliteDossierModal";
+import SitrepModal from "@/components/SitrepModal";
 import { SATELLITE_CATALOG, getSatellitePosition, getOrbitPath } from "@/data/satellites";
 
 interface NewsItem { title: string; link: string; pubDate: string; source: string; country: string; accentColor: string; }
@@ -51,6 +52,7 @@ export default function GlobeMonitor() {
   const [isFlightDossierOpen, setIsFlightDossierOpen] = useState<boolean>(false);
   const [isAirRadarOpen, setIsAirRadarOpen] = useState<boolean>(false);
   const [isSatDossierOpen, setIsSatDossierOpen] = useState<boolean>(false);
+  const [isSitrepOpen, setIsSitrepOpen] = useState<boolean>(false);
   const [dossierTarget, setDossierTarget] = useState<any>(null);
   const [flightDossierTarget, setFlightDossierTarget] = useState<any>(null);
   const [satDossierTarget, setSatDossierTarget] = useState<any>(null);
@@ -827,6 +829,14 @@ export default function GlobeMonitor() {
               </button>
             </div>
 
+            {/* Direct Launch Executive SITREP Generator */}
+            <button 
+              onClick={() => { sfx.playClick(); setIsSitrepOpen(true); }}
+              className="w-full py-1.5 bg-cyan-950/90 hover:bg-cyan-900 border border-cyan-500/80 hover:border-cyan-300 text-cyan-300 hover:text-white text-[8px] font-bold tracking-widest flex items-center justify-center gap-1.5 transition-all shadow-[0_0_12px_rgba(0,243,255,0.25)] cursor-pointer shrink-0"
+            >
+              <FileText className="w-3 h-3 text-cyan-400" /> EXPORT EXECUTIVE SITREP
+            </button>
+
             {/* Layer Toggles */}
             <div className="bg-[#020205]/80 border border-cyan-900/50 p-3 flex flex-col gap-2 backdrop-blur-sm flex-1 overflow-y-auto custom-scrollbar">
               <div className="text-[8px] text-cyan-600 uppercase tracking-[0.3em] mb-1 sticky top-0 bg-[#020205] z-10 pb-1 border-b border-cyan-900/50">SYSTEM LAYERS</div>
@@ -1210,6 +1220,20 @@ export default function GlobeMonitor() {
           ...(maritimePts || []),
           ...(cyberPts || [])
         ]}
+      />
+
+      {/* 1-Click Executive SITREP Intelligence Report Modal */}
+      <SitrepModal 
+        isOpen={isSitrepOpen}
+        onClose={() => setIsSitrepOpen(false)}
+        target={lockedInfo || hoveredInfo}
+        conflicts={conflictPts}
+        flights={flights}
+        satellites={satellitePts}
+        maritime={maritimePts}
+        cyber={cyberPts}
+        eonetEvents={eonetPts}
+        news={news}
       />
     </div>
   );

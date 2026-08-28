@@ -6,7 +6,7 @@ import {
   ArrowUpRight, Radio, ExternalLink, Calendar, 
   MapPin, Compass, Gauge, Sparkles, Navigation, 
   Minus, ChevronLeft, ChevronRight, Activity, Globe, Eye
-} from "lucide-react";
+, Maximize, Maximize2} from "lucide-react";
 import { sfx } from "@/utils/sfxEngine";
 
 interface AirMissionDossierProps {
@@ -27,6 +27,7 @@ export default function AirMissionDossierModal({
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [direction, setDirection] = useState<"next" | "prev">("next");
+  const [isMinimized, setIsMinimized] = useState(false);
 
   // Geospatial RAG Cross-Referencing Engine: Correlates the aircraft with nearby conflicts, official visits, weather & cyber events
   const intelCards = useMemo(() => {
@@ -105,10 +106,23 @@ export default function AirMissionDossierModal({
         ? `WEATHER CORRELATION: Flight path exhibits tactical heading deviations to circumvent severe meteorological turbulence and convective cells associated with [${nearbyStorms[0].label || nearbyStorms[0].title}].`
         : `ROUTINE CORRIDOR: Operating on upper airway cruise profile at optimal fuel burn. ADS-B transponder telemetry nominal with ground radar handoffs verified.`;
     }
-
     let aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Boeing_787_N1015B_ANA_Airlines_%2827611880663%29_%28cropped%29.jpg/1280px-Boeing_787_N1015B_ANA_Airlines_%2827611880663%29_%28cropped%29.jpg";
     let aircraftDescription = "A wide-body, twin-engine jet airliner designed for long-haul commercial flights, featuring composite materials and high fuel efficiency.";
-    if (aircraftModel.includes("Global Hawk")) {
+    
+    // Dynamic matching for specific aircraft
+    if (aircraftModel.includes("KC-390")) {
+        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Embraer_KC-390.jpg/1280px-Embraer_KC-390.jpg";
+        aircraftDescription = "A medium-size, twin-engine jet-powered military transport aircraft designed and produced by Embraer. It is capable of performing aerial refueling, transport of cargo and troops, and medical evacuation.";
+    } else if (aircraftModel.includes("Typhoon")) {
+        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Eurofighter_Typhoon_FGR4_ZA947_%281%29.jpg/1280px-Eurofighter_Typhoon_FGR4_ZA947_%281%29.jpg";
+        aircraftDescription = "A highly agile, multi-role twin-engine canard delta wing fighter aircraft designed for air supremacy, ground attack, and reconnaissance.";
+    } else if (aircraftModel.includes("KC-135")) {
+        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/KC-135R_Stratotanker_in_flight.jpg/1280px-KC-135R_Stratotanker_in_flight.jpg";
+        aircraftDescription = "A military aerial refueling aircraft used extensively to extend the range of tactical fighters and strategic bombers.";
+    } else if (aircraftModel.includes("Cobra Ball")) {
+        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/RC-135S_Cobra_Ball_in_flight.jpg/1280px-RC-135S_Cobra_Ball_in_flight.jpg";
+        aircraftDescription = "A specialized measurement and signature intelligence (MASINT) collector equipped with electro-optical instruments for observing ballistic missile flights at long range.";
+    } else if (aircraftModel.includes("Global Hawk")) {
         aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Global_Hawk_1.jpg/1280px-Global_Hawk_1.jpg";
         aircraftDescription = "High-altitude, long-endurance, remotely piloted unmanned aircraft system (UAS) providing global all-weather, day or night intelligence, surveillance, and reconnaissance (ISR) capability.";
     } else if (aircraftModel.includes("Rivet Joint")) {
@@ -120,9 +134,12 @@ export default function AirMissionDossierModal({
     } else if (aircraftModel.includes("AWACS") || aircraftModel.includes("Sentry")) {
         aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/c/c5/E-3_Sentry_Airborne_Warning_and_Control_System_%28AWACS%29_conducts_a_mission.jpg";
         aircraftDescription = "Airborne warning and control system (AWACS) providing all-weather surveillance, command, control, and communications to tactical and air defense forces.";
-    } else if (aircraftModel.includes("Gulfstream") || aircraftModel.includes("Bombardier")) {
+    } else if (aircraftModel.includes("Gulfstream") || aircraftModel.includes("Bombardier") || aircraftModel.includes("Executive") || aircraftModel.includes("Private")) {
         aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/2010-07-08_BD700_Tyrolean_OE-IGS_EDDF_03.jpg/1280px-2010-07-08_BD700_Tyrolean_OE-IGS_EDDF_03.jpg";
         aircraftDescription = "Ultra long-range business jet utilized by high-net-worth individuals, corporations, and government agencies for rapid, secure, VIP executive transport.";
+    } else if (aircraftModel.includes("Military / Strategic Transport")) {
+        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/C-17_Globemaster_III_in_flight.jpg/1280px-C-17_Globemaster_III_in_flight.jpg";
+        aircraftDescription = "Heavy military transport aircraft capable of rapid strategic delivery of troops and all types of cargo to main operating bases or directly to forward bases in the deployment area.";
     }
 
 
@@ -238,15 +255,53 @@ Telemetry cross-matched against live global incident databases indicates the air
   const accentColor = isMil ? "#ff003c" : isVip ? "#ffd700" : "#00ff88";
 
   return (
-    <div className="absolute inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200 select-none font-mono text-cyan-300">
+    <div className={isMinimized ? "absolute bottom-12 right-4 sm:right-8 z-[100] w-72 sm:w-80 pointer-events-none animate-in slide-in-from-bottom-4 fade-in duration-300 font-mono text-cyan-300" : "absolute inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-md animate-in fade-in duration-200 select-none font-mono text-cyan-300 pointer-events-auto"}>
+
       {/* Background click dismiss */}
-      <div className="absolute inset-0" onClick={onClose} />
+      {!isMinimized && <div className="absolute inset-0" onClick={onClose} />}
 
       {/* Main Flight Dossier Container */}
       <div className="relative z-10 w-full max-w-3xl bg-[#02050e]/95 border-2 rounded-xs overflow-hidden flex flex-col shadow-[0_0_50px_rgba(0,255,136,0.25)] max-h-full" style={{ borderColor: accentColor }}>
         
+        
+        {isMinimized ? (
+          <div className="flex flex-col">
+            <div className="bg-[#040b18] border-b border-cyan-900/60 p-2.5 flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 rounded-full animate-ping" style={{ backgroundColor: accentColor }} />
+                <span className="text-[10px] font-bold tracking-widest uppercase flex items-center gap-1.5" style={{ color: accentColor }}>
+                  <Plane className="w-3 h-3" /> {flight.callsign}
+                </span>
+              </div>
+              <div className="flex gap-1.5">
+                <button onClick={() => { sfx.playClick(); setIsMinimized(false); }} className="p-1 hover:text-amber-400 text-cyan-500 transition-colors" title="Maximize">
+                  <Maximize2 className="w-3.5 h-3.5" />
+                </button>
+                <button onClick={onClose} className="p-1 hover:text-red-400 text-cyan-500 transition-colors" title="Close">
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
+            <div className="p-3 flex flex-col gap-2 bg-[#02050e]/90 text-[10px]">
+              <div className="flex justify-between items-center border-b border-cyan-900/40 pb-1">
+                <span className="text-cyan-700">ALTITUDE</span>
+                <span className="font-bold text-cyan-300">{flight.altitude}m</span>
+              </div>
+              <div className="flex justify-between items-center border-b border-cyan-900/40 pb-1">
+                <span className="text-cyan-700">VELOCITY</span>
+                <span className="font-bold text-cyan-300">{flight.velocity}m/s</span>
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-cyan-700">TYPE</span>
+                <span className="font-bold text-amber-400 truncate max-w-[140px]">{aircraftModel}</span>
+              </div>
+            </div>
+          </div>
+        ) : (
+        <>
         {/* Top Header */}
         <div className="bg-[#040b18] border-b border-cyan-900/60 p-3 flex items-center justify-between">
+
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full animate-ping" style={{ backgroundColor: accentColor }} />
             <span className="text-xs sm:text-sm font-bold tracking-[0.25em] uppercase flex items-center gap-1.5" style={{ color: accentColor }}>
@@ -260,7 +315,7 @@ Telemetry cross-matched against live global incident databases indicates the air
             </span>
             <div className="flex gap-2">
               <button 
-                onClick={onClose}
+                onClick={() => { sfx.playClick(); setIsMinimized(true); }}
                 title="Minimize to Telemetry HUD"
                 className="p-1 border border-cyan-900/80 hover:border-amber-400 hover:bg-amber-950/40 hover:text-amber-400 text-cyan-500 transition-colors cursor-pointer"
               >
@@ -419,7 +474,8 @@ Telemetry cross-matched against live global incident databases indicates the air
             NEXT [D/▶] <ChevronRight className="w-3.5 h-3.5" />
           </button>
         </div>
-
+        </>
+        )}
       </div>
     </div>
   );

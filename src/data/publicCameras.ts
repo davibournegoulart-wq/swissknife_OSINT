@@ -6,7 +6,7 @@ export interface PublicCamera {
   city: string;
   country: string;
   region: "Americas" | "Europe" | "Asia-Pacific" | "Middle East & Africa" | "Global";
-  category: "Strategic Chokepoints" | "Metropolises" | "Volcanoes & Nature" | "Maritime Ports" | "Space & Orbit";
+  category: "Strategic Chokepoints" | "Metropolises" | "Volcanoes & Nature" | "Maritime Ports" | "Space & Orbit" | "Aviation & Airports";
   lat: number;
   lng: number;
   youtubeId: string;
@@ -17,6 +17,39 @@ export interface PublicCamera {
 }
 
 export const PUBLIC_CAMERAS: PublicCamera[] = [
+
+  // --- Aviation & Airports ---
+  {
+    id: "lhr-heathrow",
+    name: "London Heathrow Airport (LHR)",
+    city: "London",
+    country: "United Kingdom",
+    region: "Europe",
+    category: "Aviation & Airports",
+    lat: 51.4700,
+    lng: -0.4543,
+    youtubeId: "r-X69O2J_Wk", 
+    timezone: "Europe/London",
+    operator: "Flight Focus 365 / Airliners Live",
+    description: "Live 24/7 runway and ATC feed from Europe's busiest airport.",
+    color: "#ff00ff"
+  },
+  {
+    id: "gru-sao-paulo",
+    name: "Guarulhos Int Airport (GRU)",
+    city: "Sao Paulo",
+    country: "Brazil",
+    region: "Americas",
+    category: "Aviation & Airports",
+    lat: -23.4306,
+    lng: -46.4731,
+    youtubeId: "J8aX2O1R82I", 
+    timezone: "America/Sao_Paulo",
+    operator: "SBGR LIVE",
+    description: "Live streaming of arrivals and departures at Guarulhos, the busiest airport in South America.",
+    color: "#ff00ff"
+  },
+
   // --- Strategic Chokepoints & Maritime Ports ---
   {
     id: "panama-canal",

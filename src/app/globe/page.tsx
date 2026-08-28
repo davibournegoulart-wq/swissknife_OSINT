@@ -23,6 +23,7 @@ import SatelliteDossierModal from "@/components/SatelliteDossierModal";
 import RangeMeasureModal from "@/components/RangeMeasureModal";
 import TimeScrubber from "@/components/TimeScrubber";
 import PublicCamerasModal from "@/components/PublicCamerasModal";
+import CameraDirectoriesModal from "@/components/CameraDirectoriesModal";
 import { SATELLITE_CATALOG, getSatellitePosition, getOrbitPath } from "@/data/satellites";
 import { computeGeodesicMeasurement, GeodesicMeasurement, ThreatZone, STRATEGIC_THREAT_HUBS } from "@/utils/geoCalc";
 import { generateGraticulePaths, STRATEGIC_FIR_SECTORS } from "@/data/firSectors";
@@ -80,6 +81,7 @@ export default function GlobeMonitor() {
 
   // Public Global Cameras State
   const [isCamerasModalOpen, setIsCamerasModalOpen] = useState<boolean>(false);
+  const [isDirectoryModalOpen, setIsDirectoryModalOpen] = useState<boolean>(false);
   const [selectedCameraForModal, setSelectedCameraForModal] = useState<PublicCamera | null>(null);
 
   useEffect(() => {
@@ -1049,6 +1051,13 @@ export default function GlobeMonitor() {
                 <span>[{PUBLIC_CAMERAS.length}]</span>
               </button>
 
+              {/* External Camera Directories Toggle */}
+              <button onClick={() => { sfx.playClick(); setIsDirectoryModalOpen(true); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border border-cyan-900/30 text-cyan-900 transition-colors hover:border-[#00ff88] hover:text-[#00ff88]`}>
+                <span className="flex items-center gap-1"><Search className="w-3 h-3" /> OSINT CAM DIRECTORIES</span>
+                <span>[EXT]</span>
+              </button>
+
+
 
               <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, news: !l.news })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.news ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>INTEL STREAMS</span>
@@ -1504,6 +1513,12 @@ export default function GlobeMonitor() {
           });
         }}
       />
+
+      <CameraDirectoriesModal 
+        isOpen={isDirectoryModalOpen}
+        onClose={() => setIsDirectoryModalOpen(false)}
+      />
+
     </div>
   );
 }

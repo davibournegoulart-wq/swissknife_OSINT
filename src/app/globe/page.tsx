@@ -40,7 +40,7 @@ export default function GlobeMonitor() {
     news: true, quakes: true, borders: true, arcs: true, labels: false, 
     weather: false, storms: true, fires: true, volcanoes: true, 
     conflicts: true, flights: true, maritime: true, cyber: true,
-    satellites: true, graticule: true, fir: true, cameras: false
+    satellites: true, graticule: true, fir: true
   });
   const [globeTheme, setGlobeTheme] = useState<"tactical" | "satellite">("tactical");
   const [hoveredInfo, setHoveredInfo] = useState<PointData | null>(null);
@@ -143,7 +143,7 @@ export default function GlobeMonitor() {
     return () => clearInterval(iv);
   }, []);
 
-  const { points, arcs, rings, labels, eonetPts, conflictPts, maritimePts, cyberPts, flightPts, satellitePts, cameraPts, satelliteOrbitPaths } = useMemo(() => {
+  const { points, arcs, rings, labels, eonetPts, conflictPts, maritimePts, cyberPts, flightPts, satellitePts, satelliteOrbitPaths } = useMemo(() => {
     const pts: PointData[] = [];
     const arcList: any[] = [];
     const ringList: any[] = [];
@@ -387,37 +387,7 @@ export default function GlobeMonitor() {
       });
     }
 
-    const cameraPtsList: any[] = [];
-    if (layers.cameras) {
-      PUBLIC_CAMERAS.forEach(cam => {
-        cameraPtsList.push({
-          lat: cam.lat,
-          lng: cam.lng,
-          size: 1.5,
-          color: cam.color || "#00ff88",
-          label: `[ 📹 CAM: ${cam.name.toUpperCase()} ]`,
-          title: cam.name,
-          type: "camera",
-          camDef: cam,
-          city: cam.city,
-          country: cam.country,
-          category: cam.category,
-          operator: cam.operator,
-          youtubeId: cam.youtubeId,
-          desc: `LOCATION: ${cam.city.toUpperCase()}, ${cam.country.toUpperCase()}\nCATEGORY: ${cam.category.toUpperCase()}\nOPERATOR: ${cam.operator.toUpperCase()}\n${cam.description}`
-        });
-
-        ringList.push({
-          lat: cam.lat,
-          lng: cam.lng,
-          color: cam.color || "#00ff88",
-          maxR: 3.5,
-          propagationSpeed: 1.0,
-          repeatPeriod: 2200
-        });
-      });
-    }
-
+    
     const satelliteOrbitPaths = layers.satellites 
       ? SATELLITE_CATALOG.map(sat => ({
           name: sat.name,
@@ -437,7 +407,6 @@ export default function GlobeMonitor() {
       cyberPts: cyberPtsList,
       flightPts: flightPtsList,
       satellitePts: satellitePtsList,
-      cameraPts: cameraPtsList,
       satelliteOrbitPaths
     };
   }, [news, quakes, layers, eonetEvents, conflicts, maritime, cyber, flights, flightFilterType, flightSearch, satTick, timeOffsetHours]);
@@ -500,9 +469,6 @@ export default function GlobeMonitor() {
     } else if (pt.type === "satellite") {
       setSatDossierTarget(pt);
       setIsSatDossierOpen(true);
-    } else if (pt.type === "camera" || pt.camDef) {
-      setSelectedCameraForModal(pt.camDef || pt);
-      setIsCamerasModalOpen(true);
     } else {
       setDossierTarget(pt);
       setIsDossierOpen(true);
@@ -689,7 +655,6 @@ export default function GlobeMonitor() {
               ...(cyberPts || []),
               ...(flightPts || []),
               ...(satellitePts || []),
-              ...(cameraPts || [])
             ]}
             htmlLat="lat"
             htmlLng="lng"
@@ -845,21 +810,6 @@ export default function GlobeMonitor() {
                     </svg>
                   </div>
                 `;
-              } else if (type === "camera") {
-                innerHTML = `
-                  <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group">
-                    <div class="absolute w-10 h-10 border border-dashed border-[#00ff88]/60 rounded-full animate-ping pointer-events-none"></div>
-                    <div class="absolute w-6 h-6 bg-[#00ff88]/15 rounded-full blur-[2px]"></div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" class="group-hover:scale-125 transition-transform drop-shadow-[0_0_12px_rgba(0,255,136,0.95)]">
-                      <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" fill="rgba(0,255,136,0.3)" stroke="#00ff88" stroke-width="1.8"/>
-                      <circle cx="12" cy="13" r="3" fill="#020817" stroke="#00ff88" stroke-width="1.8"/>
-                      <circle cx="12" cy="13" r="1" fill="#ffffff"/>
-                    </svg>
-                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/95 border border-[#00ff88] text-[#00ff88] text-[7px] font-mono font-bold px-1.5 py-0.5 rounded-xs pointer-events-none whitespace-nowrap z-50">
-                      ${d.label}
-                    </div>
-                  </div>
-                `;
               } else {
                 innerHTML = `
                   <div class="w-2 h-2 bg-white rounded-full shadow-[0_0_8px_#ffffff] pointer-events-auto cursor-pointer"></div>
@@ -912,7 +862,6 @@ export default function GlobeMonitor() {
               ...(cyberPts || []), 
               ...(flightPts || []), 
               ...(satellitePts || []),
-              ...(cameraPts || [])
             ]}
             theme={globeTheme}
             target={lockedInfo}
@@ -1043,11 +992,7 @@ export default function GlobeMonitor() {
                 <span className="text-cyan-400">[{globeTheme.toUpperCase()}]</span>
               </button>
 
-              {/* Public Global Cameras Layer Toggle */}
-              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, cameras: !l.cameras })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.cameras ? "border-[#00ff88] text-[#00ff88]" : "border-cyan-900/30 text-cyan-900 transition-colors hover:border-cyan-500"}`}>
-                <span className="flex items-center gap-1"><Camera className="w-3 h-3" /> GLOBAL PUBLIC CAMERAS</span>
-                <span>[{PUBLIC_CAMERAS.length}]</span>
-              </button>
+              
 
 
               <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, news: !l.news })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.news ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>

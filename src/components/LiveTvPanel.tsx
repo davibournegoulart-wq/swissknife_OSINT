@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { MonitorPlay, X, LayoutGrid, LayoutTemplate, Square, Rows, Volume2, VolumeX, Maximize2, Minimize2, Settings2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const CHANNELS = [
   { id: "UCNye-wNBqNL5ZzHSJj3l8Bg", name: "Al Jazeera (EN)", region: "Middle East / Global", language: "English" },
   { id: "UCfiwzLy-8yKzIbsmZTzxDgw", name: "Al Jazeera (AR)", region: "Middle East", language: "Arabic" },
-  { id: "UCoMdktPbSTixAyNGwb-PUkQ", name: "Sky News", region: "UK / Europe", language: "English" },
   { id: "UC16niRr50-MSBwiO3YDb3RA", name: "BBC News", region: "UK / Global", language: "English" },
   { id: "UCQfwfsi5VrQ8yKZ-UWmAEFg", name: "France 24 (EN)", region: "France / Europe", language: "English" },
   { id: "UCCCPCZNChQdGa9EkATeye4g", name: "France 24 (FR)", region: "France / Europe", language: "French" },
@@ -20,7 +20,6 @@ const CHANNELS = [
   { id: "UCpgHQVW85B4_7h6oK6B581g", name: "ABC News", region: "Australia / Oceania", language: "English" },
   { id: "UCeY0bbntWzzVIaj2z3QigXg", name: "NBC News", region: "USA / Americas", language: "English" },
   { id: "UC8p1vwvWtl6T73JiExfWs1g", name: "CBS News", region: "USA / Americas", language: "English" },
-  { id: "UCIALMKvObZNtJ3RVq5ErRVg", name: "Bloomberg", region: "USA / Global Markets", language: "English" },
   { id: "UC_gUM8rL-Lrg6O3adPW9K1g", name: "WION", region: "India / Asia", language: "English" },
   { id: "UC83jt4dlz1Gjl58fzQrrKZg", name: "CNA", region: "Singapore / Asia", language: "English" },
   { id: "UCY-p2B2Vv2U7e8-z7c3M2OQ", name: "Arirang TV", region: "South Korea / Asia", language: "English" },
@@ -32,7 +31,7 @@ const CHANNELS = [
 export function LiveTvPanel({ onClose }: { onClose: () => void }) {
   const [layout, setLayout] = useState<"1x1" | "1x2" | "2x2">("2x2");
   const [slots, setSlots] = useState<(typeof CHANNELS[0] | null)[]>([
-    CHANNELS[0], CHANNELS[2], CHANNELS[4], CHANNELS[15]
+    CHANNELS[0], CHANNELS[8], CHANNELS[4], CHANNELS[14]
   ]);
   const [activeAudioSlot, setActiveAudioSlot] = useState<number>(0);
   const [activeSlotSelection, setActiveSlotSelection] = useState<number>(0);
@@ -46,13 +45,17 @@ export function LiveTvPanel({ onClose }: { onClose: () => void }) {
 
   const activeChannelIds = slots.filter(Boolean).map(s => s!.id);
 
-  return (
+    const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  
+  if (!mounted) return null;
+
+  return createPortal(
     <div className={cn(
-      "fixed inset-0 z-[9999] bg-[#02050c] flex",
+      "fixed inset-0 z-[999999] bg-[#02050c] flex",
       isCleanMode ? "" : "p-4 gap-4"
     )}>
-      
-      {/* Sidebar (Hidden in Clean Mode) */}
+{/* Sidebar (Hidden in Clean Mode) */}
       {!isCleanMode && (
         <div className="w-80 shrink-0 flex flex-col bg-[#040814] border border-cyan-900/50 shadow-[0_0_30px_rgba(0,0,0,0.8)] z-10">
           <div className="p-4 border-b border-cyan-900/50 flex flex-col gap-4">
@@ -183,5 +186,5 @@ export function LiveTvPanel({ onClose }: { onClose: () => void }) {
       </div>
 
     </div>
-  );
+  , document.body);
 }

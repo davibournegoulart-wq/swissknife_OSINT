@@ -625,7 +625,11 @@ export default function GlobeMonitor() {
             polygonStrokeColor={() => "rgba(0, 243, 255, 0.3)"}
             
             // Points (Glowing nodes - flattened to surface)
-            pointsData={points}
+                        pointsData={[
+              ...points,
+              ...(measurePointA ? [{ lat: measurePointA.lat, lng: measurePointA.lng, size: 1.5, color: "#f59e0b" }] : []),
+              ...(measurement ? [{ lat: measurement.pointB.lat, lng: measurement.pointB.lng, size: 1.5, color: "#ef4444" }] : [])
+            ]}
             pointLat="lat"
             pointLng="lng"
             pointColor="color"
@@ -644,6 +648,23 @@ export default function GlobeMonitor() {
                 propagationSpeed: 2.5,
                 repeatPeriod: 900
               }] : [])
+            ,
+              ...(measurePointA ? [{
+                lat: measurePointA.lat,
+                lng: measurePointA.lng,
+                color: '#f59e0b',
+                maxR: 3,
+                propagationSpeed: 1,
+                repeatPeriod: 1000
+              }] : []),
+              ...(measurement ? [{
+                lat: measurement.pointB.lat,
+                lng: measurement.pointB.lng,
+                color: '#ef4444',
+                maxR: 3,
+                propagationSpeed: 1,
+                repeatPeriod: 1000
+              }] : [])
             ]}
             ringColor="color"
             ringMaxRadius="maxR"
@@ -651,7 +672,7 @@ export default function GlobeMonitor() {
             ringRepeatPeriod="repeatPeriod"
 
             // Arcs (Data Streams)
-            arcsData={layers.arcs ? arcs : []}
+            arcsData={[...(layers.arcs ? arcs : []), ...geodesicArc]}
             arcColor="color"
             arcDashLength={0.5}
             arcDashGap={1}

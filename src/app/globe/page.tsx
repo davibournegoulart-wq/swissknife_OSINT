@@ -492,10 +492,11 @@ export default function GlobeMonitor() {
     const reverseHeadingRad = headingRad + Math.PI;
     
     const points = [];
-    const numSegments = 20;
-    const trailDistanceKm = speedKmh * 1.5; // 1.5 hours of trail
+    const numSegments = 30;
     
-    for (let i = 0; i <= numSegments; i++) {
+    // Trail: 1.5 hours backwards
+    const trailDistanceKm = speedKmh * 1.5;
+    for (let i = numSegments; i >= 0; i--) {
       const dKm = (trailDistanceKm * i) / numSegments;
       const deltaLat = (dKm * Math.cos(reverseHeadingRad)) / 111.32;
       const deltaLng = (dKm * Math.sin(reverseHeadingRad)) / (111.32 * Math.cos((lockedInfo.lat * Math.PI) / 180) || 1);
@@ -507,14 +508,53 @@ export default function GlobeMonitor() {
       ]);
     }
     
-    return [{
-      path: points.reverse(),
-      name: lockedInfo.callsign + " Flight Path",
-      color: lockedInfo.color || "#00ff88",
-      type: "flight_route"
-    }];
+    // Projection: 2 hours forward (ETA path)
+    const futureDistanceKm = speedKmh * 2;
+    const futurePoints = [];
+    for (let i = 0; i <= numSegments; i++) {
+      const dKm = (futureDistanceKm * i) / numSegments;
+      const deltaLat = (dKm * Math.cos(headingRad)) / 111.32;
+      const deltaLng = (dKm * Math.sin(headingRad)) / (111.32 * Math.cos((lockedInfo.lat * Math.PI) / 180) || 1);
+      
+      futurePoints.push([
+        lockedInfo.lat + deltaLat,
+        ((lockedInfo.lng + deltaLng + 180) % 360) - 180,
+        lockedInfo.altitude ? (lockedInfo.altitude / 150000) : 0.05
+      ]);
+    }
+    
+    return [
+      {
+        coords: points,
+        name: lockedInfo.callsign + " Past Trajectory",
+        color: lockedInfo.color || "#00ff88",
+        type: "flight_route_past"
+      },
+      {
+        coords: futurePoints,
+        name: lockedInfo.callsign + " Projected Path",
+        color: "#ffffff", // White dashed-like projection
+        type: "flight_route_future"
+      }
+    ];
   }, [lockedInfo]);
 
+  const flightEtaMarker = useMemo(() => {
+    if (!lockedInfo || lockedInfo.type !== "flight" || flightPath.length < 2) return [];
+    
+    const futureRoute = flightPath[1].coords;
+    if (!futureRoute || futureRoute.length === 0) return [];
+    
+    const lastPoint = futureRoute[futureRoute.length - 1];
+    
+    return [{
+      lat: lastPoint[0],
+      lng: lastPoint[1],
+      type: "flight_eta",
+      label: `ETA: +2 HOURS`,
+      color: "#ffffff"
+    }];
+  }, [lockedInfo, flightPath]);
   const focusTarget = (pt: any) => {
     if (!pt) return;
     sfx.playTargetLock();
@@ -523,8 +563,10 @@ export default function GlobeMonitor() {
     setAutoRotate(false); // Pause auto-rotation so user can inspect the target
 
     if (viewMode === "3d" && globeRef.current) {
+      // Zoom much closer if it's a flight, just like Flightradar24
+      const zoomAltitude = pt.type === "flight" || pt.flightType ? 0.08 : 0.45;
       globeRef.current.pointOfView(
-        { lat: pt.lat, lng: pt.lng, altitude: 0.45 },
+        { lat: pt.lat, lng: pt.lng, altitude: zoomAltitude },
         1400
       );
     }
@@ -750,7 +792,8 @@ export default function GlobeMonitor() {
               ...(cyberPts || []),
               ...(flightPts || []),
               ...(satellitePts || []),
-              ...(cameraPts || [])
+              ...(cameraPts || []),
+              ...(flightEtaMarker || [])
             ]}
             htmlLat="lat"
             htmlLng="lng"
@@ -917,6 +960,19 @@ export default function GlobeMonitor() {
                       <circle cx="12" cy="13" r="1" fill="#ffffff"/>
                     </svg>
                     <div class="absolute -top-4 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/95 border border-[#00ff88] text-[#00ff88] text-[7px] font-mono font-bold px-1.5 py-0.5 rounded-xs pointer-events-none whitespace-nowrap z-50">
+                      ${d.label}
+                    </div>
+                  </div>
+                `;
+              } else if (type === "flight_eta") {
+                innerHTML = `
+                  <div class="relative flex items-center justify-center pointer-events-none group">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" class="drop-shadow-[0_0_8px_rgba(255,255,255,0.95)]">
+                      <circle cx="12" cy="12" r="4" fill="none" stroke="#ffffff" stroke-width="2" stroke-dasharray="2 2" class="animate-spin-slow"/>
+                      <circle cx="12" cy="12" r="1.5" fill="#ffffff"/>
+                      <path d="M12 2v4M12 18v4M2 12h4M18 12h4" stroke="#ffffff" stroke-width="1.5"/>
+                    </svg>
+                    <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-sm border border-white/50 text-white text-[8px] font-mono font-bold px-1.5 py-0.5 rounded-sm whitespace-nowrap shadow-[0_0_10px_rgba(255,255,255,0.3)]">
                       ${d.label}
                     </div>
                   </div>

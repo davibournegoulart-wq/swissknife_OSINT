@@ -154,6 +154,7 @@ export default function AirMissionDossierModal({
 • CURRENT ALTITUDE: ${alt} meters (${Math.round(alt * 3.28084).toLocaleString()} ft)
 • GROUND SPEED: ${speed} m/s (${Math.round(speed * 1.94384)} knots / ${Math.round(speed * 3.6)} km/h)
 • MISSION ROUTE: ${originDestination}
+• ESTIMATED TARGET ETA: ~ 2H 00M (PROJECTED FLIGHT VECTOR)
 • GEOGRAPHIC POSITION: LAT ${lat}, LNG ${lng}
 • SQUAWK: ${flight.squawk || "1200 (VFR/Tactical)"} | NATION AFFILIATION: ${country.toUpperCase()}`,
         isTelemetry: true,

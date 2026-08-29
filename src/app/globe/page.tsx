@@ -1060,7 +1060,7 @@ export default function GlobeMonitor() {
       <div className="absolute inset-0 pointer-events-none z-40 flex flex-col justify-between p-8">
         
         {/* Header & Left Sidebar */}
-        <div className="flex flex-col gap-4 items-start pointer-events-none flex-1 min-h-0 h-full relative">
+        <div className="flex flex-col gap-4 items-start pointer-events-none flex-1 min-h-0 relative">
           <div className="bg-[#0a0600]/90 p-4 border-l-2 border-amber-500 backdrop-blur-sm pointer-events-auto shrink-0 flex items-center justify-between gap-4 w-96">
             <div className="flex items-center gap-3">
               <div className="relative w-11 h-11 flex items-center justify-center bg-amber-950/40 border border-amber-500/50 shrink-0" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }}>
@@ -1093,7 +1093,7 @@ export default function GlobeMonitor() {
           </div>
 
           {/* Left Sub-Matrix (Controls & Telemetry) */}
-          <div className="flex flex-col gap-3 w-96 pointer-events-auto flex-1 min-h-0 h-full">
+          <div className="flex flex-col gap-3 w-96 pointer-events-auto flex-1 min-h-0">
             
             {/* View Mode Toggle */}
             <div className="bg-[#020205]/80 border border-cyan-900/50 p-2 flex gap-2 backdrop-blur-sm shrink-0">
@@ -1149,7 +1149,7 @@ export default function GlobeMonitor() {
             </button>
 
             {/* Layer Toggles */}
-            <div className="bg-[#020205]/80 border border-cyan-900/50 p-4 flex flex-col gap-3 backdrop-blur-sm flex-1 overflow-y-auto custom-scrollbar h-full">
+            <div className="bg-[#020205]/80 border border-cyan-900/50 p-4 flex flex-col gap-3 backdrop-blur-sm flex-1 overflow-y-auto custom-scrollbar min-h-0">
               <div className="text-xs font-bold text-cyan-600 uppercase tracking-[0.3em] mb-1 sticky top-0 bg-[#020205] z-10 pb-2 border-b border-cyan-900/50">SYSTEM LAYERS</div>
               
               <button onClick={() => { sfx.playClick(); setGlobeTheme(t => t === "tactical" ? "satellite" : "tactical"); }} className="flex items-center justify-between shrink-0 text-xs tracking-widest p-2 border border-cyan-900/30 hover:border-cyan-500 transition-colors">

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { saveSnapshot } from "@/lib/db";
 
 export interface Flight {
   lat: number;
@@ -18,6 +19,9 @@ export interface Flight {
 let cachedFlights: Flight[] = [];
 let lastFetchTime = 0;
 const CACHE_TTL = 15 * 1000; // 15 seconds cache
+
+let lastSnapshotTime = 0;
+const SNAPSHOT_INTERVAL = 1 * 60 * 1000; // 1 minute for testing, later we can change to 5 min
 
 // Known military prefixes and patterns
 const MILITARY_PREFIXES = [
@@ -192,6 +196,12 @@ export async function GET() {
       if (merged.length > 0) {
         cachedFlights = merged;
         lastFetchTime = now;
+        
+        if (now - lastSnapshotTime > SNAPSHOT_INTERVAL) {
+          saveSnapshot(cachedFlights);
+          lastSnapshotTime = now;
+        }
+
         return NextResponse.json({ flights: merged, total: merged.length, source: "opensky_live_enriched" });
       }
     }
@@ -203,6 +213,11 @@ export async function GET() {
   const simFlights = generateSimulatedFlights();
   cachedFlights = simFlights;
   lastFetchTime = now;
+
+  if (now - lastSnapshotTime > SNAPSHOT_INTERVAL) {
+    saveSnapshot(cachedFlights);
+    lastSnapshotTime = now;
+  }
 
   return NextResponse.json({
     flights: simFlights,

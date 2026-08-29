@@ -52,6 +52,8 @@ export default function GlobeMonitor() {
   const [maritime, setMaritime] = useState<any[]>([]);
   const [cyber, setCyber] = useState<any[]>([]);
   const [flights, setFlights] = useState<any[]>([]);
+  const [historicalFlights, setHistoricalFlights] = useState<any[]>([]);
+  const [timelineMap, setTimelineMap] = useState<number[]>([]);
   const [flightFilterType, setFlightFilterType] = useState<"all" | "military" | "commercial" | "vip">("all");
   const [flightSearch, setFlightSearch] = useState<string>("");
   const [showFlightFilters, setShowFlightFilters] = useState<boolean>(true);
@@ -96,16 +98,24 @@ export default function GlobeMonitor() {
       .then(r => r.json()).then(d => setEonetEvents(d.events || []))
       .catch(e => console.error("EONET error", e));
 
-    // Fetch Live ADS-B Flight Data via internal API proxy
-    fetch("/api/flights")
-      .then(r => r.json())
-      .then(d => {
-        if (d && Array.isArray(d.flights)) {
-          setFlights(d.flights);
-        }
-      })
-      .catch(e => console.error("Flight Radar fetch error", e));
+    const fetchFlights = () => {
+      fetch("/api/flights")
+        .then(r => r.json())
+        .then(d => {
+          if (d && Array.isArray(d.flights)) {
+            setFlights(d.flights);
+          }
+        })
+        .catch(e => console.error("Flight Radar fetch error", e));
+    };
 
+    fetchFlights(); // Initial fetch
+    const flightInterval = setInterval(() => {
+      // Only fetch live data if we are not scrubbing history
+      fetchFlights();
+    }, 15000);
+
+    return () => clearInterval(flightInterval);
     // Global Armed Conflicts & Warzones
     setConflicts([
       { lat: 48.3794, lng: 31.1656, title: "Russo-Ukrainian War", country: "Ukraine", desc: "Conventional warfare, missile strikes & frontlines", color: "#ffff00" },
@@ -144,6 +154,44 @@ export default function GlobeMonitor() {
     const iv = setInterval(() => setSatTick(t => t + 1), 1000);
     return () => clearInterval(iv);
   }, []);
+
+  // Fetch timeline on mount or when scrubber is opened
+  useEffect(() => {
+    if (isTimeScrubberOpen && timelineMap.length === 0) {
+      fetch("/api/history/timeline")
+        .then(r => r.json())
+        .then(data => {
+          if (data.timeline) {
+            const allT: number[] = [];
+            data.timeline.forEach((d: any) => allT.push(...d.timestamps));
+            setTimelineMap(allT.sort((a, b) => a - b));
+          }
+        }).catch(e => console.error("Timeline err", e));
+    }
+  }, [isTimeScrubberOpen, timelineMap.length]);
+
+  // Fetch snapshot when timeOffsetHours changes
+  useEffect(() => {
+    let timeoutId: any;
+    if (timeOffsetHours < 0 && timelineMap.length > 0) {
+      timeoutId = setTimeout(() => {
+        const targetTime = Date.now() + (timeOffsetHours * 3600 * 1000);
+        // Find closest timestamp
+        const closest = timelineMap.reduce((prev, curr) => 
+          Math.abs(curr - targetTime) < Math.abs(prev - targetTime) ? curr : prev
+        );
+        
+        fetch(`/api/history/snapshot?t=${closest}`)
+          .then(r => r.json())
+          .then(data => {
+            if (data.flights) setHistoricalFlights(data.flights);
+          }).catch(e => console.error("Snapshot err", e));
+      }, 300); // 300ms debounce
+    } else if (timeOffsetHours === 0) {
+      setHistoricalFlights([]);
+    }
+    return () => clearTimeout(timeoutId);
+  }, [timeOffsetHours, timelineMap]);
 
   const { points, arcs, rings, labels, eonetPts, conflictPts, maritimePts, cyberPts, flightPts, satellitePts, cameraPts, satelliteOrbitPaths } = useMemo(() => {
     const pts: PointData[] = [];
@@ -301,7 +349,9 @@ export default function GlobeMonitor() {
 
     const flightPtsList: any[] = [];
     if (layers.flights) {
-      const filtered = flights.filter(f => {
+      const activeFlights = timeOffsetHours < 0 && historicalFlights.length > 0 ? historicalFlights : flights;
+      
+      const filtered = activeFlights.filter(f => {
         const matchesType = flightFilterType === "all" || f.type === flightFilterType;
         const matchesSearch = !flightSearch || 
           f.callsign.toLowerCase().includes(flightSearch.toLowerCase()) || 
@@ -316,22 +366,10 @@ export default function GlobeMonitor() {
         const isVip = f.type === "vip";
         const color = isMil ? "#ff003c" : isVip ? "#ffd700" : "#00ff88";
 
-        // Calculate time-scrubbed simulated flight coordinates
-        let simLat = f.lat;
-        let simLng = f.lng;
-        if (timeOffsetHours !== 0) {
-          const speedKmh = (f.velocity || 250) * 3.6;
-          const headingRad = ((f.track || 45) * Math.PI) / 180;
-          const dKm = speedKmh * timeOffsetHours;
-          const deltaLat = (dKm * Math.cos(headingRad)) / 111.32;
-          const deltaLng = (dKm * Math.sin(headingRad)) / (111.32 * Math.cos((f.lat * Math.PI) / 180) || 1);
-          simLat = Math.max(-85, Math.min(85, f.lat + deltaLat));
-          simLng = ((f.lng + deltaLng + 180) % 360) - 180;
-        }
-
         flightPtsList.push({
-          lat: simLat, 
-          lng: simLng,
+          lat: f.lat, 
+          lng: f.lng,
+          altitude: f.altitude,
           size: isMil ? 1.4 : isVip ? 1.1 : 0.8,
           color: color,
           label: isMil ? `[ ⚔️ MILITARY: ${f.callsign} ]` : isVip ? `[ 👑 VIP: ${f.callsign} ]` : `[ ✈️ FLIGHT: ${f.callsign} ]`,

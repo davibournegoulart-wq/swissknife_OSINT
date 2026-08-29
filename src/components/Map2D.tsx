@@ -295,7 +295,7 @@ export default function Map2D({
         ))
       ))}
       
-      {renderData.filter(pt => pt && pt.lat != null && pt.lng != null && !isNaN(pt.lat) && !isNaN(pt.lng)).map((pt, i) => {
+      {renderData.filter(pt => pt && typeof pt.lat === 'number' && typeof pt.lng === 'number').map((pt, i) => {
         const isSelected = target?.lat === pt.lat && target?.lng === pt.lng;
         const icon = createTacticalIcon(pt, isSelected);
 

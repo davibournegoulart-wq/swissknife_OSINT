@@ -388,7 +388,7 @@ export default function GlobeMonitor() {
         });
 
         if (isMil) {
-          ringList.push({ lat: simLat, lng: simLng, color: "#ff003c", maxR: 3, propagationSpeed: 1.5, repeatPeriod: 2000 });
+          ringList.push({ lat: f.lat, lng: f.lng, color: "#ff003c", maxR: 3, propagationSpeed: 1.5, repeatPeriod: 2000 });
         }
       });
     }
@@ -801,6 +801,7 @@ export default function GlobeMonitor() {
             htmlLng="lng"
             htmlElement={(d: any) => {
               const el = document.createElement('div');
+              if (!d) return el;
               let innerHTML = '';
               const cat = d.catId;
               const type = d.type;

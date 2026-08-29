@@ -160,5 +160,77 @@
     "continent": "Asia",
     "language": "English",
     "type": "Geopolitics"
+  },
+  {
+    "name": "G1 Nacional",
+    "url": "https://g1.globo.com",
+    "rss": "https://g1.globo.com/rss/g1/",
+    "country": "Brazil",
+    "continent": "Americas",
+    "language": "Portuguese",
+    "type": "Local News"
+  },
+  {
+    "name": "G1 Rio de Janeiro",
+    "url": "https://g1.globo.com/rj/rio-de-janeiro/",
+    "rss": "https://g1.globo.com/rss/g1/rj/rio-de-janeiro/",
+    "country": "Brazil",
+    "continent": "Americas",
+    "language": "Portuguese",
+    "type": "Local News"
+  },
+  {
+    "name": "G1 S\u00e3o Paulo",
+    "url": "https://g1.globo.com/sp/sao-paulo/",
+    "rss": "https://g1.globo.com/rss/g1/sp/sao-paulo/",
+    "country": "Brazil",
+    "continent": "Americas",
+    "language": "Portuguese",
+    "type": "Local News"
+  },
+  {
+    "name": "G1 Distrito Federal",
+    "url": "https://g1.globo.com/df/distrito-federal/",
+    "rss": "https://g1.globo.com/rss/g1/df/distrito-federal/",
+    "country": "Brazil",
+    "continent": "Americas",
+    "language": "Portuguese",
+    "type": "Local News"
+  },
+  {
+    "name": "UOL Not\u00edcias",
+    "url": "https://noticias.uol.com.br/",
+    "rss": "https://rss.uol.com.br/feed/noticias.xml",
+    "country": "Brazil",
+    "continent": "Americas",
+    "language": "Portuguese",
+    "type": "Local News"
+  },
+  {
+    "name": "Metr\u00f3poles",
+    "url": "https://www.metropoles.com",
+    "rss": "https://www.metropoles.com/feed",
+    "country": "Brazil",
+    "continent": "Americas",
+    "language": "Portuguese",
+    "type": "Local News"
+  },
+  {
+    "name": "Folha de S.Paulo - Cotidiano",
+    "url": "https://www1.folha.uol.com.br/cotidiano/",
+    "rss": "https://feeds.folha.uol.com.br/cotidiano/rss091.xml",
+    "country": "Brazil",
+    "continent": "Americas",
+    "language": "Portuguese",
+    "type": "Local News"
+  },
+  {
+    "name": "R7 Not\u00edcias",
+    "url": "https://noticias.r7.com/",
+    "rss": "https://noticias.r7.com/feed.xml",
+    "country": "Brazil",
+    "continent": "Americas",
+    "language": "Portuguese",
+    "type": "Local News"
   }
 ]

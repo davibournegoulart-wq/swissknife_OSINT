@@ -150,9 +150,8 @@ export async function GET() {
     if (res.ok) {
       const data = await res.json();
       const rawStates = data.states || [];
-      const liveFlights: Flight[] = rawStates
+      const allValidFlights = rawStates
         .filter((s: any) => !s[8] && typeof s[5] === "number" && typeof s[6] === "number")
-        .slice(0, 400)
         .map((s: any) => {
           const callsign = (s[1] || "").trim() || `ICAO-${s[0]?.toUpperCase()}`;
           const classification = classifyFlight(callsign);
@@ -169,6 +168,17 @@ export async function GET() {
             mission: classification.mission
           };
         });
+
+      // Prioritize military and VIP flights, then pad with commercial up to 500
+      const militaryFlights = allValidFlights.filter((f: any) => f.type === "military");
+      const vipFlights = allValidFlights.filter((f: any) => f.type === "vip");
+      const commercialFlights = allValidFlights.filter((f: any) => f.type === "commercial");
+      
+      const liveFlights: Flight[] = [
+        ...militaryFlights,
+        ...vipFlights,
+        ...commercialFlights
+      ].slice(0, 500);
 
       // Always prepend critical military patrols so user can test and inspect them immediately
       const merged = [...ACTIVE_MILITARY_PATROLS, ...liveFlights];

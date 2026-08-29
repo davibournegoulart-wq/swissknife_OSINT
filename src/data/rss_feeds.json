@@ -331,5 +331,59 @@
     "continent": "Europe",
     "language": "English",
     "type": "Local News"
+  },
+  {
+    "name": "NWS Active Alerts",
+    "url": "https://www.weather.gov",
+    "rss": "https://alerts.weather.gov/cap/us.php?x=0",
+    "country": "United States",
+    "continent": "Americas",
+    "language": "English",
+    "type": "Environmental"
+  },
+  {
+    "name": "ECDC Disease Threats",
+    "url": "https://www.ecdc.europa.eu",
+    "rss": "https://www.ecdc.europa.eu/en/taxonomy/term/1295/feed",
+    "country": "European Union",
+    "continent": "Europe",
+    "language": "English",
+    "type": "Health"
+  },
+  {
+    "name": "Google News (Global)",
+    "url": "https://news.google.com",
+    "rss": "https://news.google.com/rss?hl=en-US&gl=US&ceid=US:en",
+    "country": "Global",
+    "continent": "All",
+    "language": "English",
+    "type": "Aggregator"
+  },
+  {
+    "name": "GNEWS (Breaking Monitor)",
+    "url": "https://news.google.com",
+    "rss": "https://news.google.com/rss/search?q=breaking+news+when:1h&hl=en-US&gl=US&ceid=US:en",
+    "country": "Global",
+    "continent": "All",
+    "language": "English",
+    "type": "Aggregator"
+  },
+  {
+    "name": "INMET Brasil (Not\u00edcias)",
+    "url": "https://portal.inmet.gov.br",
+    "rss": "https://portal.inmet.gov.br/feed",
+    "country": "Brazil",
+    "continent": "Americas",
+    "language": "Portuguese",
+    "type": "Environmental"
+  },
+  {
+    "name": "Defesa Civil SP (CGE-SP alt)",
+    "url": "https://www.defesacivil.sp.gov.br",
+    "rss": "https://www.defesacivil.sp.gov.br/feed/",
+    "country": "Brazil",
+    "continent": "Americas",
+    "language": "Portuguese",
+    "type": "Local News"
   }
 ]

@@ -1061,17 +1061,17 @@ export default function GlobeMonitor() {
         
         {/* Header & Left Sidebar */}
         <div className="flex flex-col gap-4 items-start pointer-events-none flex-1 min-h-0 h-full relative">
-          <div className="bg-[#0a0600]/90 p-3 border-l-2 border-amber-500 backdrop-blur-sm pointer-events-auto shrink-0 flex items-center justify-between gap-4 w-64">
-            <div className="flex items-center gap-2.5">
-              <div className="relative w-9 h-9 flex items-center justify-center bg-amber-950/40 border border-amber-500/50 shrink-0" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }}>
+          <div className="bg-[#0a0600]/90 p-4 border-l-2 border-amber-500 backdrop-blur-sm pointer-events-auto shrink-0 flex items-center justify-between gap-4 w-96">
+            <div className="flex items-center gap-3">
+              <div className="relative w-11 h-11 flex items-center justify-center bg-amber-950/40 border border-amber-500/50 shrink-0" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }}>
                 <div className="absolute inset-0 border border-amber-400/40 animate-[spin_4s_linear_infinite]" style={{ clipPath: 'polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)' }} />
-                <PocketKnife className="w-4 h-4 text-amber-400 relative z-10" />
+                <PocketKnife className="w-5 h-5 text-amber-400 relative z-10" />
               </div>
               <div>
-                <div className="text-[11px] font-bold text-amber-500 tracking-[0.15em] flex items-center gap-1.5">
+                <div className="text-sm font-bold text-amber-500 tracking-[0.15em] flex items-center gap-1.5">
                   <span>DAVI SWISS KNIFE</span>
                 </div>
-                <div className="text-[7px] text-amber-600/80 tracking-[0.25em] font-mono">GLOBAL INTEL MATRIX</div>
+                <div className="text-[9px] text-amber-600/80 tracking-[0.25em] font-mono mt-0.5">GLOBAL INTEL MATRIX</div>
               </div>
             </div>
 
@@ -1081,31 +1081,31 @@ export default function GlobeMonitor() {
                 const newState = sfx.toggle();
                 setIsSfxEnabled(newState);
               }}
-              className={`p-1.5 border text-[8px] font-bold tracking-widest flex items-center justify-center transition-all cursor-pointer ${
+              className={`p-2 border text-xs font-bold tracking-widest flex items-center justify-center transition-all cursor-pointer ${
                 isSfxEnabled 
                   ? "border-[#00ff88] bg-emerald-950/60 text-[#00ff88] shadow-[0_0_10px_rgba(0,255,136,0.3)]" 
                   : "border-cyan-950 bg-black/80 text-cyan-900 hover:text-cyan-600"
               }`}
               title="Toggle Tactical Audio (SFX)"
             >
-              {isSfxEnabled ? <Volume2 className="w-3.5 h-3.5 text-[#00ff88]" /> : <VolumeX className="w-3.5 h-3.5 text-gray-500" />}
+              {isSfxEnabled ? <Volume2 className="w-4 h-4 text-[#00ff88]" /> : <VolumeX className="w-4 h-4 text-gray-500" />}
             </button>
           </div>
 
           {/* Left Sub-Matrix (Controls & Telemetry) */}
-          <div className="flex flex-col gap-2 w-64 pointer-events-auto flex-1 min-h-0 h-full">
+          <div className="flex flex-col gap-3 w-96 pointer-events-auto flex-1 min-h-0 h-full">
             
             {/* View Mode Toggle */}
-            <div className="bg-[#020205]/80 border border-cyan-900/50 p-1.5 flex gap-1 backdrop-blur-sm shrink-0">
+            <div className="bg-[#020205]/80 border border-cyan-900/50 p-2 flex gap-2 backdrop-blur-sm shrink-0">
               <button 
                 onClick={() => { sfx.playClick(); setViewMode("2d"); }}
-                className={`flex-1 py-1 text-[9px] tracking-widest border transition-all ${viewMode === "2d" ? "border-cyan-400 bg-cyan-950 text-cyan-200 shadow-[0_0_10px_rgba(0,243,255,0.3)]" : "border-cyan-900/30 text-cyan-700 hover:text-cyan-400"}`}
+                className={`flex-1 py-1.5 text-xs tracking-widest border transition-all ${viewMode === "2d" ? "border-cyan-400 bg-cyan-950 text-cyan-200 shadow-[0_0_10px_rgba(0,243,255,0.3)]" : "border-cyan-900/30 text-cyan-700 hover:text-cyan-400"}`}
               >
                 [ 2D MAP ]
               </button>
               <button 
                 onClick={() => { sfx.playClick(); setViewMode("3d"); }}
-                className={`flex-1 py-1 text-[9px] tracking-widest border transition-all ${viewMode === "3d" ? "border-cyan-400 bg-cyan-950 text-cyan-200 shadow-[0_0_10px_rgba(0,243,255,0.3)]" : "border-cyan-900/30 text-cyan-700 hover:text-cyan-400"}`}
+                className={`flex-1 py-1.5 text-xs tracking-widest border transition-all ${viewMode === "3d" ? "border-cyan-400 bg-cyan-950 text-cyan-200 shadow-[0_0_10px_rgba(0,243,255,0.3)]" : "border-cyan-900/30 text-cyan-700 hover:text-cyan-400"}`}
               >
                 [ 3D GLOBE ]
               </button>
@@ -1122,13 +1122,13 @@ export default function GlobeMonitor() {
                   setMeasurement(null);
                 }
               }}
-              className={`w-full py-1 text-[8px] font-bold tracking-widest flex items-center justify-center gap-1.5 border transition-all cursor-pointer shrink-0 ${
+              className={`w-full py-1.5 text-xs font-bold tracking-widest flex items-center justify-center gap-2 border transition-all cursor-pointer shrink-0 ${
                 isMeasureMode 
                   ? "border-amber-400 bg-amber-950/80 text-amber-300 shadow-[0_0_12px_rgba(245,158,11,0.3)] animate-pulse" 
                   : "border-cyan-900/40 bg-black/40 text-cyan-700 hover:text-cyan-300"
               }`}
             >
-              <Ruler className="w-3 h-3 text-amber-400" />
+              <Ruler className="w-4 h-4 text-amber-400" />
               <span>RANGE RULER: [{isMeasureMode ? (measurePointA ? "CLICK TARGET B" : "CLICK ORIGIN A") : "OFF"}]</span>
             </button>
 
@@ -1138,106 +1138,103 @@ export default function GlobeMonitor() {
                 sfx.playClick(); 
                 setIsTimeScrubberOpen(!isTimeScrubberOpen); 
               }}
-              className={`w-full py-1 text-[8px] font-bold tracking-widest flex items-center justify-center gap-1.5 border transition-all cursor-pointer shrink-0 ${
+              className={`w-full py-1.5 text-xs font-bold tracking-widest flex items-center justify-center gap-2 border transition-all cursor-pointer shrink-0 ${
                 isTimeScrubberOpen 
                   ? "border-cyan-400 bg-cyan-950/80 text-cyan-200 shadow-[0_0_12px_rgba(0,243,255,0.3)]" 
                   : "border-cyan-900/40 bg-black/40 text-cyan-700 hover:text-cyan-300"
               }`}
             >
-              <Clock className="w-3 h-3 text-cyan-400" />
+              <Clock className="w-4 h-4 text-cyan-400" />
               <span>TIME-MACHINE: [{isTimeScrubberOpen ? (timeOffsetHours < 0 ? `-${Math.abs(Math.round(timeOffsetHours*10)/10)}H` : "LIVE") : "OFF"}]</span>
             </button>
 
-
-
-
             {/* Layer Toggles */}
-            <div className="bg-[#020205]/80 border border-cyan-900/50 p-3 flex flex-col gap-2 backdrop-blur-sm flex-1 overflow-y-auto custom-scrollbar h-full">
-              <div className="text-[8px] text-cyan-600 uppercase tracking-[0.3em] mb-1 sticky top-0 bg-[#020205] z-10 pb-1 border-b border-cyan-900/50">SYSTEM LAYERS</div>
+            <div className="bg-[#020205]/80 border border-cyan-900/50 p-4 flex flex-col gap-3 backdrop-blur-sm flex-1 overflow-y-auto custom-scrollbar h-full">
+              <div className="text-xs font-bold text-cyan-600 uppercase tracking-[0.3em] mb-1 sticky top-0 bg-[#020205] z-10 pb-2 border-b border-cyan-900/50">SYSTEM LAYERS</div>
               
-              <button onClick={() => { sfx.playClick(); setGlobeTheme(t => t === "tactical" ? "satellite" : "tactical"); }} className="flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border border-cyan-900/30 hover:border-cyan-500 transition-colors">
+              <button onClick={() => { sfx.playClick(); setGlobeTheme(t => t === "tactical" ? "satellite" : "tactical"); }} className="flex items-center justify-between shrink-0 text-xs tracking-widest p-2 border border-cyan-900/30 hover:border-cyan-500 transition-colors">
                 <span className="text-cyan-300">GLOBE TEXTURE</span>
                 <span className="text-cyan-400">[{globeTheme.toUpperCase()}]</span>
               </button>
 
               {/* Public Global Cameras Layer Toggle */}
-              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, cameras: !l.cameras })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.cameras ? "border-[#00ff88] text-[#00ff88]" : "border-cyan-900/30 text-cyan-900 transition-colors hover:border-cyan-500"}`}>
-                <span className="flex items-center gap-1"><Camera className="w-3 h-3" /> GLOBAL PUBLIC CAMERAS</span>
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, cameras: !l.cameras })); }} className={`flex items-center justify-between shrink-0 text-xs tracking-widest p-2 border ${layers.cameras ? "border-[#00ff88] text-[#00ff88]" : "border-cyan-900/30 text-cyan-900 transition-colors hover:border-cyan-500"}`}>
+                <span className="flex items-center gap-1"><Camera className="w-4 h-4" /> GLOBAL PUBLIC CAMERAS</span>
                 <span>[{PUBLIC_CAMERAS.length}]</span>
               </button>
 
               {/* External Camera Directories Toggle */}
-              <button onClick={() => { sfx.playClick(); setIsDirectoryModalOpen(true); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border border-cyan-900/30 text-cyan-900 transition-colors hover:border-[#00ff88] hover:text-[#00ff88]`}>
-                <span className="flex items-center gap-1"><Search className="w-3 h-3" /> OSINT CAM DIRECTORIES</span>
+              <button onClick={() => { sfx.playClick(); setIsDirectoryModalOpen(true); }} className={`flex items-center justify-between shrink-0 text-xs tracking-widest p-2 border border-cyan-900/30 text-cyan-900 transition-colors hover:border-[#00ff88] hover:text-[#00ff88]`}>
+                <span className="flex items-center gap-1"><Search className="w-4 h-4" /> OSINT CAM DIRECTORIES</span>
                 <span>[EXT]</span>
               </button>
 
 
 
-              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, news: !l.news })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.news ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, news: !l.news })); }} className={`flex items-center justify-between shrink-0 text-xs tracking-widest p-2 border ${layers.news ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>INTEL STREAMS</span>
                 <span>[{news.length}]</span>
               </button>
               
-              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, quakes: !l.quakes })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.quakes ? "border-[#ff003c] text-[#ff003c]" : "border-cyan-900/30 text-cyan-900"}`}>
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, quakes: !l.quakes })); }} className={`flex items-center justify-between shrink-0 text-xs tracking-widest p-2 border ${layers.quakes ? "border-[#ff003c] text-[#ff003c]" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>SEISMIC ACTIVITY</span>
                 <span>[{quakes.length}]</span>
               </button>
 
-              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, borders: !l.borders })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.borders ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, borders: !l.borders })); }} className={`flex items-center justify-between shrink-0 text-xs tracking-widest p-2 border ${layers.borders ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>NATION BORDERS</span>
                 <span>[{layers.borders ? "ON" : "OFF"}]</span>
               </button>
 
-              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, labels: !l.labels })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.labels ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, labels: !l.labels })); }} className={`flex items-center justify-between shrink-0 text-xs tracking-widest p-2 border ${layers.labels ? "border-cyan-500 text-cyan-400" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>NATION LABELS</span>
                 <span>[{layers.labels ? "ON" : "OFF"}]</span>
               </button>
 
-              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, conflicts: !l.conflicts })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.conflicts ? "border-[#ffff00] text-[#ffff00]" : "border-cyan-900/30 text-cyan-900"}`}>
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, conflicts: !l.conflicts })); }} className={`flex items-center justify-between shrink-0 text-xs tracking-widest p-2 border ${layers.conflicts ? "border-[#ffff00] text-[#ffff00]" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>ARMED CONFLICTS</span>
                 <span>[{conflictPts.length}]</span>
               </button>
 
-              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, maritime: !l.maritime })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.maritime ? "border-[#00d2ff] text-[#00d2ff]" : "border-cyan-900/30 text-cyan-900"}`}>
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, maritime: !l.maritime })); }} className={`flex items-center justify-between shrink-0 text-xs tracking-widest p-2 border ${layers.maritime ? "border-[#00d2ff] text-[#00d2ff]" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>MARITIME CHOKEPOINTS</span>
                 <span>[{maritimePts.length}]</span>
               </button>
 
-              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, cyber: !l.cyber })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.cyber ? "border-[#a855f7] text-[#a855f7]" : "border-cyan-900/30 text-cyan-900"}`}>
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, cyber: !l.cyber })); }} className={`flex items-center justify-between shrink-0 text-xs tracking-widest p-2 border ${layers.cyber ? "border-[#a855f7] text-[#a855f7]" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>CYBER &amp; SUBSEA</span>
                 <span>[{cyberPts.length}]</span>
               </button>
 
-              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, storms: !l.storms })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.storms ? "border-[#38bdf8] text-[#38bdf8]" : "border-cyan-900/30 text-cyan-900"}`}>
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, storms: !l.storms })); }} className={`flex items-center justify-between shrink-0 text-xs tracking-widest p-2 border ${layers.storms ? "border-[#38bdf8] text-[#38bdf8]" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>STORMS &amp; CYCLONES</span>
                 <span>[{layers.storms ? "ON" : "OFF"}]</span>
               </button>
               
-              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, fires: !l.fires })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.fires ? "border-[#ff4500] text-[#ff4500]" : "border-cyan-900/30 text-cyan-900"}`}>
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, fires: !l.fires })); }} className={`flex items-center justify-between shrink-0 text-xs tracking-widest p-2 border ${layers.fires ? "border-[#ff4500] text-[#ff4500]" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>WILDFIRES</span>
                 <span>[{layers.fires ? "ON" : "OFF"}]</span>
               </button>
               
-              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, volcanoes: !l.volcanoes })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.volcanoes ? "border-[#ff8c00] text-[#ff8c00]" : "border-cyan-900/30 text-cyan-900"}`}>
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, volcanoes: !l.volcanoes })); }} className={`flex items-center justify-between shrink-0 text-xs tracking-widest p-2 border ${layers.volcanoes ? "border-[#ff8c00] text-[#ff8c00]" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>VOLCANOES</span>
                 <span>[{layers.volcanoes ? "ON" : "OFF"}]</span>
               </button>
 
               {/* Satellites Layer Toggle */}
-              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, satellites: !l.satellites })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.satellites ? "border-cyan-400 text-cyan-300" : "border-cyan-900/30 text-cyan-900"}`}>
-                <span className="flex items-center gap-1"><SatelliteIcon className="w-3 h-3 text-cyan-400" /> SATELLITES (ORBITAL ISR)</span>
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, satellites: !l.satellites })); }} className={`flex items-center justify-between shrink-0 text-xs tracking-widest p-2 border ${layers.satellites ? "border-cyan-400 text-cyan-300" : "border-cyan-900/30 text-cyan-900"}`}>
+                <span className="flex items-center gap-1"><SatelliteIcon className="w-4 h-4 text-cyan-400" /> SATELLITES (ORBITAL ISR)</span>
                 <span>[{satellitePts.length}]</span>
               </button>
 
               {/* Tactical Graticule / MGRS Grid Toggle */}
-              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, graticule: !l.graticule })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.graticule ? "border-cyan-400 text-cyan-300" : "border-cyan-900/30 text-cyan-900"}`}>
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, graticule: !l.graticule })); }} className={`flex items-center justify-between shrink-0 text-xs tracking-widest p-2 border ${layers.graticule ? "border-cyan-400 text-cyan-300" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>LAT/LNG MGRS GRID</span>
                 <span>[{layers.graticule ? "ON" : "OFF"}]</span>
               </button>
 
               {/* NATO / ICAO FIR Airspace Sectors Toggle */}
-              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, fir: !l.fir })); }} className={`flex items-center justify-between shrink-0 text-[9px] tracking-widest p-1.5 border ${layers.fir ? "border-[#ff003c] text-[#ff003c]" : "border-cyan-900/30 text-cyan-900"}`}>
+              <button onClick={() => { sfx.playClick(); setLayers(l => ({ ...l, fir: !l.fir })); }} className={`flex items-center justify-between shrink-0 text-xs tracking-widest p-2 border ${layers.fir ? "border-[#ff003c] text-[#ff003c]" : "border-cyan-900/30 text-cyan-900"}`}>
                 <span>NATO/ICAO FIR SECTORS</span>
                 <span>[{STRATEGIC_FIR_SECTORS.length} ACTIVE]</span>
               </button>
@@ -1250,7 +1247,7 @@ export default function GlobeMonitor() {
                     className={`flex-1 text-left flex items-center justify-between text-[9px] tracking-widest p-1 border ${layers.flights ? "border-[#00ff88] text-[#00ff88]" : "border-cyan-900/30 text-cyan-900"}`}
                   >
                     <span className="flex items-center gap-1">
-                      <Plane className="w-3 h-3" /> FLIGHT RADAR (ADS-B)
+                      <Plane className="w-4 h-4" /> FLIGHT RADAR (ADS-B)
                     </span>
                     <span>[{flightPts.length}/{flights.length}]</span>
                   </button>
@@ -1259,7 +1256,7 @@ export default function GlobeMonitor() {
                     className={`ml-1 p-1 text-[8px] border transition-colors ${showFlightFilters ? "border-cyan-400 text-cyan-300 bg-cyan-950/60" : "border-cyan-900/50 text-cyan-600 hover:text-cyan-300"}`}
                     title="Toggle Radar Filters"
                   >
-                    <SlidersHorizontal className="w-3 h-3" />
+                    <SlidersHorizontal className="w-4 h-4" />
                   </button>
                 </div>
 
@@ -1382,7 +1379,7 @@ export default function GlobeMonitor() {
         {/* EONET, Conflicts, Maritime, Cyber, Flights & Satellites Alerts Sidebar (Right) */}
         <div className="absolute right-8 top-1/2 -translate-y-1/2 w-64 h-[65vh] flex flex-col gap-2 pointer-events-auto">
           <div className="bg-[#020205]/80 border border-cyan-900/50 backdrop-blur-sm p-3 h-full flex flex-col custom-scrollbar overflow-y-auto">
-            <div className="text-[10px] text-cyan-500 tracking-[0.3em] font-bold border-b border-cyan-900/50 pb-2 mb-2 flex justify-between items-center sticky top-0 bg-[#020205] z-10">
+            <div className="text-xs text-cyan-500 tracking-[0.3em] font-bold border-b border-cyan-900/50 pb-2 mb-2 flex justify-between items-center sticky top-0 bg-[#020205] z-10">
               <span>GLOBAL ALERTS</span>
               <span className="text-[#ff003c]">
                 {eonetPts.length + conflictPts.length + maritimePts.length + cyberPts.length + satellitePts.length + flightPts.filter((p: any) => p.flightType === "military").length}
@@ -1447,7 +1444,7 @@ export default function GlobeMonitor() {
               <div className="flex items-center justify-between border-b border-amber-900/60 pb-1.5 mb-2">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full animate-ping" style={{ backgroundColor: (lockedInfo || hoveredInfo)?.color || "#f59e0b" }} />
-                  <span className="text-[10px] font-bold tracking-[0.25em] text-amber-400">
+                  <span className="text-xs font-bold tracking-[0.25em] text-amber-400">
                     SITUATION_RESUME // {((lockedInfo || hoveredInfo)?.type || 'INTEL').toUpperCase()}
                   </span>
                   <span className="text-[8px] px-1.5 py-0.2 bg-amber-950 border border-amber-500/60 text-amber-300 font-mono">
@@ -1474,7 +1471,7 @@ export default function GlobeMonitor() {
                 <h3 className="text-xs sm:text-sm font-bold tracking-wide" style={{ color: (lockedInfo || hoveredInfo)?.color }}>
                   {(lockedInfo || hoveredInfo)?.label || (lockedInfo || hoveredInfo)?.title}
                 </h3>
-                <p className="text-[10px] text-amber-200/90 font-sans leading-relaxed">
+                <p className="text-xs text-amber-200/90 font-sans leading-relaxed">
                   {(lockedInfo || hoveredInfo)?.desc || "Active operational incident being monitored by global telemetry feeds."}
                 </p>
               </div>
@@ -1483,9 +1480,9 @@ export default function GlobeMonitor() {
               <div className="mt-2.5 pt-2 border-t border-amber-950/80 flex items-center justify-between gap-2">
                 <button 
                   onClick={() => openDossier(lockedInfo || hoveredInfo)}
-                  className="flex-1 py-1.5 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500 text-amber-300 hover:text-white text-[9px] font-bold tracking-widest flex items-center justify-center gap-1.5 transition-all shadow-[0_0_10px_rgba(245,158,11,0.2)] cursor-pointer"
+                  className="flex-1 py-1.5 bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500 text-amber-300 hover:text-white text-xs font-bold tracking-widest flex items-center justify-center gap-2 transition-all shadow-[0_0_10px_rgba(245,158,11,0.2)] cursor-pointer"
                 >
-                  <Sparkles className="w-3 h-3 text-amber-400" /> OPEN 3D RAG NEWS DOSSIER [SPACE]
+                  <Sparkles className="w-4 h-4 text-amber-400" /> OPEN 3D RAG NEWS DOSSIER [SPACE]
                 </button>
 
                 {(lockedInfo || hoveredInfo)?.url && (
@@ -1505,7 +1502,7 @@ export default function GlobeMonitor() {
           {/* Right Status block */}
           <div className="flex flex-col items-end gap-1 pointer-events-auto ml-auto">
             <div className="flex items-center gap-2 bg-[#0a0600]/90 border border-amber-900/50 px-3 py-1">
-              <Radio className="w-3 h-3 text-[#ff003c] animate-pulse" />
+              <Radio className="w-4 h-4 text-[#ff003c] animate-pulse" />
               <span className="text-[9px] text-amber-500 tracking-[0.3em]">SECURE UPLINK ESTABLISHED</span>
             </div>
             <div className="text-[7px] text-amber-800 tracking-[0.4em]">SYS.MEM: 4096TB // LATENCY: 12MS</div>

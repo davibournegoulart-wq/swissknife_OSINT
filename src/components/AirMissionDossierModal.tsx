@@ -291,6 +291,14 @@ Telemetry cross-matched against live global incident databases indicates the air
                 <span className="text-cyan-700">VELOCITY</span>
                 <span className="font-bold text-cyan-300">{flight.velocity}m/s</span>
               </div>
+              <div className="flex justify-between items-center border-b border-cyan-900/40 pb-1">
+                <span className="text-cyan-700">SQUAWK</span>
+                <span className={`font-bold ${flight.squawk === '7700' || flight.squawk === '7500' || flight.squawk === '7600' ? 'text-red-500 animate-pulse' : 'text-cyan-300'}`}>{flight.squawk || 'N/A'}</span>
+              </div>
+              <div className="flex justify-between items-center border-b border-cyan-900/40 pb-1">
+                <span className="text-cyan-700">RADAR SENSOR</span>
+                <span className={`font-bold text-[8px] ${flight.radarSource?.includes('MLAT') ? 'text-red-400' : 'text-emerald-400'}`}>{flight.radarSource || 'ADS-B / UNKNOWN'}</span>
+              </div>
               <div className="flex justify-between items-center">
                 <span className="text-cyan-700">TYPE</span>
                 <span className="font-bold text-amber-400 truncate max-w-[140px]">{aircraftModel}</span>

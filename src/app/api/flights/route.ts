@@ -11,6 +11,8 @@ export interface Flight {
   type: "commercial" | "military" | "vip";
   aircraftType?: string;
   mission?: string;
+  radarSource?: string;
+  squawk?: string;
 }
 
 let cachedFlights: Flight[] = [];
@@ -117,7 +119,9 @@ function generateSimulatedFlights(): Flight[] {
         track: track,
         type: meta.type,
         aircraftType: meta.aircraftType,
-        mission: meta.mission
+        mission: meta.mission,
+        radarSource: isMil ? "MLAT (Secondary Triangulation)" : "ADS-B (GPS)",
+        squawk: isMil ? "0000" : String(Math.floor(1000 + Math.random() * 8999))
       });
     }
   });
@@ -165,7 +169,9 @@ export async function GET() {
             track: s[10] || 0,
             type: classification.type,
             aircraftType: classification.aircraftType,
-            mission: classification.mission
+            mission: classification.mission,
+            radarSource: s[16] === 0 ? "ADS-B (GPS)" : s[16] === 1 ? "ASTERIX (Primary/ATC)" : s[16] === 2 ? "MLAT (Secondary Triangulation)" : s[16] === 3 ? "FLARM" : "UNKNOWN RADAR",
+            squawk: s[14] || "NONE"
           };
         });
 

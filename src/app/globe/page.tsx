@@ -292,6 +292,7 @@ export default function GlobeMonitor() {
           lat: coords.lat,
           lng: coords.lng,
           text: country.toUpperCase(),
+          type: "nation_label"
         });
       });
     }
@@ -773,7 +774,7 @@ export default function GlobeMonitor() {
             pathDashAnimateTime={3000}
 
             // Nation Labels
-            labelsData={layers.labels ? labels : []}
+            labelsData={[]}
             labelLat="lat"
             labelLng="lng"
             labelText="text"
@@ -784,8 +785,9 @@ export default function GlobeMonitor() {
             labelResolution={2}
             labelAltitude={0.005}
 
-            // EONET Alerts, Conflicts, Maritime, Cyber, Flights, Satellites & Public Cameras
+            // EONET Alerts, Conflicts, Maritime, Cyber, Flights, Satellites & Public Cameras & Labels
             htmlElementsData={[
+              ...(layers.labels ? labels : []),
               ...(eonetPts || []), 
               ...(conflictPts || []), 
               ...(maritimePts || []),
@@ -802,8 +804,14 @@ export default function GlobeMonitor() {
               let innerHTML = '';
               const cat = d.catId;
               const type = d.type;
-              
-              if (type === "conflict") {
+
+              if (type === "nation_label") {
+                innerHTML = `
+                  <div class="pointer-events-none whitespace-nowrap text-cyan-500/80 font-mono text-[9px] font-bold tracking-[0.2em] drop-shadow-[0_0_8px_rgba(0,255,255,0.8)]">
+                    ${d.text}
+                  </div>
+                `;
+              } else if (type === "conflict") {
                 innerHTML = `
                   <div class="relative flex items-center justify-center pointer-events-auto cursor-pointer group">
                     <div class="absolute w-12 h-12 border border-[#ffff00] rounded-full opacity-20 group-hover:scale-110 group-hover:opacity-50 transition-all"></div>
@@ -1093,7 +1101,7 @@ export default function GlobeMonitor() {
           </div>
 
           {/* Left Sub-Matrix (Controls & Telemetry) */}
-          <div className="flex flex-col gap-2 w-64 pointer-events-auto flex-1 min-h-0 h-full">
+          <div className="flex flex-col gap-2 w-64 pointer-events-auto h-[65vh]">
             
             {/* View Mode Toggle */}
             <div className="bg-[#020205]/80 border border-cyan-900/50 p-1.5 flex gap-1 backdrop-blur-sm shrink-0">

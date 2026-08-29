@@ -92,7 +92,7 @@ export default function GlobeMonitor() {
       .then(r => r.json()).then(d => setQuakes((d.features || []).slice(0, 300)));
       
     // Fetch all open events from NASA EONET (Storms, Wildfires, Volcanoes)
-    fetch("https://eonet.gsfc.nasa.gov/api/v3/events?status=open")
+    fetch("https://eonet.gsfc.nasa.gov/api/v3/events?status=open&days=20")
       .then(r => r.json()).then(d => setEonetEvents(d.events || []))
       .catch(e => console.error("EONET error", e));
 

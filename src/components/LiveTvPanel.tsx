@@ -6,32 +6,56 @@ import { MonitorPlay, X, LayoutGrid, LayoutTemplate, Square, Rows, Volume2, Volu
 import { cn } from "@/lib/utils";
 
 const CHANNELS = [
-  { id: "UCNye-wNBqNL5ZzHSJj3l8Bg", name: "Al Jazeera (EN)", region: "Middle East / Global", language: "English" },
+  // MIDDLE EAST / GULF
+  { id: "UCNye-wNBqNL5ZzHSJj3l8Bg", name: "Al Jazeera (EN)", region: "Middle East", language: "English" },
   { id: "UCfiwzLy-8yKzIbsmZTzxDgw", name: "Al Jazeera (AR)", region: "Middle East", language: "Arabic" },
-  { id: "UC16niRr50-MSBwiO3YDb3RA", name: "BBC News", region: "UK / Global", language: "English" },
+  { id: "UCJilA3q7p-hRtkM7A5uV9mA", name: "Al Jazeera Balkans", region: "Middle East / Europe", language: "Bosnian" },
+  { id: "UCb4B7I6d-nKz_L3E86mD79g", name: "Al Arabiya", region: "Saudi Arabia", language: "Arabic" },
+  { id: "UCoG6-T0o84Kz7a9L7_q_rFw", name: "i24NEWS (EN)", region: "Israel", language: "English" },
+  { id: "UCVYl8C1dK0U5O3WbU8h4Ylg", name: "i24NEWS (FR)", region: "Israel", language: "French" },
+  { id: "UC7fWeaHhqgM4Ry-RMpM2YYw", name: "TRT World", region: "Turkey", language: "English" },
+  { id: "UCeC7mXlq6lQ0Oa4-Yn9K3YQ", name: "TRT Arabi", region: "Turkey", language: "Arabic" },
+
+  // EUROPE / UKRAINE
   { id: "UCQfwfsi5VrQ8yKZ-UWmAEFg", name: "France 24 (EN)", region: "France / Europe", language: "English" },
   { id: "UCCCPCZNChQdGa9EkATeye4g", name: "France 24 (FR)", region: "France / Europe", language: "French" },
   { id: "UCudX1i9V_oR5_n7y3k9wO3g", name: "France 24 (ES)", region: "France / Europe", language: "Spanish" },
   { id: "UCdTyuXgmJkG_O8_75eqej-w", name: "France 24 (AR)", region: "France / Europe", language: "Arabic" },
-  { id: "UCknLrEdhRCp1aegoMqRaCEg", name: "DW News (EN)", region: "Germany / Global", language: "English" },
-  { id: "UCT4GcvAoKQYMBhlUOqzuXIA", name: "DW Español", region: "Germany / Global", language: "Spanish" },
-  { id: "UC1n6hQjGz1g7d9E1uUeqqCQ", name: "DW Arabic", region: "Germany / Global", language: "Arabic" },
-  { id: "UCSrZ3GW4E1YYNtvlX4M5s4Q", name: "Euronews", region: "Europe", language: "English" },
-  { id: "UCpgHQVW85B4_7h6oK6B581g", name: "ABC News", region: "Australia / Oceania", language: "English" },
-  { id: "UCeY0bbntWzzVIaj2z3QigXg", name: "NBC News", region: "USA / Americas", language: "English" },
-  { id: "UC8p1vwvWtl6T73JiExfWs1g", name: "CBS News", region: "USA / Americas", language: "English" },
-  { id: "UC_gUM8rL-Lrg6O3adPW9K1g", name: "WION", region: "India / Asia", language: "English" },
-  { id: "UC83jt4dlz1Gjl58fzQrrKZg", name: "CNA", region: "Singapore / Asia", language: "English" },
-  { id: "UCY-p2B2Vv2U7e8-z7c3M2OQ", name: "Arirang TV", region: "South Korea / Asia", language: "English" },
-  { id: "UC7fWeaHhqgM4Ry-RMpM2YYw", name: "TRT World", region: "Turkey / Global", language: "English" },
-  { id: "UCO0akOQLLxT00s-vM9C80_w", name: "Record News", region: "Brazil / Americas", language: "Portuguese" },
-  { id: "UCCqK_z_xY8M0sO9aKzG1ZpQ", name: "CNN Brasil", region: "Brazil / Americas", language: "Portuguese" }
+  { id: "UCknLrEdhRCp1aegoMqRaCEg", name: "DW News (EN)", region: "Germany / Europe", language: "English" },
+  { id: "UCMIgOXM2JEQ2Pv3d0ZV3dLA", name: "DW (DE)", region: "Germany / Europe", language: "German" },
+  { id: "UC1n6hQjGz1g7d9E1uUeqqCQ", name: "DW Arabic", region: "Germany / Europe", language: "Arabic" },
+  { id: "UCSrZ3GW4E1YYNtvlX4M5s4Q", name: "Euronews (EN)", region: "Europe", language: "English" },
+  { id: "UCIDo2_K8N9vK7_iZ4Y9i_oA", name: "GB News", region: "United Kingdom", language: "English" },
+  { id: "UC7QZwi3ZMEzF7R0kQG7EbwQ", name: "RTVE 24h", region: "Spain", language: "Spanish" },
+  { id: "UCOniEBkEN-n1YqFj0fK2rCw", name: "UATV (EN)", region: "Ukraine", language: "English" },
+  { id: "UC19tU_v8F2Bv44dG7iA7vXw", name: "Espreso TV", region: "Ukraine", language: "Ukrainian" },
+
+  // AMERICAS
+  { id: "UC8p1vwvWtl6T73JiExfWs1g", name: "CBS News", region: "USA", language: "English" },
+  { id: "UCeY0bbntWzzVIaj2z3QigXg", name: "NBC News NOW", region: "USA", language: "English" },
+  { id: "UCBiwj1B_85E3Qz9Y-21J_wQ", name: "ABC News Live", region: "USA", language: "English" },
+  { id: "UChLtXXbpXwRb9Z_kQj42hSQ", name: "Global News", region: "Canada", language: "English" },
+  { id: "UCCqK_z_xY8M0sO9aKzG1ZpQ", name: "CNN Brasil", region: "Brazil", language: "Portuguese" },
+  { id: "UCO0akOQLLxT00s-vM9C80_w", name: "Record News", region: "Brazil", language: "Portuguese" },
+  { id: "UCj6PcyRvVNWQfcPDdfEfkJg", name: "TN (Todo Noticias)", region: "Argentina", language: "Spanish" },
+  { id: "UCM-O5e9yR5w0P83k3B4JgRw", name: "Milenio Live", region: "Mexico", language: "Spanish" },
+
+  // ASIA / PACIFIC
+  { id: "UCBjPIwzRk8G3A-h2eQ260sQ", name: "NHK World", region: "Japan", language: "English" },
+  { id: "UC83jt4dlz1Gjl58fzQrrKZg", name: "CNA", region: "Singapore", language: "English" },
+  { id: "UCY-p2B2Vv2U7e8-z7c3M2OQ", name: "Arirang TV", region: "South Korea", language: "English" },
+  { id: "UCZFMm1mMw0F81Z37AAUzBJw", name: "NDTV", region: "India", language: "English" },
+  { id: "UCpgHQVW85B4_7h6oK6B581g", name: "ABC News", region: "Australia", language: "English" },
+
+  // AFRICA
+  { id: "UC8yH-uI81UWWEMww6R4F4SQ", name: "SABC News", region: "South Africa", language: "English" },
+  { id: "UCmOik_V_y_w82Z4L507Qp9w", name: "Channels TV", region: "Nigeria", language: "English" }
 ];
 
 export function LiveTvPanel({ onClose }: { onClose: () => void }) {
   const [layout, setLayout] = useState<"1x1" | "1x2" | "2x2">("2x2");
   const [slots, setSlots] = useState<(typeof CHANNELS[0] | null)[]>([
-    CHANNELS[0], CHANNELS[8], CHANNELS[4], CHANNELS[14]
+    CHANNELS[0], CHANNELS[8], CHANNELS[12], CHANNELS[20]
   ]);
   const [activeAudioSlot, setActiveAudioSlot] = useState<number>(0);
   const [activeSlotSelection, setActiveSlotSelection] = useState<number>(0);

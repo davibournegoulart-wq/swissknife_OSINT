@@ -232,5 +232,104 @@
     "continent": "Americas",
     "language": "Portuguese",
     "type": "Local News"
+  },
+  {
+    "name": "New York Times - US News",
+    "url": "https://www.nytimes.com",
+    "rss": "https://rss.nytimes.com/services/xml/rss/nyt/US.xml",
+    "country": "United States",
+    "continent": "Americas",
+    "language": "English",
+    "type": "Local News"
+  },
+  {
+    "name": "Fox News - US",
+    "url": "https://www.foxnews.com",
+    "rss": "https://moxie.foxnews.com/google-publisher/us.xml",
+    "country": "United States",
+    "continent": "Americas",
+    "language": "English",
+    "type": "Local News"
+  },
+  {
+    "name": "The Guardian - UK News",
+    "url": "https://www.theguardian.com/uk",
+    "rss": "https://www.theguardian.com/uk/rss",
+    "country": "United Kingdom",
+    "continent": "Europe",
+    "language": "English",
+    "type": "Local News"
+  },
+  {
+    "name": "Le Monde - France",
+    "url": "https://www.lemonde.fr",
+    "rss": "https://www.lemonde.fr/rss/une.xml",
+    "country": "France",
+    "continent": "Europe",
+    "language": "French",
+    "type": "Local News"
+  },
+  {
+    "name": "Times of India - National",
+    "url": "https://timesofindia.indiatimes.com",
+    "rss": "https://timesofindia.indiatimes.com/rssfeeds/-2128936835.cms",
+    "country": "India",
+    "continent": "Asia",
+    "language": "English",
+    "type": "Local News"
+  },
+  {
+    "name": "News24 - South Africa",
+    "url": "https://www.news24.com",
+    "rss": "https://feeds.news24.com/articles/news24/SouthAfrica/rss",
+    "country": "South Africa",
+    "continent": "Africa",
+    "language": "English",
+    "type": "Local News"
+  },
+  {
+    "name": "Jerusalem Post - Israel News",
+    "url": "https://www.jpost.com",
+    "rss": "https://www.jpost.com/rss/rssfeedsfrontpage.aspx",
+    "country": "Israel",
+    "continent": "Middle East",
+    "language": "English",
+    "type": "Local News"
+  },
+  {
+    "name": "The Guardian - Australia",
+    "url": "https://www.theguardian.com/australia-news",
+    "rss": "https://www.theguardian.com/australia-news/rss",
+    "country": "Australia",
+    "continent": "Oceania",
+    "language": "English",
+    "type": "Local News"
+  },
+  {
+    "name": "Japan Times - Domestic",
+    "url": "https://www.japantimes.co.jp",
+    "rss": "https://www.japantimes.co.jp/news/national/feed/",
+    "country": "Japan",
+    "continent": "Asia",
+    "language": "English",
+    "type": "Local News"
+  },
+  {
+    "name": "Buenos Aires Times",
+    "url": "https://www.batimes.com.ar",
+    "rss": "https://www.batimes.com.ar/feed",
+    "country": "Argentina",
+    "continent": "Americas",
+    "language": "English",
+    "type": "Local News"
+  },
+  {
+    "name": "Kyiv Independent - Ukraine",
+    "url": "https://kyivindependent.com",
+    "rss": "https://kyivindependent.com/rss/",
+    "country": "Ukraine",
+    "continent": "Europe",
+    "language": "English",
+    "type": "Local News"
   }
 ]

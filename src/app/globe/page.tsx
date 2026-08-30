@@ -354,6 +354,9 @@ export default function GlobeMonitor() {
       const activeFlights = timeOffsetHours < 0 && historicalFlights.length > 0 ? historicalFlights : flights;
       
       const filtered = activeFlights.filter(f => {
+        if (lockedInfo && (lockedInfo.type === "flight" || lockedInfo.flightType)) {
+          return f.callsign === lockedInfo.callsign;
+        }
         const matchesType = flightFilterType === "all" || f.type === flightFilterType;
         const matchesSearch = !flightSearch || 
           f.callsign.toLowerCase().includes(flightSearch.toLowerCase()) || 
@@ -1297,9 +1300,16 @@ export default function GlobeMonitor() {
                         onKeyDown={(e) => {
                           if (e.key === "Enter" && flightSearch.trim()) {
                             const term = flightSearch.toLowerCase();
-                            const match = flightPts.find(f => f.callsign.toLowerCase().includes(term) || (f.aircraftType && f.aircraftType.toLowerCase().includes(term)));
+                            const active = timeOffsetHours < 0 && historicalFlights.length > 0 ? historicalFlights : flights;
+                            const match = active.find((f: any) => f.callsign.toLowerCase().includes(term) || (f.aircraftType && f.aircraftType.toLowerCase().includes(term)));
                             if (match) {
-                              focusTarget(match);
+                              const formattedMatch = {
+                                lat: match.lat, lng: match.lng, altitude: match.altitude, type: "flight", flightType: match.type, callsign: match.callsign,
+                                color: match.type === "military" ? "#ff003c" : match.type === "vip" ? "#ffd700" : "#00ff88",
+                                label: `[ ✈️ FLIGHT: ${match.callsign} ]`, title: `Flight ${match.callsign}`,
+                                desc: `Altitude: ${match.altitude}ft | Speed: ${match.velocity}kt`
+                              };
+                              focusTarget(formattedMatch);
                               setIsFlightDossierOpen(true);
                             } else {
                               sfx.playClick();
@@ -1603,6 +1613,50 @@ export default function GlobeMonitor() {
         selectedThreatHub={selectedThreatHub}
         onSelectThreatHub={setSelectedThreatHub}
       />
+
+      {/* Global Flight Search Bar (Bottom Center) */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 pointer-events-auto w-96 z-40">
+        <div className="relative flex items-center bg-black/80 border border-cyan-500/50 backdrop-blur-md rounded-sm p-1 shadow-[0_0_15px_rgba(0,243,255,0.2)]">
+          <Search className="w-4 h-4 absolute left-3 text-[#00ff88] pointer-events-none" />
+          <input
+            type="text"
+            value={flightSearch}
+            onChange={(e) => setFlightSearch(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" && flightSearch.trim()) {
+                const term = flightSearch.toLowerCase();
+                const active = timeOffsetHours < 0 && historicalFlights.length > 0 ? historicalFlights : flights;
+                const match = active.find((f: any) => f.callsign.toLowerCase().includes(term) || (f.aircraftType && f.aircraftType.toLowerCase().includes(term)));
+                if (match) {
+                  // We need to format the match to match the pt structure returned by globe
+                  const formattedMatch = {
+                    lat: match.lat, 
+                    lng: match.lng,
+                    altitude: match.altitude,
+                    type: "flight",
+                    flightType: match.type,
+                    callsign: match.callsign,
+                    color: match.type === "military" ? "#ff003c" : match.type === "vip" ? "#ffd700" : "#00ff88",
+                    label: `[ ✈️ FLIGHT: ${match.callsign} ]`,
+                    title: `Flight ${match.callsign}`,
+                    desc: `Altitude: ${match.altitude}ft | Speed: ${match.velocity}kt | Heading: ${match.heading}°`
+                  };
+                  openDossier(formattedMatch);
+                } else {
+                  sfx.playClick();
+                }
+              }
+            }}
+            placeholder="SEARCH FLIGHT CALLSIGN..."
+            className="w-full bg-transparent pl-9 pr-8 py-2 text-[11px] text-[#00ff88] placeholder:text-cyan-800 focus:outline-none font-mono uppercase tracking-widest"
+          />
+          {flightSearch && (
+            <button onClick={() => { setFlightSearch(""); setLockedInfo(null); }} className="absolute right-3 text-cyan-500 hover:text-[#ff003c]">
+              <X className="w-4 h-4" />
+            </button>
+          )}
+        </div>
+      </div>
 
       {/* 24-Hour Operational Historical Time Scrubber */}
       {isTimeScrubberOpen && (

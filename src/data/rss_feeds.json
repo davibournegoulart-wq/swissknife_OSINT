@@ -351,22 +351,22 @@
     "type": "Health"
   },
   {
-    "name": "Google News (Global)",
-    "url": "https://news.google.com",
-    "rss": "https://news.google.com/rss?hl=en-US&gl=US&ceid=US:en",
+    "name": "Liveuamap World",
+    "url": "https://liveuamap.com",
+    "rss": "https://liveuamap.com/rss",
     "country": "Global",
     "continent": "All",
     "language": "English",
-    "type": "Aggregator"
+    "type": "Conflict"
   },
   {
-    "name": "GNEWS (Breaking Monitor)",
-    "url": "https://news.google.com",
-    "rss": "https://news.google.com/rss/search?q=breaking+news+when:1h&hl=en-US&gl=US&ceid=US:en",
+    "name": "Defense News (Global)",
+    "url": "https://www.defensenews.com",
+    "rss": "https://www.defensenews.com/arc/outboundfeeds/rss/",
     "country": "Global",
     "continent": "All",
     "language": "English",
-    "type": "Aggregator"
+    "type": "Military"
   },
   {
     "name": "INMET Brasil (Not\u00edcias)",

@@ -106,40 +106,28 @@ export default function AirMissionDossierModal({
         ? `WEATHER CORRELATION: Flight path exhibits tactical heading deviations to circumvent severe meteorological turbulence and convective cells associated with [${nearbyStorms[0].label || nearbyStorms[0].title}].`
         : `ROUTINE CORRIDOR: Operating on upper airway cruise profile at optimal fuel burn. ADS-B transponder telemetry nominal with ground radar handoffs verified.`;
     }
-    let aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Boeing_787_N1015B_ANA_Airlines_%2827611880663%29_%28cropped%29.jpg/1280px-Boeing_787_N1015B_ANA_Airlines_%2827611880663%29_%28cropped%29.jpg";
+    let aircraftImage = "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=80&w=2074&auto=format&fit=crop";
     let aircraftDescription = "A wide-body, twin-engine jet airliner designed for long-haul commercial flights, featuring composite materials and high fuel efficiency.";
     
     // Dynamic matching for specific aircraft
-    if (aircraftModel.includes("KC-390")) {
-        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Embraer_KC-390.jpg/1280px-Embraer_KC-390.jpg";
-        aircraftDescription = "A medium-size, twin-engine jet-powered military transport aircraft designed and produced by Embraer. It is capable of performing aerial refueling, transport of cargo and troops, and medical evacuation.";
-    } else if (aircraftModel.includes("Typhoon")) {
-        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Eurofighter_Typhoon_FGR4_ZA947_%281%29.jpg/1280px-Eurofighter_Typhoon_FGR4_ZA947_%281%29.jpg";
-        aircraftDescription = "A highly agile, multi-role twin-engine canard delta wing fighter aircraft designed for air supremacy, ground attack, and reconnaissance.";
-    } else if (aircraftModel.includes("KC-135")) {
-        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/KC-135R_Stratotanker_in_flight.jpg/1280px-KC-135R_Stratotanker_in_flight.jpg";
-        aircraftDescription = "A military aerial refueling aircraft used extensively to extend the range of tactical fighters and strategic bombers.";
-    } else if (aircraftModel.includes("Cobra Ball")) {
-        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/RC-135S_Cobra_Ball_in_flight.jpg/1280px-RC-135S_Cobra_Ball_in_flight.jpg";
-        aircraftDescription = "A specialized measurement and signature intelligence (MASINT) collector equipped with electro-optical instruments for observing ballistic missile flights at long range.";
-    } else if (aircraftModel.includes("Global Hawk")) {
-        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Global_Hawk_1.jpg/1280px-Global_Hawk_1.jpg";
-        aircraftDescription = "High-altitude, long-endurance, remotely piloted unmanned aircraft system (UAS) providing global all-weather, day or night intelligence, surveillance, and reconnaissance (ISR) capability.";
-    } else if (aircraftModel.includes("Rivet Joint")) {
-        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/RC-135_Rivet_Joint_in_flight.jpg/1280px-RC-135_Rivet_Joint_in_flight.jpg";
-        aircraftDescription = "Reconnaissance aircraft equipped with advanced sensor suites to track, intercept, and decrypt electronic emissions, radar signals, and communications from adversaries.";
-    } else if (aircraftModel.includes("Poseidon")) {
-        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/3/3f/US_Navy_P-8_Poseidon_taking_off_at_Perth_Airport.jpg";
-        aircraftDescription = "Multi-mission maritime patrol aircraft armed with torpedoes and Harpoon anti-ship missiles, specializing in anti-submarine warfare (ASW) and shipping interdiction.";
-    } else if (aircraftModel.includes("AWACS") || aircraftModel.includes("Sentry")) {
-        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/c/c5/E-3_Sentry_Airborne_Warning_and_Control_System_%28AWACS%29_conducts_a_mission.jpg";
-        aircraftDescription = "Airborne warning and control system (AWACS) providing all-weather surveillance, command, control, and communications to tactical and air defense forces.";
-    } else if (aircraftModel.includes("Gulfstream") || aircraftModel.includes("Bombardier") || aircraftModel.includes("Executive") || aircraftModel.includes("Private")) {
-        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/2010-07-08_BD700_Tyrolean_OE-IGS_EDDF_03.jpg/1280px-2010-07-08_BD700_Tyrolean_OE-IGS_EDDF_03.jpg";
-        aircraftDescription = "Ultra long-range business jet utilized by high-net-worth individuals, corporations, and government agencies for rapid, secure, VIP executive transport.";
-    } else if (aircraftModel.includes("Military / Strategic Transport")) {
-        aircraftImage = "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/C-17_Globemaster_III_in_flight.jpg/1280px-C-17_Globemaster_III_in_flight.jpg";
-        aircraftDescription = "Heavy military transport aircraft capable of rapid strategic delivery of troops and all types of cargo to main operating bases or directly to forward bases in the deployment area.";
+    if (aircraftModel.includes("KC-390") || aircraftModel.includes("Military / Strategic Transport")) {
+        aircraftImage = "https://images.unsplash.com/photo-1543884871-3310344d5612?q=80&w=2070&auto=format&fit=crop";
+        aircraftDescription = "Military strategic transport aircraft capable of rapid delivery of troops and cargo, aerial refueling, and medical evacuation in austere environments.";
+    } else if (aircraftModel.includes("Typhoon") || aircraftModel.includes("Fighter")) {
+        aircraftImage = "https://images.unsplash.com/photo-1579899388836-9e90099eb5f0?q=80&w=2070&auto=format&fit=crop";
+        aircraftDescription = "A highly agile, multi-role fighter aircraft designed for air supremacy, ground attack, and reconnaissance.";
+    } else if (aircraftModel.includes("KC-135") || aircraftModel.includes("Cobra Ball") || aircraftModel.includes("Rivet Joint")) {
+        aircraftImage = "https://images.unsplash.com/photo-1520114006626-d6676ff30985?q=80&w=2071&auto=format&fit=crop";
+        aircraftDescription = "A specialized military aircraft equipped for strategic reconnaissance, signals intelligence, or aerial refueling operations.";
+    } else if (aircraftModel.includes("Global Hawk") || aircraftModel.includes("UAV")) {
+        aircraftImage = "https://images.unsplash.com/photo-1588611175628-9f37c35e985b?q=80&w=2070&auto=format&fit=crop";
+        aircraftDescription = "High-altitude, long-endurance, remotely piloted unmanned aircraft system (UAS) providing global all-weather intelligence, surveillance, and reconnaissance (ISR).";
+    } else if (aircraftModel.includes("Poseidon") || aircraftModel.includes("AWACS") || aircraftModel.includes("Sentry")) {
+        aircraftImage = "https://images.unsplash.com/photo-1616231920808-0130f4e64f26?q=80&w=2070&auto=format&fit=crop";
+        aircraftDescription = "Airborne warning, control, and multi-mission maritime patrol aircraft providing all-weather surveillance and command capabilities.";
+    } else if (aircraftModel.includes("Gulfstream") || aircraftModel.includes("Bombardier") || aircraftModel.includes("Executive") || aircraftModel.includes("Private") || aircraftModel.includes("VIP")) {
+        aircraftImage = "https://images.unsplash.com/photo-1540962351504-03099e0a754b?q=80&w=2070&auto=format&fit=crop";
+        aircraftDescription = "Ultra long-range business jet utilized by high-net-worth individuals, corporations, and government agencies for rapid, secure executive transport.";
     }
 
 
@@ -404,7 +392,7 @@ Telemetry cross-matched against live global incident databases indicates the air
                   {/* Label */}
                   <div className="absolute top-2 left-2 flex items-center gap-1.5 px-2 py-0.5 bg-amber-950/80 border border-amber-500/50 rounded-sm shadow-[0_0_10px_rgba(245,158,11,0.2)]">
                     <Eye className="w-2.5 h-2.5 text-amber-500" />
-                    <span className="text-[7px] text-amber-400 font-bold tracking-widest uppercase">OSINT ASSET DATABASE</span>
+                    <span className="text-[7px] text-amber-400 font-bold tracking-widest uppercase">OSINT ASSET DATABASE [REFERENCE]</span>
                   </div>
 
                   {/* Description Bar */}

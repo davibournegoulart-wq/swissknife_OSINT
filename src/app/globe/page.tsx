@@ -467,18 +467,22 @@ export default function GlobeMonitor() {
         }))
       : [];
 
+    const isValidCoord = (c: any) => typeof c === 'number' && !isNaN(c) && isFinite(c);
+    const filterPts = (arr: any[]) => arr.filter(p => p && isValidCoord(p.lat) && isValidCoord(p.lng));
+    const filterArcs = (arr: any[]) => arr.filter(a => a && isValidCoord(a.startLat) && isValidCoord(a.startLng) && isValidCoord(a.endLat) && isValidCoord(a.endLng));
+
     return { 
-      points: pts, 
-      arcs: arcList, 
-      rings: ringList, 
-      labels: labelList, 
-      eonetPts: eonetPtsList, 
-      conflictPts: conflictPtsList, 
-      maritimePts: maritimePtsList,
-      cyberPts: cyberPtsList,
-      flightPts: flightPtsList,
-      satellitePts: satellitePtsList,
-      cameraPts: cameraPtsList,
+      points: filterPts(pts), 
+      arcs: filterArcs(arcList), 
+      rings: filterPts(ringList), 
+      labels: filterPts(labelList), 
+      eonetPts: filterPts(eonetPtsList), 
+      conflictPts: filterPts(conflictPtsList), 
+      maritimePts: filterPts(maritimePtsList),
+      cyberPts: filterPts(cyberPtsList),
+      flightPts: filterPts(flightPtsList),
+      satellitePts: filterPts(satellitePtsList),
+      cameraPts: filterPts(cameraPtsList),
       satelliteOrbitPaths
     };
   }, [news, quakes, layers, eonetEvents, conflicts, maritime, cyber, flights, flightFilterType, flightSearch, satTick, timeOffsetHours]);
@@ -767,6 +771,9 @@ export default function GlobeMonitor() {
               ...flightPath
             ]}
             pathPoints="coords"
+            pathPointLat={(p: any) => p[0]}
+            pathPointLng={(p: any) => p[1]}
+            pathPointAlt={(p: any) => p[2]}
             pathColor="color"
             pathStroke={1.5}
             pathDashLength={0.3}

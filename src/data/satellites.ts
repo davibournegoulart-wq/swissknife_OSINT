@@ -196,7 +196,7 @@ export function getSatellitePosition(sat: SatelliteDef, timeMs: number = Date.no
 // Generate 3D Orbit Path Polyline around the Earth for rendering
 export function getOrbitPath(sat: SatelliteDef, steps: number = 64) {
   if (sat.inclinationDeg === 0) return [];
-  const points: { lat: number; lng: number; alt: number }[] = [];
+  const points: [number, number, number][] = [];
   const inc = sat.inclinationDeg * (Math.PI / 180);
   const earthAlt = Math.min(0.25, (sat.altitudeKm / 6371) * 0.6);
   const now = Date.now();
@@ -205,7 +205,7 @@ export function getOrbitPath(sat: SatelliteDef, steps: number = 64) {
   for (let i = 0; i <= steps; i++) {
     const t = now + (i / steps) * periodMs;
     const pos = getSatellitePosition(sat, t);
-    points.push({ lat: pos.lat, lng: pos.lng, alt: earthAlt });
+    points.push([pos.lat, pos.lng, earthAlt]);
   }
 
   return points;

@@ -115,7 +115,6 @@ export default function GlobeMonitor() {
       fetchFlights();
     }, 15000);
 
-    return () => clearInterval(flightInterval);
     // Global Armed Conflicts & Warzones
     setConflicts([
       { lat: 48.3794, lng: 31.1656, title: "Russo-Ukrainian War", country: "Ukraine", desc: "Conventional warfare, missile strikes & frontlines", color: "#ffff00" },
@@ -147,6 +146,8 @@ export default function GlobeMonitor() {
       { lat: 19.5, lng: 39.0, title: "Red Sea Subsea Fiber Junction", country: "Saudi Arabia", desc: "Undersea internet infrastructure alert & acoustic monitoring", color: "#a855f7" },
       { lat: 25.1, lng: 121.6, title: "Taiwan Subsea Cable Landing Hub", country: "Taiwan", desc: "Transpacific internet cable array security surveillance", color: "#a855f7" }
     ]);
+
+    return () => clearInterval(flightInterval);
   }, []);
 
   // Update satellite orbital telemetry every 1 second

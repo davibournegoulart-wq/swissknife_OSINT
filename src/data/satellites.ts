@@ -1,3 +1,4 @@
+import * as satellite from "satellite.js";
 export interface SatelliteDef {
   id: string;
   name: string;
@@ -147,7 +148,35 @@ export const SATELLITE_CATALOG: SatelliteDef[] = [
 ];
 
 // Propagates satellite position at any given timestamp
-export function getSatellitePosition(sat: SatelliteDef, timeMs: number = Date.now()) {
+export function getSatellitePosition(sat: SatelliteDef, timeMs: number = Date.now(), tles?: string[]) {
+  if (tles && tles.length === 2) {
+    try {
+      const satrec = satellite.twoline2satrec(tles[0], tles[1]);
+      const date = new Date(timeMs);
+      const positionAndVelocity = satellite.propagate(satrec, date);
+      const positionEci = positionAndVelocity.position;
+      
+      if (typeof positionEci !== 'boolean' && positionEci) {
+        const gmst = satellite.gstime(date);
+        const positionGd = satellite.eciToGeodetic(positionEci, gmst);
+        
+        const lng = satellite.degreesLong(positionGd.longitude);
+        const lat = satellite.degreesLat(positionGd.latitude);
+        const alt = positionGd.height;
+        
+        return {
+          lat,
+          lng,
+          alt: Math.min(0.25, (alt / 6371) * 0.6), 
+          altitudeKm: alt,
+          velocityKmS: sat.velocityKmS
+        };
+      }
+    } catch (e) {
+      console.error("satellite.js error:", e);
+    }
+  }
+
   const earthRotRate = 360 / (24 * 3600 * 1000); // deg per ms
   const timeSeconds = timeMs / 1000;
   

@@ -48,6 +48,7 @@ export default function GlobeMonitor() {
   const [lockedInfo, setLockedInfo] = useState<PointData | null>(null);
   const [eonetEvents, setEonetEvents] = useState<any[]>([]);
   const [openCategory, setOpenCategory] = useState<string | null>("ORBITAL RECON (SATELLITES)");
+  const [tles, setTles] = useState<Record<string, string[]> | null>(null);
   const [conflicts, setConflicts] = useState<any[]>([]);
   const [maritime, setMaritime] = useState<any[]>([]);
   const [cyber, setCyber] = useState<any[]>([]);
@@ -98,6 +99,9 @@ export default function GlobeMonitor() {
       .then(r => r.json()).then(d => setEonetEvents(d.events || []))
       .catch(e => console.error("EONET error", e));
 
+    fetch("/api/satellites").then(r => r.json()).then(d => setTles(d.tles || null));
+    fetch("/api/conflicts").then(r => r.json()).then(d => setConflicts(d.conflicts || []));
+
     const fetchFlights = () => {
       fetch("/api/flights")
         .then(r => r.json())
@@ -114,20 +118,6 @@ export default function GlobeMonitor() {
       // Only fetch live data if we are not scrubbing history
       fetchFlights();
     }, 15000);
-
-    // Global Armed Conflicts & Warzones
-    setConflicts([
-      { lat: 48.3794, lng: 31.1656, title: "Russo-Ukrainian War", country: "Ukraine", desc: "Conventional warfare, missile strikes & frontlines", color: "#ffff00" },
-      { lat: 31.5, lng: 34.466667, title: "Gaza Strip & Levant Conflict", country: "Israel", desc: "Active combat operations, airstrikes & border skirmishes", color: "#ffff00" },
-      { lat: 15.5007, lng: 32.5599, title: "Sudan Civil War", country: "Sudan", desc: "Clashes between SAF and RSF paramilitary", color: "#ffff00" },
-      { lat: 14.8, lng: 43.0, title: "Red Sea & Yemen Escalation", country: "Yemen", desc: "Houthi anti-ship missile & drone intercept operations", color: "#ffff00" },
-      { lat: 19.0, lng: -72.25, title: "Haiti Gang Warfare & State Crisis", country: "Haiti", desc: "Armed gang turf wars & Port-au-Prince security lockdown", color: "#ffff00" },
-      { lat: 12.0, lng: 15.0, title: "Sahel & Mali Insurgency", country: "Mali", desc: "Militant insurgency & counter-terror operations", color: "#ffff00" },
-      { lat: 16.0, lng: 96.0, title: "Myanmar Civil War", country: "Myanmar", desc: "Junta military operations vs Ethnic Armed Alliances", color: "#ffff00" },
-      { lat: -1.4558, lng: 29.3253, title: "Kivu Conflict (DRC)", country: "DR Congo", desc: "M23 rebel offensive & AFC clashes in North Kivu", color: "#ffff00" },
-      { lat: 35.0, lng: 38.0, title: "Syria & Levant Clashes", country: "Syria", desc: "Insurgent activity & cross-border drone strikes", color: "#ffff00" },
-      { lat: 38.3, lng: 127.1, title: "Korean Peninsula DMZ Alert", country: "South Korea", desc: "Heightened military readiness & ballistic tests", color: "#ffff00" }
-    ]);
 
     // Strategic Maritime Chokepoints & Naval Security Zones
     setMaritime([
@@ -401,7 +391,7 @@ export default function GlobeMonitor() {
     if (layers.satellites) {
       const now = Date.now() + (timeOffsetHours * 3600 * 1000);
       SATELLITE_CATALOG.forEach(sat => {
-        const pos = getSatellitePosition(sat, now);
+        const pos = getSatellitePosition(sat, now, tles ? tles[sat.id] : undefined);
         satellitePtsList.push({
           lat: pos.lat,
           lng: pos.lng,

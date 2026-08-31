@@ -120,22 +120,10 @@ export default function GlobeMonitor() {
     }, 15000);
 
     // Strategic Maritime Chokepoints & Naval Security Zones
-    setMaritime([
-      { lat: 12.58, lng: 43.33, title: "Bab-el-Mandeb Strait", country: "Djibouti", desc: "High-threat maritime chokepoint / Anti-ship missile zone", color: "#00d2ff" },
-      { lat: 26.56, lng: 56.25, title: "Strait of Hormuz", country: "Oman", desc: "Critical oil transit corridor / Naval surveillance patrol", color: "#00d2ff" },
-      { lat: 1.43, lng: 102.89, title: "Malacca Strait Corridor", country: "Singapore", desc: "High-density commercial shipping channel & piracy watch", color: "#00d2ff" },
-      { lat: 10.5, lng: 115.2, title: "Spratly Islands / South China Sea", country: "Philippines", desc: "Disputed maritime EEZ / Coast Guard standoff zone", color: "#00d2ff" },
-      { lat: 24.2, lng: 119.8, title: "Taiwan Strait Maritime Median", country: "Taiwan", desc: "Naval patrol line & maritime exclusion surveillance", color: "#00d2ff" },
-      { lat: 8.95, lng: -79.55, title: "Panama Canal Transit Gateway", country: "Panama", desc: "Global maritime canal operations & drought queue watch", color: "#00d2ff" }
-    ]);
+    setMaritime([]);
 
     // Critical Cyber Incidents & Subsea Infrastructure
-    setCyber([
-      { lat: 56.5, lng: 19.2, title: "Baltic Subsea Cable Watch (C-Lion1)", country: "Sweden", desc: "Undersea telecommunications cable sabotage investigation", color: "#a855f7" },
-      { lat: 44.5, lng: 34.2, title: "Black Sea GPS/GNSS Spoofing Sector", country: "Ukraine", desc: "Severe electronic warfare & satellite navigation denial", color: "#a855f7" },
-      { lat: 19.5, lng: 39.0, title: "Red Sea Subsea Fiber Junction", country: "Saudi Arabia", desc: "Undersea internet infrastructure alert & acoustic monitoring", color: "#a855f7" },
-      { lat: 25.1, lng: 121.6, title: "Taiwan Subsea Cable Landing Hub", country: "Taiwan", desc: "Transpacific internet cable array security surveillance", color: "#a855f7" }
-    ]);
+    setCyber([]);
 
     return () => clearInterval(flightInterval);
   }, []);
@@ -1001,21 +989,6 @@ export default function GlobeMonitor() {
               el.onmouseenter = () => { if (!lockedInfo) setHoveredInfo(d); };
               el.onmouseleave = () => { if (!lockedInfo) setHoveredInfo(null); };
               return el;
-            }}
-
-            // Weather (Clouds)
-            customLayerData={layers.weather ? [1] : []}
-            customThreeObject={() => {
-              const geometry = new THREE.SphereGeometry(100.5, 72, 72);
-              const material = new THREE.MeshPhongMaterial({
-                map: new THREE.TextureLoader().load('//unpkg.com/three-globe/example/img/clouds.png'),
-                transparent: true,
-                opacity: 0.8,
-                blending: THREE.AdditiveBlending,
-                side: THREE.DoubleSide,
-                depthWrite: false,
-              });
-              return new THREE.Mesh(geometry, material);
             }}
 
             onGlobeClick={(coords: any) => {
